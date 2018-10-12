@@ -1,0 +1,3 @@
+input.ant-checkbox-input[type='checkbox']:disabled{
+  /* display: 'none' !important */
+}

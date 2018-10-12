@@ -1,0 +1,708 @@
+@import "./libs/mixin.scss";
+
+.wraper {
+  .shade {
+    @include position((p:fixed, z:10, l:0, t:0));
+    @include box((w:100%, h:100%, bg:rgba(100, 100, 100, 0.6)));
+  }
+  .input {
+    @include box((lh:40px, border:1px solid #f93));
+  }
+  .testBg {
+    @include box((w:100px, h:100px));
+    @include background((url:"banner.png", color:rgba(100, 100, 100, 0.6), size:contain, repeat:no-repeat, pos:center center));
+  }
+}
+
+//公告
+.NoticeTitle {
+  @include box((w:1200px, h:40px, bg:#fff, m:0 auto));
+  .titleleft {
+    @include box((fl:left, lh:40px, h:40px, pl:25px));
+    @include background((url:'notice.png', pos:left center, repeat:no-repeat));
+    overflow: hidden;
+    img {
+      @include box((w:18px, h:18px, mr:10px, d:inline-block, mt:-3px))
+    }
+    .noticetip {
+      @include box((fs:14px, c:#555, d:inline-block));
+      p {
+        transition: all 1s;
+        a {
+          @include box((w:100%, h:100%, d:block))
+        }
+      }
+    }
+  }
+  .titleright {
+    @include box((fl:right, lh:40px));
+    span {
+      @include box((c:#999, fs:12px));
+      cursor: pointer;
+    }
+    &:hover {
+      span {
+        color: #4992ec;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.NoticeContent {
+  @include box((w:100%, h:232px, bg:#fff, m:0 auto));
+  ul {
+    @include box((w:1200px, h:232px, m:0 auto));
+    position: relative;
+    @include background((url:'notice-silder.png', pos:center 154px, repeat:no-repeat));
+    li {
+      @include box((w:25%, h:232px, fl:left));
+      .contentTop {
+        @include box((w:100%, h:154px));
+        .topLeft {
+          .notice {
+            @include box((w:90px, h:90px));
+            //@include background((url:'notice1.png', pos:center center, repeat:no-repeat))
+            @include background((url:'notice1_xc.png', pos:center center, repeat:no-repeat))
+          }
+          @include box((fl:left, lh:154px, pt:33px));
+          margin-right: 10px;
+        }
+        &:hover {
+          .topLeft {
+            .notice {
+              //@include background((url:'notice1.gif'));
+              @include background((url:'notice1_xc.gif'));
+            }
+          }
+        }
+        .topRight {
+          @include box((fl:left, mt:57px));
+          h2 {
+            font-size: 16px;
+            color: #222;
+            font-weight: 500;
+            line-height: 26px;
+          }
+          p {
+            font-size: 14px;
+            color: #999;
+          }
+        }
+      }
+      .contentBot {
+        @include box((w:100%, h:78px, lh:78px));
+        p {
+          padding-left: 10px;
+          font-size: 14px;
+          color: #666;
+          span {
+            font-size: 18px;
+            color: #d7a55e;
+          }
+          i {
+            @include box((d:block, fl:left, bg:#e8e8e8, w:1px, h:15px, m:32px 30px 0 0));
+          }
+        }
+      }
+      &:nth-child(2) {
+        .contentTop {
+          .topLeft {
+            .notice {
+              //@include background((url:'notice2.png'));
+              @include background((url:'notice2_xc.png'));
+            }
+          }
+        }
+        &:hover {
+          .contentTop {
+            &:hover {
+              .topLeft {
+                .notice {
+                  //@include background((url:'notice2.gif'));
+                  @include background((url:'notice2_xc.gif'));
+                }
+              }
+            }
+          }
+        }
+      }
+      &:nth-child(3) {
+        .contentTop {
+          .topLeft {
+            .notice {
+              //@include background((url:'notice3.png'));
+              @include background((url:'notice3_xc.png'));
+            }
+          }
+        }
+
+        .contentTop {
+          &:hover {
+            .topLeft {
+              .notice {
+                //@include background((url:'notice3.gif'))
+                @include background((url:'notice3_xc.gif'))
+              }
+            }
+          }
+        }
+      }
+      &:nth-child(4) {
+        .contentTop {
+          .topLeft {
+            .notice {
+              //@include background((url:'notice4.png'));
+              @include background((url:'notice4_xc.png'));
+            }
+          }
+        }
+
+        .contentTop {
+          &:hover {
+            .topLeft {
+              .notice {
+                //@include background((url:'notice4.gif'))
+                @include background((url:'notice4_xc.gif'))
+              }
+            }
+          }
+        }
+      }
+    }
+    .more {
+      @include position((p:absolute, r:0, b:31px,fs:12px,c:#999));
+      cursor: pointer;
+      &:hover {
+        color: #4992ec;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+:global {
+  p.max {
+    font-size: 12px;
+    color: #999;
+    span {
+      color: #d7a55e;
+    }
+  }
+  .btnbox {
+    padding-bottom: 24px;
+    float: right;
+    .btn {
+      @include box((w:118px, h:38px, bg:#f64c3e, m:auto, mt:56px));
+      background-image: url('https://images.51rz.com/images/rebuild/pc/img/btn_bg_xc.png');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 113px 34px;
+      a {
+        @include box((d:block, w:100%, h:100%, ta:center, lh:38px, fs:16px, c:#fff,))
+      }
+      cursor: pointer;
+    }
+  }
+
+}
+
+//新人专享
+.Novice {
+  @include box((w:1200px, h:201px, m:0 auto));
+  .Noviceleft {
+    @include box((w:286px, h:201px, bg:#fff, fl:left, lh:201px, ta:center));
+    img {
+      @include box((d:inline-block));
+    }
+    &:hover {
+      box-shadow: 0 0 10px 1px rgba(9, 9, 9, 0.2);
+      transform: translateY(-5px);
+    }
+    transition: all .5s;
+  }
+  .Noviceright {
+    @include box((w:894px, h:201px, bg:#fff, fl:right, p:0 34px, pt:20px));
+    .NoviceTop {
+      @include box((h:37px));
+      h2 {
+        font-size: 18px;
+        font-weight: 500;
+        color: #333;
+        span {
+          font-size: 14px;
+          color: #999;
+        }
+      }
+    }
+    .NoviceBot {
+      @include box((h:145px));
+      overflow: hidden;
+      ul {
+        @include box((w:705px, h:145px, fl:left, pt:6px));
+        overflow: hidden;
+        li {
+          @include box((w:25%, h:145px, fl:left, bg:#fff, pb:24px, pt:30px));
+          h3 {
+            font-size: 36px;
+            color: #f64c3e;
+            font-weight: 500;
+            line-height: 36px;
+            span {
+              font-size: 14px;
+              i {
+                @include box((ml:5px, fs:12px, p:1px 6px));
+                @include background((url:'jiangli.png', repeat:no-repeat, size:100% 100%));
+              }
+            }
+          }
+          p {
+            padding-left: 3px;
+            font-size: 12px;
+            color: #555;
+            span {
+              @include box((c:#d7a55e));
+            }
+          }
+          &:last-child {
+            @include box((pt:47px))
+          }
+        }
+      }
+    }
+  }
+}
+
+//推荐
+:global {
+  .Recommend {
+    @include box((w:1200px, m:0 auto))
+  }
+  .RecommendTitle {
+    @include box((h:78px, lh:74px));
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      color: #222;
+      float: left;
+      span {
+        font-size: 14px;
+        color: #999;
+      }
+    }
+    & > span {
+      @include box((d:block, fl:right));
+      a {
+        @include box((fs:12px, c:#999))
+      }
+      &:hover a {
+        color: #4992ec;
+        text-decoration: underline;
+      }
+    }
+  }
+  .RecommendContent {
+    @include box((h:322px, w:100%));
+    ul {
+      @include box((h:322px, w:100%));
+      li {
+        @include box((w:285px, h:322px, bg:#fff, p:0 35px, pt:34px, fl:left, m:0 10px));
+        transition: all .5s;
+        &:first-child {
+          @include box((ml:0));
+        }
+        &:nth-child(4n) {
+          @include box((mr:0));
+        }
+        &:nth-child(4n+1) {
+          @include box((ml:0));
+        }
+        &:last-child {
+          @include box((mr:0));
+        }
+        .contentTitle {
+          @include box((h:54px, ta:center, lh:54px));
+          img {
+            @include box((w:24px, h:24px, mr:10px, d:inline-block, lh:50px));
+            transform: translateY(-3px);
+          }
+          p {
+            @include box((fs:16px, c:#222, d:inline-block));
+          }
+        }
+        & > p.percent {
+          @include box((fs:36px, c:#f64c3e, ta:center));
+          span {
+            font-size: 14px;
+            position: relative;
+            padding-right: 4px;
+            i {
+              @include box((ml:5px, fs:12px, p:1px 6px));
+              @include background((url:'jiangli.png', repeat:no-repeat, size:100% 100%));
+            }
+          }
+        }
+        & > p.detail {
+          @include box((fs:12px, c:#555, ta:center));
+          line-height: 18px;
+        }
+        .Recommendxq {
+          @include box((h:97px));
+          .xqleft {
+            @include box((w:50%, fl:left, pt:23px, pl:25px));
+            position: relative;
+            span {
+              @include box((d:block, bg:#e8e8e8, w:1px, h:32px));
+              position: absolute;
+              left: 0;
+              top: 31px;
+            }
+            h2 {
+              @include box((fs:16px, c:#222, fw:500));
+            }
+            p {
+              @include box((fs:12px, c:#555));
+              line-height: 18px;
+            }
+          }
+        }
+        .RecommendBtn {
+          @include box((h:42px));
+          .progress {
+            & > div {
+              //@include box((d:inline-block));
+            }
+            @include box((w:100%));
+            @include clearfix();
+            .progressTips {
+              @include box((w:174px, h:2px, bg:#cccccb, fl:left, mt:10px));
+              .now {
+                @include box((w:90%, h:2px, bg:#f64c3e));
+              }
+            }
+            .bili {
+              @include box((fl:right, c:#f64c3e));
+            }
+          }
+          .btn {
+            display: none;
+            @include box((w:214px, h:38px, bg:#f64c3e));
+            &.active {
+              background-image: url('https://images.51rz.com/images/rebuild/pc/img/invest_btn_bg.png');
+              background-position: center center;
+              background-repeat: no-repeat;
+              background-size: 208px 34px;
+            }
+            a {
+              @include box((d:block, w:100%, h:100%, ta:center, lh:38px, fs:16px, c:#fff))
+            }
+
+          }
+        }
+        &:hover {
+          box-shadow: 0 0 10px 1px rgba(9, 9, 9, 0.2);
+          transform: translateY(-5px);
+          .RecommendBtn .btn {
+            display: block;
+          }
+          .RecommendBtn .progress {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+//最新活动
+.Newactive {
+  @include box((w:1200px, m:0 auto));
+  .activeTitle {
+    @include box((h:78px, lh:74px));
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      color: #222;
+      float: left;
+      span {
+        font-size: 14px;
+        color: #999;
+      }
+    }
+    & > span {
+      @include box((fl:right, d:block));
+      a {
+        @include box((fs:12px, c:#999))
+      }
+      &:hover a {
+        color: #4992ec;
+        text-decoration: underline;
+      }
+    }
+  }
+  .activeContent {
+    @include box(());
+    @include clearfix();
+    li {
+      @include box((w:380px, h:200px, fl:left, m:0 15px));
+      @include background((url:'active.png', repeat:no-repeat, size:cover));
+      position: relative;
+      transition: all .5s;
+      &:first-child {
+        @include box((ml:0))
+      }
+      &:last-child {
+        @include box((mr:0))
+      }
+      .isin {
+        @include box((w:61px, h:64px, lh:64px));
+        @include background((url:'isin.png', repeat:no-repeat, size:cover));
+        @include position((p:absolute, r:0, top:0));
+        p {
+          @include box((w:100%, c:#fff, fs:14px, ta:center));
+          transform: rotate(45deg) translateY(-10px);
+        }
+      }
+      .notin {
+        @include box((w:61px, h:64px, lh:64px));
+        align-items: center;
+        justify-content: center;
+        @include background((url:'notin.png', repeat:no-repeat, size:cover));
+        @include position((p:absolute, r:0, top:0));
+        p {
+          @include box((w:100%, c:#fff, fs:14px, ta:center));
+          transform: rotate(45deg) translateY(-10px);
+        }
+      }
+      &:nth-child(2) {
+        @include background((url:'active1.png'));
+      }
+      &:nth-child(3) {
+        @include background((url:'active2.png'));
+      }
+      &:hover {
+        box-shadow: 0px 0px 12px 3px hsla(0, 0%, 60%, .5);
+        transform: translateY(-5px);
+      }
+    }
+  }
+}
+
+//	媒体
+
+.Media {
+  @include box((w:100%, h:387px));
+  @include background((url:'bg.png', repeat:no-repeat, size:cover));
+  position: relative;
+  .mask {
+    position: absolute;
+    @include box((w:100%, h:100%, bg:rgba(19, 27, 45, 0.75)));
+    .container {
+      @include box((w:1200px, m:0 auto, mt:20px));
+      .mediatitle {
+        @include box((h:78px, lh:74px));
+        h2 {
+          font-size: 20px;
+          font-weight: 500;
+          color: #fff;
+          float: left
+        }
+        & > span {
+          @include box((d:block, fl:right));
+          a {
+            @include box((fs:12px, c:#fff));
+          }
+          &:hover a {
+            color: #4992ec;
+            text-decoration: underline;
+          }
+        }
+      }
+      .mediaContent {
+        @include box((h:289px));
+        li {
+          @include box((h:289px, w:265px, m:0 23px, fl:left));
+          overflow: visible;
+          &:first-child {
+            @include box((ml:0))
+          }
+          &:last-child {
+            @include box((mr:0));
+          }
+          a {
+            @include box((d:block, w:100%, h:100%));
+            img {
+              @include box((w:100%, h:130px, d:block))
+            }
+            h4 {
+              @include box((w:100%, h:50px, lh:54px, ta:center, fs:16px, c:#fff));
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+            p {
+              @include box((w:100%, h:78px, mt:4px, lh:25px, fz:14px, c:#fff));
+            }
+            &:hover {
+              transform: translateY(-3px);
+              transition: all 1s;
+              img {
+                box-shadow: 0 0 10px 1px rgba(9, 9, 9, .2);
+              }
+              p, h4 {
+                text-decoration: underline;
+              }
+            }
+          }
+
+        }
+      }
+    }
+
+  }
+}
+
+//咨询
+
+.Info {
+  @include box((w:1200px, m:0 auto));
+  .Infotitle {
+    @include box((h:78px, lh:74px));
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      color: #222;
+      float: left;
+      span {
+        font-size: 14px;
+        color: #999;
+      }
+    }
+    & > span {
+      @include box((d:block, fl:right));
+      a {
+        @include box((fs:12px, c:#999))
+      }
+      &:hover a {
+        color: #4992ec ;
+        text-decoration: underline;
+      }
+    }
+  }
+  .infocontent {
+    height: 155px;
+    .video {
+      @include box((w:543px, f:left, h:155px, bg:rgba(215, 165, 94, 0.1), fl:left, pt:10px));
+      li {
+        @include box((w:161px, fl:left, m:0 10px));
+        .img {
+          @include box((w:161px, h:120px));
+          @include background((url:'video3.png', repeat:no-repeat, size:cover));
+          .mask {
+            @include box((w:161px, h:120px, bg:rgba(0, 0, 0, 0.2)));
+            position: relative;
+            .start {
+              @include box((d:block, w:36px, h:36px, m:auto));
+              @include position((p:absolute, l:0, r:0, t:0, b:0));
+              img {
+                @include box((d:block, w:36px, h:36px));
+              }
+            }
+          }
+
+        }
+        p {
+          @include box((fs:14px, c:#555, ta:center, lh:20px));
+        }
+        &:nth-child(2) {
+          .img {
+            @include background((url:'video1.png', repeat:no-repeat, size:cover));
+          }
+        }
+        &:nth-child(3) {
+          .img {
+            @include background((url:'video2.png', repeat:no-repeat, size:cover));
+          }
+        }
+      }
+    }
+    .list {
+      @include box((w:624px, h:155px, fl:right));
+      li {
+        @include box((mb:13px));
+        &:last-child {
+          @include box((mb:0))
+        }
+        a {
+          @include box((d:block));
+          @include clearfix();
+          .con {
+            @include box((w:328px, fs:14px, c:#555, fl:left));
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+          &:hover {
+            .con {
+              color: #f64c3e;
+              text-decoration: underline;
+            }
+          }
+          .time {
+            @include box((fs:14px, c:#999, fl:right));
+          }
+        }
+      }
+    }
+  }
+}
+
+//合作伙伴
+
+.Partner {
+  @include box((w:100%, m:0 auto, pt:20px, pb:77px, bg:#fff));
+  .PartnerTitle {
+    @include box((w:1200px, m:0 auto, h:78px, lh:74px));
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      color: #222;
+      //float:left
+    }
+  }
+  .PartnerContent {
+    @include box((w:1288px, m:auto, h:40px));
+    position: relative;
+    .left, .right {
+      @include position((p:absolute, t:0, b:0));
+      @include box((m:auto, w:13px));
+      @include background((url:'left.png', repeat:no-repeat, pos:center center));
+      cursor: pointer;
+    }
+    .left {
+      @include position((l:0));
+    }
+    .right {
+      @include position((r:0));
+      @include background((url:'right.png'));
+    }
+    .content {
+      @include box((w:1200px, m:0 auto, h:100%));
+      overflow: hidden;
+      position: relative;
+      ul {
+        @include box((w:300%, h:100%,));
+        @include position((p:absolute, t:0, l:0));
+        transition: left 1s;
+        li {
+          //@include box((w:200px));
+          float: left;
+          img {
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/components/header-footer/header-footer.css">
+    <title>积分商城详情</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            background-color: #f6f6f6;
+        }
+        .info-title{
+            width: 1200px;
+            height: 420px;
+            background-color: #ffffff;
+            margin: auto;
+            font-size: 0;
+        }
+        .info{
+            width: 50%;
+            padding-top: 50px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .left-bg{
+            width: 520px;
+            height: 320px;
+            background: url(https://images.51rz.com/images/jf-shop/big-info-coupons.png) no-repeat center center;
+        }
+        .left-bg.pack{
+            background: url(https://images.51rz.com/images/jf-shop/big-info-pack.png) no-repeat center center;
+        }
+        .left-bg.pack .coupons-number{
+            padding-top: 126px;
+            font-size: 54px;
+            color: #ffff00;
+        }
+        .coupons-card{
+            width: 100%;
+            height: 100%;
+        }
+        .coupons-number{
+            padding-top: 116px;
+            text-align: center;
+        }
+        .coupons-number span{
+            color: #ffffff;
+            font-size: 54px;
+            text-align: center;
+        }
+        .coupons-number span:last-child{
+            font-size: 36px;
+        }
+        .coupons-text{
+            font-size: 24px;
+            text-align: center;
+            color: #ffffff;
+            margin-top: 8px;
+        }
+        .right{
+            width: 100%;
+            height: 100%;
+        }
+        .name{
+            font-size: 24px;
+            color: #222222;
+        }
+        .jieshao{
+            margin-top: 5px;
+            font-size: 16px;
+            color: #999999;
+        }
+        .prise{
+            margin-top: 20px;
+            height: 85px;
+            margin-right: 50px;
+            border-top: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+            box-sizing: border-box;
+            font-size: 0;
+        }
+        .panel{
+            display: inline-block;
+            line-height: 80px;
+            vertical-align: top;
+            width: 50%;
+        }
+        .prise-text1{
+            font-size: 14px;
+            color: #555555;
+        }
+        .prise-number{
+            margin-left: 20px;
+            font-size: 30px;
+            color: #ff9b09;
+        }
+        .prise-text2{
+            margin-left: 5px;
+            font-size: 16px;
+            color: #ff9b09;
+        }
+        .prise-text3{
+            font-size: 14px;
+            color: #555555;
+        }
+        .prise-text4{
+            margin-left: 5px;
+            font-size: 14px;
+            color: #ff9b09;
+        }
+        .btn-big.danger{
+            width: 333px;
+            height: 46px;
+            outline: none;
+            border: none;
+            line-height: 46px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #f64c3e;
+            margin-top: 30px;
+            cursor: pointer;
+        }
+        .info-content{
+            width: 1200px;
+            /*height: 713px;*/
+            padding-bottom:50px;
+            margin: auto;
+            background-color: #ffffff;
+            margin-top: 10px;
+            margin-bottom: 82px;
+        }
+        .info-box p.content-title{
+            color: #222222;
+            font-size: 36px;
+            text-align: center;
+            padding-top: 75px;
+        }
+
+        .content-title2{
+            font-size: 18px;
+            color: #555555;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .fw{
+            font-size: 24px;
+            color: #222222;
+            margin-top: 41px;
+        }
+        .info-box{
+            width: 677px;
+            height: 100%;
+        }
+        .content-panel{
+            margin-top: 10px;
+            height: 205px;
+            border-top: 1px solid #e8e8e8;
+            padding-top: 22px;
+        }
+        .content{
+            display: inline-block;
+            vertical-align: top;
+        }
+        .content-left{
+            width: 100%;
+            font-size: 18px;
+            color: #555555;
+        }
+        .content-right{
+            width: 30%;
+            height: 144px;
+            background: url(https://images.51rz.com/images/jf-shop/middle-info-coupons.png) no-repeat center center;
+        }
+        .coupons-text.middle{
+            font-size: 39px;
+            color: #ffffff;
+            margin-top: 38px;
+        }
+        .coupons-text.middle span:last-child{
+            font-size: 19px;
+        }
+        .coupons-text.jx{
+            font-size: 16px;
+        }
+        .content-left.tip{
+            width: 100%;
+            margin-top: 10px;
+        }
+        .content-right.pack{
+            background: url(https://images.51rz.com/images/jf-shop/middle-info-pack.png)no-repeat center center;
+        }
+        .middle.pack{
+            margin-top: 45px;
+            color: #ffff00;
+        }
+        .mask{
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 10;
+            display: none;
+        }
+        .coupons-dh{
+            width: 372px;
+            height: 201px;
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            margin-left: -186px;
+            padding: 60px 20px 0 20px;
+            background-color: #ffffff;
+            z-index: 11;
+            border-radius: 8px;
+            display: none;
+        }
+        .sure-text{
+            font-size: 18px;
+            color: #d7a55e;
+            text-align: center;
+        }
+        .btn-box{
+            text-align: center;
+            margin-top: 50px;
+        }
+        .btn{
+            outline: none;
+            width: 115px;
+            height: 38px;
+            border: 1px solid #e5e5e5;
+            background-color: #ffffff;
+            font-size: 16px;
+            color: #999999;
+            cursor: pointer;
+        }
+        .btn.btn-dander{
+            border: none;
+            background-color: #f64c3e;
+            color: #ffffff;
+            margin-left: 20px;
+        }
+        .btn-close{
+            width: 30px;
+            height: 30px;
+            background: url(https://images.51rz.com/images/jf-shop/close-bg.png) no-repeat center center;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+        }
+        .coupons-dh-success{
+            position: fixed;
+            width: 510px;
+            height: 350px;
+            background: url(https://images.51rz.com/images/jf-shop/success-bg.png) no-repeat center center;
+            top: 20%;
+            left: 50%;
+            margin-left: -255px;
+            z-index: 11;
+            display: none;
+        }
+        .coupons-success-box{
+            width: 372px;
+            height: 350px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding-top: 50px;
+        }
+        .success-coupons{
+            margin-top: 25px;
+            width: 101px;
+            height: 101px;
+            background: url(https://images.51rz.com/images/jf-shop/jf-coupons.png) no-repeat center center;
+        }
+        .success-coupons .coupons-text{
+            margin-top: 0;
+            padding-top: 40px;
+            font-size: 28px;
+            color: #ffffff;
+        }
+        .success-coupons .coupons-text span:last-child{
+            font-size: 14px;
+        }
+        .success-coupons.pack{
+            background: url(https://images.51rz.com/images/jf-shop/jf-pack.png) no-repeat center center;
+        }
+        .success-coupons.pack > .coupons-text{
+            color: #ffff00;
+        }
+        .coupons-text1{
+            text-align: center;
+            font-size: 12px;
+            color: #ffffff;
+        }
+        .btn-big-danger{
+            width: 250px;
+            height: 38px;
+            outline: none;
+            border: none;
+            background-color: #f64c3e;
+            font-size: 16px;
+            color: #ffffff;
+            line-height: 38px;
+            cursor: pointer;
+        }
+
+        .info-box p ul li,.info-box p ul li span,.info-box p ul li span span{
+            font-size: 24px;
+            color: #222222;
+            margin-top: 41px;
+        }
+        .info-box p ,.info-box p p ,.info-box p p span{
+            width: 100%;
+            line-height: 2;
+            font-size: 18px;
+            color: #555555;
+        }
+        hr{
+            border:none;
+            border-top:1px solid #e8e8e8;
+            margin:10px 0;
+        }
+        [v-show],[v-if],[v-else-if]{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="container" id="info">
+        <div class="info-title">
+            <div class="info">
+                <div class="left-bg" v-if="info.cate_id == 3">
+                    <div class="coupons-card" >
+                        <p class="coupons-number"><span v-text="info.coupon_money"></span><span>%</span></p>
+                        <p class="coupons-text">加息券</p>
+                    </div>
+                </div>
+                <div class="left-bg pack" v-else-if="info.cate_id == 2">
+                    <div class="coupons-card">
+                        <p class="coupons-number" v-text="info.coupon_money"></p>
+                        <p class="coupons-text">投资红包</p>
+                    </div>
+                </div>
+            </div>
+            <div class="info">
+                <div class="right">
+                    <p class="name" v-text="info.title"></p>
+                    <p class="jieshao" v-html="info.subtitle"></p>
+                    <div class="prise">
+                        <p class="panel"><span class="prise-text1">会员价格</span><span class="prise-number" v-text="Number(info.change_integral).toFixed(0)"></span><span class="prise-text2">积分</span></p>
+                        <p class="panel" style=" text-align: right;" v-show="uid"><span class="prise-text3">我的积分</span><span class="prise-text4" v-text="Number(user.integral).toFixed(0)"></span></p>
+                        <p class="panel" style=" text-align: right;" v-show="!uid"><span class="prise-text3">我的积分</span><span class="prise-text4">立即登录</span></p>
+                    </div>
+                    <button class="btn-big danger" @click="show">立即兑换</button>
+                </div>
+            </div>
+        </div>
+        <div class="info-content">
+            <div class="info-box">
+                <p class="content-title" v-text="info.title"></p>
+                <!--<p class="content-title2" v-text="info.expire_time_desc"></p>-->
+                <p style="margin-top: 10px" v-html="info.goods_detail"></p>
+                <!--<p class="fw">加息券使用范围：</p>-->
+                <!--<div class="content-panel">-->
+                    <!--<div class="content content-left" v-text="info.borrow_limit_desc"></div>-->
+                    <!--&lt;!&ndash;<div class="content content-right" v-if="info.cate_id == 3">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<p class="coupons-text middle"><span v-text="info.coupon_money"></span><span>%</span></p>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<p class="coupons-text jx">加息券</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="content content-right pack" v-else-if="info.cate_id == 2">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<p class="coupons-text middle pack" v-text="info.coupon_money"></p>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<p class="coupons-text jx">投资红包</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--</div>-->
+                <!--<p class="fw">温馨提示：</p>-->
+                <!--<p class="content-left tip" v-text="info.coupon_remind"></p>-->
+            </div>
+        </div>
+        <div class="mask" ref="mask"></div>
+        <div class="coupons-dh" ref="coupons">
+            <p class="sure-text">确定使用{{info.change_integral}}积分兑换{{info.title}}？</p>
+            <div class="btn-box">
+                <button class="btn" @click="hiddens">取消</button>
+                <button class="btn btn-dander" @click="exchange">确定</button>
+            </div>
+            <p class="btn-close" @click="hiddens"></p>
+        </div>
+        <div class="coupons-dh-success" ref="success">
+            <div class="coupons-success-box">
+                <p class="sure-text">恭喜您！{{info.coupon_name}}兑换成功<br />赶快投资吧！</p>
+                <div class="success-coupons"  v-if="info.cate_id == 3">
+                    <p class="coupons-text"><span v-text="info.coupon_money"></span><span>%</span></p>
+                    <p class="coupons-text1">加息券</p>
+                </div>
+                <div class="success-coupons pack" v-else-if="info.cate_id == 2">
+                    <p class="coupons-text" v-text="info.coupon_money"></p>
+                    <p class="coupons-text1">红包</p>
+                </div>
+                <div class="btn-box">
+                    <button class="btn btn-big-danger" @click="goTZList">立即去投资</button>
+                </div>
+                <p class="btn-close" style="right: 86px" @click="hiddens"></p>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+    <script src="/static/js/jquery-1.11.1.min.js"></script>
+    <script src="/static/js/vue.js"></script>
+    <script src="/components/header-footer/header-footer.js"></script>
+    <script>
+        var vm = new Vue({
+            el:'#info',
+            data:{
+                uid:false,
+                info:{},
+                user:{
+                    expire_integral: 0,
+                    freeze_integral: 0,
+                    integral: 0,
+                },
+                userInfo:{}
+            },
+            methods:{
+                show:function(){
+                    var mask = this.$refs.mask,coupons = this.$refs.coupons;
+                    mask.style.display = 'block';
+                    coupons.style.display = 'block';
+
+                },
+                hiddens:function(){
+                    var mask = this.$refs.mask,coupons = this.$refs.coupons,success = this.$refs.success;
+                    mask.style.display = 'none';
+                    coupons.style.display = 'none';
+                    success.style.display = 'none';
+                },
+                goTZList:function(){
+                    var type = this.getQueryString('type')||this.userInfo.type;
+                    location.href = 'https://'+type+'.51rz.com/projectList.html';
+                },
+                exchange:function(){
+                    var _this = this;
+                    var id = this.getQueryString("uid");
+                    var token = this.getQueryString("token")||this.userInfo.token;
+                    var type = this.getQueryString("type")||this.userInfo.token;
+                    if(!token){
+                        location.href='https://'+type+'.51rz.com/login.html';
+                        return;
+                    }
+                    var uid = this.uncompileStr(id),success = this.$refs.success;
+                    $.post('/index.php?_url=/vipshop/goods/addOrder',{token:token,goods_id:this.info.id,goods_num:1,source:2},function(data){
+                        if(data.error_code == 0){
+                            _this.user.integral=Number(_this.user.integral)-Number(_this.info.change_integral)
+                            success.style.display = 'block';
+                            _this.exchangeData = data.data;
+                        }else{
+                            alert(data.msg)
+                        }
+                    },'json')
+                },
+                //获取详情
+                getInfo:function(){
+                    var goodsId = this.getQueryString('id');
+                    var _this = this;
+                    $.post('/index.php?_url=/vipshop/goods/goodsInfo',{source:2,goods_id:goodsId},function(data){
+                        if(data.error_code == 0){
+                            _this.info = data.data;
+                        }
+                    },'json')
+                },
+                getJF:function(){
+                    var _this = this;
+                    var activeUserInfo=JSON.parse(localStorage.getItem('activeUserInfo'))||{};
+                    var token = this.userInfo.token;
+                    $.post('/index.php?_url=/vipshop/integral/userIntegralAccount',{token:token},function(data){
+                        if(data.error_code == 0){
+                            if(data.data.length != 0){
+                                _this.user = data.data;
+                            }
+                        }
+                    },'json')
+                },
+                //字符串进行解密
+                uncompileStr: function (code) {
+                    code = unescape(code);
+                    var c = String.fromCharCode(code.charCodeAt(0) - code.length);
+                    for (var i = 1; i < code.length; i++) {
+                        c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1));
+                    }
+                    return c;
+                },
+                getQueryString:function(name) {
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                    var r = window.location.search.substr(1).match(reg);
+                    if (r != null) return unescape(r[2]);
+                    return null;
+                },
+            },
+            created:function(){
+                var activeUserInfo = JSON.parse(localStorage.getItem('activeUserInfo'))||{};
+                this.userInfo = activeUserInfo;
+                this.getInfo();
+                if (this.userInfo.token != 'undefined' && this.userInfo.token != '') {
+                    this.uid = true;
+                    this.getJF()
+                }
+            },
+        })
+    </script>
+</body>
+</html>

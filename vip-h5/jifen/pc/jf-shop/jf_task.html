@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/components/header-footer/header-footer.css">
+    <title>积分任务</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #f6f6f6;
+        }
+
+        .jf-banner {
+            width: 100%;
+            height: 380px;
+            background: url(https://images.51rz.com/images/jf-shop/jf-banner.png) no-repeat center;
+        }
+
+        .jf-box {
+            width: 1200px;
+            margin: auto;
+            height: 380px;
+            position: relative;
+        }
+
+        .use-jf {
+            width: 284px;
+            height: 230px;
+            position: absolute;
+            right: 0;
+            top: 75px;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        .jf-text {
+            font-size: 16px;
+            color: #999999;
+            margin-top: 19px;
+            text-align: center;
+        }
+
+        .jf-number {
+            font-size: 36px;
+            color: #f64c3e;
+            text-align: center;
+            margin-top: 17px;
+        }
+
+        .jf-history {
+            margin-top: 14px;
+        }
+
+        .jf-his {
+            font-size: 14px;
+            color: #4992ec;
+            text-align: center;
+            border-bottom: 1px solid #4992ec;
+            cursor:pointer;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .jf-fs {
+            height: 50px;
+            line-height: 50px;
+            font-size: 18px;
+            color: #ffffff;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 27px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            background: -webkit-linear-gradient(left, #4992ec, #7fa6e6); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(right, #4992ec, #7fa6e6); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(right, #4992ec, #7fa6e6); /* Firefox 3.6 - 15 */
+            background: linear-gradient(to right, #4992ec, #7fa6e6); /* 标准的语法 */
+        }
+
+        .noLogin {
+            height: 114px;
+            font-size: 18px;
+            color: #4992ec;
+            line-height: 114px;
+        }
+
+        .noLogin span {
+            border-bottom: 1px solid #4992ec;
+        }
+
+        .isUse {
+            font-size: 12px;
+            color: #999999;
+            text-align: center;
+        }
+
+        .task-title {
+            width: 1200px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 46px 50px 50px 50px;
+        }
+
+        .title {
+            width: 236px;
+            height: 22px;
+            background: url(https://images.51rz.com/images/jf-shop/task-title.png) no-repeat center;
+        }
+
+        .task-js {
+            font-size: 16px;
+            color: #555555;
+            margin-top: 9px;
+            text-align: center;
+        }
+
+        .task-info {
+            font-size: 0;
+            margin-top: 55px;
+        }
+
+        .task-text {
+            width: 50%;
+            height: 65px;
+            line-height: 38px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .task-text.left {
+            font-size: 24px;
+            color: #d7a55e;
+        }
+
+        .task-text.right {
+            text-align: right;
+        }
+
+        .btn {
+            width: 121px;
+            height: 38px;
+            padding: 0;
+            outline: none;
+            border: none;
+            line-height: 38px;
+            font-size: 16px;
+            color: #ffffff;
+        }
+
+        .btn.btn-middle-danger {
+            background-color: #f64c3e;
+        }
+
+        .demo {
+            background-color: #faf6f1;
+            padding: 15px 25px;
+            margin-top: 28px;
+        }
+
+        .demo-title, .demo-content {
+            font-size: 14px;
+            color: #555555;
+        }
+
+        .demo-content {
+            margin-top: 9px;
+        }
+
+        .task-content {
+            height: 596px;
+            width: 1200px;
+            background-color: #ffffff;
+            margin: auto auto 81px auto;
+            padding: 46px;
+        }
+
+        .slide {
+            font-size: 0;
+        }
+
+        .slide-bar {
+            text-align: center;
+            width: 50%;
+            display: inline-block;
+            font-size: 16px;
+            color: #555555;
+            border-bottom: 1px solid #ededed;
+            position: relative;
+            padding-bottom: 3px;
+            cursor: pointer;
+        }
+
+        .slide-bar.active {
+            color: #222222;
+            border-bottom: 1px solid #dea634;
+        }
+
+        .slide-bar.active span:before {
+            content: '◆';
+            color: #dea634;
+            font-size: 16px;
+            position: absolute;
+            left: 205px;
+        }
+
+        .slide-bar.active span:after {
+            content: '◆';
+            color: #dea634;
+            font-size: 16px;
+            position: absolute;
+            top: 0;
+            margin-left: 6px;
+        }
+
+        .slide-bar.active:before {
+            content: ' ';
+            position: absolute;
+            background: url(https://images.51rz.com/images/jf-shop/triangle.png) no-repeat center;
+            width: 18px;
+            height: 3px;
+            top: 25px;
+            right: 268px;
+        }
+
+        .slide-item {
+            margin-top: 30px;
+        }
+
+        .slide-item table {
+            width: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 1px solid #e3d8d1;
+            box-shadow: 0 0 5px #ece5e1;
+            background-color: #fbf6ef;
+        }
+
+        table tr {
+            height: 40px;
+        }
+
+        table tr th, table tr td {
+            width: 33.33%;
+            font-size: 14px;
+            color: #555555;
+            border-right: 1px solid #e5ccaa;
+            border-bottom: 1px solid #e5ccaa;
+            text-align: center;
+        }
+
+        table tr th:first-child {
+            padding-left: 90px;
+            text-align: left;
+        }
+
+        table tr td:first-child {
+            padding-left: 90px;
+            text-align: left;
+        }
+
+        table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .jf-amount {
+            color: #cd964e;
+        }
+
+        .btn-active {
+            color: #4992ec;
+            cursor: pointer;
+        }
+
+        .jf-rule-title {
+            margin-top: 27px;
+            font-size: 14px;
+            color: #555555;
+        }
+
+        .jf-rule-item {
+            margin-top: 10px;
+            line-height: 23px;
+        }
+
+        .mask {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            display: none;
+        }
+
+        .jf-rule-toast {
+            width: 572px;
+            height: 245px;
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            margin-left: -286px;
+            padding: 28px;
+            background-color: #ffffff;
+            z-index: 11;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .rule-title {
+            font-size: 18px;
+            color: #222222;
+            text-align: center;
+        }
+
+        .rule-content {
+            font-size: 14px;
+            color: #555555;
+            line-height: 24px;
+            margin-top: 25px;
+        }
+
+        .rule-content.rule-demo {
+            margin-top: 0;
+            color: #d7a55e;
+        }
+
+        .btn-close {
+            width: 30px;
+            height: 30px;
+            background: url(https://images.51rz.com/images/jf-shop/close-bg.png) no-repeat center center;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="header"></div>
+<div class="jf-container">
+    <div class="jf-banner">
+        <div class="jf-box">
+            <div class="use-jf" v-if="uid">
+                <p class="jf-text">可用积分</p>
+                <p class="jf-number" v-text="Number(user.integral).toFixed(0)"></p>
+                <p class="isUse">{{parseInt(user.expire_integral)}}积分将在2018年12月31日过期</p>
+                <p class="text-center jf-history"><span class="jf-his" @click="go('jf_history.html')">积分记录</span></p>
+                <p class="jf-fs" @click="show">积分清算</p>
+            </div>
+            <div class="use-jf" v-else-if="!uid">
+                <p class="jf-text">可用积分</p>
+                <p class="text-center noLogin"><span>登录后查看</span></p>
+                <p class="jf-fs" @click="show">积分清算</p>
+            </div>
+        </div>
+    </div>
+    <div class="task-title">
+        <div class="title"></div>
+        <p class="task-js">投资申请成功即可获得相应的积分</p>
+        <div class="task-info">
+            <div class="task-text left">投资积分=投资预期收益*（1+积分加倍系数）<br/>
+                <small style="font-size:16px;">每天通过投资获得积分次数最多为10次</small>
+            </div>
+            <div class="task-text right">
+                <button class="btn btn-middle-danger" @click="goTZList">立即去投资</button>
+            </div>
+        </div>
+        <div class="demo">
+            <p class="demo-title">案例说明：</p>
+            <p class="demo-content">某用户用10000元进行一年期投资，预期年化收益为12%，则收益为1200元，获得积分为1200（投资成功之后立即获得积分，如果发生债转行为，则承接人无积分）。</p>
+        </div>
+    </div>
+    <div class="task-content">
+        <div class="slide">
+            <p class="slide-bar" :class="active==1?'active':''" @click="change('1')">每月任务赚积分<span></span></p>
+            <p class="slide-bar" :class="active==2?'active':''" @click="change('2')">新手任务赚积分<span></span></p>
+        </div>
+        <div class="slide-item">
+            <table v-show="active==1">
+                <tr>
+                    <th>任务详情</th>
+                    <th>奖励积分</th>
+                    <th>起投期限</th>
+                </tr>
+                <tr>
+                    <td>完成1次积分兑换</td>
+                    <td class="jf-amount">+20</td>
+                    <td v-text="currentTaskInfo['00008']?'已完成':'去完成'" :class="currentTaskInfo['00008']?'':'btn-active'"
+                        @click="toUrl('00008',1)"></td>
+                </tr>
+                <tr>
+                    <td>当月完成一笔≥1000的充值</td>
+                    <td class="jf-amount">+50</td>
+                    <td v-text="currentTaskInfo['00009']?'已完成':'去充值'" :class="currentTaskInfo['00009']?'':'btn-active'"
+                        @click="toUrl('00009',2)"></td>
+                </tr>
+                <tr>
+                    <td>当月完成一笔≥1000的投资</td>
+                    <td class="jf-amount">+50</td>
+                    <td v-text="currentTaskInfo['00010']?'已完成':'去投资'" :class="currentTaskInfo['00010']?'':'btn-active'"
+                        @click="toUrl('00010',3)"></td>
+                </tr>
+                <tr>
+                    <td>当月累计投资次数≥3次</td>
+                    <td class="jf-amount">+100</td>
+                    <td v-text="currentTaskInfo['00011']?'已完成':'去投资'" :class="currentTaskInfo['00011']?'':'btn-active'"
+                        @click="toUrl('00011',4)"></td>
+                </tr>
+                <tr>
+                    <td>当月累计投资金额≥10000元</td>
+                    <td class="jf-amount">+100</td>
+                    <td v-text="currentTaskInfo['00012']?'已完成':'去投资'" :class="currentTaskInfo['00012']?'':'btn-active'"
+                        @click="toUrl('00012',5)"></td>
+                </tr>
+                <tr>
+                    <td>完成所有任务</td>
+                    <td class="jf-amount">+200</td>
+                    <td v-text="currentTaskInfo['00013']?'已完成':'去投资'" :class="currentTaskInfo['00013']?'':'btn-active'"
+                        @click="toUrl('00013',6)">完成所有任务
+                    </td>
+                </tr>
+            </table>
+            <table v-show="active==2">
+                <tr>
+                    <th>任务详情</th>
+                    <th>奖励积分</th>
+                    <th>起投期限</th>
+                </tr>
+                <tr>
+                    <td>注册</td>
+                    <td class="jf-amount">+30</td>
+                    <td v-text="newTaskInfo['00001']?'已完成':'去注册'" :class="newTaskInfo['00001']?'':'btn-active'"
+                        @click="toUrl('00001',7)"></td>
+                </tr>
+                <tr>
+                    <td>开通存管账户</td>
+                    <td class="jf-amount">+50</td>
+                    <td v-text="newTaskInfo['00002']?'已完成':'去开通'" :class="newTaskInfo['00002']?'':'btn-active'"
+                        @click="toUrl('00002',8)"></td>
+                </tr>
+                <tr>
+                    <td>首次充值</td>
+                    <td class="jf-amount">+100</td>
+                    <td v-text="newTaskInfo['00003']?'已完成':'去充值'" :class="newTaskInfo['00003']?'':'btn-active'"
+                        @click="toUrl('00003',9)"></td>
+                </tr>
+                <tr>
+                    <td>首次投资</td>
+                    <td class="jf-amount">+100</td>
+                    <td v-text="newTaskInfo['00004']?'已完成':'去投资'" :class="newTaskInfo['00004']?'':'btn-active'"
+                        @click="toUrl('00004',10)"></td>
+                </tr>
+                <tr>
+                    <td>完成复投</td>
+                    <td class="jf-amount">+200</td>
+                    <td v-text="newTaskInfo['00005']?'已完成':'去投资'" :class="newTaskInfo['00005']?'':'btn-active'"
+                        @click="toUrl('00005',11)">去投资
+                    </td>
+                </tr>
+                <tr>
+                    <td>首次邀请好友注册</td>
+                    <td class="jf-amount">+200</td>
+                    <td v-text="newTaskInfo['00006']?'已完成':'去邀请'" :class="newTaskInfo['00006']?'':'btn-active'"
+                        @click="toUrl('00006',12)"></td>
+                </tr>
+                <tr>
+                    <td>完成所有任务</td>
+                    <td class="jf-amount">+200</td>
+                    <td v-text="newTaskInfo['00007']?'已完成':'未完成'" :class="newTaskInfo['00007']?'':'btn-active'"></td>
+                </tr>
+            </table>
+        </div>
+        <p class="jf-rule-title">规则说明：</p>
+        <p v-if="active==1" class="jf-rule-title jf-rule-item">1.每月都可参与，但每个任务在当月仅可获得一次奖励；<br/>
+            2.任务将于每月最后一天24点重置；<br/>
+            3.完成任务后，奖励将自动发放；<br/>
+            4.债权转让标不参与任务活动。</p>
+        <p v-if="active==2" class="jf-rule-title jf-rule-item">1.新手任务的每个奖励仅可获得一次；<br/>
+            2.完成任务后，奖励将自动发放；<br/>
+            3.债权转让标不参与任务活动。</p>
+    </div>
+    <div class="mask" ref="mask"></div>
+    <div class="jf-rule-toast" ref="toast">
+        <p class="rule-title">积分清算规则</p>
+        <p class="rule-content">1、积分有有效期，采用两年滚动清算；<br/>
+            2、积分有效期最长2年，最短1年，即从获得积分开始至次年年底，逾期自动作废；<br/>
+            3、积分正式清空前30天，系统会发送一条短信提醒您积分将要清空，您可以及时进<br/>
+            行积分兑换。</p>
+        <p class="rule-content rule-demo">例：2018年整年获得积分都将在2019年12月31日24点到期，2019年整年获得的积分都将在2020年12月31日24点到期。</p>
+        <p class="btn-close" @click="hide"></p>
+    </div>
+</div>
+<div id="footer"></div>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/static/js/vue.js"></script>
+<script src="/components/header-footer/header-footer.js"></script>
+<script>
+    var vm = new Vue({
+        el: '.jf-container',
+        data: {
+            token:'',
+            uid: false,
+            active: 1,
+            user: {
+                expire_integral: 0,
+                freeze_integral: 0,
+                integral: 0,
+            },
+            userInfo: {},
+            currentTaskInfo: {},
+            newTaskInfo: {},
+        },
+        methods: {
+            change: function (type) {
+
+                this.active = type;
+                if (type == '1') {
+                    this.getCurrentTaskInfo('/vipshop/user_task/monthlyTaskComplete', 'month');
+                } else {
+                    this.getCurrentTaskInfo('/vipshop/user_task/noviceTaskComplete')
+                }
+            },
+            go: function (url) {
+                var userInfo = JSON.parse(localStorage.getItem('activeUserInfo'))||{};
+                if (!userInfo.token) {
+                    location.href = 'https://' + userInfo.type + '.51rz.com/login.html';
+                    return;
+                }
+                location.href = url + '?active=1&type=' + userInfo.type+'&token='+userInfo.token;
+            },
+            toUrl: function (index, pos) {
+                var type = this.userInfo.type;
+                var realName=this.userInfo.realName;
+                switch (pos) {
+                    case 1:
+                        if (!this.currentTaskInfo[index]) {
+                            this.go('jf_index.html');
+                        }
+                        break;
+                    case 2:
+                        if(realName=='false'){
+                            location.href = 'https://' + type + '.51rz.com/openCunGuan.html';
+                            return;
+                        }else if (!this.currentTaskInfo[index]) {
+                            location.href = 'https://' + type + '.51rz.com/member/index.html#/recharge'
+                        }
+                        break;
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                        if (!this.currentTaskInfo[index]) {
+                            this.goTZList();
+                        }
+                        break;
+                    case 7:
+                        if (!this.newTaskInfo[index]) {
+                            location.href = 'https://' + type + '.51rz.com/register.html'
+                        }
+                        break;
+                    case 8:
+                        if (!this.newTaskInfo[index]) {
+                            location.href = 'https://' + type + '.51rz.com/openCunGuan.html'
+                        }
+                        break;
+                    case 9:
+                        if(realName=='false'){
+                            location.href = 'https://' + type + '.51rz.com/openCunGuan.html';
+                            return;
+                        }else if (!this.newTaskInfo[index]) {
+                            location.href = 'https://' + type + '.51rz.com/member/index.html#/recharge'
+                        }
+                        break;
+                    case 10:
+                    case 11:
+                        if (!this.newTaskInfo[index]) {
+                            this.goTZList();
+                        }
+                        break;
+                    case 12:
+                        if (!this.newTaskInfo[index]) {
+                            location.href = 'https://' + type + '.51rz.com/invite.html'
+                        }
+                        break;
+                }
+            },
+            show: function () {
+                var mask = this.$refs.mask, toast = this.$refs.toast;
+                mask.style.display = 'block';
+                toast.style.display = 'block';
+            },
+            hide: function () {
+                var mask = this.$refs.mask, toast = this.$refs.toast;
+                mask.style.display = 'none';
+                toast.style.display = 'none';
+            },
+            //字符串进行解密
+            uncompileStr: function (code) {
+                code = unescape(code);
+                var c = String.fromCharCode(code.charCodeAt(0) - code.length);
+                for (var i = 1; i < code.length; i++) {
+                    c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1));
+                }
+                return c;
+            },
+            getQueryString: function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            },
+            goTZList: function () {
+                var type = this.userInfo.type;
+                location.href = 'https://' + type + '.51rz.com/projectList.html';
+            },
+            getJF: function () {
+                var _this = this;
+                var token = this.userInfo.token;
+                $.post('/index.php?_url=/vipshop/integral/userIntegralAccount', {token: token}, function (data) {
+                    if (data.error_code == 0) {
+                        if (data.data.length != 0) {
+                            _this.user = data.data;
+                        }
+                    }
+                }, 'json')
+            },
+            getCurrentTaskInfo: function (url, type) {
+                var _this = this;
+                var token = this.userInfo.token;
+                $.post('/index.php?_url=' + url, {token: token}, function (data) {
+                    if (data.error_code == 0) {
+                        if (type == 'month') {
+                            _this.currentTaskInfo = data.data;
+                        } else {
+                            _this.newTaskInfo = data.data;
+                        }
+                    }
+                }, 'json')
+            },
+        },
+        created: function () {
+            var activeUserInfo = JSON.parse(localStorage.getItem('activeUserInfo'))||{};
+            this.userInfo = activeUserInfo;
+            if (this.userInfo.token != 'undefined' && this.userInfo.token != '') {
+                this.uid = true;
+                this.getJF();//获取积分
+                this.getCurrentTaskInfo('/vipshop/user_task/monthlyTaskComplete', 'month');
+            }
+        }
+    })
+</script>
+</body>
+</html>

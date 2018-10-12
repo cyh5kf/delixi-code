@@ -1,0 +1,111 @@
+@import "./libs/mixin.scss";
+
+:global {
+
+  .cg_pic1, .cg_pic2, .cg_pic3, .cg_pic4, .cg_pic5, .cg_pic6, .cg_pic7 {
+    width: 100%;
+  }
+  .cg_pic1_bg {
+    height: 300px;
+    padding-top: 95px;
+    text-align: center;
+    background: url(https://images.51rz.com/images/rebuild/pc/img/cg_pic1.png) no-repeat center top;
+    h3 {
+      @include box((fs:42px, c:#fff, mb:30px, fw:600, p:40px 0 0 0))
+    }
+    p {
+      @include box((fs:24px, c:#fff))
+    }
+  }
+
+  .wrap{
+    @include box((p:50px 0 100px));
+    @include background((url:'cg_pic_bg.png',size:100%,repeat:no-repeat));
+  }
+  .cg_content{
+    @include box((w:809px, m:0px auto 50px));
+  }
+    .cg_pic2 {
+      @include box((w:809px, ta:center, m:0 auto));
+      img {
+        @include box((m:0 auto 24px, d:block))
+      }
+      p {
+        @include box((fs:14px, c:$black3))
+      }
+    }
+
+  .app_title1 strong {
+    font-weight: 500;
+    font-size: 30px;
+    color: $black3;
+  }
+  .box1 {
+    width: 100%;
+    padding: 0 0 30px;
+    text-align: center;
+  }
+
+  .cg_qa {
+    width: 100%;
+    text-align: left;
+  }
+
+  .cg_qa dt {
+    width: 100%;
+    display: inline-block;
+    margin-top: 35px;
+  }
+
+  .cg_qa dt i {
+    width: 17px;
+    height: 17px;
+    float: left;
+    font-style: normal;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    margin-top: 5px;
+    background: #4589c9;
+    border-radius: 50%;
+    line-height: 17px;
+  }
+
+  .cg_qa dt strong {
+    float: left;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    padding-left: 10px;
+  }
+
+  .cg_qa dd {
+    width: 100%;
+    font-size: 14px;
+    color: #666;
+    padding-left: 26px;
+  }
+
+  .cg_qa dd p {
+    float: left;
+    width: 100%;
+  }
+
+  .cg_qa dd span {
+    font-size: 14px;
+    color: #4589c9;
+    width: 100%;
+  }
+
+  .cg_qa dd b {
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .cg_qa dd big {
+    width: 706px;
+    float: left;
+    font-size:14px;
+  }
+}

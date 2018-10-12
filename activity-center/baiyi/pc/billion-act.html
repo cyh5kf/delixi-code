@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/components/header-footer/header-footer.css">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <title>十月活动</title>
+    <style>
+        .ui_border {
+            display: none !important;
+        }
+        html,
+        body,
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        .dis-block {
+            display: block;
+        }
+
+        .img-bg {
+            background: url(https://images.51rz.com/images/pc/billions/banner.jpg?v=2) no-repeat center;
+            background-size: cover;
+        }
+
+        .cursor-pointer {
+            cursor: pointer;
+        }
+
+        .fs-6x {
+            font-size: 12px;
+        }
+
+        .fs-7x {
+            font-size: 14px !important;
+        }
+
+        .fs-8x {
+            font-size: 16px;
+        }
+
+        .fs-9x {
+            font-size: 18px;
+        }
+
+        .pad-top-10x {
+            padding-top: 20px;
+        }
+
+        .pad-top-15x {
+            padding-top: 30px;
+        }
+
+        .pad-top-20x {
+            padding-top: 40px;
+        }
+
+        .pad-top-25x {
+            padding-top: 50px;
+        }
+
+        .top-41x {
+            top: 82px;
+        }
+
+        .color-fedf5a {
+            color: #fedf5a !important;
+        }
+
+        .img-bg.banner {
+            width: 100%;
+            height: 631px;
+        }
+
+        .img-bg.time-box {
+            height: 266px;
+            background: url(https://images.51rz.com/images/pc/billions/time-bg.png) no-repeat center;
+        }
+
+        .img-bg.time {
+            height: 211px;
+            width: 822px;
+            background: url(https://images.51rz.com/images/pc/billions/transaction-bg.png) no-repeat center;
+            padding-top: 37px;
+        }
+
+        .time-btn {
+            font-size: 14px;
+            color: #fe9f19;
+            text-align: right;
+
+            position: relative;
+        }
+
+        .time-btn>span {
+            border-bottom: 1px solid #fe9f19;
+            position: absolute;
+            right: 59px;
+            top: 0;
+        }
+
+        .time .money {
+            font-size: 0;
+            padding: 53px 40px 0 64px;
+        }
+
+        .time .money span {
+            font-size: 36px;
+            color: #f2dcff;
+            text-align: center;
+            line-height: 66px;
+            margin-right: 20px;
+        }
+
+        .time .money span:last-child {
+            margin-right: 0;
+        }
+
+        .time .money p {
+            display: inline-block;
+            width: 51px;
+            height: 66px;
+            background: url(https://images.51rz.com/images/pc/billions/money-bg.png) no-repeat center;
+            background-size: cover;
+            font-size: 48px;
+            color: #e8beff;
+            margin-right: 20px;
+            text-align: center;
+            line-height: 66px;
+        }
+
+        .img-bg.first-round {
+            height: 958px;
+            background: url(https://images.51rz.com/images/pc/billions/fudai-bg.png) no-repeat center;
+            padding-top: 181px;
+        }
+
+        .round-title {
+            font-size: 16px;
+            color: #eee4cc;
+            text-align: center;
+            line-height: 28px;
+        }
+
+        .blessing-bag {
+            margin-top: 96px;
+            font-size: 0;
+            text-align: center;
+        }
+
+        .bag-item {
+            display: inline-block;
+            position: relative;
+            vertical-align: top;
+        }
+
+        .bag-item p {
+            position: absolute;
+            font-size: 24px;
+            width: 308px;
+            color: #e45b08;
+            margin: 0 auto;
+        }
+
+        .luck {
+            width: 308px;
+            height: 450px;
+            margin-right: 197px;
+        }
+
+        .fudai {
+            width: 308px;
+            height: 450px;
+        }
+
+        .btn-big {
+            outline: none;
+            border: none;
+            width: 301px;
+            height: 81px;
+            background: url(https://images.51rz.com/images/pc/billions/btn-big.png) no-repeat center;
+            background-size: cover;
+            font-size: 36px;
+            color: #840707;
+            cursor: pointer;
+        }
+
+        .btn-big.btn-big-disabled {
+            color: #363230;
+            background: url(https://images.51rz.com/images/pc/billions/btn-big-disabled.png) no-repeat center;
+        }
+
+        .img-bg.second-round {
+            height: 944px;
+            background: url(https://images.51rz.com/images/pc/billions/cash-bg.png) no-repeat center;
+            padding-top: 181px;
+        }
+
+        .touzi {
+            text-align: center;
+            margin-top: 564px;
+        }
+
+        .img-bg.three-round {
+            padding-top: 182px;
+            height: 730px;
+            background: url(https://images.51rz.com/images/pc/billions/hero-bg.png) no-repeat center;
+        }
+
+        .round-title>span {
+            color: #fe9f19;
+        }
+
+        .rank-title {
+            width: 414px;
+            height: 46px;
+            background-color: #cb2df2;
+            border-radius: 40px;
+            margin: 51px auto 0 auto;
+            text-align: center;
+            font-size: 16px;
+            color: #eee4cc;
+            line-height: 46px;
+        }
+
+        .rank-title span {
+            color: #fff600;
+        }
+
+        .touzi-money {
+            font-size: 22px;
+        }
+
+        .rank-tips {
+            color: #eee4cc;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .rank-box {
+            font-size: 0;
+            text-align: center;
+            padding-top: 61px;
+            height: 490px;
+            background: url(https://images.51rz.com/images/pc/billions/rank-bg.png) no-repeat center;
+            background-size: cover;
+            background-position-y: -61px;
+        }
+
+        .rank-item {
+            display: inline-block;
+            width: 193px;
+            height: 234px;
+            margin-right: 32px;
+            position: relative;
+        }
+
+        .rank-box div:nth-child(1) {
+            background: url(https://images.51rz.com/images/pc/billions/first-place.png) no-repeat center;
+            background-size: cover;
+        }
+
+        .rank-box div:nth-child(2) {
+            background: url(https://images.51rz.com/images/pc/billions/second-place.png) no-repeat center;
+            background-size: cover;
+        }
+
+        .rank-box div:nth-child(3) {
+            background: url(https://images.51rz.com/images/pc/billions/three-place.png) no-repeat center;
+            background-size: cover;
+        }
+
+        .rank-box div:nth-child(4) {
+            background: url(https://images.51rz.com/images/pc/billions/four-place.png) no-repeat center;
+            background-size: cover;
+        }
+
+        .rank-box div:nth-child(5) {
+            background: url(https://images.51rz.com/images/pc/billions/five-place.png) no-repeat center;
+            background-size: cover;
+            margin-right: 0;
+        }
+
+        .tel {
+            width: 193px;
+            position: absolute;
+            margin: 0 auto;
+            color: #FFFFFF;
+        }
+
+        .img-bg.four-round {
+            background: url(https://images.51rz.com/images/pc/billions/Billions-bg.png) no-repeat top;
+            background-color: #3f007a;
+            padding-bottom: 119px;
+        }
+
+        .rank-item .money {
+            position: absolute;
+            width: 193px;
+            font-size: 24px;
+            color: #ffb81e;
+
+        }
+
+        .rank-item .money>span {
+            color: #333;
+        }
+
+        .gold-tips {
+            color: #eee4cc;
+            text-align: center;
+            padding-top: 178px;
+        }
+
+        .temp {
+            text-align: center;
+            color: #eee4cc;
+            margin-top: 30px;
+        }
+
+        .temp>span {
+            color: #fff600;
+            border-bottom: 1px solid #fff600;
+        }
+
+        .gold-position {
+            color: #eee4cc;
+            text-align: center;
+            margin-top: 39px;
+        }
+
+        .gold-position>span {
+            font-size: 22px;
+            color: #fff600;
+        }
+
+        .gold-position img {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 22px;
+        }
+
+        .billions {
+            font-size: 0;
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .billions-item {
+            width: 100px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .ruler {
+            color: #eee4cc;
+            text-align: center;
+        }
+
+        .ruler img {
+            margin-top: 5px;
+        }
+
+        .ruler p {
+            margin-top: 14px;
+        }
+
+        .ruler-light {
+            position: absolute;
+            top: 38px;
+            left: -6px;
+            background: url(https://images.51rz.com/images/pc/billions/light.png) no-repeat center;
+            width: 109px;
+            height: 95px;
+        }
+
+        .luck-rank {
+            width: 969px;
+            background-color: #591798;
+            border: 1px solid #ae4df7;
+            border-radius: 10px;
+            position: relative;
+            margin-top: 103px;
+            font-size: 0;
+            padding: 58px 103px 51px 124px;
+        }
+
+        .luck-rank>img {
+            width: 323px;
+            height: 88px;
+            position: absolute;
+            top: -40px;
+            left: 323px;
+        }
+
+        .luck-name-item {
+            width: 100%;
+            height: 123px;
+            font-size: 0;
+            overflow: hidden;
+            transition: all .5s ease;
+            -moz-transition: all .5s ease;
+            -webkit-transition: all .5s ease;
+            -o-transition: all .5s ease;
+        }
+
+        .luck-name-item li {
+            width: 50%;
+            display: inline-block;
+            font-size: 18px;
+            color: #eee4cc;
+            line-height: 39px;
+            text-align: center;
+        }
+
+        .luck-name-item li:nth-child(even) {
+            border-left: 1px solid #7032b0;
+        }
+
+        .last-child {
+            text-align: center !important;
+            width: 100% !important;
+            color: #fff600 !important;
+        }
+
+        .icon-top {
+            width: 38px;
+            height: 38px;
+            background: url(https://images.51rz.com/images/pc/billions/icon-top.png)no-repeat center;
+            background-size: cover;
+            margin-top: 32px;
+            position: absolute;
+            bottom: -17px;
+            margin: 0 auto;
+            left: 475px;
+        }
+
+        .img-bg.billion-rule {
+            background: url(https://images.51rz.com/images/pc/billions/rule-bg.png)no-repeat center;
+            background-size: cover;
+        }
+
+        .rule-box {
+            width: 1100px;
+            padding-left: 68px;
+            padding-top: 183px;
+            padding-bottom: 30px;
+            line-height: 30px;
+        }
+
+        .rule {
+            font-size: 16px;
+            color: #eee4cc;
+        }
+
+        .rule-box .rule span:first-child {
+            width: 3%;
+            float: left;
+        }
+
+        .rule-box .rule span:last-child {
+            width: 97%;
+            float: left;
+        }
+
+        .gift {
+            position: absolute;
+            width: 111px;
+            height: 98px;
+            right: -41px;
+            bottom: -22px;
+            background: url(https://images.51rz.com/images/pc/billions/gift.png)no-repeat center;
+        }
+
+        .history-box {
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 10000000000;
+            display: none;
+        }
+
+        .history {
+            position: absolute;
+            left: 50%;
+            top: 15%;
+            margin-left: -261px;
+            width: 522px;
+            height: 439px;
+            border: 1px solid #ae4df7;
+            background-color: #591798;
+            border-radius: 10px;
+        }
+
+        .alert-title {
+            position: absolute;
+            top: -39px;
+            left: 105px;
+        }
+
+        .time-item {
+            color: #ffffff;
+            font-size: 14px;
+            margin-top: 55px;
+            text-align: center;
+            margin-right: 30px;
+            width: 101px;
+            background-color: #7730ba;
+            border-radius: 5px;
+            overflow-y: auto;
+            border: 1px solid #ae4df7;
+            position: absolute;
+            right: 0;
+        }
+
+        .time-item p>img {
+            margin-left: 18px;
+        }
+
+        .overflow-y {
+            overflow-y: auto;
+        }
+
+        .overflow-y::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        .overflow-y::-webkit-scrollbar-track {
+            background: #6424a0;
+        }
+
+        .overflow-y::-webkit-scrollbar-thumb {
+            background: #b46dec;
+            border-radius: 2px;
+        }
+
+        .time-item ul {
+            height: 110px;
+            max-height: 168px;
+            display: none;
+        }
+
+        .time-item ul li {
+            line-height: 27px;
+            height: 27px;
+            border-bottom: 1px solid #8336c7;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 92px;
+            text-align: center;
+            padding: 0 30px;
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        table tr:nth-child(1) {
+            background-color: #6d29ad;
+        }
+
+        table td {
+            height: 48px;
+            border-bottom: 1px solid #6c23ad;
+        }
+
+        table td:nth-child(1) {
+            width: 20%;
+        }
+
+        table td:nth-child(2) {
+            width: 40%;
+        }
+
+        table td:nth-child(2) {
+            width: 40%;
+        }
+
+        .border td {
+            border-bottom: none
+        }
+
+        .circle {
+            width: 29px;
+            height: 29px;
+            border-radius: 50%;
+            line-height: 29px;
+            display: block;
+            background-color: #7330b3;
+        }
+
+        .rank-history0 {
+            width: 30px;
+            height: 36px;
+            background: url(https://images.51rz.com/images/pc/billions/one.png)no-repeat center;
+            background-size: cover;
+            display: block;
+        }
+
+        .rank-history1 {
+            width: 30px;
+            height: 36px;
+            background: url(https://images.51rz.com/images/pc/billions/two.png)no-repeat center;
+            background-size: cover;
+            display: block;
+        }
+
+        .rank-history2 {
+            width: 30px;
+            height: 36px;
+            background: url(https://images.51rz.com/images/pc/billions/three.png)no-repeat center;
+            background-size: cover;
+            display: block;
+        }
+
+        .luck-name-item.active {
+            height: 234px !important;
+        }
+
+        .close {
+            width: 36px;
+            height: 36px;
+            position: absolute;
+            top: -19px;
+            right: -17px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div id="header"></div>
+
+    <div class="container" id="app">
+        <div class="img-bg banner"></div>
+        <div class="img-bg time-box">
+            <div class="img-bg time">
+                <p class="time-btn cursor-pointer">
+                    <span v-show="isToGetGold" @click="position">前往领取金条></span>
+                </p>
+                <div class="money">
+                    <p v-for="(item,index) in money.billion" :key="index" v-text="item"></p>
+                    <span>亿</span>
+                    <p v-for="(item,index) in money.tenThousand" :key="index" v-text="item"></p>
+                    <span>万</span>
+                    <p v-text="money.thousand"></p>
+                    <span>千</span>
+                </div>
+            </div>
+        </div>
+        <div class="billion-content">
+            <div class="img-bg round first-round">
+                <p class="round-title">活动期间，每天有1次机会免费拆福袋，拆开福袋可随机获得白送红包或超低门槛红包，更有机会获得100元红包！
+                    <br> 当天完成一笔投资，可再获得一次拆福袋机会。（每天最多2次机会拆福袋，红包仅当天有效）
+                </p>
+                <div class="blessing-bag">
+                    <div v-for="(item,index) in pack.today" :key="index" class="bag-item">
+                        <img v-show="item.rewardType == 3" src="https://images.51rz.com/images/pc/billions/luck-task.png" class="dis-block">
+                        <img v-show="item.rewardType == 1" src="https://images.51rz.com/images/pc/billions/luck-bag.png" class="dis-block">
+                        <img v-show="item.rewardType == 2" src="https://images.51rz.com/images/pc/billions/luck-bag.png" class="dis-block">
+                        <img v-show="item.rewardType == 0&&item.activated == 1" src="https://images.51rz.com/images/pc/billions/disabled-bag.png"
+                            class="dis-block">
+                        <img v-show="item.rewardType == 0&&item.activated != 1" src="https://images.51rz.com/images/pc/billions/luck-normal-bag.png"
+                            class="dis-block">
+                        <p v-show="item.rewardType == 1" class="top-41x" v-text="item.money+'元'"></p>
+                        <p v-show="item.rewardType == 2" class="top-41x" v-text="'加息幅度'+item.money+'元'"></p>
+                        <p v-show="item.rewardType == 3" class="fs-7x color-fedf5a" style="top: 105px">投
+                            <span v-text="item.amount"></span>元
+                            <span v-text="item.limitDayText"></span>,得
+                            <br/>
+                            <span v-text="item.money"></span>元红包(投
+                            <span v-text="getFreeMoney"></span>元可用)</p>
+                        <div v-show="item.rewardType == 0&&item.activated == 1">
+                            <button class="btn-big" @click="go('https://www.51rz.com/ind/tender-jing-xuan.html')">
+                                <div>拆开幸运</div>
+                                <span class="fs-7x dis-block">（去投资一次）</span>
+                            </button>
+                        </div>
+                        <div v-show="item.rewardType == 0&&item.activated != 1">
+                            <button class="btn-big" @click="open(item.packId,index)">
+                                <div>拆开幸运</div>
+                                <span class="fs-7x dis-block">（免费）</span>
+                            </button>
+                        </div>
+                        <div v-show="item.rewardType == 1&&item.used == 0">
+                            <button class="btn-big" @click="go('https://www.51rz.com/ind/tender-jing-xuan.html')">
+                                <div>去使用</div>
+                            </button>
+                        </div>
+                        <div v-show="item.rewardType == 1&&item.used == 1">
+                            <button class="btn-big">
+                                <div>已使用</div>
+                            </button>
+                        </div>
+                        <div v-show="item.rewardType == 2&&item.used == 0">
+                            <button class="btn-big" @click="go('https://www.51rz.com/ind/tender-jing-xuan.html')">
+                                <div>去投资</div>
+                            </button>
+                        </div>
+                        <div v-show="item.rewardType == 2&&item.used == 1">
+                            <button class="btn-big">
+                                <div>已使用</div>
+                            </button>
+                        </div>
+                        <div v-show="item.rewardType == 3">
+                            <button class="btn-big" @click="go('https://www.51rz.com/ind/tender-jing-xuan.html')">
+                                <div>去投资</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="img-bg round second-round">
+                <p class="round-title">感恩回馈百亿有您，我们将根据您活动期间的累计投资额，奖励相应的现金、实物和红包壕礼！</p>
+                <div class="touzi">
+                    <button class="btn-big" @click="go('/ind/tender-r-plan.html')">
+                        立即投资
+                    </button>
+                </div>
+            </div>
+            <div class="img-bg round three-round">
+                <p class="round-title">活动期间内，单日累计投资额前五名用户,可获得额外红包大奖，天天开奖，等你来拿！
+                    <span class="fs-7x cursor-pointer" v-show="currentShow" @click="history">历史获奖记录>></span>
+                </p>
+                <p class="rank-title" v-show="uid">您今日累计投资额：
+                    <span class="touzi-money" v-text="user"></span>
+                    <span class="fs-8x">元</span>
+                </p>
+                <p class="rank-title" v-show="!uid">您今日累计投资额：
+                    <span class="touzi-money" style="border: 1px solid #cb2df2" @click="go('/ind/login.html')">登录查看</span>
+                </p>
+                <p class="rank-tips fs-8x">今日累计投资额排行榜
+                    <span class="fs-6x">(该数据2分钟更新一次。如所投金额相同，则以投资成功的先后顺序为准)</span>
+                </p>
+                <div class="rank-box">
+                    <div class="rank-item" v-for="(item,index) in rank" :key="index">
+                        <p class="fs-9x tel" :style="item.top" v-text="item.mobile"></p>
+                        <p class="money" :style="item.top1" v-text="item.money == 0?item.space:item.money">
+                            <span class="fs-8x">元</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="img-bg round four-round">
+                <p class="fs-8x gold-tips">活动期间内，单个用户投资金额正好打破设定的全站累计投资额，即可获得金条奖励。</p>
+                <p class="temp fs-7x">当前平台交易额是99亿9千9百99万7千，此时王先生恰巧投资了3500元，
+                    <span>正好打破</span>100亿节点，王先生幸运获得2g金条。
+                    <br/>小额也能获大奖，缘来是你！</p>
+                <p class="gold-position fs-8x" v-show="isAboveTenBillion">当前冲击投资节点：
+                    <span v-text="currentShock+'亿'"></span>
+                    <img src="https://images.51rz.com/images/pc/billions/line.png" />待送出金条：
+                    <span v-text="remainGold+'g'"></span>
+                </p>
+                <p class="gold-position fs-8x" v-show="!isAboveTenBillion">庆祝人众交易额成功破百亿！</p>
+                <div class="billions">
+                    <div class="billions-item" v-for="(item,index) in billions" :key="index">
+                        <img :src="item.status == 0 ? item.normalBg:item.status == 1?item.activeBg:item.overBg" class="dis-block" />
+                        <div class="ruler">
+                            <img :src="item.ruler">
+                            <p class="fs-9x" v-text="item.currentMoney+'亿'"></p>
+                        </div>
+                        <div :class="item.status == 1?'ruler-light':''"></div>
+                    </div>
+                </div>
+                <div class="luck-rank">
+                    <img src="https://images.51rz.com/images/pc/billions/rank-name.png">
+                    <div v-show="awardee.length == 0" class="text-center">
+                        <img src="https://images.51rz.com/images/pc/billions/no-data.png" />
+                    </div>
+                    <div class="luck-name-item" :class="flag ?'':'active'" v-show="awardee.length != 0">
+                        <ul>
+                            <li v-for="(item,index) in awardee" :key="index" v-text="item.mobile+'获得'+item.prize" :class="index == 10 ? 'last-child':''"></li>
+                        </ul>
+                    </div>
+                    <div class="icon-top cursor-pointer" @click="showList" v-show="awardee.length > 6"></div>
+                    <div class="gift"></div>
+                </div>
+            </div>
+        </div>
+        <div class="history-box" ref="history-box">
+            <div class="history">
+                <img src="https://images.51rz.com/images/pc/billions/history.png" class="alert-title">
+                <div class="time-item cursor-pointer">
+                    <p @click="showAlert('date-item')">
+                        <span v-text="dateFlag?date[dateIndex]:date[date.length - 1]"></span>
+                        <img src="https://images.51rz.com/images/pc/billions/icon-small-top.png">
+                    </p>
+                    <ul class="overflow-y" ref="date-item">
+                        <li v-for="(item,index) in date" :key="index" v-text="item" @click="getRank(item,index)"></li>
+                    </ul>
+                </div>
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>排名</td>
+                        <td>获奖用户信息</td>
+                        <td>用户投资额(元）</td>
+                    </tr>
+                    <tr v-for="(item,index) in historyRank" :key="index" :class="index == 4 ? 'border':''">
+                        <td>
+                            <span v-text="index>2?index+1:''" :class="index > 2 ?'circle':'rank-history'+index"></span>
+                        </td>
+                        <td v-text="item.mobile"></td>
+                        <td v-text="item.account"></td>
+                    </tr>
+                </table>
+                <div class="close cursor-pointer" @click="hideAlert('history-box')">
+                    <img src="https://images.51rz.com/images/pc/billions/close.png" />
+                </div>
+            </div>
+        </div>
+        <div class="img-bg billion-rule">
+            <div class="rule-box">
+                <p class="rule clearfix">
+                    <span>1、</span>
+                    <span>百亿大福袋环节，每天登录活动页即有1次拆红包机会，完成一笔投资后可再获得1次机会，每天最多两次机会。红包仅当天有效，100元起投，限90天以上项目可用；</span>
+                </p>
+                <p class="rule clearfix">
+                    <span>2、</span>
+                    <span>投资送奖励环节，根据用户最终投资额发放对应奖励（默认为可获得奖励中价值最高的那个），累计投资金额数据截止到11月15日23:55。100元以下红包100元起用， 100元以上红包1000元起用，限30天以上项目可用。红包将在活动结束后5个工作日内发放，现金及实物奖励在活动结束20个工作日内发放；</span>
+                </p>
+                <p class="rule clearfix">
+                    <span>3、</span>
+                    <span>每日英雄榜环节，数据会有2-3分钟延迟，如所投金额相同，则以后台记录中投资成功的先后顺序为准。最终数据截止至当天23:55，当天奖励需在第二天9:00以后发放到账。1000元红包，1万元可用，1000元以下红包，1000元可用，仅限30天以上项目可用；</span>
+                </p>
+                <p class="rule clearfix">
+                    <span>4、</span>
+                    <span>壕礼送黄金环节，从平台总交易额98亿开始，每满2千万投资额节点，即送出黄金。奖品将在活动结束后20个工作日内发放；</span>
+                </p>
+                <p class="rule clearfix">
+                    <span>5、</span>
+                    <span>新手标、债转项目不计入本活动，活动最终解释权法律允许的范围归人众金服所有，如有疑问请致电客服：400-655-8858。（咨询时间：9:00——21:00）</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 尾部 -->
+    <div id="footer"></div>
+    <script src="/static/js/vue.js"></script>
+    <script src="/static/js/jquery-1.11.1.min.js"></script>
+    <script src="/components/header-footer/header-footer.js"></script>
+    <script>
+        window.vm = new Vue({
+            el: '#app',
+            data: {
+                uid: false,
+                totalNum: 0,
+                bonus: [],
+                currentRanks: [],
+                turnOver: 0,
+                free: {},
+                tender: {},
+                freeType: '',
+                tenderType: '',
+                hasTender: 0,
+                currentShow: true,
+                billions: [
+                    {
+                        ruler: 'https://images.51rz.com/images/pc/billions/rule-left.png',
+                        normalBg: 'https://images.51rz.com/images/pc/billions/gold-disabled.png',
+                        overBg: 'https://images.51rz.com/images/pc/billions/gold-disabled2.png',
+                        activeBg: 'https://images.51rz.com/images/pc/billions/gold.png',
+                        currentMoney: 98,
+                        status: 0
+                    },
+                    {
+                        ruler: 'https://images.51rz.com/images/pc/billions/rule-center.png',
+                        normalBg: 'https://images.51rz.com/images/pc/billions/gold-disabled.png',
+                        overBg: 'https://images.51rz.com/images/pc/billions/gold-disabled2.png',
+                        activeBg: 'https://images.51rz.com/images/pc/billions/gold.png',
+                        currentMoney: 98.2,
+                        status: 0
+                    },
+                    {
+                        ruler: 'https://images.51rz.com/images/pc/billions/rule-center.png',
+                        normalBg: 'https://images.51rz.com/images/pc/billions/gold-disabled.png',
+                        overBg: 'https://images.51rz.com/images/pc/billions/gold-disabled2.png',
+                        activeBg: 'https://images.51rz.com/images/pc/billions/gold.png',
+                        currentMoney: 98.4,
+                        status: 0
+                    },
+                    {
+                        ruler: 'https://images.51rz.com/images/pc/billions/rule-center.png',
+                        normalBg: 'https://images.51rz.com/images/pc/billions/gold-disabled.png',
+                        overBg: 'https://images.51rz.com/images/pc/billions/gold-disabled2.png',
+                        activeBg: 'https://images.51rz.com/images/pc/billions/gold.png',
+                        currentMoney: 98.6,
+                        status: 0
+                    },
+                    {
+                        ruler: 'https://images.51rz.com/images/pc/billions/rule-center.png',
+                        normalBg: 'https://images.51rz.com/images/pc/billions/gold-disabled.png',
+                        overBg: 'https://images.51rz.com/images/pc/billions/gold-disabled2.png',
+                        activeBg: 'https://images.51rz.com/images/pc/billions/gold.png',
+                        currentMoney: 98.8,
+                        status: 0
+                    },
+                    {
+                        ruler: 'https://images.51rz.com/images/pc/billions/rule-center.png',
+                        normalBg: 'https://images.51rz.com/images/pc/billions/gold-disabled.png',
+                        overBg: 'https://images.51rz.com/images/pc/billions/gold-disabled2.png',
+                        activeBg: 'https://images.51rz.com/images/pc/billions/gold.png',
+                        currentMoney: 99,
+                        status: 0
+                    },
+                    {
+                        ruler: 'https://images.51rz.com/images/pc/billions/rule-center.png',
+                        normalBg: 'https://images.51rz.com/images/pc/billions/gold-disabled.png',
+                        overBg: 'https://images.51rz.com/images/pc/billions/gold-disabled2.png',
+                        activeBg: 'https://images.51rz.com/images/pc/billions/gold.png',
+                        currentMoney: 99.2,
+                        status: 0
+                    },
+                    {
+                        ruler: 'https://images.51rz.com/images/pc/billions/rule-center.png',
+                        normalBg: 'https://images.51rz.com/images/pc/billions/gold-disabled.png',
+                        overBg: 'https://images.51rz.com/images/pc/billions/gold-disabled2.png',
+                        activeBg: 'https://images.51rz.com/images/pc/billions/gold.png',
+                        currentMoney: 99.4,
+                        status: 0
+                    },
+                    {
+                        ruler: 'https://images.51rz.com/images/pc/billions/rule-center.png',
+                        normalBg: 'https://images.51rz.com/images/pc/billions/gold-disabled.png',
+                        overBg: 'https://images.51rz.com/images/pc/billions/gold-disabled2.png',
+                        activeBg: 'https://images.51rz.com/images/pc/billions/gold.png',
+                        currentMoney: 99.6,
+                        status: 0
+                    },
+                    {
+                        ruler: 'https://images.51rz.com/images/pc/billions/rule-center.png',
+                        normalBg: 'https://images.51rz.com/images/pc/billions/gold-disabled.png',
+                        overBg: 'https://images.51rz.com/images/pc/billions/gold-disabled2.png',
+                        activeBg: 'https://images.51rz.com/images/pc/billions/gold.png',
+                        currentMoney: 99.8,
+                        status: 0
+                    },
+                    {
+                        ruler: 'https://images.51rz.com/images/pc/billions/rule-right.png',
+                        normalBg: 'https://images.51rz.com/images/pc/billions/gold-light2.png',
+                        overBg: 'https://images.51rz.com/images/pc/billions/gold-light-out.png',
+                        activeBg: 'https://images.51rz.com/images/pc/billions/gold-light.png',
+                        currentMoney: 100,
+                        status: 0
+                    },
+                ],
+                money: '',
+                turnOverList: {},
+                rank: [
+                    {
+                        mobile: '虚位以待',
+                        money: 0,
+                        space: '--',
+                        top: 'top:3px',
+                        top1: 'top:104px'
+                    },
+                    {
+                        mobile: '虚位以待',
+                        money: 0,
+                        space: '--',
+                        top: 'top:14px',
+                        top1: 'top:111px'
+                    },
+                    {
+                        mobile: '虚位以待',
+                        money: 0,
+                        space: '--',
+                        top: 'top:24px',
+                        top1: 'top:116px'
+                    },
+                    {
+                        mobile: '虚位以待',
+                        money: 0,
+                        space: '--',
+                        top: 'top:34px',
+                        top1: 'top:117px'
+                    },
+                    {
+                        mobile: '虚位以待',
+                        money: 0,
+                        space: '--',
+                        top: 'top:44px',
+                        top1: 'top:118px'
+                    },
+                ],
+                awardee: [],
+                flag: true,
+                date: [],
+                historyRank: [],
+                dateFlag: false,
+                dateIndex: 0,
+                currentShock: 98,
+                user: 0,
+                pack: {},
+            },
+            computed: {
+                //计算投资任务得红包金额
+                getFreeMoney: function () {
+                    if (this.$data.freeType == 'TZ' && this.$data.free.hb >= 100 || this.$data.tenderType == 'TZ' && this.$data.tender.hb >= 100) {
+                        return 200;
+                    } else {
+                        return 100;
+                    }
+                },
+                // 判断是否显示前往领取金条链接
+                isToGetGold: function () {
+                    var billion = parseInt(this.$data.money.billion);
+                    return billion >= 97 && billion <= 100 ? true : false
+                },
+                // 计算交易额节点数字
+                turnOverNode: function () {
+                    var turnOver = this.$data.turnOver.toString();
+                    var tenMillion = turnOver.substr(-8, 1);
+                    if (tenMillion > 0) {
+                        return Math.floor(turnOver / 100000000 * 10) / 10;
+                    } else {
+                        return parseInt(turnOver / 100000000);
+                    }
+                },
+                // 判断是否超过100亿
+                isAboveTenBillion: function () {
+                    return this.$data.turnOver < 10000000000 ? true : false;
+                },
+                //待送出金条
+                remainGold: function () {
+                    var gold = 12;
+                    this.$data.billions.forEach(function (item, index) {
+                        if (item.status == 2) {
+                            if (gold == 0) {
+                                return 0
+                            }
+                            if (index == 10) {
+                                gold -= 2
+                            } else {
+                                gold -= 1
+                            }
+                        }
+                    })
+                    return gold;
+                }
+            },
+            methods: {
+                open: function (packId, index) {
+                    if (!this.$data.uid) {
+                        location.href = '/ind/login.html'
+                    }
+                    console.log(packId, index);
+                    var $this = this;
+                    $.post('/index.php?_url=/api/pack/open', { activityId: 14, uid: this.getQueryString('uid'), packId: packId }, function (data) {
+                        if (data.error_code == 0) {
+                            Object.assign($this.pack.today[index], data.data.pack[0])
+                        } else {
+                            console.log(data.msg)
+                        }
+                    })
+                },
+                go: function (url) {
+                    if (this.$data.uid) {
+                        location.href = url;
+                    } else {
+                        location.href = '/ind/login.html'
+                    }
+                },
+                //展开收起
+                showList: function () {
+                    if (this.$data.awardee.length <= 6) {
+                        return
+                    }
+                    this.$data.flag = !this.$data.flag;
+                    this.$data.flag ? document.querySelector('.icon-top').style.cssText = 'transform:rotate(360deg)' : document.querySelector('.icon-top').style.cssText = 'transform:rotate(-180deg)';
+                },
+                history: function (val) {
+                    if (!this.$data.uid) {
+                        location.href = '/ind/login.html'
+                    }
+                    var $this = this;
+                    var item;
+                    if (this.$data.val) {
+                        item = this.$data.val.toString().replace(/[\u4e00-\u9fa5]/g, '');
+                    } else {
+                        item = this.$data.val;
+                    }
+                    $.post('/?m=Activity&a=upNovHistoryRank', { d: item }, function (data) {
+                        if (data.r == 1) {
+                            $this.$data.date = data.date;
+                            $this.$data.historyRank = data.rank;
+                            $this.showAlert('history-box');
+                        }
+                    })
+                },
+                getRank: function (item, index) {
+                    this.$data.dateIndex = index;
+                    this.$data.dateFlag = true;
+                    this.hideAlert('date-item');
+                    this.$data.val = item;
+                    this.history(item);
+                },
+                showAlert: function (ref) {
+                    this.$refs[ref].style.display = 'block'
+                },
+                hideAlert: function (ref) {
+                    this.$refs[ref].style.display = 'none'
+                },
+                position: function () {
+                    $('html,body').animate({ 'scrollTop': '3510' }, 1000)
+                },
+                getQueryString: function (name) {
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                    var r = window.location.search.substr(1).match(reg);
+                    if (r != null) return unescape(r[2]);
+                    return null;
+                },
+                //字符串进行解密
+                uncompileStr: function (code) {
+                    code = unescape(code);
+                    var c = String.fromCharCode(code.charCodeAt(0) - code.length);
+                    for (var i = 1; i < code.length; i++) {
+                        c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1));
+                    }
+                    return c;
+                }
+            },
+            created: function () {
+                var $this = this;
+                var uid = this.uncompileStr(this.getQueryString('uid'));
+                $.post('/index.php?_url=/api/activity/index', { activityId: 14, uid: uid }, function (data) {
+                    if (data.error_code == 0) {
+                        $this.$data.uid = true;
+                        var data = data.data;
+                        $this.totalNum = data.pack.totalNum;
+                        $this.user = data.rank.user;
+                        $this.pack = data.pack;
+                        //每日英雄榜
+                        data.rank.currentRanks.forEach(function (item, index) {
+                            if (item) {
+                                $this.rank[index].mobile = item.mobile;
+                                $this.rank[index].money = item.money;
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>

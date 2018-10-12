@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection" />
+    <title>统计详情</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico" />
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="./index.css">
+    <!-- 弹窗插件样式 -->
+    <link rel="stylesheet" href="/static/css/remodal.css">
+
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="tj-detail">
+            <div class="interval"></div>
+            <div class="top">
+                <p class="title" v-text="tjTitle"></p>
+                <div id="chart" style="width: 100%;height:3.2rem;"></div>
+                <div class="tab-switch">
+                    <div :class="{'tab-left': true, 'tab-active': currentDate === 7}" @click="switchDate('7')">7日</div>
+                    <div :class="{'tab-right': true, 'tab-active': currentDate === 30}" @click="switchDate('30')">30日</div>
+                </div>
+            </div>
+            <div class="section-name">
+                <div class="section-title">
+                    <div class="icon"></div>
+                    数据明细
+                </div>
+            </div>
+            <div class="data-detail">
+                <table>
+                    <tr>
+                        <td>序号</td>
+                        <td>日期</td>
+                        <td v-text="tjUnit"></td>
+                    </tr>
+                    <tr v-for="(item, index) in lineData" :key="index">
+                        <td>{{index + 1}}</td>
+                        <td>{{item.date}}</td>
+                        <td v-text="computedData(item)"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="interval"></div>
+        </div>
+
+        <!-- 弹窗提示 -->
+        <div class="dialog-tip">
+            <div class="content" v-text="dialogText"></div>
+        </div>
+
+        <!-- loading -->
+        <div class="loading-wrapper">
+            <div class="spinner-snake" style="border-top-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); height: 32px; width: 32px;"></div>
+            <span class="indicator-text">加载中...</span>
+        </div>
+    </div>
+
+    <script src="/static/js/fastclick.min.js"></script>
+    <script src="/static/js/zepto.min.js"></script>
+    <script src="/static/js/vue.min.js"></script>
+    <!-- 弹窗插件 -->
+    <script src="/static/js/remodal.min.js"></script>
+    <!-- 工具类函数 -->
+    <script src="/static/js/util/util.js"></script>
+    <!-- 图表插件 -->
+    <script src="/static/js/echarts.common.min.js"></script>
+
+    <script>  
+        // 解决移动端页面click事件存在300毫秒延迟
+        document.addEventListener('DOMContentLoaded', function () {
+            FastClick.attach(document.body);
+        }, false);
+
+        // 避免页面从缓存中加载
+        window.onpageshow = function (e) {
+            e = e || event;
+            if (e.persisted) {
+                location.reload();
+            }
+        }
+
+        // 获取url参数
+        function getParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+
+        var mySwiper = null;
+
+        var vm = new Vue({
+        el: '#app',
+        data: function() {
+            return {
+                dialogText: '', // 弹窗提示文本内容
+                currentDate: 7, // 当天展示的时间，默认为7天
+                data: {}, // 上个页面传过来的原始数据
+                lineData: {}, // 页面展示数据，7天30天切换
+                tjTitle: '', // 统计标题
+                tjUnit: '', // 统计单位，
+            }
+        },
+
+        created: function() {
+            var token = getLocalStorageItem('token');
+            if (token) {
+                this.data = getLocalStorageItem('tj_data').reverse();
+                this.tjTitle = getLocalStorageItem('tj_title');
+                this.tjUnit = getLocalStorageItem('tj_unit');
+            } else {
+                this.logOut();
+            }
+        },
+
+        mounted: function() {
+            this.initChart();
+        },
+
+        methods: {
+            // 打开弹窗提示
+            showMsg: function(msg) {
+                this.dialogText = msg;
+                $(".dialog-tip").show();
+                setTimeout(function() {
+                    $(".dialog-tip").hide();
+                }, 2000);
+            },
+
+            // 切换7天和30天
+            switchDate: function(index) {
+                if(index === "7") {
+                    this.currentDate = 7;
+                    this.initChart(); // 切换后重新初始化渲染图标
+                } else if(index === "30") {
+                    this.currentDate = 30;
+                    this.initChart();
+                }
+            },
+
+            // 取日期数据
+            forDate: function(arr) {
+                var result = [];
+                arr.forEach(function(value, index) {
+                    result.push(value.date);
+                })
+                return result;
+            },
+
+            // 取金额数据
+            forMoney: function(arr) {
+                var result = [];
+                var _self = this;
+                arr.forEach(function(value, index) {
+                    result.push(_self.convert(value.money));
+                })
+                return result;
+            },
+
+            // 取百分比数据
+            forPercentage: function(arr) {
+                var result = [];
+                var _self = this;
+                arr.forEach(function(value, index) {
+                    result.push(_self.toFixed(value.money));
+                })
+                return result;
+            },
+
+            // 取人数数据
+            forNumber: function (arr) {
+                var result = [];
+                var _self = this;
+                arr.forEach(function (value, index) {
+                    result.push(value.shuliangCount);
+                })
+                return result;
+            },
+
+            //转万元
+            convert: function(num) {
+                if(num) {
+                    return ((num*1/10000).toFixed(2)*1);
+                } else {
+                    return 0;
+                }
+            },
+
+            // 保留两位小数
+            toFixed: function(num) {
+                return num? (num*1).toFixed(2): 0;
+            },
+
+            // 登录状态过期跳转到登录页面并清空存储
+            logOut: function() {
+                localStorage.clear();
+                window.location.href = 'index.html';
+            },
+
+            // 计算表格数据，根据主页传过来的单位值判断要取什么数据，并格式化
+            computedData: function(data) {
+                var tjUnit = this.tjUnit;
+                switch (tjUnit) {
+                    case '金额':
+                        return this.convert(data.money);
+                        break;
+                    case '复投率':
+                        return this.toFixed(data.money);
+                        break;
+                    case '人数':
+                        return data.shuliangCount;
+                        break;
+                }
+            },
+
+            // 初始化图标
+            initChart: function() {
+                var currentDate = this.currentDate;
+                var tjUnit = this.tjUnit;
+                var data = this.data; //原始30天数据
+                var dataSeven = data.slice(-7); // 截取七天的数据
+                var chartData = currentDate === 7? dataSeven: data;
+                var lineData = JSON.stringify(chartData);
+                this.lineData = JSON.parse(lineData).reverse();
+                var dataX = this.forDate(chartData); // 取X轴的数组日期数据
+                var dataY = []; // 取Y轴的数组金额数据
+                var unit = '';
+                // 根据主页传过来的单位值判断要取什么数据，并格式化
+                switch (tjUnit) {
+                    case '金额':
+                        dataY = this.forMoney(chartData);
+                        unit = '万元';
+                        break;
+                    case '复投率':
+                        dataY = this.forPercentage(chartData);
+                        unit = '%';
+                        break;
+                    case '人数':
+                        dataY = this.forNumber(chartData);
+                        unit = '人数';
+                        break;
+                }
+                
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('chart'));
+
+                // 指定图表的配置项和数据
+                var option = {
+                    tooltip: {},
+                    grid: {
+                        top: 30,
+                        bottom: 25,
+                        left: 15,
+                        right: 0
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: dataX,
+                        axisTick: {
+                            alignWithLabel: true
+                        },
+                        axisLine: {
+                            symbol: ['none','arrow'],
+                            symbolSize: [10, 12],
+                            lineStyle: {
+                                color: ['#5569cc']
+                            }
+                        },
+                        axisLabel: {
+                            color: function(value, index) {
+                                return '#6c6c6c';
+                            }
+                        }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        name: unit,
+                        splitLine: {
+                            show: false
+                        },
+                        axisTick: {
+                            show: false
+                        },
+                        axisLabel: {
+                            show: false
+                        },
+                        axisLine: {
+                            symbol: ['none','arrow'],
+                            symbolSize: [10, 12],
+                            lineStyle: {
+                                color: ['#5569cc']
+                            }
+                        },
+                    },
+                    series: [{
+                        data: dataY,
+                        type: 'line',
+                        symbol: 'circle',
+                        symbolSize: 4,
+                        sampling: 'average',
+                        label: {
+                            show: true,
+                            position: 'top',
+                            color: '#0c5da3',
+                            fontSize: '.2rem'
+                        },
+                        lineStyle: {
+                            normal: {
+                                color: '#e0e4f6',
+                                opacity: 0.2
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                color: '#0c5da3'
+                            }
+                        },
+                        areaStyle: {
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    offset: 0,
+                                    color: '#e0e4f6'
+                                }, {
+                                    offset: 1,
+                                    color: '#f5f7fc'
+                                }])
+                            }
+                        }
+                    }]
+                };
+
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            }
+        }
+    });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,521 @@
+@import "./libs/mixin.scss";
+
+body {
+  overflow-x: hidden;
+  background: #fff3d2; /* 一些不支持背景渐变的浏览器 */
+}
+
+//按钮————————————————
+.loginbtn {
+  @include box((w:280px, h:62px, bdr:10px, m:0 auto, mt:50px));
+  a {
+    @include box((d:block, w:100%, h:100%, fs:28px, c:#fff, lh:62px, ta:center));
+  }
+  //box-shadow: 3px 3px 5px rgba(150, 27, 22, 0.3);
+  background: #ff9e12;
+  background: -webkit-gradient(linear, left 0, right 0, from(#ff9e12), to(#ffbf13));
+  background: -moz-linear-gradient(left, #ff9e12, #ffbf13);
+  background: -o-linear-gradient(left, #ff9e12, #ffbf13);
+}
+
+//——————————————————————————
+.invite {
+  .bg1 {
+    @include box((h:567px));
+    @include background((repeat:no-repeat, pos:center center));
+    background-image: url('https://images.51rz.com/images/rebuild/invite/invite_bg.png');
+  }
+  //邀请方式
+  .method {
+    @include box((w:1090px, m:0 auto, mb:75px, bg:#fff, bdr:9px));
+    position: relative;
+    box-shadow: 10px 17px 0 #fce8bc;
+    .content {
+      @include box((pt:111px));
+      ul {
+        @include box((w:990px, m:0 auto));
+        li {
+          @include box((w:300px, bdr:9px, fl:left, pt:51px, ta:center));
+          border: 3px solid #81b4ff;
+          position: relative;
+          overflow: visible;
+          .step {
+            @include box((w:50px, h:50px, bdr:50%, fs:30px, c:#fff, lh:50px, ta:center, m:auto));
+            background: #81b5ff; /* 一些不支持背景渐变的浏览器 */
+            background: -moz-linear-gradient(top, #81b5ff, #789bff);
+            background: -webkit-gradient(linear, 0 0, 0 bottom, from(#81b5ff), to(#789bff));
+            background: -o-linear-gradient(top, #81b5ff, #789bff);
+            @include position((p:absolute, l:0, r:0, t:-26.5px));
+          }
+          &:nth-child(2) {
+            @include box((m:0 44px));
+          }
+          p {
+            @include box((fs:18px, c:#222));
+          }
+          .mylink {
+            @include box((w:217px, h:102px, bg:#fff8e3, m:0 auto, mt:10px, fs:16px, c:#999, p:14px 10px, lh:24px));
+            overflow-wrap: break-word;
+          }
+        }
+        &:after {
+          content: '';
+          display: block;
+          width: 0;
+          height: 0;
+          clear: both;
+        }
+      }
+
+    }
+    .gold {
+      @include position((p:absolute, b:-35px, r:245px));
+    }
+    :global {
+      .copy_success {
+        @include box((fs:16px, c:#fff, bg:rgba(0, 0, 0, 0.7), w:156px, h:56px, ta:center, lh:56px, m:auto, bdr:10px, d:none));
+        @include position((p:absolute, l:0, r:0, t:0, b:0,))
+      }
+    }
+  }
+  //攻略
+  .gonglue {
+    @include box((w:1158px, m:0 auto, mb:126px));
+    position: relative;
+    img {
+      @include box((d:block, m:0 auto));
+    }
+    .gold3 {
+      @include position((p:absolute, l:110px, b:-10px));
+    }
+  }
+}
+
+//  邀请记录 和奖励
+.recordtitle {
+  @include box((m:auto, width:100%, h:53px));
+  @include position((p:absolute, l:0, r:0, t:0));
+  .title {
+    @include box((w:223px, h:63px, pl:83px, fs:24px, c:#fff, lh:63px));
+    @include background((repaet:no-repeat, size:cover, position:center));
+    background-image: url('https://images.51rz.com/images/rebuild/invite/invite_title.png');
+    @include position((p:absolute, l:-5, t:-16px));
+    &.big {
+      @include box((w:273px));
+      background-image: url('https://images.51rz.com/images/rebuild/invite/invite_title_big.png');
+    }
+  }
+  .noticeContent {
+    @include box((h:53px, pl:33px, fl:right, mr:30px));
+    max-width: 558px;
+    @include background((pos:left center, repeat:no-repeat, size:21px 21px));
+    background-image: url('https://images.51rz.com/images/rebuild/invite/invite_notice.png');
+    overflow: hidden;
+    .content {
+      @include box((fs:18px, c:#999, lh:53px));
+      transition: margin-top .5s;
+    }
+  }
+}
+
+.record {
+  @include box((w:1090px, m:0 auto, mt:48px, bdr:9px, bg:#fff, mb:143px, p:0 30px, pt:55px, pb:50px));
+  box-shadow: 10px 17px 0 #fce8bc;
+  min-height: 361px;
+  position: relative;
+  .recordetail {
+    .nums {
+      @include clearfix();
+      & > p {
+        @include box((w:283px, h:50px, lh:51px, fl:left, fs:18px, ta:left, c:#222));
+        &:nth-child(4) {
+          width: 181px;
+          text-align: right;
+        }
+        span {
+          color: #ff7007;
+        }
+      }
+      .select {
+        @include box((w:117px, h:31px, fl:right, p:3px 0));
+        border: 1px solid #e5e5e5;
+        .option {
+          p {
+            @include box((fs:16px, fl:left, lh:25px, ta:center, w:72px));
+          }
+          .selectbtn {
+            @include box((fl:right, w:26px, h:23px, ta:center));
+            border-left: 1px solid #e5e5e5;
+          }
+        }
+      }
+      .loginbtn {
+        @include box((d:inline-block, w:40px, h:118px, fs:20px, lh:24px, c:#fff, ta:center, bdr:0 4px 4px 0, p:12px 10px 0));
+        vertical-align: middle;
+        cursor: pointer;
+        box-shadow: none;
+      }
+    }
+    .recordcontent {
+      @include box((p:0 29px, bdr:10px, mt:5px));
+      .recorehead {
+        @include box((bg:#f6f6f6, bdr:10px, m:0 -29px, p:0 55px, fa:18px, c:#555));
+        & > div {
+          @include box((w:33.33%, h:56px, lh:56px, ta:center, d:inline-block,fs:18px));
+          &:first-child {
+            text-align: left;
+          }
+          &:last-child {
+            text-align: right;
+          }
+        }
+      }
+      .records {
+        @include clearfix();
+        img {
+          display: block;
+        }
+        p {
+          @include box((lh:163px, fs:18px, c:#999, ta:center, ml:20px));
+        }
+      }
+      .lists {
+        .loginbtn {
+          @include box((c:#fff, ta:center, bdr:10px));
+          cursor: pointer;
+          box-shadow: 3px 3px 5px rgba(150, 27, 22, 0.3);
+          background: #999;
+          &.active {
+            background: #ef5933;
+            background: -webkit-gradient(linear, left 0, right 0, from(#f44a43), to(#ef5933));
+            background: -moz-linear-gradient(left, #f44a43, #ef5933);
+            background: -o-linear-gradient(left, #f44a43, #ef5933);
+          }
+        }
+        :global {
+          .pagination {
+            margin: 0 -29px;
+            padding: 30px 0 57px;
+            span.disabled {
+              strong {
+                color: #888;
+              }
+            }
+            strong {
+              color: #ff7007;
+
+            }
+            .next i {
+              background-image: url(https://images.51rz.com/images/rebuild/invite/next.png);
+            }
+            .prev i {
+              background-image: url(https://images.51rz.com/images/rebuild/invite/prev.png);
+            }
+            .next.disabled i {
+              background-image: url(https://images.51rz.com/images/rebuild/pc/img/page_next_disabled.png);
+            }
+            .prev.disabled i {
+              background-image: url(https://images.51rz.com/images/rebuild/pc/img/page_prev_disabled.png);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.contact {
+  position: relative;
+  .loginbtn {
+    @include box((d:inline-block, w:40px, h:118px, fs:20px, lh:24px, c:#fff, ta:center, bdr:0 4px 4px 0, p:12px 10px 0));
+    vertical-align: middle;
+    cursor: pointer;
+    box-shadow: none;
+  }
+  .recordetail {
+    .recordcontent {
+      @include box((p:0 29px, bdr:4px, mt:5px));
+      .recorehead {
+        @include box((bg:#f6f6f6, bdr:10px, m:0 -29px, p:0 30px, fa:18px, c:#555));
+        & > div {
+          @include box((h:56px, lh:56px, ta:center, d:inline-block));
+          &:first-child {
+            width: 74px;
+            text-align: center;
+          }
+          &:nth-child(2) {
+            width: 170px;
+          }
+          &:nth-child(3) {
+            width: 488px;
+          }
+          &:last-child {
+            width: 238px;
+            padding-left: 58px;
+            text-align: center;
+          }
+        }
+      }
+      .lists {
+        li {
+          div {
+            @include box((h:56px, lh:56px, ta:center, d:inline-block));
+            &:first-child {
+              width: 74px;
+            }
+            &:nth-child(2) {
+              width: 170px;
+            }
+            &:nth-child(3) {
+              color: #ff7007;
+              width: 488px;
+            }
+            &:last-child {
+              width: 238px;
+              padding-left: 58px;
+            }
+          }
+        }
+        :global {
+          .pagination {
+            margin: 0 -29px;
+            padding: 30px 0 57px;
+            background: #fffbf1;
+          }
+          .rank1 {
+            div {
+              &:first-child {
+                color: #fff;
+                background: url(https://images.51rz.com/images/rebuild/invite/rank1.png) center no-repeat;
+                background-size: 30px 38px;
+                padding-top: 4px;
+              }
+            }
+          }
+          .rank2 {
+            div {
+              &:first-child {
+                color: #fff;
+                background: url(https://images.51rz.com/images/rebuild/invite/rank2.png) center no-repeat;
+                background-size: 30px 38px;
+                padding-top: 4px;
+              }
+            }
+          }
+          .rank3 {
+            div {
+              &:first-child {
+                color: #fff;
+                background: url(https://images.51rz.com/images/rebuild/invite/rank3.png) center no-repeat;
+                background-size: 30px 38px;
+                padding-top: 4px;
+              }
+            }
+          }
+
+        }
+      }
+
+    }
+  }
+}
+
+.reward_mask {
+  @include box((bg:rgba(0, 0, 0, .7)));
+  @include position((p:fixed, l:0, r:0, b:0, t:0, z:1000));
+  .reward {
+    @include box((w:812px, bg:#fff, bdr:22px, ml:-406px, mt:-240px, p:45px 63px));
+    min-height: 480px;
+    border: 5px solid #92bae2;
+    @include position((p:absolute, l:50%, t:50%));
+    .close {
+      @include box((w:57px, h:57px));
+      @include background((url:'yqColse.png', repeat:no-repeat, pos:center center));
+      @include position((p:absolute, t:-28px, r:-30px))
+    }
+    h4 {
+      @include box((fw:600, fs:24px, c:#222, ta:center, mb:32px))
+    }
+    .desc {
+      margin-bottom: 20px;
+      p {
+        @include box((w:33.33%, d:inline-block, fs:18px, c:#222));
+        span {
+          @include box((c:#ef5933))
+        }
+        &:nth-child(2) {
+          @include box((ta:center))
+        }
+        &:nth-child(3) {
+          @include box((ta:right))
+        }
+      }
+    }
+    th, td {
+      @include box((h:56px, w:33.33%));
+      border-right: 1px solid #dddddd;
+    }
+  }
+}
+
+//活动规则
+table {
+  @include box((m:0 auto, w:690px));
+  thead th span {
+    @include box((d:inline-block, w:50%, ta:center))
+  }
+  th {
+    @include box((bg:#789bff, fs:18px, c:#fff, fw:500, h:56px));
+    background: #789bff;
+    background: -webkit-gradient(linear, left 0, right 0, from(#789bff), to(#82b7ff));
+    background: -moz-linear-gradient(left, #789bff, #82b7ff);
+    background: -o-linear-gradient(left, #789bff, #82b7ff);
+  }
+  td {
+    @include box((bg:#fff, fs:16px, c:#555, fw:500, ta:center, h:57px));
+    border-right: 1px solid #dddddd;
+    span {
+      color: #ff7007;
+    }
+  }
+  tbody {
+    tr {
+      border-left: 1px solid #dddddd;
+      border-bottom: 1px solid #dddddd;
+    }
+  }
+}
+
+.invite_gift {
+  .rules {
+    @include box((w:1090px, m:0 auto, mt:115px, mb:70px, bg:#fff, p:65px 78px 37px, bdr:9px));
+    box-shadow: 10px 17px 0 #fce8bc;
+    position: relative;
+    .send {
+      p {
+        @include box((fs:18px, c:#999, ta:left))
+      }
+      ul {
+        @include box((w:100%, mt:40px));
+        @include clearfix();
+        li {
+          @include box((fl:left, w:50%));
+          img {
+            @include box((d:block, m:0 auto))
+          }
+        }
+      }
+    }
+    .back {
+      .tip_text {
+        @include box((fs:19px, c:#999, mb:40px))
+      }
+    }
+    .reward {
+      @include box((c:#222, fs:18px, ta:center));
+      span {
+        color: #ff7007
+      }
+    }
+    p {
+      @include box((fs:14px, c:#999, ta:center));
+    }
+
+    a.loginbtn {
+      @include box((d:inline-block, w:40px, h:118px, fs:20px, lh:24px, c:#fff, ta:center, bdr:0 4px 4px 0, p:12px 10px 0));
+      vertical-align: middle;
+      cursor: pointer;
+      box-shadow: none;
+    }
+  }
+}
+
+.explain {
+  @include box((h:437px, w:100%, bg:#fce8bc));
+  .rule_detail {
+    @include box((w:1044px, m:0 auto, pl:55px));
+    h3 {
+      @include box((c:#ff9e12, fs:32px, lh:100px, fw:500));
+    }
+    .article {
+      ol {
+        li {
+          list-style: decimal;
+          overflow: visible;
+        }
+      }
+      @include box((lh:30px, fs:16px, c:#555));
+    }
+  }
+}
+
+.lastArticle{
+  .lastTitle{
+    @include box((h: 56px, bg:#799fff, fs:16px, c:#fff));
+    & > div{height:56px; line-height: 56px; float:left;text-align:center;}
+    & > div:nth-child(1){
+      width:115px;
+    }
+    & > div:nth-child(2){
+      width:200px;
+    }
+    & > div:nth-child(3){
+      width:200px;
+    }
+    & > div:nth-child(4){
+      width:200px;
+    }
+  }
+  .lists {
+    overflow:overlay;
+    height:288px;
+    &::-webkit-scrollbar 
+    { 
+        width: 5px; 
+        height: 5px; 
+        background-color: #f5f5f5; 
+    } 
+    &::-webkit-scrollbar-track 
+    { 
+        -webkit-box-shadow: inset 0 0 6px rgba(121,159,255,.3); 
+        border-radius: 10px; 
+        background-color: #f5f5f5; 
+    } 
+    &::-webkit-scrollbar-thumb 
+    { 
+        border-radius: 10px; 
+        -webkit-box-shadow: inset 0 0 6px rgba(121,159,255,.3); 
+        background-color: #799fff; 
+    }
+    li {
+      div {
+        @include box((h:56px, lh:56px, ta:center, d:inline-block));
+        &:first-child {
+          width: 110px;
+        }
+        &:nth-child(2) {
+          width: 200px;
+        }
+        &:nth-child(3) {
+          color: #ff7007;
+          width: 200px;
+        }
+        &:last-child {
+          width: 206px;
+        }
+      }
+    }
+  }
+}
+
+:global {
+  .loginMask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 20000;
+  }
+}

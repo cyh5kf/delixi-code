@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="wap-font-scale" content="no"/>
+    <title>发现</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico"/>
+    <link rel="stylesheet" href="/static/css/swiper.min.css">
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+</head>
+<style>
+    html {
+        font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft Yahei, STHeiTi, Arial, sans-serif;
+        background-color: #fff;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0.22rem;
+        box-sizing: border-box;
+        line-height: 1.5;
+        text-decoration: none;
+        color: #222;
+    }
+
+    body {
+        background: #f6f6f6;
+    }
+
+    #container {
+        max-width: 7.5rem;
+        margin: 0 auto;
+    }
+
+    [v-cloak] {
+        display: none;
+    }
+
+    .waiting {
+        width: 100%;
+        height: 100%;
+        background: #eeeeee;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .waiting img {
+        display: block;
+        width: 5.63rem;
+        margin: 0 auto;
+    }
+
+    .banner {
+        width: 100%;
+        height: 4.69rem;
+        background: url('https://images.51rz.com/images/jifen/index/index_bg.png');
+        background-size: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .swiper-container {
+        width: 100%;
+        height: 300px;
+        margin: 20px auto;
+    }
+
+    .swiper-wrapper {
+        padding-bottom: 0.8rem;
+        box-sizing: border-box;
+    }
+
+    .banner-wrapper {
+        padding-bottom: 0.8rem;
+        box-sizing: border-box;
+        margin-top: 0.45rem;
+    }
+
+    .banner .swiper-slide {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+
+    }
+
+    .banner .swiper-slide .cardBg {
+        height: 2.3rem;
+    }
+
+    .banner .swiper-slide-active .cardBg {
+        width: 5rem;
+        height: 2.89rem;
+    }
+
+    .card {
+        position: relative;
+    }
+
+    .card div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        padding: 0.4rem 0.3rem;
+    }
+
+    .banner .swiper-slide-active .card div p {
+        color: #fff;
+        font-size: 0.22rem;
+    }
+
+    .card div p {
+        color: #fff;
+    }
+
+    .banner .swiper-slide-active .card .cardLV {
+        font-size: 0.48rem;
+        font-weight: bold;
+        margin-bottom: 0.2rem;
+    }
+
+    .card .cardHead {
+        position: absolute;
+        right: 0.3rem;
+        top: 0.4rem;
+        width: 1.1rem;
+        height: 1.1rem;
+        border: 0.05rem solid #fff;
+        border-radius: 0.55rem;
+    }
+
+    .upValue {
+        position: absolute;
+        bottom: 0.5rem;
+        left: 1.35rem;
+        z-index: 2;
+        width: 4.8rem;
+        height: 0.6rem;
+        line-height: 0.6rem;
+        font-size: 0.24rem;
+        background: rgba(246, 246, 246, 0.2);
+        border-radius: 0.3rem;
+        -webkit-border-radius: 0.3rem;
+        -moz-border-radius: 0.3rem;
+        -ms-border-radius: 0.3rem;
+        -o-border-radius: 0.3rem;
+        color: #fff;
+        padding: 0 0.3rem;
+    }
+
+    .upValue span {
+        color: #fff;
+    }
+
+    .upIcon {
+        width: 0.2rem;
+        height: 0.28rem;
+        vertical-align: middle;
+        margin-right: 0.17rem;
+    }
+
+    .upArrow {
+        width: 0.2rem;
+        height: 0.36rem;
+        margin-top: 0.12rem;
+        float: right;
+    }
+
+    .nav {
+        background: #fff;
+        width: 100%;
+        height: 1.5rem;
+        font-size: 0.24rem;
+        overflow: hidden;
+    }
+
+    .nav a {
+        display: block;
+    }
+
+    .nav .swiper-slide {
+        width: 1.6rem;
+        height: 1.5rem;
+        padding: 0.3rem 0;
+        text-align: center;
+        display: inline-block;
+    }
+
+    .nav img {
+        width: 0.48rem;
+        height: 0.48rem;
+    }
+
+    .score {
+        background: #fff;
+        height: 0.87rem;
+        padding: 0 0.3rem;
+        margin-top: 0.2rem;
+        font-size: 0.24rem;
+    }
+
+    .score div {
+        height: 0.87rem;
+        line-height: 0.87rem;
+        color: #999;
+        width: 50%;
+        float: left;
+    }
+
+    .notHas {
+        position: relative;
+    }
+
+    .notHas:after {
+        content: '';
+        display: block;
+        /*width:0.1rem;*/
+        /*height:0.1rem;*/
+        width: 5px;
+        height: 5px;
+        /*border-top-left-radius: 999px; !* 左上角 *!*/
+        /*border-top-right-radius: 999px; !* s右上角 *!*/
+        /*border-bottom-right-radius: 999px; !* 右下角 *!*/
+        /*border-bottom-left-radius:999px; !* 左下角 *!*/
+        border-radius: 2.5px;
+        /*border-top-left-radius: 0.05rem; !* 左上角 *!*/
+        /*border-top-right-radius: 0.05rem; !* s右上角 *!*/
+        /*border-bottom-right-radius: 0.05rem; !* 右下角 *!*/
+        /*border-bottom-left-radius: 0.05rem; !* 左下角 *!*/
+        /*border-radius:0.05rem;*/
+        background: #f64c3e;
+        position: absolute;
+        top: 0;
+        right: -0.05rem;
+        box-sizing: border-box;
+    }
+
+    .score .record {
+        display: block;
+        color: #4992ec;
+        line-height: 0.87rem;
+        text-align: right;
+    }
+
+    .score h3 {
+        font-size: 0.3rem;
+        color: #222;
+        display: inline;
+        margin-right: 0.15rem;
+    }
+
+    .scoreArrow {
+        width: 0.13rem;
+        height: 0.24rem;
+        margin-left: 0.1rem;
+        vertical-align: text-top;
+    }
+
+    .scoreVertical {
+        display: inline-block;
+        width: 0.05rem;
+        height: 0.3rem;
+        background: #d7a55e;
+        margin-right: 0.05rem;
+        vertical-align: sub;
+    }
+
+    .list {
+        background: #fff;
+        padding-bottom: 0.99rem;
+    }
+
+    .list:after {
+        display: block;
+        content: '';
+        width: 0;
+        height: 0;
+        clear: both;
+    }
+
+    .list .list_box {
+        display: block;
+        width: 50%;
+        height: 3.33rem;
+        float: left;
+        border-top: 1px solid #e5e5e5;
+        padding: 0.5rem 0.3rem;
+        box-sizing: border-box;
+    }
+
+    .list .list_box:nth-child(odd) {
+        border-right: 1px solid #e5e5e5;
+    }
+
+    .list .list_box div {
+        width: 2rem;
+        height: 1.4rem;
+        margin: auto;
+        text-align: center;
+    }
+
+    .list .redPack {
+        background: url('https://images.51rz.com/images/jifen/redpack.png');
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .list .interest {
+        padding: 0 0.1rem;
+        background: url('https://images.51rz.com/images/jifen/interest.png');
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .redPack p:nth-child(1) {
+        color: #ffb4a1;
+        font-size: 0.24rem;
+        line-height: 0.6rem;
+    }
+
+    .interest p:nth-child(1) {
+        color: #f0cd9c;
+        font-size: 0.24rem;
+        line-height: 0.6rem;
+        border-bottom: 0.02rem dashed #ebc796;
+    }
+
+    .redPack p, .interest p {
+        color: #fff;
+        font-size: 0.3rem;
+    }
+
+    .redPack span, .interest span {
+        color: #fff;
+        font-size: 0.48rem;
+    }
+
+    .list .list_name {
+        margin-top: 0.2rem;
+        color: #555;
+        font-size: 0.28rem;
+    }
+
+    .list .list_score {
+        color: #ff9b09;
+        font-size: 0.22rem;
+    }
+
+    .menu {
+        max-width: 720px;
+        border-top: 1px solid #E5E5E5;
+        background: #fff;
+        margin: auto;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+    }
+
+    .menu > div {
+        color: #999;
+        text-align: center;
+        float: left;
+        width: 25%;
+    }
+
+    .menu_checked .icon_find {
+        background: url(https://images.51rz.com/images/rebuild/nav/menu_find_check.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .menu .icon_index {
+        background: url(https://images.51rz.com/images/rebuild/nav/menu_index.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .menu .icon_tender {
+        background: url(https://images.51rz.com/images/rebuild/nav/menu_tender.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    .menu .icon_my {
+        background: url(https://images.51rz.com/images/rebuild/nav/menu_my.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    .menu_checked span[data-v-f2e43d16] {
+        color: #ff6058;
+    }
+
+    .menu span[data-v-f2e43d16] {
+        font-size: 0.14rem;
+        display: block;
+        margin: 0.04rem 0;
+    }
+
+    .icon {
+        width: 0.54rem;
+        height: 0.54rem;
+        display: block;
+        margin: 0.14rem auto 0;
+    }
+
+    .guide {
+        position: fixed;
+        background: rgba(0, 0, 0, 0.7);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 20;
+    }
+
+    .guide_btn {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 1.30rem;
+        margin: auto;
+        width: 2.31rem;
+        height: 1.11rem;
+        background: url(https://images.51rz.com/images/jifen/index/guide_btn.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        font-size: 0.36rem;
+        color: #fff;
+        text-align: center;
+        padding-top: 0.26rem;
+    }
+
+    .reward {
+        width: 6.5rem;
+        position: absolute;
+        left: 0.41rem;
+        display: block;
+        top: 4.83rem;
+    }
+
+    .step1 .desc {
+        width: 6.3rem;
+        height: 1.36rem;
+        position: absolute;
+        top: 6.69rem;
+        left: 0;
+        right: 0;
+        margin: auto;
+        padding: 0.3rem 0;
+    }
+
+    .step1 .desc p {
+        text-align: center;
+        color: #fff;
+        font-size: 0.24rem;
+    }
+
+    .slider {
+        position: absolute;
+        top: 1.78rem;
+        width: 100%;
+    }
+
+    .slider img {
+        display: block;
+        margin: 0 auto;
+        width: 3.29rem;
+        height: 0.92rem;
+        /*animation: slider 0.5s infinite;*/
+    }
+
+    /*@keyframes slider {*/
+    /*0%{*/
+    /*transform: translateX(-10px);*/
+    /*}*/
+    /*100%{*/
+    /*transform: translateX(10px);*/
+    /*}*/
+    /*}*/
+
+    .slider p {
+        text-align: center;
+        color: #fff;
+        font-size: 0.24rem;
+    }
+
+    [v-show], [v-if] {
+        display: none;
+    }
+</style>
+<body>
+<div id="container">
+    <div v-if="data" v-cloak>
+        <!-- <div class="banner swpier-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" v-for="(item,index) in bannerList">
+                    <div class="card">
+                        <img class="cardBg" :src="'https://images.51rz.com/images/jifen/index/index_banner'+index+'.png'"
+                            alt=""/>
+                        <div>
+                            <p v-text="info.level == item.level?'当前等级':''" style="height: 0.36rem"></p>
+                            <p class="cardLV" v-text="item.name"></p>
+                            <p v-text="levelDesc(item.level).title"></p>
+                            <p v-text="levelDesc(item.level).content" style="font-size: 0.28rem"></p>
+                        </div>
+                        <img class="cardHead" :src="info.avatar_pic_path || 'https://images.51rz.com/images/pc-jifen/my_head.png'"
+                            alt=""/>
+                    </div>
+                </div>
+            </div>
+            <a :href="'growRecord.html?token='+token">
+                <div class="upValue">
+                    <img class="upIcon" src="https://images.51rz.com/images/jifen/index/upValue.png" alt=""/>
+                    成长值:<span v-text="info.grow"></span>
+                    <img class="upArrow" src="https://images.51rz.com/images/jifen/index/upArrow.png" alt=""/>
+                </div>
+            </a>
+        </div> -->
+
+        <div class="banner banner-container">
+            <div class="banner-wrapper">
+                <div class="swiper-slide swiper-slide-active">
+                    <div class="card" v-if="info.level">
+                        <img class="cardBg" :src="'https://images.51rz.com/images/jifen/index/index_banner'+(info.level-1)+'.png'"
+                            alt=""/>
+                        <div>
+                            <p v-text="info.level == bannerList[info.level-1].level?'当前等级':''" style="height: 0.36rem"></p>
+                            <p class="cardLV" v-text="bannerList[info.level-1].name"></p>
+                            <p v-text="levelDesc(bannerList[info.level-1].level).title"></p>
+                            <p v-text="levelDesc(bannerList[info.level-1].level).content" style="font-size: 0.28rem"></p>
+                        </div>
+                        <img class="cardHead" :src="info.avatar_pic_path || 'https://images.51rz.com/images/pc-jifen/my_head.png'"
+                            alt=""/>
+                    </div>
+                </div>
+            </div>
+            <a :href="'growRecord.html?token='+token">
+                <div class="upValue">
+                    <img class="upIcon" src="https://images.51rz.com/images/jifen/index/upValue.png" alt=""/>
+                    我的成长值:<span v-text="info.grow"></span>
+                    <img class="upArrow" src="https://images.51rz.com/images/jifen/index/upArrow.png" alt=""/>
+                </div>
+            </a>
+        </div>
+
+        <div class="nav swpier-nav">
+            <div class="swiper-wrapper" style="width:10rem">
+                <div class="swiper-slide" v-for="(item,index) in navList" :key="index">
+                    <a :href="item.href+'?token='+token+'&level='+info.level+'&selectLevel='+level">
+                        <img :src="'https://images.51rz.com/images/jifen/index/index_icon'+(item.status==0?'7':item.index)+'.png'"
+                            alt="">
+                        <p v-show="index!==0&&index!==2"><span v-text="item.name"></span></p>
+                        <p v-show="index==0"><span
+                                :class="(info.level*1>=level&&item.status&&item.has_gift==0)?'notHas':'has'"
+                                v-text="item.name"></span></p>
+                        <p v-show="index==2"><span :class="item.status&&info.level==level&&item.has_gift==0?'notHas':'has'"
+                                                v-text="item.name"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="score">
+            <div>
+                <span class="scoreVertical"></span>
+                <h3>积分兑换</h3>
+                <span style="color: #ff9b09;" v-text="info.integral"></span>分
+            </div>
+            <div>
+                <a :href="'integralRecord.html?token='+token+'&type='+type+'&realName='+realName" class="record">
+                    积分记录
+                    <img class="scoreArrow" src="https://images.51rz.com/images/jifen/index/scoreArrow.png" alt=""/>
+                </a>
+            </div>
+        </div>
+        <div class="list" :style="{padding:loginfrom=='app'&&0}">
+            <a class="list_box" v-for="(item,index) in goodsList"
+            :href="'exchangeDetail.html?token='+token+'&goods_id='+item.id+'&type='+type">
+                <div v-if="item.cate_id == 2" class="redPack">
+                    <p>红包</p>
+                    <p><span v-text="item.coupon_money"></span>元</p>
+                </div>
+                <div v-if="item.cate_id == 3" class="interest">
+                    <p>加息券</p>
+                    <p><span v-text="item.coupon_money"></span>%</p>
+                </div>
+                <p class="list_name" v-text="item.title"></p>
+                <span class="list_score" v-text="item.change_integral*1+'积分'"></span>
+            </a>
+        </div>
+        <div class="menu" v-show="loginfrom!='app'">
+            <div>
+                <a :href="'http://'+type+'.51rz.com/index'" class="">
+                    <div>
+                        <p class="icon icon_index"></p>
+                        <span>首页</span></div>
+                </a>
+            </div>
+            <div>
+                <a :href="'http://'+type+'.51rz.com/tender'" class="">
+                    <div>
+                        <p class="icon icon_tender"></p>
+                        <span>理财</span>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href=""
+                class="router-link-exact-active menu_checked">
+                    <div>
+                        <p class="icon icon_find"></p>
+                        <span>发现</span>
+                    </div>
+                </a>
+            </div>
+            <div><a :href="'http://'+type+'.51rz.com/my/index'" class="">
+                <div>
+                    <p class="icon icon_my"></p>
+                    <span>我的</span>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <div class="guide" @touchmove.prevent v-show="showStep">
+            <div class="step1">
+                <img class="reward" src="https://images.51rz.com/images/jifen/index/reward.png" alt="">
+                <div v-show="step==1" class="slider">
+                    <img src="https://images.51rz.com/images/jifen/index/slider.png" alt="">
+                    <p>左右滑动即可切换等级</p>
+                </div>
+
+                <div v-show="step==0" class="desc">
+                    <p>恭喜！您提升了一个会员等级啦！</p>
+                    <p>点击领取当前升级礼包，福利不容错过！</p>
+                </div>
+                <div v-show="step==1" class="desc">
+                    <p>恭喜！您跨升了多个会员等级啦！</p>
+                    <p>切换不同等级，点击领取不同的升级礼包！</p>
+                </div>
+            </div>
+            <div class="guide_btn" v-show="step==0" @click="step=1">下一步</div>
+            <div class="guide_btn" v-show="step==1" @click="showStep=false">我知道了</div>
+        </div>
+    </div>
+    <div class="waiting" v-else v-cloak>
+        <img src="https://images.51rz.com/images/jifen/index/waiting.png" alt="">
+    </div>
+</div>
+
+
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/swiper.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script>
+    //避免页面从缓存中加载
+    window.onpageshow = function (e) {
+        e = e || event;
+        if (e.persisted) {
+            location.reload();
+        }
+    }
+    var vm = new Vue({
+        el: '#container',
+        data: {
+            token: '',
+            info: {
+                level: 0
+            },   //用户信息
+            bannerList: [
+                {
+                    name: '普通用户',
+                    level: 1,
+                },
+                {
+                    name: '青铜会员',
+                    level: 2,
+                },
+                {
+                    name: '白银会员',
+                    level: 3,
+                },
+                {
+                    name: '黄金会员',
+                    level: 4,
+                },
+                {
+                    name: '铂金会员',
+                    level: 5,
+                },
+                {
+                    name: '钻石会员',
+                    level: 6,
+                },
+                {
+                    name: '至尊会员',
+                    level: 7,
+                },
+            ],
+            goodsList: [],
+            navList: [
+                {
+                    name: '升级礼包',
+                    index: '1',
+                    href: 'privilegeUpdatePacket.html',
+                },
+                {
+                    name: '生日礼包',
+                    index: '2',
+                    href: 'privilegeBirthPacket.html',
+                },
+                {
+                    name: '每月礼包',
+                    index: '3',
+                    href: 'privilegeMonthPacket.html'
+                }, {
+                    name: '提现减免',
+                    index: '6',
+                    href: 'privilegeWithDrawCashFree.html'
+                },
+                {
+                    name: '积分加倍',
+                    index: '5',
+                    href: 'privilegeIntegralDouble.html'
+                },
+                {
+                    name: '专属客服',
+                    index: '4',
+                    href: 'privilegeCustomerService.html'
+                },
+            ],
+            levelConfig: {},
+            level: 0,
+            type: '',
+            loginfrom: '',
+            realName: '',
+            step: 0,
+            showStep: false,
+            data:false,
+        },
+        methods: {
+            getParam: function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+                var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+                if (r != null) return unescape(r[2]);
+                return null; //返回参数值
+            },
+            getInitData: function () {
+                var _this = this
+                $.post('/index.php?_url=/vipshop/goods/goodsList', {
+                    token: _this.token,
+                    source: 1,
+                }, function (data) {
+                    var json = JSON.parse(data)
+                    _this.goodsList = json.data.data
+                })
+            },
+            getShow: function(){
+                var _this = this;
+                $.get('/index.php?_url=/vipcenter/Index/whiteListToken', {
+                    token: _this.token,
+                    }, function(data){
+                        var json = JSON.parse(data)
+                        _this.data = json.data;
+                })
+            },
+            getUserInfo: function () {
+                var _this = this
+                $.post('/index.php?_url=/vipcenter/Grow/index', {
+                    token: _this.token,
+                }, function (data) {
+                    var json = JSON.parse(data)
+                    _this.info = json.info || {}
+                    _this.getLevelConfig(json.info.level)
+                    // var swiper = new Swiper('.swpier-container', {
+                    //     slidesPerView: 1.5,
+                    //     centeredSlides: true,
+                    //     spaceBetween: 30,
+                    //     on: {
+                    //         init: function () {
+                    //             var activeIndex = this.activeIndex || 0;
+                    //             if (_this.info && _this.info.level == 1 && activeIndex == 0) {
+                    //                 _this.getLevelConfig(json.info.level)
+                    //             }
+                    //         },
+                    //         slideChange: function () {
+                    //             var activeIndex = this.activeIndex || 0;
+                    //             _this.getLevelConfig(_this.bannerList[activeIndex].level)
+                    //         },
+                    //     },
+                    // });
+                    var nav = new Swiper('.swpier-nav', {
+                        slidesPerView: 4.5,
+                    });
+                    // if (json.info.level) {
+                    //     swiper.slideTo(_this.info ? _this.info.level - 1 : 0, 1000, false)
+                    // }
+                })
+            },
+            levelDesc: function (level) {
+                var title, content;
+                if (this.info.level * 1 > level) {
+                    title = '恭喜您';
+                    content = '已超越此等级';
+                } else if (this.info.level * 1 == level) {
+                    if (level == 7) {
+                        title = '恭喜您';
+                        content = '已达到最高等级';
+                    } else {
+                        title = '距离升级至' + this.bannerList[level].name + '还需';
+                        content = this.info.upgrade_grow + '成长值';
+                    }
+                } else if (this.info.level * 1 < level) {
+                    title = '加油哟';
+                    content = '快要达成更高等级';
+                }
+                return {
+                    title: title,
+                    content: content,
+                }
+            },
+            getLevelConfig: function (level) {
+                var _this = this;
+                _this.level = level
+                $.post('/index.php?_url=/vipcenter/level/levelBenefit', {
+                    token: _this.token,
+                    level: level,
+                    source: 1,
+                }, function (data) {
+                    var json = JSON.parse(data)
+                    if (json.error_code === 0) {
+                        var data = json.data;
+                        _this.navList[0].status = data.gift_upgrade
+                        _this.navList[0].has_gift = data.upgrade_has
+                        _this.navList[1].status = data.gift_birth
+                        _this.navList[2].status = data.gift_month
+                        _this.navList[2].has_gift = data.month_has
+                        _this.navList[5].status = data.vip_service
+                        _this.navList[4].status = data.coefficient
+                        _this.navList[3].status = data.withdraw_times
+                        _this.navList.push()
+                    } else {
+                        alert(json.msg)
+                    }
+                })
+            }
+        },
+        mounted: function () {
+            var isFirst = localStorage.getItem('first') || '';
+            if (!isFirst) {
+                this.showStep = true
+                localStorage.setItem('first', true);
+            }
+            var domain = document.domain.split('.')[0];
+            var type;
+            if (domain == 'vip') {
+                type = 'm'
+            } else if (domain == 'lvip') {
+                type = 'testm'
+            } else if (domain == 'pre-vip') {
+                type = 'mobile'
+            } else {
+                type = 'testm'
+            }
+            this.loginfrom = this.getParam('loginfrom');
+            this.type = this.getParam('type') || type;
+            this.realName = this.getParam('realName');
+            this.getInitData();
+            if (!!this.token) {
+                this.getUserInfo()  //获取用户信息
+            }
+        },
+        created: function () {
+            this.token = this.getParam('token');
+            this.getShow();
+        }
+    })
+
+</script>
+</body>
+</html>

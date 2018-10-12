@@ -1,0 +1,720 @@
+.TopBar_wraper {
+    font-size: 14px;
+    background-color: #f8f8f8;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .15);
+    position: relative;
+    z-index: 9;
+    width: 100%;
+    margin: 0 auto;
+    min-width: 1200px;
+}
+
+.TopBar_wraper .TopBar_barArea {
+    width: 100%;
+    height: 51px;
+    background: #fff;
+    margin: 0 auto;
+    border-bottom: 1px solid #f8f8f8;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container {
+    width: 1200px;
+    height: 50px;
+    background: #fff;
+    margin: 0 auto;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarleft {
+    height: 50px;
+    float: left;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarleft .TopBar_tel {
+    display: block;
+    width: 19px;
+    height: 19px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 15px;
+    background-image: url(https://images.51rz.com/images/pc/header-footer/tel.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarleft p {
+    font-size: 12px;
+    line-height: 50px;
+    color: #999;
+    float: left;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarleft p a {
+    font-size: 14px;
+    color: #d7a55e;
+    margin: 0 5px;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarleft span {
+    width: 1px;
+    height: 15px;
+    background: #e8e8e8;
+    float: left;
+    display: block;
+    margin: 18px 6px 0;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarleft .TopBar_download {
+    float: left;
+    position: relative;
+    z-index: 100;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarleft .TopBar_phone {
+    width: 12px;
+    height: 22px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 13px;
+    background-image: url(https://images.51rz.com/images/pc/header-footer/phone.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarleft .TopBar_download .TopBar_img {
+    display: none;
+    padding: 10px;
+    background: #fff;
+    position: absolute;
+    top: 50px;
+    border: 5px solid #f64c3e;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarleft .TopBar_download:hover .TopBar_img {
+    display: block;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarRight {
+    height: 50px;
+    float: right;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarRight .TopBar_notlogin {
+    height: 50px;
+    line-height: 50px;
+    float: left;
+    padding-top: 1px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarRight .TopBar_notlogin div {
+    float: left;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarRight .TopBar_notlogin div a {
+    line-height: 50px;
+    float: right;
+    display: block;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarRight .TopBar_notlogin a {
+    font-size: 12px;
+    line-height: 50px;
+    color: #4992ec;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarRight a {
+    font-size: 12px;
+    color: #999;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarRight .TopBar_notlogin span {
+    width: 1px;
+    height: 15px;
+    background: #e8e8e8;
+    float: left;
+    display: block;
+    margin: 18px 6px 0;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarRight .TopBar_islogin {
+    height: 50px;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarRight .TopBar_islogin span {
+    font-size: 12px;
+    color: #999;
+    margin-left: 0;
+    width: auto;
+    height: auto;
+    background: #fff;
+    float: left;
+    display: block;
+    margin: 0;
+    margin-right: 6px;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarRight .TopBar_islogin a {
+    font-size: 12px;
+    color: #4992ec;
+    cursor: pointer;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarRight .TopBar_islogin .TopBar_message {
+    width: 18px;
+    height: 16px;
+    float: right;
+    margin-top: 17px;
+    cursor: pointer;
+    background-image: url(https://images.51rz.com/images/pc/header-footer/message.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarRight .TopBar_islogin .TopBar_message img {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarRight>div span {
+    width: 1px;
+    height: 15px;
+    background: #e8e8e8;
+    float: left;
+    display: block;
+    margin: 18px 6px 0;
+}
+
+.TopBar_wraper .TopBar_barArea .TopBar_container .TopBar_TopBarRight>div {
+    line-height: 50px;
+    float: left;
+}
+
+.TopBar_fixed {
+    position: fixed;
+    right: 10px;
+    bottom: 50px;
+    height: 260px;
+    z-index: 20000;
+}
+
+.TopBar_fixed li {
+    width: 40px;
+    height: 40px;
+    margin-top: 1px;
+    padding: 0 5px;
+    padding-top: 6px;
+    background-image: url(https://images.51rz.com/images/pc/header-footer/online.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+}
+
+.TopBar_fixed li:hover {
+    background: #f64c3e !important;
+}
+
+.TopBar_fixed li:hover .TopBar_cardbox {
+    display: block;
+    opacity: 1;
+}
+
+.TopBar_fixed li:hover p {
+    display: block;
+}
+
+.TopBar_fixed li:nth-child(2) {
+    background-image: url(https://images.51rz.com/images/pc/header-footer/guanzhuwx.png);
+}
+
+.TopBar_fixed li:nth-child(3) {
+    background-image: url(https://images.51rz.com/images/pc/header-footer/download.png);
+}
+
+.TopBar_fixed li:nth-child(4) {
+    background-image: url(https://images.51rz.com/images/pc/header-footer/qq.png);
+}
+
+.TopBar_fixed li:nth-child(5) {
+    background-image: url(https://images.51rz.com/images/pc/header-footer/top.png);
+}
+
+.TopBar_fixed li p {
+    font-size: 12px;
+    line-height: 14px;
+    color: #fff;
+    display: none;
+}
+
+.TopBar_fixed li .TopBar_cardbox {
+    position: absolute;
+    z-index: 1000;
+    bottom: 0;
+    right: 39px;
+    display: none;
+    opacity: 0;
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
+    -moz-transition: all 1s;
+    transition: all 1s;
+}
+
+.TopBar_fixed li .TopBar_cardbox .TopBar_card {
+    width: 162px;
+    height: 167px;
+    background: #fff;
+    margin-right: 13px;
+    padding-top: 14px;
+    border: 1px solid #e8e8e8;
+    text-align:center;
+}
+
+.TopBar_fixed li .TopBar_cardbox .TopBar_card img {
+    display: block;
+    margin: 0 auto;
+}
+
+.TopBar_fixed li .TopBar_cardbox .TopBar_card p {
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.TopBar_fixed li .TopBar_cardbox .TopBar_card a {
+    width: 109px;
+    height: 20px;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding-left: 28px;
+    background-image: url(https://images.51rz.com/images/pc/header-footer/qqjl.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.TopBar_wraper .TopBar_navsArea {
+    height: 86px;
+    background: #fff;
+    padding: 25px 0;
+}
+
+.TopBar_wraper .TopBar_navsArea .TopBar_navs {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.clearfix {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+.TopBar_wraper .TopBar_navsArea .TopBar_navs .TopBar_leftLogo {
+    width: 380px;
+    height: 50px;
+    float: left;
+    display: block;
+    background-image: url(https://images.51rz.com/images/pc/header-footer/logo.png);
+    background-repeat: no-repeat;
+    background-position: 0;
+    position: relative;
+    top: -7px;
+}
+
+.TopBar_wraper .TopBar_navsArea .TopBar_navs .TopBar_leftLogo .TopBar_logoText {
+    margin: -10px 0 0 155px;
+}
+
+.TopBar_wraper .TopBar_navsArea .TopBar_navs .TopBar_rightNav {
+    height: 86px;
+    float: right;
+    margin-top: -25px;
+    padding-left: 20px;
+}
+
+.TopBar_wraper .TopBar_navsArea .TopBar_navs .TopBar_rightNav ul {
+    width: 100%;
+    height: 100%;
+}
+
+.TopBar_wraper .TopBar_navsArea .TopBar_navs .TopBar_rightNav ul li.TopBar_active,
+.TopBar_wraper .TopBar_navsArea .TopBar_navs .TopBar_rightNav ul li:hover {
+    color: #f64c3e;
+    border-bottom: 2px solid #f64c3e;
+}
+
+.TopBar_wraper .TopBar_navsArea .TopBar_navs .TopBar_rightNav ul li {
+    height: 100%;
+    font-size: 16px;
+    line-height: 86px;
+    color: #232323;
+    float: left;
+    margin-right: 26px;
+    padding: 0 10px;
+    border-bottom: 2px solid #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.TopBar_wraper .TopBar_navsArea .TopBar_navs .TopBar_rightNav ul li a {
+    width: 100%;
+    line-height: 86px;
+    display: block;
+}
+
+.TopBar_wraper .TopBar_navsArea .TopBar_navs .TopBar_rightNav ul li:last-child {
+    margin-right: 0;
+}
+
+.TopBar_wraper .TopBar_navsArea .TopBar_navs .TopBar_rightNav ul li:hover a {
+    color: #f64c3e;
+}
+
+a,
+a:visited {
+    color: #333;
+}
+
+a {
+    transition: none;
+}
+
+
+.Bottom_Bottom {
+    width: 100%;
+    margin: 0 auto;
+    min-width: 1200px;
+}
+
+.Bottom_Bottom .Bottom_Bottomtop {
+    width: 100%;
+    height: 214px;
+    margin: 0 auto;
+    background-image: url(https://images.51rz.com/images/pc/header-footer/bg1.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.Bottom_Bottom .Bottom_Bottomtop .Bottom_topzhe {
+    width: 100%;
+    height: 100%;
+    background: rgba(1, 7, 15, .65);
+    padding-top: 30px;
+}
+
+.Bottom_Bottom .Bottom_Bottomtop .Bottom_topzhe .Bottom_topcontent {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.Bottom_Bottom .Bottom_Bottomtop .Bottom_topzhe .Bottom_topcontent .Bottom_about {
+    width: 397px;
+    height: 100%;
+    float: left;
+}
+
+.Bottom_Bottom .Bottom_Bottomtop .Bottom_topzhe .Bottom_topcontent .Bottom_about>li {
+    float: left;
+}
+
+.Bottom_Bottom .Bottom_Bottomtop .Bottom_topzhe .Bottom_topcontent .Bottom_about>li:nth-child(2) {
+    margin-left: 87px;
+    margin-right: 100px;
+}
+
+li {
+    vertical-align: bottom;
+    overflow: hidden;
+    list-style-type: none;
+}
+
+.Bottom_Bottom .Bottom_Bottomtop .Bottom_topzhe .Bottom_topcontent h5 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #e8e8e8;
+    margin-bottom: 12px;
+}
+
+.Bottom_Bottom .Bottom_Bottomtop .Bottom_topzhe .Bottom_topcontent .Bottom_about>li ul li {
+    margin-bottom: 11px;
+}
+
+.Bottom_Bottom .Bottom_Bottomtop .Bottom_topzhe .Bottom_topcontent .Bottom_about>li ul li a {
+    font-size: 14px;
+    color: #c2c2c2;
+}
+
+.Bottom_Bottom .Bottom_Bottomtop .Bottom_topzhe .Bottom_topcontent .Bottom_about>li ul li a {
+    font-size: 14px;
+    color: #c2c2c2;
+}
+
+.Bottom_Bottom .Bottom_Bottomtop .Bottom_topzhe .Bottom_topcontent .Bottom_about>li ul li:hover a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.Bottom_about1 {
+    float: left;
+    margin-left: 180px;
+    margin-right: 168px;
+}
+
+.Bottom_Bottom .Bottom_Bottomtop .Bottom_topzhe .Bottom_topcontent h5 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #e8e8e8;
+    margin-bottom: 12px;
+}
+
+.Bottom_about1 ul {
+    width: 320px;
+}
+
+.Bottom_about1 ul li {
+    width: 72px;
+    float: left;
+    padding-top: 15px;
+    text-align: center;
+    position: relative;
+    overflow: visible;
+}
+
+.Bottom_about1 ul li:nth-child(2) {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.Bottom_about1 ul li:hover .Bottom_img {
+    background-image: url(https://images.51rz.com/images/pc/header-footer/wxactive.png);
+}
+
+.Bottom_about1 ul li:nth-child(2) .Bottom_img {
+    background-image: url(https://images.51rz.com/images/pc/header-footer/wb.png);
+}
+
+.Bottom_about1 ul li:nth-child(2):hover .Bottom_img {
+    background-image: url(https://images.51rz.com/images/pc/header-footer/wbactive.png);
+}
+
+.Bottom_about1 ul li:nth-child(3) .Bottom_img {
+    background-image: url(https://images.51rz.com/images/pc/header-footer/sj.png);
+}
+
+.Bottom_about1 ul li:nth-child(3):hover .Bottom_img {
+    background-image: url(https://images.51rz.com/images/pc/header-footer/sjactive.png);
+}
+
+.Bottom_about1 ul li .Bottom_alert {
+    width: 108px;
+    height: 110px;
+    background-color: #fff;
+    position: absolute;
+    left: -19px;
+    top: 0;
+    border: 5px solid #f64c3e;
+    display: none;
+}
+
+.Bottom_about1 ul li:hover .Bottom_alert {
+    top: -105px;
+    display: block;
+}
+
+.Bottom_about1 ul li .Bottom_alert .Bottom_downloadImg {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://images.51rz.com/images/pc/header-footer/wxdyh.jpg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+.Bottom_about1 ul li .Bottom_alert .Bottom_arrow {
+    width: 15px;
+    height: 15px;
+    background: #f64c3e;
+    margin: auto;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    bottom: -10px;
+    right: 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.Bottom_about1 ul li .Bottom_img {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto;
+    background-image: url(https://images.51rz.com/images/pc/header-footer/wx.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+}
+
+.Bottom_about1 ul li p {
+    font-size: 12px;
+    color: #c2c2c2;
+    margin-top: 18px;
+}
+
+.Bottom_connect {
+    float: right;
+}
+
+.Bottom_connect .Bottom_tel {
+    margin-bottom: 25px;
+}
+
+.Bottom_connect p {
+    font-size: 14px;
+    color: #e8e8e8;
+}
+
+.Bottom_connect .Bottom_tel .Bottom_telphone {
+    font-size: 18px;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.Bottom_connect .Bottom_work {
+    margin-bottom: 5px;
+}
+
+.Bottom_connect .Bottom_work .Bottom_worktime {
+    font-size: 16px;
+    color: #fff;
+}
+
+.Bottom_connect .Bottom_work .Bottom_worktime span {
+    font-size: 12px;
+}
+
+.Bottom_bottom {
+    width: 100%;
+    height: 124px;
+    background: #333;
+    margin: 0 auto;
+}
+
+.Bottom_bottom .Bottom_bottomcontent {
+    width: 1200px;
+    height: 124px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.Bottom_bottom .Bottom_bottomcontent .Bottom_link span {
+    font-size: 18px;
+    color: #999;
+}
+
+.Bottom_bottom .Bottom_bottomcontent .Bottom_link span.Bottom_split {
+    color: #fff;
+    margin: 0 16px;
+}
+
+.Bottom_bottom .Bottom_bottomcontent .Bottom_link a {
+    font-size: 14px;
+    color: #c2c2c2;
+    margin-right: 24px;
+}
+
+.Bottom_bottom .Bottom_bottomcontent .Bottom_link a:hover {
+    color: #fff;
+}
+
+.Bottom_bottom .Bottom_bottomcontent .Bottom_link a:last-child {
+    margin-right: 0;
+}
+
+.Bottom_bottom .Bottom_bottomcontent .Bottom_copyright .Bottom_copyLeft {
+    float: left;
+}
+
+.Bottom_bottom .Bottom_bottomcontent .Bottom_copyright .Bottom_copyLeft p {
+    font-size: 12px;
+    color: #c2c2c2;
+    line-height: 18px;
+}
+
+.Bottom_bottom .Bottom_bottomcontent .Bottom_copyright .Bottom_copyLeft a {
+    display: block;
+    margin-top: 4px;
+}
+
+.Bottom_bottom .Bottom_bottomcontent .Bottom_copyright .Bottom_copyLeft a img {
+    display: block;
+    float: left;
+}
+
+.Bottom_bottom .Bottom_bottomcontent .Bottom_copyright .Bottom_copyLeft a p {
+    margin-left: 4px;
+    float: left;
+}
+
+.Bottom_bottom .Bottom_bottomcontent .Bottom_copyright .Bottom_copyLeft p {
+    font-size: 12px;
+    color: #c2c2c2;
+    line-height: 18px;
+}
+
+.Bottom_bottom .Bottom_bottomcontent .Bottom_copyright .Bottom_copyRight {
+    float: right;
+    margin-top: 14px;
+}
+
+.Bottom_bottom .Bottom_bottomcontent .Bottom_copyright .Bottom_copyRight a {
+    margin-right: 4px;
+}
+
+.kf-ico{
+    width:70px;
+    height:71px;
+    display:inline-block;
+    margin:10px 0;
+}

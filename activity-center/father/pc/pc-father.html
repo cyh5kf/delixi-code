@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://activity-center.51rz.com/static/css/style.css">
+    <link rel="stylesheet" href="https://activity-center.51rz.com/static/css/index.css">
+    <link rel="shortcut icon" href="https://activity-center.51rz.com/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <link rel="stylesheet" href="https://activity-center.51rz.com/components/header-footer/header-footer.css">
+    <title>人众金服</title>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            background:url(https://images.51rz.com/images/pc/june_father/pc_father05.jpg) repeat;
+        }
+        [v-cloak] {
+            display: none;
+        }
+        .font-16 {
+            font-size: 16px;
+        }
+        .font-18 {
+            font-size: 18px;
+        }
+
+        .font-20 {
+            font-size: 20px;
+        }
+
+        .font-24 {
+            font-size: 24px;
+        }
+
+        .flt {
+            float: left;
+        }
+
+        .frt {
+            float: right;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .container {
+            margin: 0 auto;
+        }
+
+        .banner {
+            width: 100%;
+            height: 610px;
+            background: url("https://images.51rz.com/images/pc/june_father/pc_father01.jpg") no-repeat center top;
+        }
+        .boxOne{
+            width:100%;
+            height: 319px;
+            background: url("https://images.51rz.com/images/pc/june_father/pc_father02.jpg") no-repeat center top;
+            text-align:center;
+        }
+        .boxOne p{
+            width:402px;
+            height:122px;
+            background:url("https://images.51rz.com/images/pc/june_father/pc_father06.png") no-repeat center top;
+            display:inline-block;
+            margin-top:6px;
+        }
+        .boxOne p span{
+            width:100%;
+            font-size:20px;
+            color:#fff6f7;
+            display:inline-block;
+        }
+        .boxOne p span strong{
+            font-weight:500;
+        }
+        .p_top{
+            padding-top:46px;
+        }
+        .boxOne-text{
+            width:100%;
+            text-align:center;
+            font-size:20px;
+            color:#c07d49;
+            padding-top:20px;
+        }
+        .boxOne-text small{
+            font-size:20px;
+            color:#e50f0f;
+            padding:0 10px;
+        }
+        .boxTwo{
+            width:100%;
+            height:660px;
+            text-align:center;
+        }
+        .boxTwo p{
+            width:100%;
+            display:inline-block;
+            padding-top:47px;
+        }
+        .boxTwo p span{
+            width:388px;
+            height:55px;
+            line-height:55px;
+            text-align:center;
+            font-size:24px;
+            color:#fff;
+            background:#7dc3a0;
+            border-radius:100px;
+            display:inline-block;
+            cursor:pointer;
+        }
+        .boxThere{
+            width:100%;
+            height:185px;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+<div id="header"></div>
+<div class="container">
+    <div class="banner"></div>
+    <div class="boxOne">
+        <p>
+            <span class="p_top">已获得</span>
+            <span>❤ ×<strong v-text="heartAll">1</strong></span>
+        </p>
+        <div v-show="!isLogined" class="boxOne-text"><small @click="go" style="cursor:pointer;text-decoration:underline;font-size:20px;">登录查看详情</small></div>
+        <div v-show="isLogined" class="boxOne-text">(再投资<small v-text="totalAmount==0?5000: surplus"></small>元获得下一颗爱心)</div>
+    </div>
+    <div class="boxTwo">
+        <img src="https://images.51rz.com/images/pc/june_father/pc_father03.jpg" />
+        <p>
+            <span @click="go">去投资> ></span>
+        </p>
+    </div>
+    <div class="boxThere"><img src="https://images.51rz.com/images/pc/june_father/pc_father04.jpg" /></div>
+
+    <!-- 弹窗提示 -->
+    <div class="pc-dialog">
+        <div class="content"></div>
+    </div>
+</div>
+<div id="footer"></div>
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/components/header-footer/header-footer.js"></script>
+<script>
+
+    function getParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r!=null) return unescape(r[2]); return null; //返回参数值
+    }
+    var token= getParam("token") || '';
+    var isLogined = token? true: false;//是否登录
+
+    var vm = new Vue({
+        el: '.container',
+        data: {
+            isLogined: isLogined,
+            bamboo:[],
+            heartAll:0,
+            totalAmount:0,
+            surplus: 0,
+        },
+        methods: {
+            go: function () {
+                var type = getParam('type') || 'www';
+                isLogined ? location.href = 'https://' + type + '.51rz.com/projectList.html' : location.href = 'https://' + type + '.51rz.com/login.html';
+            },
+            // 打开弹窗提示
+            showMsg: function (msg) {
+                $(".pc-dialog .content").text(msg);
+                $(".pc-dialog").show();
+                setTimeout(function () {
+                    $(".pc-dialog .content").text('');
+                    $(".pc-dialog").hide();
+                }, 2000);
+            },
+        },
+        created: function(){
+            var _this = this;
+            if (isLogined) {
+                $.post('/index.php?_url=/api/activity/index',{activityId: 25, token: token},function(data){
+                    if(data && data.error_code === 0){
+                        var bamboo = data.data.bamboo;
+                        _this.bamboo = bamboo;
+                        var totalAmount = bamboo[0].totalAmount*1;
+                        var heartAll = parseInt(totalAmount/5000);
+                        _this.totalAmount = totalAmount; 
+                        _this.heartAll = heartAll;
+                        _this.surplus = 5000 - (totalAmount - heartAll*5000);
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

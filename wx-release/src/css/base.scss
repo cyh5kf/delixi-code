@@ -1,0 +1,111 @@
+/*$base_url: '/static/img/';*/
+$base_url: 'https://images.51rz.com/images/rebuild/wx/img/';
+
+$red: #F64C3E;
+$blue: #4992EC;
+$white: #fff;
+$black2: #222;
+$black3: #333;
+$black5: #555;
+$black6: #666;
+$black9: #999;
+$gray: #ccc;
+$yellow: #ff9b09;
+$gold: #d7a55e;
+
+@mixin bg_img($img){
+  background: url('#{$base_url}#{$img}') no-repeat;
+  background-size: 100%;
+}
+@mixin box($param){
+  width: map-get($param,w);
+  height: map-get($param,h);
+  font-size: map-get($param,fs);
+  line-height: map-get($param,lh);
+  font-weight: map-get($param,fw);
+  background: map-get($param,bg);
+  color: map-get($param,c);
+  border-radius: map-get($param,bdr);
+  text-align: map-get($param,ta);
+  opacity: map-get($param,o);
+  float: map-get($param,fl);
+  text-shadow: map-get($param,ts);
+  box-shadow: map-get($param,bs);
+  display: map-get($param,d);
+  flex: map-get($param,fx);
+  margin: map-get($param,m);
+  padding: map-get($param,p);
+  border: map-get($param,br);
+}
+@mixin position($param){
+  position: map-get($param,p);
+  top: map-get($param,t);
+  left: map-get($param,l);
+  right: map-get($param,r);
+  bottom: map-get($param,b);
+  z-index: map-get($param,z);
+}
+
+@mixin thin($property,$color){
+  @if($property == 'all'){
+    border: 1px solid $color;
+  }@else {
+    @each $dir in $property {
+      border-#{$dir}: 1px solid $color;
+    }
+  }
+}
+
+@mixin prefix($property, $value) {
+  @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
+    #{$prefix}#{$property}: $value;
+  }
+}
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+@mixin tringle($param) {
+  $direction:map-get($param,to);
+  $w:map-get($param,w);
+  $h:map-get($param,h);
+  $color:map-get($param,c);
+
+  content:'';
+  display: block;
+  width:0;
+  height:0;
+
+  border-#{$direction}:0;
+
+  @if( $direction== 'top'){
+    border-left: $w / 2 solid transparent;
+    border-right: $w / 2 solid transparent;
+    border-bottom: $h / 2 solid $color;
+  }@else if $direction== 'bottom'{
+    border-left: $w / 2 solid transparent;
+    border-right: $w / 2 solid transparent;
+    border-top: $h / 2 solid $color;
+  }@else if $direction== 'right'{
+    border-top: $h / 2 solid transparent;
+    border-bottom: $h / 2 solid transparent;
+    border-left: $w / 2 solid $color;
+  }@else if $direction== 'left'{
+    border-top: $h / 2 solid transparent;
+    border-bottom: $h / 2 solid transparent;
+    border-right: $w / 2 solid $color;
+  }
+
+}
+

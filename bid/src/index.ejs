@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script>
+  function getParam(url, name) {
+    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)'); //构造一个含有目标参数的正则表达式对象
+    var r = (url.split('?')[1] || ' ').match(reg); //匹配目标参数
+    if (r != null) return unescape(r[2]);
+    return null; //返回参数值
+  }
+
+
+  function getmenu() {
+    var token = getParam(window.location.href,'token')
+    
+      sessionStorage.setItem('token', JSON.stringify({token:token}));
+    var xhr = new XMLHttpRequest()
+    var form = new FormData()
+    form.append('token', token)
+    // xhr.onreadystatechange=()=>{
+    //   if (xhr.readyState ==4) {
+    //     console.log(xhr)
+    //   }
+    // }
+    xhr.onload = () => {
+        if (xhr.status == 200 || xhr.status == 304) {
+          if(JSON.parse(xhr.responseText).href){
+            window.location.href = JSON.parse(xhr.responseText).href;
+          }else{
+            const res = JSON.parse(xhr.responseText)
+            localStorage.setItem('userInfo', JSON.stringify({username:res.username}));
+            if(res.sysMenuDtoList){
+              var list = res.sysMenuDtoList.filter((item)=>{
+                return item.active == true
+              });
+              localStorage.setItem('mymenu', JSON.stringify(list[0]));
+            }
+
+          }
+        }
+    }
+    xhr.open("POST", 'app/bidmenu/getMeunList',true)
+    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(form)
+  }
+  if (getParam(window.location.href,'token')) {
+    getmenu()
+  }
+  // window.onload=myfun;
+</script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>对标系统</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/index.css" type="text/css">
+
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+</html>

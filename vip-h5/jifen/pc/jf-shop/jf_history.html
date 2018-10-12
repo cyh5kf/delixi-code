@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/components/header-footer/header-footer.css">
+    <title>会员特权--升级礼包</title>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: #f6f6f6;
+        }
+
+        .container {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .box-bg {
+            width: 1200px;
+            background: #fff;
+            padding: 30px 100px;
+            display: inline-block;
+            box-sizing: border-box;
+            margin: 20px 0 80px 0;
+        }
+
+        .box-bg h3 {
+            width: 100%;
+            height: 45px;
+            line-height: 45px;
+            text-align: left;
+            font-size: 18px;
+            color: #222;
+            font-weight: 500;
+        }
+
+        .box-bg ul {
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            position: relative;
+            margin-top: 15px;
+        }
+
+        .box-bg ul li {
+            display: inline-block;
+            padding: 0 10px;
+            height: 28px;
+            line-height: 28px;
+            font-size: 14px;
+            color: #555;
+            margin-right: 10px;
+            float: left;
+            cursor: pointer;
+        }
+
+        .box-bg ul li.act {
+            background: #4b92ec;
+            border-radius: 3px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .box-bg ul li span {
+            display: inline-block;
+            font-size: 14px;
+            color: #555;
+            float: left;
+            padding-right: 10px;
+        }
+
+        .inputBorder {
+            display: inline-block;
+            width: 130px;
+            height: 28px;
+            line-height: 28px;
+            border: 1px solid #e8e8e8;
+            float: left;
+            padding: 0 5px;
+        }
+
+        .inputBorder input {
+            width: 95px;
+            height: 26px;
+            border: none;
+            outline: none;
+            float: left;
+        }
+
+        .inputBorder:after {
+            content: '';
+            width: 20px;
+            height: 18px;
+            margin: 4px 0 0 3px;
+            display: inline-block;
+            cursor: pointer;
+            background: url(https://images.51rz.com/images/pc-jifen/icon.png) no-repeat;
+        }
+
+        .wzText {
+            font-size: 14px;
+            float: left;
+            color: #555;
+            padding: 0 5px;
+        }
+
+        .btn {
+            width: 68px;
+            height: 32px;
+            line-height: 32px;
+            background: #f64c3e;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            border: none;
+            float: left;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .tab-list {
+            width: 100%;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .tab-list table {
+            width: 100%;
+        }
+
+        .tab-list table th {
+            height: 48px;
+            line-height: 48px;
+            background: #f6f6f6;
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            text-align: center;
+            width: 20%;
+        }
+
+        .tab-list table th:first-child, .tab-list table td:first-child {
+            padding-left: 32px;
+            text-align: left;
+        }
+
+        .tab-list table td {
+            height: 48px;
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            border-bottom: 1px solid #f6f6f6;
+        }
+
+        .goTo input {
+            width: 40px;
+            text-align: center;
+            color: #333;
+            border: 1px solid #e8e8e8;
+            outline: none;
+        }
+
+        .calendar {
+            width: 250px;
+            border: 1px solid #e8e8e8;
+            background: #fff;
+            position: absolute;
+            top: 30px;
+            z-index: 100;
+        }
+
+        .p-l {
+            left: 320px;
+            display: none;
+        }
+
+        .p-r {
+            left: 474px;
+            display: none;
+        }
+
+        .calendar h4 {
+            width: 100%;
+            height: 35px;
+            line-height: 35px;
+            border-bottom: 1px solid #f6f6f6;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .calendar h4 small {
+            display: inline-block;
+        }
+
+        .iconLeft-y {
+            width: 5px;
+            height: 35px;
+            background-image: url(https://images.51rz.com/images/pc-jifen/callendar_prev_year.png);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            margin: 0 5px;
+        }
+
+        .iconLeft-m {
+            width: 5px;
+            height: 35px;
+            background-image: url(https://images.51rz.com/images/pc-jifen/callendar_prev_month.png);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            margin: 0 5px;
+        }
+
+        .timeText {
+            font-size: 14px;
+            color: #4992ec;
+            display: inline-block;
+            font-weight: 500;
+            height: 20px;
+            vertical-align: 12px;
+            margin: 0 15px;
+        }
+
+        .iconRight-m {
+            width: 5px;
+            height: 35px;
+            background-image: url(https://images.51rz.com/images/pc-jifen/callendar_next_month.png);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            margin: 0 5px;
+        }
+
+        .iconRight-y {
+            width: 5px;
+            height: 35px;
+            background-image: url(https://images.51rz.com/images/pc-jifen/callendar_next_year.png);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            margin: 0 5px;
+        }
+
+        .calendar table {
+            width: 100%;
+            text-align: center;
+        }
+
+        .jf-title-text {
+            font-size: 16px;
+            color: #555555;
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        .jf-title-text span:first-child {
+            margin-right: 20px;
+            cursor: pointer;
+            padding-right: 30px;
+            border-right: 1px solid #e5e5e5;
+        }
+
+        .jf-title-text span:last-child {
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        .active {
+            color: #f64c3e;
+        }
+        .pagination{
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+        }
+        .pagination .next.disabled, .pagination .prev.disabled {
+            color: #888;
+            cursor: auto;
+        }
+        .pagination .prev {
+            padding-left: 25px;
+        }
+        .pagination .next, .pagination .prev {
+            height: 20px;
+            font-size: 14px;
+            line-height: 16px;
+            color: #4992ec;
+            display: inline-block;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .pagination .go {
+            margin: 0 10px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 14px;
+        }
+        .pagination .go input {
+            width: 40px;
+            line-height: 20px;
+            border: 1px solid #d7d7d7;
+            text-align: center;
+            display: inline-block;
+            margin: 0 5px;
+        }
+        .pagination .next.disabled i {
+            background-image: url(https://images.51rz.com/images/jf-shop/page_next_disabled.png);
+        }
+        .pagination .prev.disabled i {
+            background-image: url(https://images.51rz.com/images/jf-shop/page_prev_disabled.png);
+        }
+        .pagination .next.disabled i, .pagination .next i {
+            background-repeat: no-repeat;
+            -webkit-background-size: 11px 16px;
+            -moz-background-size: 11px 16px;
+            -o-background-size: 11px 16px;
+            background-size: 11px 16px;
+            background-position: 100%;
+        }
+        .pagination .next i {
+            background-image: url(https://images.51rz.com/images/jf-shop/page_next.png);
+            float: right;
+            left: 5px;
+        }
+        .pagination .prev i {
+            background-image: url(https://images.51rz.com/images/jf-shop/page_prev.png);
+            float: left;
+            right: 5px;
+        }
+        .pagination .next i, .pagination .prev i {
+            width: 11px;
+            height: 16px;
+            display: block;
+            margin: 0 5px;
+            cursor: pointer;
+            position: relative;
+        }
+        [v-show],[v-if]{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div id="header"></div>
+<div class="container">
+    <div class="box-bg">
+        <h3>积分记录</h3>
+        <p class="jf-title-text"><span :class="active==1?'active':''" @click="change(1)">积分获取</span><span :class="active==2?'active':''" @click="change(2)">积分支出</span></p>
+        <div class="tab-list">
+            <table v-show="active==1" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                    <th>时间</th>
+                    <th>类型</th>
+                    <th>内容</th>
+                    <th>积分值变化</th>
+                </tr>
+                <tr v-for="(item,index) in jfArr.data" :key="index">
+                    <td v-text="item.business_time"></td>
+                    <td v-if="item.type == 1">投资</td>
+                    <td v-else-if="item.type == 2">充值</td>
+                    <td v-else-if="item.type == 3">注册</td>
+                    <td v-else-if="item.type == 4">开户</td>
+                    <td v-else-if="item.type == 5">积分兑换</td>
+                    <td v-else-if="item.type == 6">完成任务</td>
+                    <td v-text="item.grow_note"></td>
+                    <td v-text="'+'+item.integral"></td>
+                </tr>
+            </table>
+            <table v-show="active==2" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                    <th>时间</th>
+                    <th>类型</th>
+                    <th>内容</th>
+                    <th>积分值变化</th>
+                </tr>
+                <tr v-if="jfOut.data&&!!jfOut.data.length" v-for="(item,index) in jfOut.data" :key="index">
+                    <td v-text="item.business_time"></td>
+                    <td v-if="item.type == 1">投资</td>
+                    <td v-else-if="item.type == 2">充值</td>
+                    <td v-else-if="item.type == 3">注册</td>
+                    <td v-else-if="item.type == 4">开户</td>
+                    <td v-else-if="item.type == 5">积分兑换</td>
+                    <td v-else-if="item.type == 6">完成任务</td>
+                    <td v-text="item.grow_note"></td>
+                    <td v-text="'-'+item.integral"></td>
+                </tr>
+            </table>
+            <div class="empty" v-if="active==2&&jfOut&&!jfOut.data.length">
+                <img src="https://images.51rz.com/images/jifen/index/empty.png" alt="">
+                <p>暂时没有记录</p>
+            </div>
+        </div>
+
+        <div v-if="totalPage!=0" class="pagination" style="margin: 35px 0px 30px;">
+            <span class="prev" @click="prev" :class="page<=1?'disabled':''"><i @click="hBtn"></i><strong>上一页</strong></span>
+            <label class="go"><input type="text" :value="page">/<span v-text="totalPage"></span></label>
+            <span class="next" @click="next" :class="page >= totalPage ?'disabled':''"><strong>下一页</strong><i @click="nBtn"></i></span>
+        </div>
+    </div>
+</div>
+<div id="footer"></div>
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/components/header-footer/header-footer.js"></script>
+    <script>
+        var vm = new Vue({
+            el:'.container',
+            data:{
+                uid:false,
+                active:1,
+                page:1,
+                totalPage:0,
+                jfArr:[],
+                jfOut:{
+                    data:[]
+                },
+                userInfo:{},
+                index:1
+            },
+            methods:{
+                getQueryString:function(name) {
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                    var r = window.location.search.substr(1).match(reg);
+                    if (r != null) return unescape(r[2]);
+                    return null;
+                },
+                change:function(index){
+                    var self=this;
+                    this.active = index;
+                    this.index=index;
+                    this.page=1;
+
+                    setTimeout(function(){
+                        self.getData(index)
+                    },0);
+                },
+                hBtn:function(){
+                    this.page = 1;
+                    this.getData();
+                },
+                nBtn:function(){
+                    this.page = this.totalPage;
+                    this.getData();
+                },
+                prev:function(){
+                    if(this.page > 1){
+                        this.page -= 1;
+                        this.getData();
+                    }
+                },
+                next:function(){
+                    if(this.page < this.totalPage){
+                        this.page += 1;
+                        this.getData();
+                    }
+                },
+                getData:function(index){
+                    var token=this.userInfo.token;
+                    index=index||this.index;
+                    var _this = this;
+                    $.post('/index.php?_url=/vipshop/integral/userIntegralFlow',{token:token,page:this.page,optype:index},function(data){
+                        if(data.error_code == 0){
+                            _this.totalPage = data.data.count;
+                            if(index == 1){
+                                _this.jfArr = data.data;
+                            }else{
+                                _this.jfOut = data.data;
+                            }
+
+                        }
+                    },'json')
+                },
+                //字符串进行解密
+                uncompileStr: function (code) {
+                    code = unescape(code);
+                    var c = String.fromCharCode(code.charCodeAt(0) - code.length);
+                    for (var i = 1; i < code.length; i++) {
+                        c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1));
+                    }
+                    return c;
+                },
+            },
+            created:function () {
+                var activeUserInfo = JSON.parse(localStorage.getItem('activeUserInfo'));
+                var token=activeUserInfo.token;
+                this.userInfo=activeUserInfo;
+                if(token != 'undefined' && token != '') {
+                    this.uid = true;
+                    this.getData(1);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

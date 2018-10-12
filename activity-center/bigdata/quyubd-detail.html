@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection" />
+    <title>区域标的售出明细</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico" />
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="./index.css">
+
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="tj-detail quyu-content">
+            <div class="interval"></div>
+            <div class="top">
+                <p class="title">区域标的售出明细</p>
+                <div id="chart" class="chart-bd" style="width: 100%;height:3.7rem;"></div>
+                <div class="tab-switch">
+                    <div :class="{'tab-left': true, 'tab-active': currentDate === 7}" @click="switchDate('7')">7日</div>
+                    <div :class="{'tab-right': true, 'tab-active': currentDate === 30}" @click="switchDate('30')">30日</div>
+                </div>
+            </div>
+            <div class="section-name">
+                <div class="section-title">
+                    <div class="icon"></div>
+                    数据详情
+                </div>
+            </div>
+            <div class="data-detail quyu-detail">
+                <table>
+                    <tr>
+                        <td>期限范围</td>
+                        <td>H市</td>
+                        <td>T市</td>
+                        <td>总计</td>
+                    </tr>
+                    <tr>
+                        <td>新手标</td>
+                        <td v-text="HtableDataList[0]"></td>
+                        <td v-text="TtableDataList[0]"></td>
+                        <td v-text="(HtableDataList[0] + TtableDataList[0]).toFixed(2)"></td>
+                    </tr>
+                    <tr>
+                        <td>短期标<br>(<25天)</td>
+                        <td v-text="HtableDataList[1]"></td>
+                        <td v-text="TtableDataList[1]"></td>
+                        <td v-text="(HtableDataList[1] + TtableDataList[1]).toFixed(2)"></td>
+                    </tr>
+                    <tr>
+                        <td>1月标<br>(25*~45天)</td>
+                        <td v-text="HtableDataList[2]"></td>
+                        <td v-text="TtableDataList[2]"></td>
+                        <td v-text="(HtableDataList[2] + TtableDataList[2]).toFixed(2)"></td>
+                    </tr>
+                    <tr>
+                        <td>2月标<br>(45*~75天)</td>
+                        <td v-text="HtableDataList[3]"></td>
+                        <td v-text="TtableDataList[3]"></td>
+                        <td v-text="(HtableDataList[3] + TtableDataList[3]).toFixed(2)"></td>
+                    </tr>
+                    <tr>
+                        <td>3月标<br>(75*~120天)</td>
+                        <td v-text="HtableDataList[4]"></td>
+                        <td v-text="TtableDataList[4]"></td>
+                        <td v-text="(HtableDataList[4] + TtableDataList[4]).toFixed(2)"></td>
+                    </tr>
+                    <tr>
+                        <td>6月标<br>(120*~210天)</td>
+                        <td v-text="HtableDataList[5]"></td>
+                        <td v-text="TtableDataList[5]"></td>
+                        <td v-text="(HtableDataList[5] + TtableDataList[5]).toFixed(2)"></td>
+                    </tr>
+                    <tr>
+                        <td>9月标<br>(210*~270天)</td>
+                        <td v-text="HtableDataList[6]"></td>
+                        <td v-text="TtableDataList[6]"></td>
+                        <td v-text="(HtableDataList[6] + TtableDataList[6]).toFixed(2)"></td>
+                    </tr>
+                    <tr>
+                        <td>12月标<br>(270*~365天)</td>
+                        <td v-text="HtableDataList[7]"></td>
+                        <td v-text="TtableDataList[7]"></td>
+                        <td v-text="(HtableDataList[7] + TtableDataList[7]).toFixed(2)"></td>
+                    </tr>
+                    <tr>
+                        <td>总计</td>
+                        <td v-text="HtotalCount"></td>
+                        <td v-text="TtotalCount"></td>
+                        <td v-text="totalCount"></td>
+                    </tr>
+                </table>
+                <p class="tip">*以上金额数据单位为万元</p>
+            </div>
+            <div class="interval"></div>
+        </div>
+
+        <!-- 弹窗提示 -->
+        <div class="dialog-tip">
+            <div class="content" v-text="dialogText"></div>
+        </div>
+
+        <!-- loading -->
+        <div class="loading-wrapper">
+            <div class="spinner-snake" style="border-top-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); height: 32px; width: 32px;"></div>
+            <span class="indicator-text">加载中...</span>
+        </div>
+    </div>
+
+    <script src="/static/js/fastclick.min.js"></script>
+    <script src="/static/js/zepto.min.js"></script>
+    <script src="/static/js/vue.min.js"></script>
+    <!-- 工具类函数 -->
+    <script src="/static/js/util/util.js"></script>
+    <!-- 图表插件 -->
+    <script src="/static/js/echarts.common.min.js"></script>
+
+    <script>  
+        // 解决移动端页面click事件存在300毫秒延迟
+        document.addEventListener('DOMContentLoaded', function () {
+            FastClick.attach(document.body);
+        }, false);
+
+        // 避免页面从缓存中加载
+        window.onpageshow = function (e) {
+            e = e || event;
+            if (e.persisted) {
+                location.reload();
+            }
+        }
+
+        var vm = new Vue({
+        el: '#app',
+        data: function() {
+            return {
+                dialogText: '', // 弹窗提示文本内容
+                currentDate: 7, // 当天展示的时间，默认为7天
+                data: {}, // 页面数据
+                HtableDataList: [], // H市每个标的的金额表格数据
+                TtableDataList: [], // T市每个标的的金额表格数据
+                dataX: [], //折线图X轴数据
+                HdataY: [], //H市折线图X轴数据
+                TdataY: [], //T市折线图X轴数据
+            }
+        },
+        mounted: function() {
+            var _self = this;
+            var token = getLocalStorageItem('token');
+            if (token) {
+                $(".loading-wrapper").show();
+                $.post('/apiApp/data/qybiaodiDetails.html', { token: token }, function (result) {
+                    $(".loading-wrapper").hide();
+                    result = JSON.parse(result);
+                    if (result.responseCode === '000000') {
+                        _self.data = result.obj;
+                        _self.initChart();
+                    } else if (result.responseCode === '999998') {
+                        _self.logOut();
+                    } else {
+                        _self.showMsg(result.responseMessage);
+                    }
+                })
+            } else {
+                _self.logOut();
+            }
+        },
+        computed: {
+            HtotalCount: function() {
+                var HtableDataList = this.HtableDataList;
+                return (HtableDataList[0] + HtableDataList[1] + HtableDataList[2] + HtableDataList[3] + HtableDataList[4] + HtableDataList[5] + HtableDataList[6] + HtableDataList[7]).toFixed(2);
+            },
+            TtotalCount: function() {
+                var TtableDataList = this.TtableDataList;
+                return (TtableDataList[0] + TtableDataList[1] + TtableDataList[2] + TtableDataList[3] + TtableDataList[4] + TtableDataList[5] + TtableDataList[6] + TtableDataList[7]).toFixed(2);
+            },
+            totalCount: function () {
+                var HtableDataList = this.HtableDataList;
+                var TtableDataList = this.TtableDataList;
+                return (HtableDataList[0] + TtableDataList[0] + HtableDataList[1] + TtableDataList[1] + HtableDataList[2] + TtableDataList[2] + HtableDataList[3] + TtableDataList[3] + HtableDataList[4] + TtableDataList[4] + HtableDataList[5] + TtableDataList[5] + HtableDataList[6] + TtableDataList[6] + HtableDataList[7] + TtableDataList[7]).toFixed(2);
+            }
+        },
+        methods: {
+            // 打开弹窗提示
+            showMsg: function(msg) {
+                this.dialogText = msg;
+                $(".dialog-tip").show();
+                setTimeout(function() {
+                    $(".dialog-tip").hide();
+                }, 2000);
+            },
+            
+            // 切换7天和30天
+            switchDate: function(index) {
+                if(index === "7") {
+                    this.currentDate = 7;
+                    this.initChart();
+                } else if(index === "30") {
+                    this.currentDate = 30;
+                    this.initChart();
+                }
+            },
+
+            // 登录状态过期跳转到登录页面并清空存储
+            logOut: function() {
+                localStorage.clear();
+                window.location.href = 'index.html';
+            },
+
+            // 数据相加
+            toSum: function(data) {
+                var result = 0;
+                data.forEach(function(item, index) {
+                    item.forEach(function(value, idx) {
+                       result += value.money; 
+                    })
+                })
+                return result;
+            },
+
+            convert: function(num) {
+                //转万元
+                if(num) {
+                    return ((num*1/10000).toFixed(2)*1);
+                } else {
+                    return 0;
+                }
+            },
+
+            // 计算标的售出明细柱状图Y轴数据
+            computeData: function() {
+                var currentDate = this.currentDate;
+                var data = this.data;
+                
+                // 原始30天数据--H市
+                var Hxinshoubiao = JSON.parse(data.H市.qyxinshoubiaodetails); // 新手标30天数据
+                var Hduanqibiao = JSON.parse(data.H市.qyduanqibiaodetails); // 短期标30天数据
+                var Htian30 = JSON.parse(data.H市.qysanshitianbiaodetails); // 30天标30天数据
+                var Htian60 = JSON.parse(data.H市.qyliushishitianbiaodetails); // 60天标30天数据
+                var Htian90 = JSON.parse(data.H市.qyjiushitianbiaodetails); // 90天标30天数据
+                var Htian180 = JSON.parse(data.H市.qyyibaibashitianbiaodetails); // 180天标30天数据
+                var Hdayu180tian = JSON.parse(data.H市.qydayuyibaishijiushitianbiaodetails); // 大于180天标30天数据
+                var Htian365 = JSON.parse(data.H市.qyshieryuebiaodetails); // 12月标30天数据
+                
+                // 原始30天数据--T市
+                var Txinshoubiao = JSON.parse(data.T市.qyxinshoubiaodetails); // 新手标30天数据
+                var Tduanqibiao = JSON.parse(data.T市.qyduanqibiaodetails); // 短期标30天数据
+                var Ttian30 = JSON.parse(data.T市.qysanshitianbiaodetails); // 30天标30天数据
+                var Ttian60 = JSON.parse(data.T市.qyliushishitianbiaodetails); // 60天标30天数据
+                var Ttian90 = JSON.parse(data.T市.qyjiushitianbiaodetails); // 90天标30天数据
+                var Ttian180 = JSON.parse(data.T市.qyyibaibashitianbiaodetails); // 180天标30天数据
+                var Tdayu180tian = JSON.parse(data.T市.qydayuyibaishijiushitianbiaodetails); // 大于180天标30天数据
+                var Ttian365 = JSON.parse(data.T市.qyshieryuebiaodetails); // 12月标30天数据
+
+                // 截取之后7天数据--H市
+                var HxinshoubiaoSeven = Hxinshoubiao.slice(0, 7); // 新手标7天数据
+                var HduanqibiaoSeven = Hduanqibiao.slice(0, 7); // 短期标7天数据
+                var Htian30Seven = Htian30.slice(0, 7); // 30天标7天数据
+                var Htian60Seven = Htian60.slice(0, 7); // 60天标7天数据
+                var Htian90Seven = Htian90.slice(0, 7); // 90天标7天数据
+                var Htian180Seven = Htian180.slice(0, 7); // 180天标7天数据
+                var Hdayu180tianSeven = Hdayu180tian.slice(0, 7); // 大于180天标7天数据
+                var Htian365Seven = Htian365.slice(0, 7); // 12月标7天数据
+
+                // 截取之后7天数据--T市
+                var TxinshoubiaoSeven = Txinshoubiao.slice(0, 7); // 新手标7天数据
+                var TduanqibiaoSeven = Tduanqibiao.slice(0, 7); // 短期标7天数据
+                var Ttian30Seven = Ttian30.slice(0, 7); // 30天标7天数据
+                var Ttian60Seven = Ttian60.slice(0, 7); // 60天标7天数据
+                var Ttian90Seven = Ttian90.slice(0, 7); // 90天标7天数据
+                var Ttian180Seven = Ttian180.slice(0, 7); // 180天标7天数据
+                var Tdayu180tianSeven = Tdayu180tian.slice(0, 7); // 大于180天标7天数据
+                var Ttian365Seven = Ttian365.slice(0, 7); // 12月标7天数据
+
+                // 最终传入表格的每个标的金额--H市
+                var HxinshoubiaoTableData = currentDate === 7? this.toSum(HxinshoubiaoSeven): this.toSum(Hxinshoubiao);
+                var HduanqibiaoTableData = currentDate === 7? this.toSum(HduanqibiaoSeven): this.toSum(Hduanqibiao);
+                var Htian30TableData = currentDate === 7? this.toSum(Htian30Seven): this.toSum(Htian30);
+                var Htian60TableData = currentDate === 7? this.toSum(Htian60Seven): this.toSum(Htian60);
+                var Htian90TableData = currentDate === 7? this.toSum(Htian90Seven): this.toSum(Htian90);
+                var Htian180TableData = currentDate === 7? this.toSum(Htian180Seven): this.toSum(Htian180);
+                var Hdayu180tianTableData = currentDate === 7? this.toSum(Hdayu180tianSeven): this.toSum(Hdayu180tian);
+                var Htian365tianTableData = currentDate === 7? this.toSum(Htian365Seven): this.toSum(Htian365);
+                
+                // 最终传入表格的每个标的金额--T市
+                var TxinshoubiaoTableData = currentDate === 7? this.toSum(TxinshoubiaoSeven): this.toSum(Txinshoubiao);
+                var TduanqibiaoTableData = currentDate === 7? this.toSum(TduanqibiaoSeven): this.toSum(Tduanqibiao);
+                var Ttian30TableData = currentDate === 7? this.toSum(Ttian30Seven): this.toSum(Ttian30);
+                var Ttian60TableData = currentDate === 7? this.toSum(Ttian60Seven): this.toSum(Ttian60);
+                var Ttian90TableData = currentDate === 7? this.toSum(Ttian90Seven): this.toSum(Ttian90);
+                var Ttian180TableData = currentDate === 7? this.toSum(Ttian180Seven): this.toSum(Ttian180);
+                var Tdayu180tianTableData = currentDate === 7? this.toSum(Tdayu180tianSeven): this.toSum(Tdayu180tian);
+                var Ttian365tianTableData = currentDate === 7? this.toSum(Ttian365Seven): this.toSum(Ttian365);
+                
+                // H市每个标的金额表格数据
+                this.HtableDataList = [this.convert(HxinshoubiaoTableData), this.convert(HduanqibiaoTableData), this.convert(Htian30TableData), this.convert(Htian60TableData), this.convert(Htian90TableData), this.convert(Htian180TableData), this.convert(Hdayu180tianTableData), this.convert(Htian365tianTableData)];
+                // T市每个标的金额表格数据
+                this.TtableDataList = [this.convert(TxinshoubiaoTableData), this.convert(TduanqibiaoTableData), this.convert(Ttian30TableData), this.convert(Ttian60TableData), this.convert(Ttian90TableData), this.convert(Ttian180TableData), this.convert(Tdayu180tianTableData), this.convert(Ttian365tianTableData)];
+
+                var HchartDataArray = [Hxinshoubiao, Hduanqibiao, Htian30, Htian60, Htian90, Htian180, Hdayu180tian, Htian365];
+                var HchartDataArraySeven = [HxinshoubiaoSeven, HduanqibiaoSeven, Htian30Seven, Htian60Seven, Htian90Seven, Htian180Seven, Hdayu180tianSeven, Htian365Seven];
+
+                var TchartDataArray = [Txinshoubiao, Tduanqibiao, Ttian30, Ttian60, Ttian90, Ttian180, Tdayu180tian, Ttian365];
+                var TchartDataArraySeven = [TxinshoubiaoSeven, TduanqibiaoSeven, Ttian30Seven, Ttian60Seven, Ttian90Seven, Ttian180Seven, Tdayu180tianSeven, Ttian365Seven];
+
+                var Harray = currentDate === 7? HchartDataArraySeven: HchartDataArray;
+                var Tarray = currentDate === 7? TchartDataArraySeven: TchartDataArray;
+
+                var dateArray = currentDate === 7? HxinshoubiaoSeven: Hxinshoubiao;
+                var dataX = [];
+                dateArray.forEach(function(item, index) { //在其中一个标的中取出日期数组
+                    dataX.push(item[0].date);
+                })
+                this.dataX = dataX.reverse();
+                
+                var HdataY = [];
+                var TdataY = [];
+                var _self = this;
+                // 分别将H市和T市的各个标的同一日期的金额money相加
+                dateArray.forEach(function(val, j) {
+                    var a = 0;
+                    var b = 0;
+                    Harray.forEach(function(item, index) {
+                        a += item[j][0].money;
+                    })
+                    HdataY.push(_self.convert(a));
+                    Tarray.forEach(function(item, index) {
+                        b += item[j][0].money;
+                    })
+                    TdataY.push(_self.convert(b));
+                })
+                this.HdataY = HdataY.reverse();
+                this.TdataY = TdataY.reverse();
+            },
+
+            // 初始化图标
+            initChart: function() {
+                var currentDate = this.currentDate;
+                this.computeData();
+
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('chart'));
+                // 指定图表的配置项和数据
+                var option = {
+                    color: ['#475bbb', '#5899c6'],
+                    grid: {
+                        top: 30,
+                        bottom: 55,
+                        left: 20,
+                        right: 20,
+                    },
+                    legend: {
+                        data: ['H市','T市'],
+                        bottom: 10,
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: this.dataX,
+                        axisTick: {
+                            alignWithLabel: true
+                        },
+                        boundaryGap: false,
+                        axisLabel: {
+                            color: function(value, index) {
+                                return '#6c6c6c';
+                            }
+                        },
+                        axisLine: {
+                            symbol: ['none','arrow'],
+                            symbolSize: [10, 12],
+                            lineStyle: {
+                                color: ['#5569cc']
+                            }
+                        },
+                    },
+                    yAxis: {
+                        type: 'value',
+                        name: '万元',
+                        splitLine: {
+                            show: false
+                        },
+                        axisTick: {
+                            show: false
+                        },
+                        axisLabel: {
+                            show: false
+                        },
+                        axisLine: {
+                            symbol: ['none','arrow'],
+                            symbolSize: [10, 12],
+                            lineStyle: {
+                                color: ['#5569cc']
+                            }
+                        },
+                    },
+                    series: [
+                        {
+                            name:'H市',
+                            data: this.HdataY,
+                            type:'line',
+                            symbol:'circle',
+                            label: {
+                                show: true
+                            },
+                            lineStyle: {
+                                color: '#475bbb'
+                            }
+                        },
+                        {
+                            name:'T市',
+                            data: this.TdataY,
+                            type:'line',
+                            symbol:'circle',
+                            label: {
+                                show: true
+                            },
+                            lineStyle: {
+                                color: '#5899c6'
+                            }
+                        },
+                    ]
+                };
+
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            },
+        }
+    });
+
+    </script>
+
+</body>
+
+</html>

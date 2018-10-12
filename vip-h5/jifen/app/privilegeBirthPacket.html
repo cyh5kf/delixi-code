@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="wap-font-scale" content="no"/>
+    <title>生日礼包</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico"/>
+    <link rel="stylesheet" href="/static/css/common/table.css">
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+</head>
+<style>
+    html {
+        font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft Yahei, STHeiTi, Arial, sans-serif;
+        background-color: #fff;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0.22rem;
+        box-sizing: border-box;
+        line-height: 1.5;
+        text-decoration: none;
+        color: #222;
+    }
+    #container{
+        max-width:7.5rem;
+        margin:0 auto;
+    }
+    .header{
+        padding:0.7rem 0.3rem 0.7rem 1.56rem;
+        background-color:#eef3f9;
+        background-image:url(https://images.51rz.com/images/jifen/birthPacket.png) ;
+        background-repeat:no-repeat;
+        background-size:0.94rem;
+        background-position:0.3rem 0.6rem;
+    }
+    .header p{
+        line-height: 0.36rem;
+        color:#222;
+        font-size:0.24rem;
+    }
+    .dot_lists{
+        padding:0.25rem 0.3rem 0.25rem 0.6rem;
+    }
+    .dot_lists li{
+        padding:0.25rem 0 0.25rem 0;
+        font-size:0.24rem;
+        color:#555;
+        lin-height:0.24rem;
+        position: relative;
+    }
+    .dot_lists li:before{
+        content:'';
+        display:block;
+        width:0.1rem;
+        height:0.1rem;
+        background: #999;
+        -webkit-border-radius: 50%;
+        position: absolute;
+        left:-0.3rem;
+        top:0.37rem;
+    }
+    .normal_table {
+        margin-bottom:0.5rem;
+    }
+    table td{
+        width:33.33%;
+    }
+
+    .item{
+        height:0.6rem;
+        line-height:0.6rem;
+        color:#d7a55e;
+        border-bottom: 1px solid #e5ccaa;
+    }
+    .item:last-child{
+        border:none;
+    }
+
+</style>
+<body>
+<div id="container">
+    <div class="header">
+        <p>
+            人众金服V1（青铜会员）及以上，在过生日当天均享有生日福利。生日当天0点，会员等级越高，福利越多。
+        </p>
+    </div>
+    <ul class="dot_lists">
+        <li>用户生日以实名认证的身份证号码为准；</li>
+        <li>根据您生日当天0点所处不同会员等级，可自动获得对应等级的 礼包；</li>
+        <li>生日礼包将于您生日当天上午9：00前，自动发放至您的人众 账户，请到个人中心查看；</li>
+        <li>生日礼包所有奖励的有效期均为30天。</li>
+    </ul>
+    <table class="normal_table">
+        <thead>
+            <tr>
+                <td>会员等级</td>
+                <td>等级称号</td>
+                <td>面值</td>
+            </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(item,ind) in levels">
+            <td v-text="item.level_code"></td>
+            <td v-text="item.level_name"></td>
+            <td class="gold" v-if="!item.goods" v-text="'无'"></td>
+            <td class="gold" v-if="item.goods">
+                <div class="row">
+                    <div v-for="(v,i) in item.goods"  class="item" v-text="v.goods_name"></div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script>
+    //    避免页面从缓存中加载
+    window.onpageshow = function (e) {
+        e = e || event;
+        if (e.persisted) {
+            location.reload();
+        }
+    }
+
+    function getParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值
+    }
+
+    window.el = new Vue({
+        el: '#container',
+        data: {
+            levels:[
+                {
+                    lv:'V1',
+                    lvTxt:'青铜会员',
+                    values:[
+                        '0.20%加息券'
+                    ]
+                },
+                {
+                    lv:'V2',
+                    lvTxt:'白银会员',
+                    values:[
+                        '28元红包','0.40%加息券'
+                    ]
+                },
+                {
+                    lv:'V3',
+                    lvTxt:'黄金会员',
+                    values:[
+                        '48元红包','0.60%加息券'
+                    ]
+                },
+                {
+                    lv:'V4',
+                    lvTxt:'铂金会员',
+                    values:[
+                        '68元红包','0.70%加息券'
+                    ]
+                },
+                {
+                    lv:'V5',
+                    lvTxt:'钻石会员',
+                    values:[
+                        '88元红包','0.80%加息券'
+                    ]
+                },
+                {
+                    lv:'V6',
+                    lvTxt:'至尊会员',
+                    values:[
+                        '188元红包','0.90%加息券'
+                    ]
+                },
+            ]
+        },
+        methods: {
+            getPacket:function(){
+                var self=this;
+                $.post('/index.php?_url=/vipshop/gift/giftConfig',{type:2},function(data){
+                    self.levels=JSON.parse(data).data;
+                })
+            },
+        },
+        created: function () {
+            this.getPacket();
+        }
+    })
+</script>
+</body>
+</html>

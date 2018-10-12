@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="shortcut icon" href="./static/img/favicon.ico">
+    <link rel="stylesheet" href="./static/css/dialog.css">
+    <link rel="stylesheet" href="./static/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" type="text/css" href="./src/font/iconfont.css">
+    <link rel="stylesheet" href="./src/css/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>人众金服数据大屏</title>
+    <script src="./static/js/swiper-3.4.2.min.js"></script>
+    <script>
+        let deviceWidth = document.documentElement.clientWidth;
+        // if(deviceWidth > 750) deviceWidth = 750;
+        document.documentElement.style.fontSize = deviceWidth / 38 + 'px';
+    </script>
+</head>
+<body>
+<div id="container">
+    <div class="dataleft">
+        <!-- 用户累计收益 -->
+        <div class="logo"></div>
+        <div class="yhljsy">
+            <p class="num" v-text="totalIncome"></p>
+            <p class="label">用户累计收益(元)</p>
+        </div>
+
+        <div class="ljjybs">
+            <p class="num" v-text="countTender"></p>
+            <p class="label">累计交易笔数(笔)</p>
+        </div>
+
+        <!-- 24小时投资人数 -->
+        <div class="tzrs24">
+            <div class="title">
+                <div class="icon"></div>
+                <div class="content">
+                    <p class="headTitle">24小时投资人数</p>
+                    <p class="subTitle">The number of investment</p>
+                </div>
+            </div>
+            <div id="chart" class="chart-bd"></div>
+        </div>
+
+        <!-- 三端登录量对比 -->
+        <div class="sddlldb">
+            <div class="title">
+                <div class="icon"></div>
+                <div class="content">
+                    <p class="headTitle">三端登录量对比</p>
+                    <p class="subTitle">Comparison of the three - terminal logins</p>
+                </div>
+            </div>
+
+            <div class="sdContent">
+            <div class="app common">
+                <span class="fl">1  APP</span>
+                <span class="ct" v-text="loginCountList[0].count + '人'"></span>
+                <span class="fr" v-text="loginCountList[0].scale + '%'"></span>
+            </div>
+            <div class="web common">
+                <span class="fl">2  WEB</span>
+                <span class="ct" v-text="loginCountList[1].count + '人'"></span>
+                <span class="fr" v-text="loginCountList[1].scale + '%'"></span>
+            </div>
+            <div class="wap common">
+                <span class="fl">3  WAP</span>
+                <span class="ct" v-text="loginCountList[2].count + '人'"></span>
+                <span class="fr" v-text="loginCountList[2].scale + '%'"></span>
+            </div>
+            </div>
+        </div>
+
+        <!-- 消息通知 -->
+        <!-- <div class="message">
+            <div class="swiper-container" style="height:0.53rem;">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="height:0.53rem !important;" v-for="(item, index) in messageList" :key="index"  v-text="item.content">
+                        
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="message">
+            <div class="content" ref="scrillContent">
+                <p style="height: 0.53rem;" v-for="(item, index) in messageList" :key="index" v-text="item.content"></p>
+                <p style="height: 0.53rem;" v-text="messageList[0].content" v-if="messageList.length>1"></p>
+            </div>
+        </div>
+
+    </div>
+    <div class="datacenter">
+        <div class="map">
+            <div class="ljjye">
+                <div class="accumulate">
+                    <div id="money">
+                        <div class="ac" v-for="item in num" >
+                            <div class="acc" v-if="item!=','&&item!='.'">
+
+                                <p>0</p>
+                                <p >1</p>
+                                <p >2</p>
+                                <p >3</p>
+                                <p >4</p>
+                                <p >5</p>
+                                <p>6</p>
+                                <p>7</p>
+                                <p >8</p>
+                                <p >9</p>
+                            </div>
+                            <div class="a" v-else>
+                                <p>{{item}}</p>
+                                <p>{{item}}</p>
+                                <p>{{item}}</p>
+                                <p>{{item}}</p>
+                                <p>{{item}}</p>
+                                <p>{{item}}</p>
+                                <p>{{item}}</p>
+                                <p>{{item}}</p>
+                                <p>{{item}}</p>
+                                <p>{{item}}</p>
+                                
+                            </div>
+                        </div>
+
+                        <div class="amount" id='amount'>
+                            <div class="out" v-for="item in autonum">
+                                <div class="b3d" id="r3d">
+                                    <p class="range anmt">
+                                        <span>0</span>
+                                        <span>1</span>
+                                        <span>2</span>
+                                        <span>3</span>
+                                        <span>4</span>
+                                        <span>5</span>
+                                        <span>6</span>
+                                        <span>7</span>
+                                        <span>8</span>
+                                        <span>9</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="accumulateText">累计交易额(万元)</p>
+                </div>
+                <div id="mapcontainer" style="width:19.15rem;height:14.4rem;margin-left:-2rem;" ></div>
+            </div>
+        </div>
+        <div class="area">
+            <p class="headTitle">地区投资排行</p>
+            <p class="subTitle">Regional investment ranking</p>
+            <ul >
+                <li v-for="(item, index) in arearanking">
+                    <span class="ranking">{{index+1}}</span>
+                    <span class="name">{{item.name}}</span>
+                    <span class="proportion">{{item.proportion}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="center-bottom">
+            <!-- 投资男女比例 -->
+            <div class="tznvbl">
+                <div class="title">
+                    <div class="icon"></div>
+                    <div class="content">
+                        <p class="headTitle">投资人男女比例</p>
+                        <p class="subTitle">Investor sex ratio</p>
+                    </div>
+                </div>
+                <div class="nvContent">
+                    <div class="nvTop">
+                        <div class="man">
+                            <div class="avatar"></div>
+                            <div class="info">
+                                <p class="name">男</p>
+                                <p class="scale" v-text="tenderGenderList[0]"></p>
+                            </div>
+                        </div>
+                        <div class="women">
+                            <div class="info">
+                                <p class="name">女</p>
+                                <p class="scale" v-text="tenderGenderList[1]"></p>
+                            </div>
+                            <div class="avatar"></div>
+                        </div>
+                    </div>
+                    <div class="nvBottom">
+                        <template v-for="(item, index) in nvblArr" :key="index">
+                            <span class="processLine" style="background-color: #f69f43" v-if="index<=(16*manRatio)"></span>
+                            <span class="processLine" style="background-color: #5cfac4" v-else></span> 
+                        </template>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 投资人12星座占比 -->
+            <div class="tzrxzzb">
+                <div class="title">
+                    <div class="icon"></div>
+                    <div class="content">
+                        <p class="headTitle">投资人12星座占比</p>
+                        <p class="subTitle">Investor 12 constellation proportion</p>
+                    </div>
+                </div>
+                <div id="radar-chart" style="width: 7.4rem;height: 6rem"></div>
+                <div class="date">
+                    数据截止{{xzdate}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="dataright">
+        <header>
+            <div>
+                <!-- <i class="iconfont icon-im_naozhong"></i> -->
+                <i class="clock"></i>
+                <span>{{ho}}:</span>
+                <span>{{min}}</span>
+                <span class="time_s">:{{se}}</span>
+            </div>
+            <div>
+                <p><span>{{year}} /</span><span> {{month}}/</span><span> {{day}}</span></p>
+                <p> {{week}}</p>
+            </div>
+        </header>
+        <section>
+            <div class="lt"></div>
+            <div class="rt"></div>
+            <div class="lb"></div>
+            <div class="rb"></div>
+            <div>
+                <p class="headTitle">三端注册量</p>
+                <p class="subTitle">Three-terminal registration</p>
+                <div class="box_canvas">
+                    <canvas id="circle" :width="4*rem" :height="4*rem"></canvas>
+                    <div class="con">
+                        <div class="app">
+                            <span>APP</span>
+                            <span>{{sdzc_per[0].scale}}%</span>
+                        </div>
+                        <div class="web">
+                            <span>WEB</span>
+                            <span>{{sdzc_per[1].scale}}%</span>
+                        </div>
+                        <div class="wep">
+                            <span>WAP</span>
+                            <span>{{sdzc_per[2].scale}}%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sdtzl">
+                <p class="headTitle">三端投资量</p>
+                <p class="subTitle">Three-end investment</p>
+                <div class="box_canvas">
+                    <canvas id="invest" :width="4*rem" :height="4*rem"></canvas>
+                    <div class="con">
+                        <div class="app">
+                            <span>APP</span>
+                            <span>{{sdtz_per[0].y}}</span>
+                        </div>
+                        <div class="web">
+                            <span>WEB</span>
+                            <span>{{sdtz_per[2].y}}</span>
+                        </div>
+                        <div class="wep">
+                            <span>WAP</span>
+                            <span>{{sdtz_per[1].y}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="tzragezb">
+            <div class="title">
+                <div class="icon"></div>
+                <div class="content">
+                    <p class="headTitle">投资人年龄分布</p>
+                    <p class="subTitle">Investor age distribution</p>
+                </div>
+            </div>
+            <div class="con">
+                <div v-for="item in agelists" class="list">
+                    <div class="title">{{item.title}}</div>
+                    <div class="line" style="width:5rem;"><p :style="{width:item.width+'px'}"></p></div>
+                    <div class="per">{{item.per}}</div>
+                </div>
+            </div>
+            <div class="date">
+                数据截止{{agedate}}
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- 弹窗提示 -->
+    <div class="pc-dialog">
+        <div class="content"></div>
+    </div>
+</div>
+<script src="./static/js/vue.min.js"></script>
+<script src="./static/js/jquery-1.11.1.min.js"></script>
+<!-- 图表插件 -->
+<script src="./static/js/echarts.common.min.js"></script>
+<!-- 地图 -->
+<script src="./static/js/echarts-all-3.js"></script>
+<script src="./static/js/dataTool.min.js"></script>
+<script src="./static/js/china.js"></script>
+<script src="./static/js/world.js"></script>
+<script src="./static/js/bmap.min.js"></script>
+<script src="./src/js/indexditu.js"></script>
+<script src="./src/js/c_echart.js"></script>
+<script>
+
+    //循环生成00:00到24:00总共1441条时间数据，给24小时投资人数数据用
+    var dataArr = [];
+    for(var i = 0; i < 24; i++) {
+        for(var j = 0; j < 60; j++) {
+            if(i < 10) {
+                if(j < 10) {
+                    var x = '0' + i + ':' + '0' + j;
+                    dataArr.push({x: x, y: 0});
+                } else {
+                    var x = '0' + i + ':' + j;
+                    dataArr.push({x: x, y: 0});
+                }
+            } else {
+                if(j < 10) {
+                    var x = i + ':' + '0' + j;
+                    dataArr.push({x: x, y: 0});
+                } else {
+                    var x = i + ':' + j;
+                    dataArr.push({x: x, y: 0});
+                }
+            }
+            
+        }
+    }
+    dataArr.push({x: '24:00', y: 0});
+
+    var vm = new Vue({
+        el: '#container',
+        data: {
+            totalIncome: '', // 用户累计收益
+            countTender: '', // 用户交易笔数
+            messageList: [], // 小喇叭播报列表
+            scrollIndex: 0, // 小喇叭滚动的当前位置
+            int: null, // 定时器
+            investorNumList: [], // 24H投资人数
+            nvblArr: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ], // 男女比例数组
+            manRatio: '0.5', // 投资人男比例
+            tenderGenderList:['50%','50%'],// 投资男女比例
+            loginCountList: [{count:0, scale:0}, {count:0, scale:0}, {count:0, scale:0}], // 三端登录量
+            tenderConstellationList: [], // 投资星座占比
+            circle:null, //三段注册实例
+            invest:null, //三段投资实例
+            m:0, //分钟
+            h:0, //小时
+            s:0, //秒
+            year:0,
+            month:0,
+            day:0,
+            xzdate:'',
+            agedate:'',
+            rem:document.documentElement.clientWidth/38,
+            week:'周二',
+            oldstr:'', //不更新不刷新地图
+            olddstr:'', //不更新不刷新地图
+            agelists:[{
+                title:'60岁以上',
+                width:5*0.2*this.rem,
+                per:'2%'
+            },{
+                title:'50-60',
+                width:5*0.3*this.rem,
+                per:'12%'
+            },{
+                title:'40-50',
+                width:5*0.1*this.rem,
+                per:'20%'
+            },{
+                title:'35-40',
+                width:5*0.2*this.rem,
+                per:'24%'
+            },{
+                title:'30-35',
+                width:5*0.1*this.rem,
+                per:'26%'
+            },{
+                title:'20-30',
+                width:5*0.1*this.rem,
+                per:'21%'
+            }],
+            arearanking:[{
+                name:'浙江省',
+                proportion:'55%'
+            },{
+                name:'江苏省',
+                proportion:'35%'
+            },{
+                name:'安徽省',
+                proportion:'5%'
+            },{
+                name:'山东省',
+                proportion:'2%'
+            },{
+                name:'上海市',
+                proportion:'1%'
+            }],
+            num:[0,0,',',0,0,0,'.'],
+            oldnum:[0,0,',',0,0,0,'.'],
+            m:1,
+            autonum:[0,0],
+            sdzc_per:[{scale:0},{scale:0},{scale:0}],
+            sdtz_per:[{scale:0},{scale:0},{scale:0}]
+        },
+        mounted: function () {
+            var _this = this;
+            init()
+            // setInterval(()=>{
+            //     var arr = [
+            //         ['湖北','江苏','广东','广西壮族自治区'],
+            //         ['西藏自治区','江苏','青海','河南'],
+            //         ['黑龙江','江苏','天津','安徵'],
+            //     ]
+            //     var ar = arr[parseInt(Math.random()*3)]
+            //     if (this.oldstr == JSON.stringify(ar)) {
+            //         return 
+            //     }else{
+            //         mapint(ar,this.rem/100)            
+            //     this.oldstr =JSON.stringify(ar) 
+
+            //     }
+            // },5000)
+            this.gettime();//获得服务器时间
+            this.initTotalIncome(); // 用户累计收益请求数据
+            this.initCountTender();// 累计交易笔数请求数据
+            this.initLoginCount();// 三端登录量请求数据
+            this.initTenderMap(); //地图数据请求
+            this.initTenderConstellation();// 投资星座占比请求数据
+            this.initInvestorNum();// 24小时投资人数请求数据
+            this.initSmallSpeakers();// 小喇叭播报请求数据
+            this.getarea();//获得投资地区排行
+            this.initTenderGender();// 投资男女比例请求数据
+            this.getsdzc();//三段注册
+            this.getsdtz();//三段投资
+            this.getamount();//投资总额
+            this.getage(); //获得投资年龄分布
+            setInterval(function() {
+                _this.initTotalIncome(); // 用户累计收益请求数据
+                _this.initCountTender();// 累计交易笔数请求数据
+                _this.initLoginCount();// 三端登录量请求数据
+            }, 2000)
+            setInterval(function(){
+                _this.initTenderMap(); //地图数据请求
+                _this.initTenderConstellation();// 投资星座占比请求数据
+                _this.initInvestorNum();// 24小时投资人数请求数据
+                _this.initSmallSpeakers();// 小喇叭播报请求数据
+                _this.getarea();//获得投资地区排行
+                _this.initTenderGender();// 投资男女比例请求数据
+                _this.getsdzc();//三段注册
+                _this.getsdtz();//三段投资
+                _this.getamount();//投资总额
+                _this.getage(); //获得投资年龄分布
+            },10000)
+            this.circle = new Circle({  //三段注册
+                $el:document.getElementById("circle"),
+                date:'2018-6-1',
+                text:'数据截止',
+                scale:this.rem/100,
+                ranking:[{
+                    color:[83,251,195],
+                    proportion:0.3,
+                },{
+                    color:[37,136,255],
+                    proportion:0.4,
+                },{
+                    color:[248,160,54],
+                    proportion:0.3,
+                }]
+            })
+            this.invest = new Circle({   //三段投资
+                $el:document.getElementById("invest"),
+                date:'2018-6-1',
+                text:'数据截止',
+                scale:document.documentElement.clientWidth/3800,
+                ranking:[{
+                    color:[83,251,195],
+                    proportion:0.2,
+                },{
+                    color:[37,136,255],
+                    proportion:0.5,
+                },{
+                    color:[248,160,54],
+                    proportion:0.3,
+                }]
+            })
+
+        },
+        computed: {
+            min(){
+                return this.m>=10?this.m:'0'+this.m
+            },
+            ho(){
+                return this.h>=10?this.h:'0'+this.h
+            },
+            se(){
+                return this.s>=10?this.s:'0'+this.s
+            },
+        },
+        methods: {
+            // 用户累计收益请求数据
+            initTotalIncome: function() {
+                var _this = this;
+                $.get('/apiPc/bi/showdata/totalIncome', function(data){
+                    data = JSON.parse(data);
+                    if(data.success){
+                        _this.totalIncome = data.data.total;
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            },
+
+            // 累计交易笔数请求数据
+            initCountTender: function() {
+                var _this = this;
+                $.get('/apiPc/bi/showdata/countTender', function(data){
+                    data = JSON.parse(data);
+                    if(data.success){
+                        _this.countTender = data.data.total;
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            },
+            // 小喇叭播报请求数据
+            initSmallSpeakers: function() {
+                var _this = this;
+                $.get('/apiPc/bi/showdata/smallSpeakers', function(data){
+                    data = JSON.parse(data);
+                    if(data.success){
+                        if (JSON.stringify(_this.messageList)==JSON.stringify(data.data)) {
+                            return;
+                        }
+                        clearInterval(_this.int);
+                        $(_this.$refs.scrillContent).css('margin-top','0px');
+                        _this.messageList = data.data;
+                        // var array =[
+                        //     [{"content":"第一页"}],
+                        //     [{"content":"第二页One"},{"content":"第二页two"}],
+                        //     [{"content":"第三页A"},{"content":"第三页B"},{"content":"第三页C"}],
+                        // ]
+                        // _this.messageList = array[parseInt(Math.random()*1)]
+                        _this.int = setInterval(() => {
+                            _this.scroll();
+                        }, 2000);
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            },
+            // 24小时投资人数请求数据
+            initInvestorNum: function() {
+                var _this = this;
+                $.get('/apiPc/bi/showdata/investorNum', function(data){
+                    data = JSON.parse(data);
+                    if(data.success){
+                        _this.investorNumList = data.data.list;
+                        _this.initTzrsData();
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            },
+            // 投资男女比例请求数据
+            initTenderGender: function() {
+                var _this = this;
+                $.get('/apiPc/bi/showdata/tenderGender', function(data){
+                    data = JSON.parse(data);
+                    if(data.success){
+                        _this.manRatio = Math.round(parseFloat(data.data.list[1].y))/100;
+                        _this.tenderGenderList[0] = Math.round(parseFloat(data.data.list[1].y))+"%"
+                        _this.tenderGenderList[1] = (100-Math.round(parseFloat(data.data.list[1].y)))+"%"
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            },
+            // 三端登录量请求数据
+            initLoginCount: function() {
+                var _this = this;
+                $.get('/apiPc/bi/showdata/loginCount', function(data){
+                    data = JSON.parse(data);
+                    if(data.success){
+                        var res = data.data;
+                        if(res) {
+                            var resultList = [];
+                            for(var i=0; i<res.length; i++) {
+                                if(res[i].loginFrom === 'APP') {
+                                    resultList[0] = res[i];
+                                } else if(res[i].loginFrom === 'WEB') {
+                                    resultList[1] = res[i];
+                                } else if(res[i].loginFrom === 'WAP') {
+                                    resultList[2] = res[i];
+                                }
+                            }
+                            _this.loginCountList = resultList;
+                        }
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            },
+            // 投资星座占比请求数据
+            initTenderConstellation: function() {
+                var _this = this;
+                $.get('/apiPc/bi/showdata/tenderConstellation', function(data){
+                    data = JSON.parse(data);
+                    if(data.success){
+                        _this.tenderConstellationList = data.data.list;
+                        _this.xzdate = data.data.total;
+                        _this.initXzzbData();
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            },
+            // 地图数据请求
+            initTenderMap: function() {
+                var _this = this;
+                $.get('/apiPc/bi/showdata/tenderTodayHistory', function(data){
+                    data = JSON.parse(data);
+                    if(data.success){
+                        if (_this.olddstr==JSON.stringify(data.data.list)) {
+                            
+                        }else{
+                            _this.olddstr = JSON.stringify(data.data.list)
+                            setoldData(data.data.list);
+                            
+                        }
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+                $.get('/apiPc/bi/showdata/tenderMap', function(data){
+                    data = JSON.parse(data);
+                    if(data.success){
+                        if (_this.oldstr==JSON.stringify(data)) {
+                            
+                        }else{
+                            mapint(data.data.list,this.rem/100);
+                            _this.oldstr = JSON.stringify(data)
+                        }
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                });
+            },
+            // 24小时投资人数图表配置
+            initTzrsData: function(){
+                var _this = this;
+                var investorNumList = this.investorNumList;
+                var xData = [];
+                var yData = [];
+                // 将接口传过来的时间数据插入到所有的时间数据里面
+                for(var i = 0; i < dataArr.length; i++) {
+                    for(var j = 0; j < investorNumList.length; j++) {
+                        if(investorNumList[j].x === dataArr[i].x) {
+                            dataArr[i].y = investorNumList[j].y;
+                            break;
+                        }
+                    }
+                }
+                for(var i = 0; i < dataArr.length; i++) {
+                    xData.push(dataArr[i].x);
+                    yData.push(parseInt(dataArr[i].y));
+                }
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('chart'));
+
+                // 指定图表的配置项和数据
+                var option = {
+                    tooltip: {},
+                    grid: {
+                        left: '5%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: xData,
+                        axisTick: {
+                            alignWithLabel: true,
+                            show: false
+                        },
+                        boundaryGap: false,
+                        axisLabel:{
+                            formatter:function(time,i){
+                                var showTimes = ["00:00", "03:00", "06:00", "09:00", "12:00", "15:00", "18:00", "21:00", "24:00"];
+                                var result = showTimes.indexOf(time) === -1? "": time.substr(0, 2);
+                                if (result) {
+                                    return result
+                                }
+                            }
+                        },
+                        axisLine: {
+                            show: true,
+                            lineStyle: {
+                                color: 'rgba(255, 255, 255, 0.3)'
+                            },
+                            color: '#fff'
+                        },
+                        splitLine:{
+                            show: true,
+                            lineStyle: {
+                                color: 'rgba(255, 255, 255, 0.3)'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisTick: {
+                            alignWithLabel: true,
+                            show: false,
+                            color: 'rgba(255, 255, 255, 0.5)'
+                        },
+                        axisLine: {
+                            show: true,
+                            lineStyle: {
+                                color: 'rgba(255, 255, 255, 0.3)'
+                            },
+                            color: '#fff'
+                        },
+                        splitLine:{
+                            show: true,
+                            lineStyle: {
+                                color: 'rgba(255, 255, 255, 0.3)'
+                            }
+                        },
+                    },
+                    series: [{
+                        data: yData,
+                        type: 'line',
+                        // sampling: 'average',
+                        symbol: 'none',
+                        lineStyle: {
+                            normal: {
+                                color: '#5cfac4',
+                            }
+                        },
+                        areaStyle: {
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    offset: 0,
+                                    color: 'rgba(92, 250,196, 0.8)'
+                                }, {
+                                    offset: 1,
+                                    color: 'rgba(92, 250,196, 0.2)'
+                                }])
+                            }
+                        }
+                    }]
+                };
+
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            },
+
+            // 投资人星座占比图表配置
+            initXzzbData:function(){
+                var _this = this;
+                var tenderConstellationList = this.tenderConstellationList;
+                var dataValue = [];
+                var indicator = [
+                    { name: '巨蟹座'},
+                    { name: '狮子座'},
+                    { name: '处女座'},
+                    { name: '天秤座'},
+                    { name: '天蝎座'},
+                    { name: '射手座'},
+                    { name: '摩羯座'},
+                    { name: '水瓶座'},
+                    { name: '双鱼座'},
+                    { name: '白羊座'},
+                    { name: '金牛座'},
+                    { name: '双子座'}
+                ];
+
+                for(var i = 0; i < indicator.length; i++) {
+                    for(var j = 0; j < tenderConstellationList.length; j++) {
+                        if(indicator[i].name === tenderConstellationList[j].x) {
+                            dataValue.push(parseFloat(tenderConstellationList[j].y));
+                            break;
+                        } else if(j == tenderConstellationList.length-1) {
+                            dataValue.push(0);
+                        }
+                    }
+                }
+
+                const maxValue = Math.max(...dataValue);
+
+                for(var i = 0; i < indicator.length; i++) {
+                    indicator[i].max = maxValue;
+                }
+                
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('radar-chart'));
+
+                // 指定图表的配置项和数据
+                option = {
+                    radar: {
+                        // shape: 'circle',
+                        name: {
+                            textStyle: {
+                                color: '#fff',
+                                fontSize: 28*_this.rem/100
+                            }
+                        },
+                        indicator: indicator,
+                        axisLine: {
+                            lineStyle: {
+                                color: '#369c8c'
+                            }
+                        },
+                        splitArea: { // 坐标轴在 grid 区域中的分隔区域
+                            show: true,
+                            areaStyle: {
+                                color:  ['rgba(250,250,250,0)','rgba(67,190,162,0.2)']
+                            }
+                        },
+                        splitLine: { // 坐标轴在 grid 区域中的分隔线。
+                            lineStyle: {
+                                color: '#44baa2'
+                            }
+                        }
+                    },
+                    series: [{
+                        type: 'radar',
+                        // areaStyle: {normal: {}},
+                        data : [
+                            {
+                                value : dataValue,
+                                name : '投资人星座占比',
+                                lineStyle: {
+                                    normal: {
+                                        color: '#f69f43'
+                                    }
+                                },
+                                areaStyle: {
+                                    normal: {
+                                        color: 'rgba(246, 159, 67, 0.4)'
+                                    }
+                                },
+                                itemStyle: { // 折线拐点标志的样式。
+                                    normal: {
+                                        color: '#f69f43',
+                                        shadowColor: 'rgba(246, 159, 67, 0.3)',
+                                        shadowBlur: 10
+                                    }
+                                }
+                            }
+                        ]
+                    }]
+                };
+
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            },
+            // 打开弹窗提示
+            showMsg: function (msg) {
+                $(".pc-dialog .content").text(msg);
+                $(".pc-dialog").show();
+                setTimeout(function () {
+                    $(".pc-dialog .content").text('');
+                    $(".pc-dialog").hide();
+                }, 2000);
+            },
+            settime: function (params) {
+                this.h = params.getHours()
+                this.m = params.getMinutes()
+                this.s = params.getSeconds()
+                this.year = params.getFullYear();
+                this.month = params.getMonth()+1>12?'01':params.getMonth()+1<10?'0'+(params.getMonth()+1):params.getMonth()+1;
+                this.day = params.getDate()<10?'0'+params.getDate():params.getDate();
+                    switch (params.getDay()) {
+                        case 0:
+                            this.week = '星期日'    
+                            break;
+                        case 1:
+                            this.week = '星期一'    
+                            break;
+                        case 2:
+                            this.week = '星期二'    
+                            break;
+                        case 3:
+                            this.week = '星期三'    
+                            break;
+                        case 4:
+                            this.week = '星期四'    
+                            break;
+                        case 5:
+                            this.week = '星期五'    
+                            break;
+                        case 6:
+                            this.week = '星期六'    
+                            break;
+                        default:
+                            break;
+                    }
+                setInterval(()=>{
+                    this.s += 1
+                    if (this.s == 60) {
+                        this.m+=1;
+                        this.s=0;
+                        if (this.m==60) {
+                            this.h+=1;
+                            this.m=0
+                            if (this.h==24) {
+                                this.gettime();
+                                // resetoldDate()
+                            }
+                        }
+                    }
+                },1000)
+            },
+            cheat(m){
+                    for (let i = 0; i < m.length; i++) {
+                        $($('#amount').find('.range')[i]).children().each(function (j){
+                            $(this).text((parseInt(m[i])+j)%10);
+                            // $(this).parent().css('transfrom','rotateX('+(-36*m[i])+') translateY(-10px);')
+                            
+                        })              
+                    }
+            },
+            update:function(){
+                this.circle.update({})  //把需要更改的参数加进去就可以了
+                this.invest.update({})
+            },
+            getsdzc:function(){  //三段注册
+                var self = this;
+                $.get('/apiPc/bi/showdata/regCount',function(res){
+                    var list = JSON.parse(res).data.dataList;
+                    var date = JSON.parse(res).data.date;
+                    self.sdzc_per = list
+                    var ranking=[{
+                        color:[83,251,195],
+                        proportion:list[0].scale/100,
+                    },{
+                        color:[37,136,255],
+                        proportion:list[1].scale/100,
+                    },{
+                        color:[248,160,54],
+                        proportion:list[2].scale/100,
+                    }]
+                    self.circle.update({
+                        date,
+                        ranking,
+                    })
+                })
+            },
+            getsdtz:function(){   //三段投资
+                var self = this;
+                $.get('/apiPc/bi/showdata/tenderClient',function(res){
+                    var list = JSON.parse(res).data.list;
+                    var date = JSON.parse(res).data.total;
+                    self.sdtz_per = list
+                    var ranking=[{
+                        color:[83,251,195],
+                        proportion:parseFloat(list[0].y)/100,
+                    },{
+                        color:[37,136,255],
+                        proportion:parseFloat(list[2].y)/100,
+                    },{
+                        color:[248,160,54],
+                        proportion:parseFloat(list[1].y||0)/100,
+                    }]
+                    self.invest.update({
+                        date,
+                        ranking,
+                    })
+                })
+            },
+            gettime:function(){  //获得服务器时间
+                var self = this;
+                $.get('/apiPc/bi/showdata/nowData',function(res){
+                    var timestamp = JSON.parse(res).data
+                    self.settime(new Date(timestamp))
+                })
+            },
+            getage:function(){   //获得投资年龄分布
+                var self = this;
+                $.get('/apiPc/bi/showdata/tenderAge',function(res){
+                    var list = JSON.parse(res).data.list;
+                    var array = []
+                    self.agedate = JSON.parse(res).data.total
+                    list.forEach((item,index)=>{
+                        var obj={
+                            title:item.x,
+                            width:5*parseInt(item.y)*self.rem/100,
+                            per:item.y
+                        }
+                        array.push(obj);
+                    })
+                    self.agelists = array;
+                })
+            },
+            getarea:function(){   //获得投资地区排行
+                var self = this;
+                $.get('/apiPc/bi/showdata/tenderRank',function(res){
+                    var list = JSON.parse(res).data.list;
+                    var array = []
+                    list.forEach((item,index)=>{
+                        var obj={
+                            name:item.x,
+                            proportion:item.y
+                        }
+                        array.push(obj);
+                    })
+                    self.arearanking = array;
+                })
+            },
+            getamount:function(){   //投资总额
+                var self = this;
+                $.get('/apiPc/bi/showdata/tenderAmount',function(res){
+                    var amount = JSON.parse(res).data.total;
+                    amount = (parseFloat(amount)/10000).toFixed(2).toString()
+                    var arr = amount.split('.');
+                    var array = arr[0];
+                    array = array.replace(/\B(?=(\d{3})+(?!\d))/g, ",").split('');
+                    array.push('.')
+                    self.num = array;
+                    self.autonum = arr[1].split('')
+                    self.cheat(self.autonum)
+                })
+            },
+            // 小喇叭滚动播放
+            scroll: function() {
+                var messageList = this.messageList;
+                var scrollIndex = this.scrollIndex;
+                if (scrollIndex >= messageList.length ) {
+                    this.scrollIndex = 0;
+                    $(this.$refs.scrillContent).css('margin-top','0px')
+                }else{
+                    this.scrollIndex = scrollIndex + 1;
+                    $(this.$refs.scrillContent).animate({marginTop:this.scrollIndex * (-0.53) + 'rem'},500,'linear')
+                    
+                }
+                
+            }
+        },
+        watch:{
+            num:{
+                handler(newValue, oldValue) {
+                    setTimeout(()=>{
+                        for (let i = 0; i < newValue.length; i++) {
+                            if (oldValue[i] != newValue[i]&&newValue[i]!=','&&newValue[i]!='.'||!oldValue[i]) {
+                                $($('#money').children()[i]).css({transform: 'translateY('+-91*newValue[i]/100+'rem)'})
+                            }
+                        }
+
+                    },50)
+            },
+            // deep: true
+            }
+        }
+    })
+</script>
+</body>
+</html>

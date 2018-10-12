@@ -1,0 +1,127 @@
+@import "../libs/mixin.scss";
+
+.risk_banner{
+    @include box((w:100%,h:170px));
+    @include background((url:'member/risk_banner.jpg', repeat:no-repeat,size:100% 100%))
+}
+.risk_box{
+    @include box((p:20px 20px 0 20px));
+    .tip{
+        @include box((lh:34px));
+    }
+}
+.risk_box p{font-size:14px;color:#666;}
+.risk_box p strong{font-size:18px;color:#ff7d5c;font-weight:500;}
+.risk_box h3{font-size:16px;color:#333;font-weight:500;margin-top:20px;}
+.risk_box h3 span{margin-right:10px;width:24px;height:24px;background:#f6f6f6;border-radius:100px;line-height:24px;text-align:center;font-size:16px;display:inline-block;}
+
+.risk_list{
+    width:100%;padding-bottom:20px;border-bottom:1px dashed #dcdcdc;
+    li{
+        width:48%;display:inline-block;background:#f6f6f6;height:40px;line-height:40px;margin-top:20px;
+        font-size:14px;color:#666;position:relative;
+        &:nth-child(even){float:right;}
+        label{
+            @include box((w:100%,h:100%,d:block,p:0 10px));
+            box-sizing: border-box;
+        }
+        input{
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            background-color: none;
+            outline:none;
+            border:0px;
+            @include background((url:'radio_unchecked.png',size:100% 100%));
+        }
+        &.checkedItem{
+            background-color:#edf4fd;
+            color:$blue;
+            input{
+                @include background((url:'radio_checked.png',size:100% 100%));
+            }
+        }
+    }
+}
+
+input:checked+label{
+    position:absolute;
+    left:0;top:0;
+    background-color:#edf4fd;
+    width:100%;
+    height:40px;
+    display:inline-block;
+    color:$blue !important;
+}
+.risk_list li input{width: 20px;height: 20px; margin: 9px 5px 0 0;float: left;}
+.risk_btn{
+    width:100%;
+    text-align:center;
+    padding:20px 0;
+    span,&.linkBtn{
+        display: block;
+        width:170px;
+        height:35px;
+        line-height:35px;
+        color:#fff;
+        font-size:18px;
+        text-align:center;
+        background:$red;
+        margin:0 auto;
+        cursor: pointer;
+        padding:0;
+    }
+    &.linkBtn{
+        margin:40px auto;
+    }
+}
+
+.risk_mask{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+.risk_bar{
+    position: absolute;
+    width: 396px;
+    height: 56px;
+    top: 30%;
+    left: 50%;
+    margin-left: -198px;
+    background-color: rgba(0,0,0,0.5);
+    line-height: 56px;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 10px;
+}
+.risk_result_mask{
+
+}
+.risk_result{
+    text-align: center;
+}
+.risk_title{
+    font-size: 18px;
+    color: #333;
+    margin-top: 50px;
+}
+.risk_content{
+    margin-top: 30px;
+    font-size: 14px;
+    color: #666666;
+}
+.risk_content > span{
+    font-size: 18px;
+    color: #de443c;
+}
+.risk_foot{
+    margin-top: 18px;
+    padding: 0 17px;
+    font-size: 14px;
+    color: #999;
+}
+.fx{
+    text-align: center;
+}

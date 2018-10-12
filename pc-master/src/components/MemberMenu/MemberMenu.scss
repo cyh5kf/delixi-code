@@ -1,0 +1,144 @@
+@import "../../assets/css/libs/mixin.scss";
+
+.leftMenu{
+    @include box((w:200px,bg:$white,m:0 10px 0 0));
+}
+
+.userHead{
+    @include box((p:30px 0 30px 0));
+    border-bottom:1px dashed #e5e5e5;
+    .modify{
+        @include box((bg:#222,fs:12px,c:#fff,h:30px,w:82px,ta:center,fw:500,pt:5px));
+        opacity:0.5;
+        @include position((p:absolute,b:-30px));
+        transition:all 0.5s;
+    }
+    h4{
+        @include box((w:90px,h:90px,bd:4px solid $white,m:0 auto,bdr:50%));
+        cursor:pointer;
+        @include background((url:'member/avator.gif',size:100% 100%,repeat:no-repeat));
+        box-shadow: 0 1px 1px 1px #ccc;
+        position:relative;
+        overflow: hidden;
+        &:hover .modify{
+                bottom:0
+        }
+    }
+    .phoneTxt{
+        @include box((lh:48px,ta:center,fs:14px))
+    }
+    ul{
+        @include box((h:30px,ta:center));
+        li{
+            @include box((w:30px,h:30px,bdr:50%,d:inline-block,fs:0,m:0 10px));
+            overflow: visible;
+            position:relative;
+            &:nth-child(1){
+                @include background((color:#f6f6f6,url:'member/phone_active.png',repeat:no-repeat,pos:center center));
+            }
+            &:nth-child(2){
+                @include background((color:#f6f6f6,url:'member/bank_disable.png',repeat:no-repeat,pos:center center));
+            }
+            &:nth-child(3){
+                @include background((color:#f6f6f6,url:'member/email_disable.png',repeat:no-repeat,pos:center center));
+            }
+            a{
+                @include box((d:block,h:100%))
+            }
+            .tips{
+                @include box((w:71px,h:19px,fs:12px,c:$black5,ta:center,lh:17px,d:none));
+                border:1px solid #e5e5e5;
+                box-shadow:0 2px 0 rgba(215,165,94,0.15);
+                @include position((p:absolute,t:35px,l:-20px));
+            }
+            &:hover{
+                .tips{
+                    display:block;
+                }
+            }
+        }
+    }
+}
+
+.avite{
+    @include box((p:80px 0 20px 0));
+    border-bottom:1px dashed #e5e5e5;
+    @include background((url:'member/avite_friends.png',size:154px 58px,repeat:no-repeat,pos:26px 16px));
+    span{
+        @include box((d:block,w:124px,h:28px,lh:28px,bd:1px solid #d7a55e,c:#d7a55e,ta:center,m:0 auto));
+        cursor: pointer;
+    }
+}
+
+.menu_ul{
+    li{
+        border-bottom:1px dashed #e5e5e5;
+        overflow: auto;
+        &:last-child{
+            border-bottom:none;
+            position: relative;
+            overflow: visible;
+            @include box((p:20px 0 12px 46px));
+            &:after{
+                content:'';
+                @include box((d:block,w:200px,h:3px));
+                @include position((p:absolute,b:-3px,l:0));
+                @include background((url:'member/menu_wave_border.png',repeat:no-repeat,size:cover))
+            }
+        }
+        @include box((p:20px 0 20px 46px));
+        .title{
+            @include box((lh:36px,fs:16px,fw:normal,c:$black2));
+            position: relative;
+            &:before{
+                content:'';
+                @include position((p:absolute,l:-20px,t:50%));
+                @include box((d:block,w:10px,h:10px,m:-5px 0 0 0,bdr:50%));
+                @include background((url:'member/menu_dot.png',repeat:no-repeat,pos:center center,size:cover))
+            }
+        }
+        .sub_title{
+            @include box((lh:34px,c:$black5,fs:14px));
+            a{
+                @include box((c:$black5))
+            }
+        }
+    }
+}
+:global{
+    .modifytx{
+        @include box((bg:rgba(0,0,0,0.7),d:none));
+        @include position((p:fixed,t:0,l:0,b:0,r:0,z:20000));
+        .modifybox{
+            @include box((w:372px,h:465px,bdr:4px,m:auto,bg:#fff,p:30px 50px 0));
+            @include position((p:absolute,l:0,r:0,b:0,t:0));
+            h5{
+               @include box((fs:16px,c:$black2,fw:500,mb:30px));
+            }
+            .picture{
+                @include box((w:270px,h:270px,bd:1px dashed #e5e5e5,mb:30px));
+                @include background((url:'picture.png',pos:center center,repeat:no-repeat,size:contain))
+            }
+            .btnbox{
+                @include clearfix();
+                @include box((fs:14px));
+                .btn1{
+                    @include box((w:142px,h:38px,bd:1px solid #e5e5e5,lh:36px,c:#999,ta:center,pl:20px,fl:left));
+                    @include background((url:'up.png',pos:10px center,repeat:no-repeat));
+                    cursor:pointer;
+                }
+                .btn2{
+                    @include box((fl:right,h:38px,w:118px,bg:#f64c3e,c:#fff,ta:center,lh:38px));
+                    cursor:pointer;
+                }
+            }
+
+            .close{
+                @include box((w:24px,h:24px,));
+                @include background((url:'closedetail.png',pos:center center,repeat:no-repeat));
+                @include position((p:absolute,r:17px,t:17px));
+                cursor:pointer;
+            }
+        }
+    }
+}

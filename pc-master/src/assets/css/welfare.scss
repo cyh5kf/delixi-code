@@ -1,0 +1,85 @@
+@import "./libs/mixin.scss";
+:global{
+  body{
+    background:#db3400 ;
+  }
+  .banner{
+    @include box((w:100%,h:764px,));
+    background-color:#db3400;
+    @include background((url:'welfare_banner_pc01.png',pos:center center,repeat:no-repeat));
+  }
+  .content{
+    @include box((w:1200px,m:0 auto,mt:-194px));
+    section{
+      max-width:1200px;
+      @include box((w:1200px,mb:71px));
+      @include background((repeat:no-repeat,pos:center center));
+      &.section1{
+        @include box((h:526px,pt:113px,ta:center));
+        @include background((url:'welfare_bg1.png'));
+        .redpack{
+          @include box((w:33.33%,fl:left,h:250px,pt:165px,mb:20px));
+          @include background((url:'register_packbg1.png',repeat:no-repeat,pos:center center));
+          &:nth-child(2){
+            @include background((url:'register_packbg2.png'));
+          }
+          &:nth-child(3){
+            @include background((url:'register_packbg3.png'));
+          }
+          p{
+            @include box((ta:center,c:#fff,fs:24px));
+          }
+        }
+      }
+      &.section2{
+        @include box((h:258px,pt:115px,ta:center));
+        @include background((url:'welfare_bg2_01.png'));
+      }
+      &.section3{
+        @include box((h:842px,p:114px 100px 0,ta:center));
+        @include background((url:'welfare_bg3.png'));
+        .pack{
+          @include clearfix();
+          li{
+            @include box((w:465px,h:229px,fl:left,mb:70px));
+            overflow: visible;
+            .img{
+              @include box((w:465px,h:100%,m:0 auto));
+              @include background((repeat:no-repeat,pos:center center));
+              position:relative;
+              img{
+                display:none;
+                @include position((p:absolute,t:-45px,r:-17px))
+              }
+              &.active{
+                img{
+                  display:block;
+                }
+              }
+            }
+            &:nth-child(2n){
+              float:right
+            }
+            &:first-child{
+              .img{
+                width:257px;
+              }
+            }
+            &:nth-child(2){
+              .img{
+                width:257px;
+              }
+            }
+          }
+        }
+      }
+      &.section4{
+        @include box((h:374px,p:114px 100px 0,ta:center));
+        @include background((url:'welfare_bg4.png'));
+        p{
+          @include box((fs:18px,c:#666,ta:left,lh:36px));
+        }
+      }
+    }
+  }
+}

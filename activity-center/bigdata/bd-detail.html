@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection" />
+    <title>标的售出明细</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico" />
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="./index.css">
+    <!-- 弹窗插件样式 -->
+    <link rel="stylesheet" href="/static/css/remodal.css">
+
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="tj-detail">
+            <div class="interval"></div>
+            <div class="top">
+                <p class="title">标的售出明细</p>
+                <div id="chart" class="chart-bd" style="width: 100%;height:3.7rem;"></div>
+                <div class="tab-switch">
+                    <div :class="{'tab-left': true, 'tab-active': currentDate === 7}" @click="switchDate('7')">7日</div>
+                    <div :class="{'tab-right': true, 'tab-active': currentDate === 30}" @click="switchDate('30')">30日</div>
+                </div>
+            </div>
+            <div class="section-name">
+                <div class="section-title">
+                    <div class="icon"></div>
+                    数据详情
+                </div>
+            </div>
+            <div class="data-detail bd-detail">
+                <table>
+                    <tr>
+                        <td><img src="https://images.51rz.com/images/app/bg-statistics/term-scope.png">期限范围</td>
+                        <td><img src="https://images.51rz.com/images/app/bg-statistics/money.png">金额（万元）</td>
+                        <td><img src="https://images.51rz.com/images/app/bg-statistics/proportion.png">占比（%）</td>
+                    </tr>
+                    <tr>
+                        <td @click="openLineChart(0, '新手标')">新手标</td>
+                        <td v-text="chartDataList[0]"></td>
+                        <td v-text="proportionList[0]"></td>
+                    </tr>
+                    <tr>
+                        <td @click="openLineChart(1, '短期标')">短期标(<25天)</td>
+                        <td v-text="chartDataList[1]"></td>
+                        <td v-text="proportionList[1]"></td>
+                    </tr>
+                    <tr>
+                        <td @click="openLineChart(2, '1月标')">1月标(25*~45天)</td>
+                        <td v-text="chartDataList[2]"></td>
+                        <td v-text="proportionList[2]"></td>
+                    </tr>
+                    <tr>
+                        <td @click="openLineChart(3, '2月标')">2月标(45*~75天)</td>
+                        <td v-text="chartDataList[3]"></td>
+                        <td v-text="proportionList[3]"></td>
+                    </tr>
+                    <tr>
+                        <td @click="openLineChart(4, '3月标')">3月标(75*~120天)</td>
+                        <td v-text="chartDataList[4]"></td>
+                        <td v-text="proportionList[4]"></td>
+                    </tr>
+                    <tr>
+                        <td @click="openLineChart(5, '6月标')">6月标(120*~210天)</td>
+                        <td v-text="chartDataList[5]"></td>
+                        <td v-text="proportionList[5]"></td>
+                    </tr>
+                    <tr>
+                        <td @click="openLineChart(6, '9月标')">9月标(210*~270天)</td>
+                        <td v-text="chartDataList[6]"></td>
+                        <td v-text="proportionList[6]"></td>
+                    </tr>
+                    <tr>
+                        <td @click="openLineChart(7, '12月标')">12月标(270*~365天)</td>
+                        <td v-text="chartDataList[7]"></td>
+                        <td v-text="proportionList[7]"></td>
+                    </tr>
+                </table>
+                <p class="tip">*点击各期限范围可弹出详情</p>
+            </div>
+            <div class="interval"></div>
+        </div>
+
+        <!-- 明细数据弹窗 -->
+        <div class="remodal dialog-chart" data-remodal-target="dialog-chart" data-remodal-options="hashTracking: false" role="dialog">
+            <div class="tj-detail">
+                <p class="title">明细数据（<span v-text="selectedBdName"></span>）</p>
+                <div id="detail-chart" class="detail-chart" style="width: 6.7rem;height:3.2rem;"></div>
+            </div>
+            
+        </div>
+
+        <!-- 弹窗提示 -->
+        <div class="dialog-tip">
+            <div class="content" v-text="dialogText"></div>
+        </div>
+
+        <!-- loading -->
+        <div class="loading-wrapper">
+            <div class="spinner-snake" style="border-top-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); height: 32px; width: 32px;"></div>
+            <span class="indicator-text">加载中...</span>
+        </div>
+    </div>
+
+    <script src="/static/js/fastclick.min.js"></script>
+    <script src="/static/js/zepto.min.js"></script>
+    <script src="/static/js/vue.min.js"></script>
+    <!-- 弹窗插件 -->
+    <script src="/static/js/remodal.min.js"></script>
+    <!-- 工具类函数 -->
+    <script src="/static/js/util/util.js"></script>
+    <!-- 图表插件 -->
+    <script src="/static/js/echarts.common.min.js"></script>
+
+    <script>  
+        // 解决移动端页面click事件存在300毫秒延迟
+        document.addEventListener('DOMContentLoaded', function () {
+            FastClick.attach(document.body);
+        }, false);
+
+        // 避免页面从缓存中加载
+        window.onpageshow = function (e) {
+            e = e || event;
+            if (e.persisted) {
+                location.reload();
+            }
+        }
+
+        // 获取url参数
+        function getParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+
+        // var a="/a/b/c/d";
+        // a.replace(/\\/g,'')
+
+        var vm = new Vue({
+        el: '#app',
+        data: function() {
+            return {
+                dialogText: '', // 弹窗提示文本内容
+                currentDate: 7, // 当天展示的时间，默认为7天
+                selectedBdName: '', // 点击柱状图选中的标的名称
+                data: {}, // 页面数据
+                chartDataList: [], // 标的售出明细图标每个标的的金额列表数据
+                proportionList: [], // 标的售出明细图标每个标的的占比列表数据
+                detailX: {}, // 弹窗明细X轴数据
+                detailY: {}, // 弹窗明细Y轴数据
+            }
+        },
+
+        created: function() {
+
+        },
+
+        mounted: function() {
+            var _self = this;
+            var token = getLocalStorageItem('token');
+            if (token) {
+                $(".loading-wrapper").show();
+                $.post('/apiApp/data/biaodiDetails.html', { token: token }, function (result) {
+                    $(".loading-wrapper").hide();
+                    result = JSON.parse(result);
+                    if (result.responseCode === '000000') {
+                        _self.data = result.obj;
+                        _self.initChart();
+                    } else if (result.responseCode === '999998') {
+                        _self.logOut();
+                    } else {
+                        _self.showMsg(result.responseMessage);
+                    }
+                })
+            } else {
+                _self.logOut();
+            }
+        },
+
+        methods: {
+            // 打开弹窗提示
+            showMsg: function(msg) {
+                this.dialogText = msg;
+                $(".dialog-tip").show();
+                setTimeout(function() {
+                    $(".dialog-tip").hide();
+                }, 2000);
+            },
+            
+            // 切换7天和30天
+            switchDate: function(index) {
+                if(index === "7") {
+                    this.currentDate = 7;
+                    this.initChart();
+                } else if(index === "30") {
+                    this.currentDate = 30;
+                    this.initChart();
+                }
+            },
+
+            // 登录状态过期跳转到登录页面并清空存储
+            logOut: function() {
+                localStorage.clear();
+                window.location.href = 'index.html';
+            },
+
+            // 数据相加
+            toSum: function(data) {
+                var result = 0;
+                data.forEach(function(item, index) {
+                    item.forEach(function(value, idx) {
+                       result += value.money; 
+                    })
+                })
+                return result;
+            },
+
+            // 取日期数据
+            forDate: function (data) {
+                var result = [];
+                data.forEach(function (item, index) {
+                    item.forEach(function (value, idx) {
+                        result.push(value.date);
+                    })
+                })
+
+                // 数组去重
+                var arr = [];
+                var flag = true;
+                result.forEach(function (item) {
+                    // 排除 NaN (重要！！！)
+                    if (item != item) {
+                        flag && arr.indexOf(item) === -1 ? arr.push(item) : '';
+                        flag = false;
+                    } else {
+                        arr.indexOf(item) === -1 ? arr.push(item) : ''
+                    }
+                });
+                return arr.reverse(); // 按时间从前往后正序排序
+            },
+
+            // 取金额数据
+            forMoney: function(data) {
+                var result = [];
+                var _self = this;
+                data.forEach(function(item, index) {
+                    var itemMoney = 0;
+                    item.forEach(function (value, idx) {
+                        itemMoney += value.money;
+                    })
+                    itemMoney = _self.convert(itemMoney);
+                    result.push(itemMoney);
+                })
+                return result.reverse(); // 按时间从前往后正序排序
+            },
+
+            convert: function(num) {
+                //转万元
+                if(num) {
+                    return ((num*1/10000).toFixed(2)*1);
+                } else {
+                    return 0;
+                }
+            },
+
+            // 计算标的售出明细柱状图Y轴数据
+            computeData: function() {
+                var currentDate = this.currentDate;
+                var data = this.data;
+                
+                // 原始30天数据
+                var xinshoubiao = JSON.parse(data.xinshoubiaodetails); // 新手标30天数据
+                var duanqibiao = JSON.parse(data.duanqibiaodetails); // 短期标30天数据
+                var tian30 = JSON.parse(data.sanshitianbiaodetails); // 30天标30天数据
+                var tian60 = JSON.parse(data.liushishitianbiaodetails); // 60天标30天数据
+                var tian90 = JSON.parse(data.jiushitianbiaodetails); // 90天标30天数据
+                var tian180 = JSON.parse(data.yibaibashitianbiaodetails); // 180天标30天数据
+                var dayu180tian = JSON.parse(data.dayuyibaishijiushitianbiaodetails); // 大于180天标30天数据
+                var tian365 = JSON.parse(data.shieryuebiaodetails); // 12月标30天数据
+                // 截取之后7天数据
+                var xinshoubiaoSeven = xinshoubiao.slice(0, 7); // 新手标7天数据
+                var duanqibiaoSeven = duanqibiao.slice(0, 7); // 短期标7天数据
+                var tian30Seven = tian30.slice(0, 7); // 30天标7天数据
+                var tian60Seven = tian60.slice(0, 7); // 60天标7天数据
+                var tian90Seven = tian90.slice(0, 7); // 90天标7天数据
+                var tian180Seven = tian180.slice(0, 7); // 180天标7天数据
+                var dayu180tianSeven = dayu180tian.slice(0, 7); // 大于180天标7天数据
+                var tian365Seven = tian365.slice(0, 7); // 12月标7天数据
+
+                // 最终传入图表的每个标的金额
+                var xinshoubiaoChartData = currentDate === 7? this.toSum(xinshoubiaoSeven): this.toSum(xinshoubiao);
+                var duanqibiaoChartData = currentDate === 7? this.toSum(duanqibiaoSeven): this.toSum(duanqibiao);
+                var tian30ChartData = currentDate === 7? this.toSum(tian30Seven): this.toSum(tian30);
+                var tian60ChartData = currentDate === 7? this.toSum(tian60Seven): this.toSum(tian60);
+                var tian90ChartData = currentDate === 7? this.toSum(tian90Seven): this.toSum(tian90);
+                var tian180ChartData = currentDate === 7? this.toSum(tian180Seven): this.toSum(tian180);
+                var dayu180tianChartData = currentDate === 7? this.toSum(dayu180tianSeven): this.toSum(dayu180tian);
+                var tian365tianChartData = currentDate === 7? this.toSum(tian365Seven): this.toSum(tian365);
+
+                // 计算每个标的的占比
+                var totalCount = xinshoubiaoChartData + duanqibiaoChartData + tian30ChartData + tian60ChartData + tian90ChartData + tian180ChartData + dayu180tianChartData + tian365tianChartData;
+                var xinshoubiaoProportion = totalCount === 0? 0: ((xinshoubiaoChartData / totalCount) * 100).toFixed(2);
+                var duanqibiaoProportion = totalCount === 0? 0: ((duanqibiaoChartData / totalCount) * 100).toFixed(2);
+                var tian30Proportion = totalCount === 0? 0: ((tian30ChartData / totalCount) * 100).toFixed(2);
+                var tian60Proportion = totalCount === 0? 0: ((tian60ChartData / totalCount) * 100).toFixed(2);
+                var tian90Proportion = totalCount === 0? 0: ((tian90ChartData / totalCount) * 100).toFixed(2);
+                var tian180Proportion = totalCount === 0? 0: ((tian180ChartData / totalCount) * 100).toFixed(2);
+                var dayu180tianProportion = totalCount === 0? 0: ((dayu180tianChartData / totalCount) * 100).toFixed(2);
+                var tian365tianProportion = totalCount === 0? 0: ((tian365tianChartData / totalCount) * 100).toFixed(2);
+                
+                
+                this.chartDataList = [this.convert(xinshoubiaoChartData), this.convert(duanqibiaoChartData), this.convert(tian30ChartData), this.convert(tian60ChartData), this.convert(tian90ChartData), this.convert(tian180ChartData), this.convert(dayu180tianChartData), this.convert(tian365tianChartData)];
+                this.proportionList = [xinshoubiaoProportion, duanqibiaoProportion, tian30Proportion, tian60Proportion, tian90Proportion, tian180Proportion, dayu180tianProportion, tian365tianProportion];
+
+                // 计算明细数据弹窗折线图数据
+                var xinshoubiaoDetail = currentDate === 7? xinshoubiaoSeven: xinshoubiao;
+                var duanqibiaoDetail = currentDate === 7? duanqibiaoSeven: duanqibiao;
+                var tian30Detail = currentDate === 7? tian30Seven: tian30;
+                var tian60Detail = currentDate === 7? tian60Seven: tian60;
+                var tian90Detail = currentDate === 7? tian90Seven: tian90;
+                var tian180Detail = currentDate === 7? tian180Seven: tian180;
+                var dayu180tianDetail = currentDate === 7? dayu180tianSeven: dayu180tian;
+                var tian365Detail = currentDate === 7? tian365Seven: tian365;
+
+                // 计算明细弹窗X轴数据
+                var xinshoubiaoDetailX = this.forDate(xinshoubiaoDetail);
+                var duanqibiaoDetailX = this.forDate(duanqibiaoDetail);
+                var tian30DetailX = this.forDate(tian30Detail);
+                var tian60DetailX = this.forDate(tian60Detail);
+                var tian90DetailX = this.forDate(tian90Detail);
+                var tian180DetailX = this.forDate(tian180Detail);
+                var dayu180tianDetailX = this.forDate(dayu180tianDetail);
+                var tian365DetailX = this.forDate(tian365Detail);
+                this.detailX = {
+                    xinshoubiaoDetailX: xinshoubiaoDetailX,
+                    duanqibiaoDetailX: duanqibiaoDetailX,
+                    tian30DetailX: tian30DetailX,
+                    tian60DetailX: tian60DetailX,
+                    tian90DetailX: tian90DetailX,
+                    tian180DetailX: tian180DetailX,
+                    dayu180tianDetailX: dayu180tianDetailX,
+                    tian365DetailX: tian365DetailX
+                }
+
+                // 计算明细弹窗Y轴数据
+                var xinshoubiaoDetailY = this.forMoney(xinshoubiaoDetail);
+                var duanqibiaoDetailY = this.forMoney(duanqibiaoDetail);
+                var tian30DetailY = this.forMoney(tian30Detail);
+                var tian60DetailY = this.forMoney(tian60Detail);
+                var tian90DetailY = this.forMoney(tian90Detail);
+                var tian180DetailY = this.forMoney(tian180Detail);
+                var dayu180tianDetailY = this.forMoney(dayu180tianDetail);
+                var tian365DetailY = this.forMoney(tian365Detail);
+                this.detailY = {
+                    xinshoubiaoDetailY: xinshoubiaoDetailY,
+                    duanqibiaoDetailY: duanqibiaoDetailY,
+                    tian30DetailY: tian30DetailY,
+                    tian60DetailY: tian60DetailY,
+                    tian90DetailY: tian90DetailY,
+                    tian180DetailY: tian180DetailY,
+                    dayu180tianDetailY: dayu180tianDetailY,
+                    tian365DetailY: tian365DetailY
+                }
+            },
+
+            // 初始化图标
+            initChart: function() {
+                this.computeData();
+                var chartDataList = this.chartDataList;
+                var proportionList = this.proportionList;
+
+                // 基于准备好的dom，初始化echarts实例
+                var myChart = echarts.init(document.getElementById('chart'));
+                
+
+                // 指定图表的配置项和数据
+                var option = {
+                    color: ['#475bbb'],
+                    grid: {
+                        top: 30,
+                        bottom: 55,
+                        left: 15,
+                        right: 10
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: ['新手标', '短期标', '1月标', '2月标', '3月标', '6月标', '9月标', '12月标'],
+                        axisTick: {
+                            alignWithLabel: true
+                        },
+                        axisLabel: {
+                            rotate:45,
+                            color: function(value, index) {
+                                return '#6c6c6c';
+                            }
+                        },
+                        axisLine: {
+                            symbol: ['none','arrow'],
+                            symbolSize: [10, 12],
+                            lineStyle: {
+                                color: ['#5569cc']
+                            }
+                        }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        name: '万元',
+                        splitLine: {
+                            show: false
+                        },
+                        axisTick: {
+                            show: false
+                        },
+                        axisLabel: {
+                            show: false
+                        },
+                        axisLine: {
+                            symbol: ['none','arrow'],
+                            symbolSize: [10, 12],
+                            lineStyle: {
+                                color: ['#5569cc']
+                            }
+                        },
+                    },
+                    series: [{
+                        data: chartDataList,
+                        type:'bar',
+                        barWidth: '40%',
+                        label: {
+                            show: true,
+                            position: 'top',
+                            color: '#0c5da3',
+                            fontSize: '.2rem',
+                            align: 'left',
+                            offset: [-20, 0],
+                            formatter: function(data) {
+                                var dataIndex = data.dataIndex;
+                                var money = '•' + data.data;
+                                var proportion = '•' + proportionList[dataIndex] + '%';
+                                return [money, proportion].join('\n');
+                            },
+                        },
+                    }]
+                };
+
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+
+                var _self = this;
+                // 点击柱状图弹出明细弹窗
+                myChart.on('click', function (params) {
+                    _self.selectedBdName = params.name; // 获取当前选中的标的名称
+                    var dataIndex = params.dataIndex; // 获取当前选中的标的下标
+                    _self.renderLineChart(dataIndex);
+                });
+            },
+
+            // 渲染明细数据折线图
+            renderLineChart: function(dataIndex) {
+                var dataX = [];
+                var dataY = [];
+                var detailX = this.detailX;
+                var detailY = this.detailY;
+
+                switch (dataIndex) { // 根据下标给x, y轴赋值
+                    case 0:
+                        dataX = detailX.xinshoubiaoDetailX;
+                        dataY = detailY.xinshoubiaoDetailY;
+                        break;
+                    case 1:
+                        dataX = detailX.duanqibiaoDetailX;
+                        dataY = detailY.duanqibiaoDetailY;
+                        break;
+                    case 2:
+                        dataX = detailX.tian30DetailX;
+                        dataY = detailY.tian30DetailY;
+                        break;
+                    case 3:
+                        dataX = detailX.tian60DetailX;
+                        dataY = detailY.tian60DetailY;
+                        break;
+                    case 4:
+                        dataX = detailX.tian90DetailX;
+                        dataY = detailY.tian90DetailY;
+                        break;
+                    case 5:
+                        dataX = detailX.tian180DetailX;
+                        dataY = detailY.tian180DetailY;
+                        break;
+                    case 6:
+                        dataX = detailX.dayu180tianDetailX;
+                        dataY = detailY.dayu180tianDetailY;
+                        break;
+                    case 6:
+                        dataX = detailX.tian365DetailX;
+                        dataY = detailY.tian365DetailY;
+                        break;
+                }
+
+                // 基于准备好的dom，初始化echarts实例
+                var detailChart = echarts.init(document.getElementById('detail-chart'));
+
+                // 指定图表的配置项和数据
+                var option = {
+                    tooltip: {},
+                    grid: {
+                        top: 30,
+                        bottom: 25,
+                        left: 12,
+                        right: 0
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: dataX,
+                        axisTick: {
+                            alignWithLabel: true
+                        },
+                        axisLabel: {
+                            color: function(value, index) {
+                                return '#6c6c6c';
+                            }
+                        },
+                        axisLine: {
+                            symbol: ['none','arrow'],
+                            symbolSize: [10, 12],
+                            lineStyle: {
+                                color: ['#5569cc']
+                            }
+                        }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        name: '万元',
+                        splitLine: {
+                            show: false
+                        },
+                        axisTick: {
+                            show: false
+                        },
+                        axisLabel: {
+                            show: false
+                        },
+                        axisLine: {
+                            symbol: ['none','arrow'],
+                            symbolSize: [10, 12],
+                            lineStyle: {
+                                color: ['#5569cc']
+                            }
+                        },
+                    },
+                    series: [{
+                        data: dataY,
+                        type: 'line',
+                        symbol: 'circle',
+                        symbolSize: 4,
+                        sampling: 'average',
+                        label: {
+                            show: true,
+                            position: 'top',
+                            color: '#0c5da3',
+                            fontSize: '.2rem'
+                        },
+                        lineStyle: {
+                            normal: {
+                                color: '#e0e4f6',
+                                opacity: 0.2
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                color: '#0c5da3'
+                            }
+                        },
+                        areaStyle: {
+                            normal: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    offset: 0,
+                                    color: '#e0e4f6'
+                                }, {
+                                    offset: 1,
+                                    color: '#f5f7fc'
+                                }])
+                            }
+                        },
+                    }]
+                };
+
+                // 使用刚指定的配置项和数据显示图表
+                detailChart.setOption(option);
+
+                // 打开明细弹窗
+                var inst = $('[data-remodal-target=dialog-chart]').remodal();
+                inst.open();
+            },
+
+            // 点击表格中的标的名称打开明细折线图弹窗
+            openLineChart: function(dataIndex, title) {
+                this.selectedBdName = title;
+                this.renderLineChart(dataIndex);
+            }
+        }
+    });
+
+    </script>
+
+</body>
+
+</html>

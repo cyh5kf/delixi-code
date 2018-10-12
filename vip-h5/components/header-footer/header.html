@@ -1,0 +1,143 @@
+<div class="TopBar_wraper">
+    <div class="TopBar_barArea">
+        <div class="TopBar_container">
+            <div class="TopBar_TopBarleft">
+                <i class="TopBar_tel"></i>
+                <p>
+                    <!-- react-text: 32 -->全国服务热线：
+                    <!-- /react-text -->
+                    <a>400-655-8858</a>
+                    <!-- react-text: 34 -->（9:00~22:00）
+                    <!-- /react-text -->
+                </p>
+                <span></span>
+                <div class="TopBar_download">
+                    <p>下载APP</p>
+                    <i class="TopBar_phone"></i>
+                    <div class="TopBar_img">
+                        <img src="https://images.51rz.com/images/pc/header-footer/xzapp.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="TopBar_TopBarRight">
+                <div v-if="isLogined" class="TopBar_islogin">
+                    <span>
+                        <!-- react-text: 584 -->欢迎您，
+                        <!-- /react-text -->
+                        <!-- react-text: 585 --><span v-text="userName"></span>
+                        <!-- /react-text -->
+                        <!-- react-text: 586 -->
+                        <!-- /react-text -->
+                        <a @click="loginOut">【 退出 】</a>
+                    </span>
+                    <a :href="linkUrl('/member/index.html#/message')">
+                        <div class="TopBar_message">
+                            <img src="https://images.51rz.com/images/pc/header-footer/tip.png" v-show="notice" alt=""
+                                 style="display: block;">
+                        </div>
+                    </a>
+                </div>
+                <div v-else class="TopBar_notlogin">
+                    <div>
+                        <a href="https://www.51rz.com/ind/register.html">注册</a>
+                    </div>
+                    <div>
+                        <span></span>
+                        <a :href="linkUrl('/login.html')">登录</a>
+                    </div>
+                </div>
+
+                <div>
+                    <span></span>
+                    <a :href="linkUrl('/help.html')">帮助中心</a>
+                </div>
+                <div>
+                    <span></span>
+                    <a :href="linkUrl('/noviceGuide.html')">新手指引</a>
+                </div>
+                <div>
+                    <span></span>
+                    <a :href="linkUrl('/aboutus.html')">关于我们</a>
+                </div>
+            </div>
+        </div>
+        <ul class="TopBar_fixed">
+            <li>
+                <a target="_blank" href="http://51rz.udesk.cn/im_client/?web_plugin_id=22904">
+                    <p>在线客服</p>
+                </a>
+            </li>
+            <li>
+                <p>关注微信</p>
+                <div class="TopBar_cardbox">
+                    <div class="TopBar_card">
+                        <img src="https://images.51rz.com/images/pc/header-footer/wxdyh.png" alt=""
+                             style="width: 120px; height: 120px;">
+                        <p>关注领红包</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <p>APP下载</p>
+                <div class="TopBar_cardbox">
+                    <div class="TopBar_card">
+                        <img src="https://images.51rz.com/images/pc/header-footer/xzapp.png" alt="">
+                        <p>扫码下载</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <p>QQ客服</p>
+                <div class="TopBar_cardbox">
+                    <div class="TopBar_card" style="padding-top: 12px;">
+                        <a target="_blank"
+                           href="//shang.qq.com/wpa/qunwpa?idkey=d45c2eccbcc303e8ba593a0050a195e64b929f9204f6251275242d158d501020">官方交流群1</a>
+                        <a target="_blank"
+                           href="//shang.qq.com/wpa/qunwpa?idkey=d4ba666465057f865f49f55af749a62048b6250c1f61b8feb8699526bb4eeb18">官方交流群2</a>
+                        <a target="_blank"
+                           href="//shang.qq.com/wpa/qunwpa?idkey=69ab64c5c31e4595670cdc65f0a61c54136aa6593206189f51182fe55aad21b6">官方交流群3</a>
+                        <a target="_blank"
+                           href="//shang.qq.com/wpa/qunwpa?idkey=9803b9cf47e40f53ed9b94ddfe40bba8464274d9192072011d3f2714f3cea6d1">官方交流群4</a>
+                        <a target="_blank"
+                           href="//shang.qq.com/wpa/qunwpa?idkey=a848414965e1b4a5cd27b011b9c186de7797e86f230bc39f39da176bf80b6b16">官方交流群5</a>
+                    </div>
+                </div>
+            </li>
+            <li @click="backTop">
+                <p>返回顶部</p>
+            </li>
+        </ul>
+    </div>
+    <div class="TopBar_navsArea">
+        <div class="TopBar_navs clearfix">
+            <a :href="linkUrl('/index.html')" class="TopBar_leftLogo">
+                <img src="https://images.51rz.com/images/pc/header-footer/logo_text.gif" class="TopBar_logoText">
+            </a>
+            <div class="TopBar_rightNav">
+                <ul>
+                    <li class="">
+                        <a :href="linkUrl('/index.html')">首页</a>
+                    </li>
+                    <li :class="active==0?'TopBar_active':'false'">
+                        <a :href="isLogined?'/jifen/pc/member/member_libao.html?active=0&type='+type+'&token='+token:linkUrl('/login.html')">会员特权</a>
+                    </li>
+                    <li :class="active==1?'TopBar_active':'false'">
+                        <a :href="'/jifen/pc/jf-shop/jf_index.html?active=1&type='+type+'&token='+token">积分商城</a>
+                    </li>
+                    <!--<li class="false">
+                        <a :href="linkUrl('/projectList.html')">投资产品</a>
+                    </li>
+                    <li class="false">
+                        <a :href="linkUrl('/invite.html')">邀请有礼</a>
+                    </li>
+                    <li class="false">
+                        <a :href="linkUrl('/information.html')">信息披露</a>
+                    </li>
+                    <li class="false">
+                        <a :href="linkUrl('/member/index.html')">我的账户</a>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

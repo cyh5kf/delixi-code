@@ -1,0 +1,407 @@
+@import "./libs/mixin.scss";
+
+:global {
+  .container {
+    @include box((w:1200px, m:0 auto));
+    @include clearfix();
+  }
+  .infobg {
+    @include box((h:120px, w:100%, ta:center, lh:120px, c:#fff, fs:36px));
+
+    @include background((url:'aboutusBg.png', repeat:no-repeat, pos:center center));
+  }
+  //  导航
+  .tab {
+    @include box((h:73px, bg:#fff));
+    ul {
+      @include box((w:100%));
+      @include clearfix();
+      li {
+        @include box((w:200px, h:73px, fl:left));
+        a {
+          @include box((d:block, w:100%, h:100%, lh:73px, fs:14px, c:$black5, ta:center));
+        }
+      }
+    }
+  }
+
+  //  公司概况
+  .intro {
+    @include box((w:100%, h:392px, bg:#f6f6f6, pt:60px));
+  }
+  .title {
+    @include box((h:22px, ta:center, lh:22px, w:276px, m:0 auto, mb:17px));
+    h2 {
+      @include box((fs:22px, c:$black2, fw:500, fl:left, m:0 51px));
+    }
+    .line {
+      @include box((w:43px, h:1px, bg:#707070, fl:left, mt:10px));
+    }
+  }
+  .content1 {
+    @include box((w:100%, h:252px, p:0 40px, pt:22px));
+    @include clearfix();
+    .text {
+      @include box((fl:left, w:756px));
+      pre {
+        @include box((fs:13.98px, c:$black5));
+        word-spacing: 2px;
+        line-height: 24px;
+        white-space: pre-wrap;
+      }
+    }
+    img {
+      @include box((d:block, fl:right));
+    }
+  }
+
+  .bg {
+    @include box((w:100%, pt:59px, pb:82px, bg:#fff));
+    .container {
+      @include box((pl:40px, pr:40px));
+    }
+    h6 {
+      @include box((lh:93px, fs:16px, c:$black2, ta:center, fw:500));
+    }
+    ul.jiagou {
+      @include clearfix();
+      li {
+        @include box((w:229px, h:115px, bg:#d7a55e, bdr:8px, fl:left, m:0 34px, pt:35px));
+        &:first-child {
+          @include box((ml:0));
+        }
+        &:last-child {
+          @include box((mr:0));
+        }
+        p {
+          @include box((c:#fff, fs:16px, lh:24px, ta:center));
+        }
+      }
+    }
+    img {
+      @include box((d:block, m:0 auto));
+    }
+    ul.jieshao {
+      @include box((w:100%));
+      @include clearfix();
+      li {
+        @include box((w:350px, h:460px, fl:left, p:0 34px));
+        border: 1px solid #e5e5e5;
+        &:nth-child(2) {
+          @include box((m:0 35px));
+        }
+        .img {
+          @include box((h:154px));
+        }
+        pre {
+          @include box((fs:14px, c:$black5, lh:24px));
+          white-space: pre-wrap;
+        }
+      }
+    }
+  }
+
+  //  成长大事件
+  .grow {
+    .container {
+      @include box((pt:60px));
+      .title {
+        h2 {
+          @include box((m:0 40px));
+        }
+      }
+    }
+    ul.growline {
+      li {
+        @include box((pt:39px, pb:42px));
+        @include background((url:'growline.png', pos:center top, repeat:no-repeat,));
+        &:nth-child(2n) {
+          background-color: #fff;
+        }
+        &:first-child {
+          background-position: center 45px;
+        }
+        &:last-child {
+          background-size: 2px 300px;
+        }
+        .item {
+          @include box((w:100%));
+          min-height: 65px;
+          &:nth-child(2n-1) {
+            .items {
+              float: left;
+              margin-left: 5px;
+              background-position: top right;
+              padding-right: 30px;
+              text-align: right;
+            }
+          }
+          &:nth-child(2n) {
+            .items {
+              margin-right: 5px;
+              float: right;
+              background-position: 0 0;
+              padding-left: 30px;
+              text-align: left;
+            }
+          }
+          .items {
+            @include box((w:50%));
+            @include background((url:'itembg.png', repeat:no-repeat));
+            min-height: 65px;
+            h6 {
+              @include box((c:#222, fs:14px, fw:500));
+            }
+            p {
+              @include box((c:#555, fs:14px));
+            }
+            &.active {
+              @include background((url:'itembgac.png', repeat:no-repeat));
+              margin: 0 10px !important;
+              h6 {
+                color: #f64c3e;
+              }
+              p {
+                color: #f64c3e;
+              }
+            }
+          }
+        }
+        .year {
+          @include box((w:61px, h:61px, bdr:50%, m:0 auto, bg:#f64c3e, fs:18px, ta:center, c:#fff, lh:61px, mb:37px));
+
+        }
+        .more {
+          @include box((w:61px, h:61px, m:0 auto, bdr:50%, mt:33px));
+          background-color: #fff;
+          cursor: pointer;
+          @include background((url:'itemmore.png', pos:center 43px, repeat:no-repeat));
+        }
+        .start {
+          @include box((w:33px, h:33px, m:0 auto, fs:14px, c:#fff, lh:33px, ta:center));
+          @include background((url:'startbg.png', repeat:no-repeat, pos:center center));
+        }
+      }
+    }
+  }
+
+  //  团队介绍
+  .team {
+    .container {
+      @include box((pt:60px));
+      ul.gaoguan {
+        @include box((p:0 40px));
+        li {
+          .img {
+            @include box((h:100%, fl:left, ta:center, w:177px, mr:50px,lh:177px));
+            min-height: 177px;
+            img {
+              @include box((w:177px, h:177px));
+              vertical-align: middle;
+            }
+          }
+          @include clearfix();
+          @include box((pt:40px, pb:40px));
+          border-bottom: 1px solid #e5e5e5;
+          @include background((pos:left center, repeat:no-repeat));
+          .desc {
+            @include box((pt:54px,fl:left));
+            h3 {
+              @include box((fw:500, fs:18px, c:$black2));
+
+              span {
+                @include box((fs:14px, c:$black5));
+              }
+            }
+            p {
+              @include box((fs:14px, c:$black5, mt:18px, w:890px));
+            }
+          }
+          &:first-child {
+            //.img{
+            //  height: 337px;
+            //  line-height: 337px;
+            //}
+            .desc{
+              padding-top:0
+            }
+          }
+        }
+      }
+    }
+    .teamgj {
+      @include box((bg:#fff, pb:81px));
+      img {
+        @include box((d:block, m:0 auto, mt:25px));
+      }
+    }
+  }
+
+  //  企业文化
+  .culture {
+    .cul_top {
+      @include box((w:100%, h:712px));
+      @include background((url:'culbg.png', repeat:no-repeat, pos:center 194px));
+      .content {
+        @include box((w:1120px, m:0 auto, h:529px));
+        position: relative;
+        li {
+          @include box((w:340px, h:340px, m:auto));
+          position: absolute;
+          z-index: 201;
+          pointer-events: none;
+          transition: all .5s;
+          &.rotate {
+            transform: rotateY(360deg);
+          }
+          &:first-child {
+            @include position((l:0, t:0));
+          }
+          &:nth-child(2) {
+            @include position((l:0, r:0, t:0));
+          }
+          &:nth-child(3) {
+            @include position((r:0, t:0));
+          }
+          &:nth-child(4) {
+            @include position((l:194px, b:0));
+          }
+          &:nth-child(5) {
+            @include position((r:194px, b:0));
+          }
+        }
+        .more {
+          @include box((w:234px, m:auto));
+          @include position((p:absolute, l:0, r:0, b:30px, z:100));
+          border-bottom: 117px solid #d7a55e;
+          border-right: 117px solid #f6f6f6;
+          border-left: 117px solid #f6f6f6;
+          p {
+            @include box((fs:14px, c:#fff, m:auto, w:234px, ta:center));
+            @include position((p:absolute, l:-117px, r:0, t:52px,))
+          }
+          .icon {
+            @include box((w:17px, h:17px));
+            @include background((url:'hicon.png', repeat:no-repeat));
+            @include position((p:absolute, t:75px, l:-8.5px));
+            transition: transform .5s;
+            &.rotate {
+              transform: rotate(360deg);
+            }
+          }
+        }
+      }
+    }
+    .cul_bottom {
+      @include box((bg:#fff));
+      .pic {
+        @include box((w:1120px, m:0 auto, mt:20px, pb:80px));
+      }
+    }
+    .container {
+      @include box((pt:60px, mb:24px));
+    }
+  }
+
+  //  招贤纳士
+  .recruit {
+    ul {
+      @include box((bg:#fff));
+      li {
+        @include box((p:59px 0));
+        .recruitdetail {
+          @include box((w:1120px, m:0 auto));
+          @include clearfix();
+          position: relative;
+          .post {
+            @include box((fl:left,pb:30px,  w:100px, pt:30px, mr:28px));
+            min-height:329.88px;
+            .circle {
+              @include box((w:68px, h:68px, bdr:50%, m:0 auto, mb:50px));
+              @include background((pos:center center, repeat:no-repeat));
+            }
+            p {
+              @include box((c:#d7a55e, fs:24px, w:47px, m:0 auto, ta:center, lh:28px));
+            }
+          }
+          .postdetail {
+            @include box((fl:left));
+            h3 {
+              @include box((fs:16px, c:$black2, fw:500, mb:9px));
+            }
+            p {
+              @include box((fs:14px, c:$black5, lh:24px));
+              max-width:850px;
+            }
+          }
+          .tou {
+            @include box((w:125px, h:38px, bg:#d7a55e, c:#fff, fs:16px, lh:38px, ta:center));
+            cursor: pointer;
+            @include position((p:absolute, r:0, b:0));
+          }
+        }
+        &:nth-child(2n) {
+          @include box((bg:#fff));
+          .post {
+            @include box((bg:#f6f6f6));
+            .circle {
+              background-color: #fff;
+            }
+          }
+        }
+        &:nth-child(2n-1) {
+          @include box((bg:#f6f6f6));
+          .post {
+            @include box((bg:#fff));
+            .circle {
+              background-color: #f6f6f6;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //  ；联系我们
+  .map {
+    position: relative;
+    .zhe {
+      @include box((w:100%, h:100%));
+      @include position((p:absolute, l:0, t:0));
+      background: rgba(252, 171, 29, 0.1);
+      pointer-events: none;
+    }
+  }
+  .contactbox {
+    @include box((h:498px, bg:#fff));
+    ul {
+      @include box((w:1120px, m:0 auto));
+      @include clearfix();
+      li {
+        @include box((pt:60px));
+        h3 {
+          @include box((h:30px, fs:22px, c:$black2, fw:500, pl:30px, lh:20px, mb:13px));
+          @include background((pos:left top, repeat:no-repeat));
+        }
+        p {
+          @include box((fs:14px, c:$black2));
+          a {
+            @include box((c:#4992ec));
+          }
+        }
+        .app {
+          @include box((w:174px, ta:center));
+          p {
+            @include box((mt:18px));
+          }
+        }
+      }
+      .left {
+        @include box((fl:left));
+      }
+      .right {
+        @include box((fl:right, w:398px));
+      }
+    }
+  }
+}

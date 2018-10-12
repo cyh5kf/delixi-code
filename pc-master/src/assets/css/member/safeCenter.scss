@@ -1,0 +1,52 @@
+@import "../libs/mixin.scss";
+
+*{margin: 0;padding: 0}
+a{cursor: pointer}
+
+.wrap{
+  @include box((p:40px 60px));
+  .title{
+    @include box((fs:18px,c:#222,mb:20px));
+  }
+  .update{
+    @include box((c:#4992ec,fs:14px));
+  }
+  .cancel{
+    @include box((c:#f64c3e,fs:14px));
+  }
+}
+.form{
+  border-bottom: 1px solid #e5e5e5;
+  padding:20px 80px;
+  p{
+    line-height: 34px;
+  }
+}
+.forget{
+  @include box((lh:46px,fs:14px,c:#4992ec,ml:10px));
+}
+
+.icon{
+  @include box((d:inline-block,w:18px,h:18px,ml:20px,mr:9px));vertical-align: text-bottom
+}
+.set{
+  @extend .icon;
+  @include background((url:'member/safe_set.png',size:'100%'));
+}
+.unset{
+  @extend .icon;
+  @include background((url:'member/safe_unset.png',size:'100%'));
+}
+.bankOpen{
+  @include box((w:189px,h:120px,ml:85px,mb:30px));
+  @include background((url:'member/safe_bank_open.png',size:'100%'));
+}
+.info{
+  @include box((pt:20px,pb:10px));
+  .val{
+    @include box((d:inline-block,w:180px));
+  }
+  .goRisk{
+    @include box((d:inline-block,m:0 0 0 30px,c:$blue))
+  }
+}

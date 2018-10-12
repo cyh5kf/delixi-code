@@ -1,0 +1,40 @@
+@import "../../assets/css/libs/mixin.scss";
+
+.select{
+    $border:1px solid #e5e5e5;
+    width:110px;
+    @include position((p:relative));
+    .title{
+        @include box((h:30px,bd:$border,lh:30px,p:0 26px 0 10px,fs:12px));
+        @include position((p:relative));
+        cursor:pointer;
+        &:after{
+            content:'';
+            cursor: pointer;
+            @include box((d:block,w:26px,h:24px));
+            border-left:$border;
+            @include position((p:absolute,r:0,t:2px));
+            @include background((url:'member/select_arrow_down.png',repeat:no-repeat,pos:center center,size:16px 10px));
+        }
+    }
+    .listWraper{
+        @include box((w:100%,p:2px 0 0 0));
+        @include position((p:absolute,t:30px,l:0,z:5));
+    }
+    ul{
+        @include box((bd:$border,p:10px 0,w:100%,bg:$white));
+        min-height:150px;
+        max-height:210px;
+        overflow-y: scroll;
+        li{
+            @include box((lh:24px,c:$black5,p:0 0 0 10px,fs:12px));
+            cursor:pointer;
+            &:not(:last-child){
+                margin-bottom:10px;
+            }
+            &:hover,&.active{
+                @include box((bg:#f6f6f6));
+            }
+        }
+    }
+}

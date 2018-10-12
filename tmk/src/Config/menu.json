@@ -1,0 +1,70 @@
+[
+  {
+    "label": "积分商城",
+    "index": "custom",
+    "children": [
+      {
+        "label": "客户列表"
+      },
+      {
+        "label": "电销管理"
+      },
+      {
+        "label": "专属客服管理"
+      },
+      {
+        "label": "电销业缚查询"
+      },
+      {
+        "label": "客户-客服管理"
+      }
+    ]
+  },
+  {
+    "label": "营销管理",
+    "index": "custom",
+    "children": [
+      {
+        "label": "客户列表"
+      },
+      {
+        "label": "电销管理"
+      },
+      {
+        "label": "专属客服管理"
+      },
+      {
+        "label": "电销业缚查询"
+      },
+      {
+        "label": "客户-客服管理"
+      }
+    ]
+  },
+  {
+    "label": "客服管理",
+    "index": "customerManagement",
+    "children": [
+      {
+        "label": "客户列表",
+        "url": "/view/customerManagement/customerList"
+      },
+      {
+        "label": "电销管理",
+        "url": "/view/customerManagement/telemarketingManagement"
+      },
+      {
+        "label": "专属客服管理",
+        "url": "/view/customerManagement/exclusiveCustomerServiceManagement"
+      },
+      {
+        "label": "电销业绩查询",
+        "url": "/view/customerManagement/telemarketingPerformanceManagement"
+      },
+      {
+        "label": "客户-客服管理",
+        "url": "/view/customerManagement/customerManagement"
+      }
+    ]
+  }
+]

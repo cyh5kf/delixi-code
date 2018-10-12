@@ -1,0 +1,29 @@
+@import "../../assets/css/libs/mixin.scss";
+
+.rightContent {
+  @include box((bg:$white, w:990px));
+  min-height: 800px;
+}
+
+:global {
+  .message_detail {
+    @include box((pt:50px, pl:30px, pr:30px));
+    h4 {
+      @include box((fs:18px, c:$black2,fw:500,mb:20px));
+      span{
+        @include box((pl:20px,fs:14px,c:#4992ec,fl:right));
+        @include background((url:'back_to_list.png',pos:left center,repeat:no-repeat));
+      }
+    }
+    .detail{
+      @include box((w:927px,m:0 auto,bg:#f6f6f6,p:30px));
+      p.content{
+        @include box((pl:38px,lh:21px,fs:14px,c:$black2));
+        @include background((url:'hasread.png',repeat:no-repeat,pos:left center))
+      }
+      p.time{
+        @include box((mt:18px,fs:12px,c:$black9))
+      }
+    }
+  }
+}

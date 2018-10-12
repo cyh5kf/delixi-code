@@ -1,0 +1,45 @@
+
+@import "../../assets/css/libs/mixin";
+
+:global{
+    .layer-wraper{
+        @include position((p:fixed,t:50%,l:50%));
+        @include box((bg:#fff,bdr:8px,index:10,c:#333));
+        overflow: hidden;
+        transition:all ease 800ms;
+        transform:translate3d(-50%,-50%,0);
+        min-width:400px;
+        min-height:300px;
+        .layer-title{
+            background-color:#e8e8e8;
+            line-height: 40px;
+        }
+        .layer-content{
+            padding:20px 10px;
+            color:#333;
+        }
+
+        &.msg{
+            min-width:300px;
+            min-height:60px;
+            @include box((bg:rgba(100,100,100,0.8),ta:center));
+            .layer-content{
+                color:#fff;
+            }
+        }
+        .layer-btn-groups{
+            @include box((d:flex));
+            .layer-btn-item{
+                flex:1;
+                text-align: center;
+                .layer-btn{
+                    display: inline-block;
+                    line-height: 30px;
+                    padding:4px 10px;
+                    min-width:120px;
+                    background-color: #d8d8d8;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+.chartsCombination {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  //height: 300px;
+  margin: 12px;
+  .titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    div[class^="ant-select"] {
+      border: 0;
+    }
+  }
+  .closeCombination {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .selectInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .dateGroup {
+      span[class="ant-calendar-picker"] {
+        width: 120px;
+        height: 20px;
+        margin-right: 5px;
+        input[class^="ant-calendar-picker-input ant-input"] {
+          height: 20px;
+          font-size: 12px;
+          border-radius: 10px;
+          background: #f3f7fd;
+          padding: 0 0 0 5px;
+          border: 0;
+        }
+      }
+    }
+    .chartGroup {
+      display: flex;
+      width: 120px;
+      height: 30px;
+      justify-content: space-around;
+      align-items: center;
+      i[class^="anticon "] {
+        cursor: pointer;
+      }
+      .activeIcon {
+        color: #6ea1ff;
+      }
+    }
+  }
+}

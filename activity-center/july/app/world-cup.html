@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection" />
+    <title>人众金服</title>
+    <link rel="shortcut icon" href="https://activity-center.51rz.com/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <script type='text/javascript' src='https://assets.growingio.com/sdk/wx/vds-wx-plugin.js'></script>
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5395127f074c49150bc6578ff60ff4e8";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+    <!--background-image: linear-gradient(to top, #fb814e,#f94638);background-image: -webkit-linear-gradient(to top, #fb814e,#f94638);-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        body {
+            max-width: 7.5rem;
+            margin: 0 auto;
+            background: #a5e8e6;
+            overflow: auto;
+            height: 100%;
+            /* overflow: hidden; */
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        ul li {
+            list-style-type: none;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+
+        .font-16 {
+            font-size: 0.16rem;
+        }
+
+        .font-18 {
+            font-size: 0.18rem;
+        }
+
+        .font-20 {
+            font-size: 0.2rem;
+        }
+
+        .font-24 {
+            font-size: 0.24rem;
+        }
+
+        .font-26 {
+            font-size: 0.26rem;
+        }
+
+        .flt {
+            float: left;
+        }
+
+        .frt {
+            float: right;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        #wraper {
+            position: relative;
+        }
+
+        .showgold {
+            width: 7.1rem;
+            margin: 0 .2rem;
+            height: 5.18rem;
+            position: fixed;
+            top: 2rem;
+            z-index: 22222;
+            font-size: 0.24rem;
+            background-color: #fff;
+            text-align: center;
+            padding: 0;
+        }
+
+        .showgold h5 {
+            font-size: 0.28rem;
+            color: #fff;
+            background-color: #4391e6;
+            line-height: 0.83rem;
+            height: 0.83rem;
+        }
+
+        .showgold .head {
+            color: #333;
+            height: 0.87rem;
+            line-height: 0.87rem;
+            border-bottom: 1px solid #4391e6;
+            overflow: hidden;
+        }
+
+        .showgold .head p {
+            float: left;
+        }
+
+        .showgold .showgoldlist {
+            color: #e13333;
+            height: 0.87rem;
+            border-bottom: 1px solid #4391e6;
+            overflow: hidden;
+            display: table;
+        }
+
+        .showgold .showgoldlist p {
+            text-align: center;
+            width: 25%;
+            height: 0.87rem;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .showgold p {
+            width: 25%;
+        }
+
+        .showgold .scrol {
+            height: 4.35rem;
+            width: 100%;
+            overflow-y: scroll;
+        }
+
+        p.none {
+            width: 100%;
+            line-height: 1rem;
+            text-align: center;
+            color: #999;
+        }
+
+        .showtoinvest {
+            width: 4.95rem;
+            height: 4.45rem;
+            position: absolute;
+            top: 4rem;
+            left: 1.3rem;
+            z-index: 22222;
+            font-size: 0.24rem;
+            text-align: center;
+            background: url(https://images.51rz.com/images/app/act-may/toinvest.png) no-repeat center top;
+            background-size: 100% auto;
+        }
+
+        .showtoinvest a {
+            width: 2.4rem;
+            height: 0.64rem;
+            text-decoration: none;
+            background-color: #f5725b;
+            font-size: 0.28rem;
+            line-height: 0.64rem;
+            color: #fff;
+            border-radius: 0.32rem;
+            position: absolute;
+            left: 1.28rem;
+            top: 3.4rem;
+        }
+
+        .rulebtn {
+            position: absolute;
+            right: 0;
+            top: 1.75rem;
+            width: 0.55rem;
+            height: 1.6rem;
+            background: rgba(0, 0, 0, 0)
+        }
+
+        .showgold .close {
+            margin: 0.4rem auto 0;
+            /* posi */
+            width: 0.5rem;
+            height: 0.5rem;
+            background: url(https://images.51rz.com/images/app/act-may/close.png) no-repeat center bottom;
+            background-size: 100% auto;
+        }
+
+        /*定义滚动条轨道 内阴影+圆角*/
+
+        /* .bankScroll::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+        } */
+
+        /*定义滑块 内阴影+圆角*/
+
+        /* .bankScroll::-webkit-scrollbar-thumb
+        {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #55cfa9;
+        }
+   
+        .may-hb,.may-xj,.may-xj-ok,.may-hb-ok{background-size:100% 100%;}
+
+        .may-banner,.may-box,.may-box1,.may-box2,.may-box3{
+            background-size:100% 100%;
+            width:100%;
+        } */
+
+
+        .fixed_bg {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 5;
+        }
+
+
+
+        header {
+            width: 7.5rem;
+            height: 4.53rem;
+            background: url("https://images.51rz.com/images/app/act-july/bg_01.png") no-repeat;
+            background-size: contain;
+        }
+
+        div.package {
+            width: 7.5rem;
+            height: 6.63rem;
+            background: url("https://images.51rz.com/images/app/act-july/bg_02.png") no-repeat;
+            background-size: contain;
+            position: relative;
+        }
+
+        div.pg {
+            height: 3.5rem;
+            font-size: 16px;
+            position: relative;
+            padding-top: 1rem;
+            text-align: center;
+        }
+
+        div.pg img {
+            width: 3.19rem;
+            margin: 0 auto;
+        }
+
+        div.pg p.pagmoney {
+            position: absolute;
+            top: 1.45rem;
+            color: #d63d2c;
+            width: 100%;
+            font-size: 12px;
+        }
+
+        div.pg p.pagmoney span {
+            font-size: 20px;
+        }
+
+        div.pg .info {
+            position: absolute;
+            top: 2.55rem;
+            font-size: 14px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+
+        div.package div.pagbtn {
+            position: absolute;
+            top: 3.7rem;
+            left: 2.35rem;
+            text-align: center;
+            color: #fff;
+            font-size: 16px;
+            line-height: .65rem;
+        }
+
+        div.package div.pagbtn .black {
+            /* background:-webkit-linear-gradient(top,#afc8d7,#8da7b7); */
+            border-radius:5px;
+            height: .75rem;  
+            background: url("https://images.51rz.com/images/app/act-july/opened.png") no-repeat;
+            background-size: contain;
+            /* box-shadow: 0 .1rem .01rem  #999; */
+            line-height: .65rem;
+        }
+        div.package div.pagbtn .p {
+
+            background: url("https://images.51rz.com/images/app/act-july/detach.png") no-repeat;
+            background-size: contain;
+        }
+
+        div.package div.pagbtn p {
+            width: 2.8rem;
+            height: .76rem;
+        }
+
+        div.package div.rule {
+            position: absolute;
+            left: 6.91rem;
+            top: 1.38rem;
+            width: .59rem;
+            height: 1.63rem;
+            background: url("https://images.51rz.com/images/app/act-july/rule.png") no-repeat;
+            background-size: contain;
+        }
+
+        div.package p.explain {
+            text-align: center;
+            width: 7.5rem;
+            font-size: 14px;
+            position: absolute;
+            top: 4.65rem;
+            color: #929292;
+        }
+
+        div.package p.explain span {
+            color: #d63d2c;
+        }
+
+        div.package div.myaward {
+            position: absolute;
+            top: 5.8rem;
+            text-decoration: underline;
+            width: 7.5rem;
+            text-align: center;
+            font-size: 16px;
+            color: #d63d2c;
+        }
+
+        div.fifa {
+            width: 7.5rem;
+            height: 8.9rem;
+            background: url("https://images.51rz.com/images/app/act-july/bg_03c.png") no-repeat;
+            background-size: contain;
+            position: relative;
+            text-align: center;
+            color: #fff;
+            font-size: 12px;
+        }
+
+        div.fifa .fifatitle {
+            position: absolute;
+            top: .92rem;
+            left: 2rem;
+            color: #a7f95f;
+            width: 3.5rem;
+            background-color: #108848;
+            font-size: 13px;
+        }
+        
+        .fifa .fifafoot {
+            line-height: 14px;
+            font-size: 12px;
+            position: absolute;
+            top: 7.9rem;
+            text-align: left;
+            padding: 0 .3rem 0 .45rem;
+            left: 0;
+            width: 100%;
+    
+        }
+        /* .fifa .fifafoot span {
+            float: left;
+        } */
+        div.fifa p.count {
+            padding-top: 1.33rem;
+            height: .33rem;
+            line-height: .33rem;
+        }
+
+        div.fifa .door {
+            position: absolute;
+            height: 2.2rem;
+            width: 2rem;
+        }
+
+        div.fifa .door p.disc {
+            position: absolute;
+            top: 1.5rem;
+            line-height: 14px;
+            text-align: left;
+            width: 100%;
+        }
+        div.fifa .door .f {
+            position: absolute;
+            width: .6rem;
+            height: .6rem;
+            right: 0;
+            top: -.2rem;
+            background: url("https://images.51rz.com/images/app/act-july/finish.png") no-repeat;
+            background-size: contain;
+        }
+
+        div.fifa .door .uf {
+            position: absolute;
+            width: .9rem;
+            height: .9rem;
+            right: 0;
+            top: -.2rem;
+            /* padding-top: .2rem; */
+            background: url("https://images.51rz.com/images/app/act-july/circle.png") no-repeat;
+            background-size: contain;
+            color:red;
+            line-height: .9rem;
+            transform: rotateZ(30deg)
+        }
+
+        .door32 {
+            left: .5rem;
+            top: 2rem;
+        }
+
+        .door16 {
+            left: 2.75rem;
+            top: 2rem;
+        }
+
+        .door8 {
+            left: 4.95rem;
+            top: 2rem;
+        }
+
+        .door4 {
+            left: 1.3rem;
+            top: 4.5rem;
+        }
+
+        .door2 {
+            left: 4.25rem;
+            top: 4.5rem;
+        }
+
+        div.fifa .go {
+            width: 2.99rem;
+            height: .73rem;
+            background: url("https://images.51rz.com/images/app/act-july/go.png") no-repeat;
+            background-size: contain;
+            margin: 5.7rem auto 0;
+        }
+
+        div.fifa .go p {
+            color: #c52525;
+            font-size: 16px;
+            line-height: .65rem;
+        }
+
+        div.ranking {
+            width: 7.5rem;
+            height: 7.82rem;
+            background: url("https://images.51rz.com/images/app/act-july/bg_04.png") no-repeat;
+            background-size: contain;
+            position: relative;
+            color: #fff;
+            font-size: 12px;
+            text-align: left;
+        }
+        div.ranking .rankh {
+            position: absolute;
+            top: 2.05rem;
+            left: .2rem;
+            height: .45rem;
+            line-height: .45rem;
+            background-color: #dfeeff;
+            width: 7.1rem;
+        }
+        div.ranking .rankh span{
+            display: inline-block;
+            color: #184a83;
+        }
+        div.ranking .top {
+            padding: .8rem 0 0 .2rem;
+            line-height: 13px;
+        }
+
+        div.fixbg {
+            position: fixed;
+            height: 100%;
+            width: 7.5rem;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        div.trule {
+            position: fixed;
+            z-index: 2;
+            left: .2rem;
+            top: 2.5rem;
+            width: 7.1rem;
+        }
+        div.trule .ruletitle {
+            height: .82rem;
+            line-height: .82rem;
+            font-size: 16px;
+            background-color: #4391e6;
+            color: #fff;
+            text-align: center;
+        }
+        div.trule div.img {
+            width: 7.1rem;
+            padding: .4rem .2rem .4rem;
+            margin: 0 auto;
+            font-size: 12px;
+            /* background: url("https://images.51rz.com/images/app/act-july/trule.png") no-repeat; */
+            background-size: 100% auto;
+            background-color: #fff;
+        }
+        div.trule div.img div.te{
+            overflow: hidden;
+            /* display: flex; */
+        }
+        div.trule div.img div.te span{
+            float: left;
+            width: .3rem;
+            height: .5rem;
+        }
+        div.trule div.img div.te p{
+            float: left;
+            width: 6.3rem;
+        }
+
+
+
+        div.trule div.close {
+            width: .5rem;
+            height: .5rem;
+            margin: .4rem auto 0;
+
+            background: url("https://images.51rz.com/images/app/act-may/close.png") no-repeat;
+            background-size: contain;
+        }
+
+        span.login {
+            color: #1a0ef1;
+        }
+        p.smile {
+            width: 100%;
+            height: 2rem;
+            background: url("https://images.51rz.com/images/app/act-july/smile.png") no-repeat center center;
+            background-size: 1rem 1rem;
+        }
+        .rankmongy {
+            position: absolute;
+            bottom: 1rem;
+            left: 1.86rem;
+            width: 3.08rem;
+            height: 4.25rem;
+            text-align: center;
+        }
+        .rankmongy p{
+            line-height: 0.53rem;
+        }
+        .rankmongy p:nth-child(1){
+            line-height: 0.45rem;
+        }
+        .rankmongy p:nth-child(2){
+            line-height: 0.55rem;
+        }
+        .rankmongy p:nth-child(3){
+            line-height: 0.6rem;
+        }
+        .rankmongy p:nth-child(4){
+            line-height: 0.6rem;
+        }
+        .comment {
+            position: absolute;
+            left: .48rem;
+            bottom: .4rem;
+            background: #2164b0;
+            width: 6.8rem;
+            height: .58rem;
+            line-height: .6rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wraper">
+        <div class="fixbg" v-if="showrule||showpack"  @touchmove.stop="even" v-cloak>
+        </div>
+        <div class="trule scroll" v-if="showrule" v-cloak @touchmove.stop="even">
+            <div class="ruletitle">
+                活动规则
+            </div>
+            <div class="img">
+                <div class="te">
+                    <span>1、</span>
+                    <p>第一环节每人每天最多 2 次机会获得随机奖励，红包即时发放，仅当天有效，本环节所获红包仅限 180 天及以上项目可用；</p>
+                </div>
+                <div class="te">
+                    <span>2、</span>
+                    <p>大力神杯环节仅限投资180天及以上项目，进球奖励以红包形式即时发放，红包统一7月18号到期，限投180天及以上项目，百元以下红包，100元起投，百元及以上红包，向上取整千元起投（例如：100元及以上红包1000元起投；1000元及以上红包2000元起投，依次向上类推）；
+                    </p>
+                </div>
+                <div class="te">
+                    <span>3、</span>
+                    <p>英雄榜实物奖励和现金红包在活动结束后二十个工作日内发放完毕；</p>
+                </div>
+                <div class="te">
+                    <span>4、</span>
+                    <p>新手标、债转项目及180天以下标的不参加本次活动。</p>
+                </div>
+                <div class="te">
+                    <span>5、</span>
+                    <p>本活动最终解释权在法律范围内归人众金服所有，如有疑问请致电客服：400-655-8858。(咨询时间：9:00-21:00)。</p>
+                </div>
+            </div>
+            <div class="close" @click="changeshowrule(false)"></div>
+        </div>
+        <div class="showgold" id="showgold" v-cloak v-show="showpack">
+            <h5>我的红包奖励</h5>
+            <div class="scrol">
+                <div class="head">
+                    <p>获奖时间</p>
+                    <p>奖品</p>
+                    <p>获取条件</p>
+                    <p>红包状态</p>
+                </div>
+                <div v-if="mygoldrecord.length==0"  v-cloak>
+                    <p class="smile"></p>
+                    <p class="none">很遗憾，您还未获得任何红包奖励！</p>
+                </div>
+
+                <div class="showgoldlist" v-for="item in mygoldrecord">
+                    <p v-text="item.create_time"></p>
+                    <p v-text="item.reward_name"></p>
+                    <p style="width:30%;" v-text="item.reward_task"></p>
+                    <p style="width:20%;" v-text="item.status==0?'未完成':item.status==1?'已发放':'已过期'"></p>
+                </div>
+            </div>
+            <div class="close" @click="changepackhis(false)"></div>
+        </div>
+        <header>
+        </header>
+        <div class="package">
+            <div class="pg" v-if="!openpag" v-cloak>
+                <img style="width:3.06rem;" src="https://images.51rz.com/images/app/act-july/closepag.png" alt="">
+            </div>
+            <div class="pg" v-else>
+                <img src="https://images.51rz.com/images/app/act-july/openpag.png" alt="">
+                <p class="pagmoney">
+                    <span v-text="opened.money"></span>元</p>
+                <div class="info" v-cloak v-if="opened.rewardType === '3'">
+                    <p>需投
+                        <span v-text="opened.amount"></span>元</p>
+                    <p v-text="opened.limitDayText"></p>
+                </div>
+            </div>
+            <div class="pagbtn">
+                <p @click="open" class="p" v-cloak v-if="(promit||!isLogined)&&!openpag">拆开</p>
+                <p @click="go" class="p" v-else>去投资</p>                
+            </div>
+            <p class="explain" v-cloak v-if="showTenderTip">完成一笔投资，还有
+                <span>1</span>次拆开机会</p>
+            <div class="myaward">
+                <p @click="changepackhis(true)">我的红包奖励</p>
+            </div>
+            <div class="rule" @click="changeshowrule(true)"></div>
+        </div>
+        <div class="fifa">
+            <!-- <p class="fifatitle">完成投资任务，赢进球奖励</p> -->
+            <p class="fifafoot"><span>注：</span><span style="width:6rem;">每完成一项任务，即可获得球门上对应金额的红包；一次性完成所有任务，可获得所有红包奖励，奖励即时到账。</span></p>
+            <p class="count">累计投资额：
+                <span v-text="tasks.tenderAmount||'0.00'"></span>
+                元</p>
+            <!-- <p class="count" v-else></p> -->
+            <div class="door door32">
+                <div class="fin"></div>
+                <p class="disc" v-if="tasks.list[0].done" v-cloak></p>
+                <p class="disc" v-else>
+                    距离完成任务还需投资
+                    <span v-text="text(tasks.list[0].surplusAmount)"></span>
+                    元
+                </p>
+                <div class="f"  v-cloak v-if="tasks.list[0].done"></div>
+                <div class="uf"  v-else>
+                    <span v-text="tasks.list[0].value||'0.00'"></span>元
+                    <!-- <p>元</p> -->
+                </div>
+            </div>
+            <div class="door door16">
+                <div class="fin"></div>
+                <p class="disc" v-if="tasks.list[1].done" v-cloak></p>                
+                <p class="disc" v-else>
+                    距离完成任务还需投资
+                    <span v-text="text(tasks.list[1].surplusAmount)"></span>
+
+                    元
+                </p>
+                <div class="f" v-cloak v-if="tasks.list[1].done"></div>                
+                <div class="uf" v-else>
+                    <span v-text="tasks.list[1].value||'0.00'"></span>元
+                    <!-- <p>元</p> -->
+                </div>
+            </div>
+            <div class="door door8">
+                <div class="fin"></div>
+                <p class="disc" v-if="tasks.list[2].done" v-cloak></p>                                
+                <p class="disc" v-else>
+                    距离完成任务还需投资
+                    <span v-text="text(tasks.list[2].surplusAmount)"></span>
+                    元
+                </p>
+                <div class="f" v-cloak v-if="tasks.list[2].done"></div>
+                <div class="uf" v-else>
+                    <span v-text="tasks.list[2].value||'0.00'"></span>元
+                    <!-- <p>元</p> -->
+                </div>
+            </div>
+            <div class="door door4">
+                <div class="fin"></div>
+                <p class="disc" v-if="tasks.list[3].done" v-cloak></p>                
+                <p class="disc" v-else>
+                    距离完成任务还需投资
+                    <span v-text="text(tasks.list[3].surplusAmount)"></span>
+                    元
+                </p>
+                <div class="f" v-cloak v-if="tasks.list[3].done"></div>
+                <div class="uf" v-else>
+                    <span v-text="tasks.list[3].value||'0.00'"></span>元
+                    <!-- <p>元</p> -->
+                </div>
+            </div>
+            <div class="door door2">
+                <div class="fin"></div>
+                <p class="disc" v-if="tasks.list[4].done" v-cloak></p>                
+                <p class="disc" v-else>
+                    距离完成任务还需投资
+                    <span v-text="text(tasks.list[4].surplusAmount)"></span>
+                    元
+                </p>
+                <div class="f" v-cloak v-if="tasks.list[4].done"></div>
+                <div class="uf" v-else>
+                    <span v-text="tasks.list[4].value||'0.00'"></span>元
+                    <!-- <p>元</p> -->
+                </div>
+            </div>
+            <div class="go">
+                <p @click="go">去投资 >></p>
+
+            </div>
+        </div>
+        <div class="ranking">
+            <div class="top">
+                <p>活动期间投资金额实时排名，前20名用户可获得实物、现金大奖。</p>
+                <p>我的排名：
+                    <span v-text="rank.rank_num"></span>
+                </p>
+                <p>距第20名还需投资：
+                    <span v-text="rank.need_tender+'.00'"></span>
+                    元
+                </p>
+            </div>
+            <div class="rankh"><span style="width:1.66rem;padding-right:0.3rem;text-align:right;">排名</span><span style="width:3.08rem;text-align:center;">累计投资总额</span><span style="width:2.1rem;text-align:center;">奖品</span></div>
+            <div class="rankmongy">
+                <p v-for="(item,index) in rl" :key="index" v-text="item">1</p>
+            </div>
+            <div class="comment">
+                <p>注：排名实时更新，以活动结束后最终排名为准！</p>
+            </div>
+        </div>
+
+        <!-- 弹窗提示 -->
+        <div class="dialog-tip">
+            <div class="content"></div>
+        </div>
+
+        <!-- loading -->
+        <div class="loading-wrapper">
+            <div class="spinner-snake" style="border-top-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); height: 32px; width: 32px;"></div>
+            <span class="indicator-text">加载中...</span>
+        </div>
+    </div>
+
+    <script src="/static/js/fastclick.min.js"></script>
+    <script src="/static/js/vue.min.js"></script>
+    <script src="/static/js/zepto.min.js"></script>
+
+    <script type="text/javascript">
+
+        // 解决移动端页面click事件存在300毫秒延迟
+        document.addEventListener('DOMContentLoaded', function () {
+            FastClick.attach(document.body);
+        }, false);
+
+        //    避免页面从缓存中加载
+        window.onpageshow = function (e) {
+            e = e || event;
+            if (e.persisted) {
+                location.reload();
+            }
+        }
+
+        function getParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+        var token = getParam("token") || '';
+        var type = 'm';
+        if (getParam('type')) {
+            type = getParam('type');
+        } else {
+            if (window.location.href.indexOf('pre-activity-center') > -1) {
+                type = 'mobile';
+            } else {
+                type = 'm';
+            }
+        }
+
+        window.vm = new Vue({
+            el: "#wraper",
+            data: {
+                isLogined: token ? true : false, //是否登录
+                openpag: false,  //红包是否打开
+                pagtype: null,  //可用红包的类型
+                showrule: false,  //显示规则弹窗
+                opened: null,   //打开红包返回数据
+                promit: false,  //拆开可用状态
+                showpack: false,  //既可以显示包也可以发送判断
+                rank: { rank_num: '0', need_tender: '0.00' ,currentRanks:[]},  //银行卡列表
+                mygoldrecord: [],   //红包列表
+                showTenderTip: true, // 再完成一笔投资文本提示，默认显示
+                tasks:{tenderAmount:'0.00',list:[{
+                    surplusAmount:'0.00',
+                    done:0
+                },{
+                    surplusAmount:'0.00',
+                    done:0
+                },{
+                    surplusAmount:'0.00',
+                    done:0
+                },{
+                    surplusAmount:'0.00',
+                    done:0
+                },{
+                    surplusAmount:'0.00',
+                    done:0
+                }]}
+            },
+            mounted: function () {
+                this.initData();
+                // $('#showgold').on("touchmove",function(event){
+                //     console.log(3434)
+                //     event.preventDefault();
+                // });  
+                // document.getElementById('showgold').addEventListener('touchmove',function(event){
+                //     console.log(3443)
+                //     event.preventDefault()
+                // },true)
+            },
+            computed: {
+                rl:function(){
+                    var arr = ['0.00','0.00','0.00','0.00','0.00','0.00(10th)','0.00(15th)','0.00(20th)'];
+                    var currentRanks = this.rank.currentRanks;
+                    for (var i = 0; i < currentRanks.length; i++) {
+                        if (i<=4) {
+                            arr[i]=currentRanks[i].money
+                        }else if (i==9) {
+                            arr[5]=currentRanks[i].money+'(第10名)'                                                     
+                        }else if (i==14) {
+                            arr[6]=currentRanks[i].money+'(第15名)'                                                  
+                        }else if (i==19) {
+                            arr[7]=currentRanks[i].money+'(第20名)'                                                  
+                        }
+                    }
+                    return arr;
+                }
+            },
+            methods: {
+                text:function(v){
+                    if (parseInt(v)>0) {
+                        return Math.ceil(v)
+                    }else{
+                        return '0.00'
+                    }
+                },
+                even:function(e){
+                    e.preventDefault();
+                },
+                changeshowrule: function (v) {
+                    this.showrule = v
+                },
+                changepackhis: function (v) {
+                    var _this = this
+                    if (!this.isLogined) {
+                        location.href = 'https://' + type + '.51rz.com/login';
+                        return;
+                    }
+                    this.showpack = v
+
+                    if (!v) {
+                        // if (document.body.removeEventListener) {
+                        //     document.body.removeEventListener('touchmove',this.even,false); 
+                        // } else{
+                        //     document.body.detachEvent('touchmove',this.even);                             
+
+                        // }
+                        return;
+                    }else{
+                        // if (document.body.addEventListener) {
+                        //     document.body.addEventListener('touchmove',this.even,false);       
+                        // }else{
+                        //     document.body.attachEvent('touchmove',this.even);       
+                        // }
+
+                    }
+                    $.post('/index.php?_url=/api/activity/recordList', { activityId: 26, token: token }, function (data) {
+                        if (data.error_code == 0) {
+                            _this.mygoldrecord = data.data
+                            // 打开明细弹窗
+                        } else if (data.error_code === 201) {
+                            location.href = 'https://' + type + '.51rz.com/login';
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                },
+                open: function () {
+                    if (!this.isLogined) {
+                        location.href = 'https://' + type + '.51rz.com/login';
+                    }
+                    var _this = this;
+                    $.post('/index.php?_url=/api/pack/open', { activityId: 26, token: token, code: this.pagtype.code }, function (data) {
+                        if (data.error_code == 0) {
+                            _this.opened = data.data.pack[0];
+                            _this.openpag = true;
+                            _this.initData()
+                            // 打开明细弹窗
+                        } else if (data.error_code === 201) {
+                            location.href = 'https://' + type + '.51rz.com/login';
+                        }
+                    })
+                },
+                gologin: function () {
+                    location.href = 'https://' + type + '.51rz.com/login';
+                },
+                setpromit: function (v) {
+                    for (var i = 0; i < v.length; i++) {
+                        if (i == 0 && v[0].rewardType == 0) {
+                            this.promit = true;
+                            this.pagtype = v[0];
+                            return;
+                        } else if (i == 1 && v[1].rewardType == 0 && v[1].activated == 2) {
+                            this.promit = true;
+                            this.pagtype = v[1];
+                            return;
+                        } else if(i==1){
+                            this.promit = false;
+                            return
+                        }
+                    }
+                },
+                initData: function () {
+                    var _this = this;
+                    // if (this.isLogined) {
+                        $.post('/index.php?_url=/api/activity/index', { activityId: 26, token: token }, function (data) {
+                            if (data && data.error_code === 0) {
+                                var islogin = data.data.islogin;
+                                if (typeof (islogin) == "undefined") {
+                                    var packToday = data.data.pack.today;
+                                    if(packToday[1].rewardType!=0) { // 如果已经投资过一笔则隐藏再投资提示
+                                        _this.showTenderTip = false;
+                                    }
+                                    _this.tasks = data.data.tasks;
+                                    _this.setpromit(packToday)
+                                } else if (islogin === 0) {
+                                    _this.isLogined = false
+                                }
+                                _this.rank = data.data.rank
+                            } else {
+                                _this.showMsg(data.msg);
+                            }
+                            _this.rank = data.data.rank
+                        })
+                    // }
+                },
+                go: function () {
+                    location.href = 'https://' + type + '.51rz.com/tender/index';
+                    // this.isLogined ? location.href = 'https://' + type + '.51rz.com/tender/index' : location.href = 'https://' + type + '.51rz.com/login';
+                },
+                // 打开弹窗提示
+                showMsg: function (msg) {
+                    $(".dialog-tip .content").text(msg);
+                    $(".dialog-tip").show();
+                    setTimeout(function () {
+                        $(".dialog-tip .content").text('');
+                        $(".dialog-tip").hide();
+                    }, 2000);
+                },
+            },
+        })
+    </script>
+</body>
+
+</html>

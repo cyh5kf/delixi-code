@@ -1,0 +1,25 @@
+# 人众金服活动引擎后台管理系统
+
+#### 请预先全局安装Node.js和webpack
+
+### 安装依赖
+
+```
+npm install
+```
+
+### 启动服务(开发环境)
+
+```
+npm run dev
+```
+服务启动后，打开 http://localhost:端口号 访问网站
+
+### 编译打包(生产环境)
+
+```
+npm run build
+```
+
+### 修改开发环境端口号
+通过/webpack_build/serverConfig.js修改

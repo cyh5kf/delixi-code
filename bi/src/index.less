@@ -1,0 +1,56 @@
+html,
+body,
+:global(#root) {
+  height: 100%;
+}
+
+:global(.ant-layout) {
+  min-height: 100%;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.globalSpin {
+  width: 100%;
+  margin: 40px 0 !important;
+}
+
+// temp fix for https://github.com/ant-design/ant-design/commit/a1fafb5b727b62cb0be29ce6e9eca8f579d4f8b7
+:global {
+  .ant-spin-container {
+    overflow: visible !important;
+  }
+  .ant-card-body {
+    background: url(./assets/watermark.png) no-repeat;
+    background-size: cover;
+  }
+
+  .ant-layout-sider {
+    background: #3a4b6c !important;
+  }
+
+  .ant-menu-dark, .ant-menu-dark .ant-menu-sub {
+    background: #3a4b6c !important;
+  }
+
+  .ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+    background-color: #56678a !important;
+  }
+
+  .ant-menu-dark .ant-menu-item-selected > a, .ant-menu-dark .ant-menu-item-selected > a:hover {
+    color: #1efbff !important;
+  }
+
+  .ant-menu-dark .ant-menu-inline.ant-menu-sub {
+    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) inset !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) inset !important;
+  }
+}

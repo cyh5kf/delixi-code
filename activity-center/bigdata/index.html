@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection" />
+    <title>平台数据统计</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico" />
+    <!-- 公共样式 -->
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="/static/css/swiper.min.css">
+    <!-- 弹窗插件样式 -->
+    <link rel="stylesheet" href="/static/css/remodal.css">
+
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+    </script>
+
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="islogin" class="swiper-container swiper-container-v">
+            <div class="swiper-wrapper">
+                <!-- 实时数据页 -->
+                <section class="swiper-slide real-time">
+                    <div class="swiper-container swiper-container-scrollbar">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="interval"></div>
+                                <div class="part1">
+                                    <p class="title">实时数据</p>
+                                    <p class="tender-today" @click="clickJump('realTime', 'jinritouzie')">
+                                        <span class="underline" style="font-size: 0.32rem;font-weight: bold;">今日投资额</span>
+                                        <span class="tender-money-today" v-text="convert(data1.jinritouziMoney)"></span>万元
+                                    </p>
+                                    <span class="date" v-text="currentDate"></span>
+                                </div>
+                                <div class="interval"></div>
+                                <div class="common-module">
+                                    <div class="item">
+                                        <p class="fleft">R计划投资额</p>
+                                        <p class="fright">
+                                            <span  v-text="convert(data1.rjihuazouziMoney)"></span> <span class="unit">万元</span>
+                                        </p>
+                                    </div>
+                                    <div class="item">
+                                        <p class="fleft">散标投资额</p>
+                                        <p class="fright">
+                                            <span  v-text="convert(data1.sanbiaoMoney)"></span> <span class="unit">万元</span>
+                                        </p>
+                                    </div>
+                                    <div class="item">
+                                        <p class="fleft">R计划复投额</p>
+                                        <p class="fright">
+                                            <span  v-text="convert(data1.rxitouMoney)"></span> <span class="unit">万元</span>
+                                        </p>
+                                    </div>
+                                    <div class="item">
+                                        <p class="fleft">非复投资金额</p>
+                                        <p class="fright">
+                                            <span  v-text="convert(data1.feirjihuafutouMoney)"></span> <span class="unit">万元</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="interval"></div>
+                                <div class="common-module">
+                                    <div class="item">
+                                        <p class="fleft">投资人数</p>
+                                        <p class="fright">
+                                            <span  v-text="toQfw(data1.touzirenCount)"></span> <span class="unit">人</span>
+                                        </p>
+                                    </div>
+                                    <div class="item">
+                                        <p class="fleft">登录人数</p>
+                                        <p class="fright">
+                                            <span  v-text="toQfw(data1.denglurenshuCount)"></span> <span class="unit">人</span>
+                                        </p>
+                                    </div>
+                                    <div class="item">
+                                        <p class="fleft">新注册数</p>
+                                        <p class="fright">
+                                            <span  v-text="toQfw(data1.zhucerenshuCount)"></span> <span class="unit">人</span>
+                                        </p>
+                                    </div>
+                                    <div class="item" @click="clickJump('realTime', 'chongzhijine')">
+                                        <p class="fleft underline">充值金额</p>
+                                        <p class="fright">
+                                            <span  v-text="convert(data1.chongzhijineCount)"></span> <span class="unit">万元</span>
+                                        </p>
+                                    </div>
+                                    <div class="item" @click="clickJump('realTime', 'zhangangjine')">
+                                        <p class="fleft underline">站岗金额</p>
+                                        <p class="fright">
+                                            <span  v-text="convert(data1.zhangangjineCount)"></span> <span class="unit">万元</span>
+                                        </p>
+                                    </div>
+                                    <div class="item" @click="clickJump('realTime', 'tixianjine')">
+                                        <p class="fleft underline">提现金额</p>
+                                        <p class="fright">
+                                            <span  v-text="convert(data1.tixianjineCount)"></span> <span class="unit">万元</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 当日详情页 -->
+                <section class="swiper-slide details-day">
+                        <div class="swiper-container swiper-container-scrollbar">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="interval"></div>
+                                    <div class="part1">
+                                        <p class="title">当日详情</p>
+                                        <span class="current-date" v-text="currentDate"></span>
+                                    </div>
+                                    <div class="common-module">
+                                        <div class="item">
+                                            <p class="fleft">充值人数
+                                                <span class="data-text" v-text="toQfw(data2.chongzhirenshuCount)"></span> <span class="unit">人</span>
+                                            </p>
+                                            <p class="fright">
+                                                (人均<span v-text="convert(data2.renjunchongzhiCount)"></span> <span class="unit">万元</span>)
+                                            </p>
+                                        </div>
+                                        <div class="item">
+                                            <p class="fleft">提现人数
+                                                <span class="data-text" v-text="toQfw(data2.tixianrenshuCount)"></span> <span class="unit">人</span>
+                                            </p>
+                                            <p class="fright">
+                                                (人均<span v-text="convert(data2.renjuntixianrenshuCount)"></span> <span class="unit">万元</span>)
+                                            </p>
+                                        </div>
+                                        <div class="item">
+                                            <p class="fleft">站岗人数
+                                                <span class="data-text" v-text="toQfw(data2.zhangangrenshuCount)"></span> <span class="unit">人</span>
+                                            </p>
+                                            <p class="fright">
+                                                (人均<span v-text="convert(data2.renjunzhangangrenshuCount)"></span> <span class="unit">万元</span>)
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="section-name">
+                                        <div class="section-title">
+                                            <div class="icon"></div>
+                                            推广与邀请
+                                        </div>
+                                    </div>
+                                    <div class="common-module">
+                                        <div class="item">
+                                            <p class="fleft">推广新增人数</p>
+                                            <p class="fright">
+                                                <span v-text="toQfw(data2.tuiguangxinzengrenshuCount)"></span> <span class="unit">人</span>
+                                            </p>
+                                        </div>
+                                        <div class="item">
+                                            <p class="fleft">推广新增投资</p>
+                                            <p class="fright">
+                                                <span v-text="convert(data2.tuiguangxinzengtouziCount)"></span> <span class="unit">万元</span>
+                                            </p>
+                                        </div>
+                                        <div class="item">
+                                            <p class="fleft">邀请新增人数</p>
+                                            <p class="fright">
+                                                <span v-text="toQfw(data2.yaoqingxinzengrenshuCount)"></span> <span class="unit">人</span>
+                                            </p>
+                                        </div>
+                                        <div class="item">
+                                            <p class="fleft">邀请新增投资</p>
+                                            <p class="fright">
+                                                <span v-text="convert(data2.yaoqingxinzengtouziCount)"></span> <span class="unit">万元</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="section-name">
+                                        <div class="section-title">
+                                            <div class="icon"></div>
+                                            回款复投
+                                        </div>
+                                    </div>
+                                    <div class="common-module">
+                                        <div class="item" @click="clickJump('currentDay', 'rjihuahuikuan')">
+                                            <p class="fleft underline">R计划回款</p>
+                                            <p class="fright">
+                                                <span class="data-text" v-text="convert(data2.rjihuahuikuan)"></span> <span class="unit">万元</span>
+                                            </p>
+                                        </div>
+                                        <div class="item">
+                                            <p class="fleft" @click="clickJump('currentDay', 'daoqihuikuan')">
+                                                <span class="underline">到期回款</span>
+                                                <span class="data-text" v-text="convert(data2.daoqihuikuanjine)"></span> <span class="unit">万元</span>
+                                            </p>
+                                            <p class="fright" @click="clickJump('currentDay', 'jinefutoulv')">
+                                                ( <span class="underline">复投率</span> <span v-text="toFixed(data2.jinefutoulv)"></span>% )
+                                                
+                                            </p>
+                                        </div>
+                                        <div class="item">
+                                            <p class="fleft">回款人数
+                                                <span class="data-text" v-text="toQfw(data2.huikuanrenshu)"></span> <span class="unit">人</span>
+                                            </p>
+                                            <p class="fright" @click="clickJump('currentDay', 'renshufutoulv')">
+                                                ( <span class="underline">复投率</span> <span v-text="toFixed(data2.renshufutoulv)"></span>% )
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="interval"></div>
+                                    <div class="detail-bd">
+                                        <a href="javascript:;" @click="openBdDetail">标的售出明细</a>
+                                    </div>
+                                    <div class="detail-bd">
+                                        <a href="javascript:;" @click="openQuYuBdDetail">区域标的售出明细</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+
+                <!-- 累计数据页 -->
+                <section class="swiper-slide swiper-slide3">
+                    <div class="swiper-container swiper-container-scrollbar">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="interval"></div>
+                                    <div class="part1">
+                                        <p class="title">累计统计</p>
+                                        <p class="tender-today">累计投资额
+                                            <span class="tender-money-today" v-text="convert(data3.leijijiaoyiCount)"></span>万元
+                                        </p>
+                                        <span class="date" v-text="currentDate"></span>
+                                    </div>
+                                    <div class="interval"></div>
+                                    <div class="common-module">
+                                        <div class="item">
+                                            <p class="fleft">累计未还</p>
+                                            <p class="fright">
+                                                <span v-text="convert(data3.leijiweihuanCount)"></span> <span class="unit">万元</span>
+                                            </p>
+                                        </div>
+                                        <div class="item">
+                                            <p class="fleft">注册总人数</p>
+                                            <p class="fright">
+                                                <span v-text="toQfw(data3.leijizhuceCount)"></span> <span class="unit">人</span>
+                                            </p>
+                                        </div>
+                                        <div class="item">
+                                            <p class="fleft">投资总人数</p>
+                                            <p class="fright">
+                                                <span v-text="toQfw(data3.leijitouziCount)"></span> <span class="unit">人</span>
+                                            </p>
+                                        </div>
+                                        <div class="item">
+                                            <p class="fleft">在投总人数</p>
+                                            <p class="fright">
+                                                <span v-text="toQfw(data3.zaitouzongrenshu)"></span> <span class="unit">人</span>
+                                            </p>
+                                        </div>
+                                        <div class="item">
+                                            <p class="fleft">开通存管人数</p>
+                                            <p class="fright">
+                                                <span v-text="toQfw(data3.kaitongcunguanCount)"></span> <span class="unit">人</span>
+                                            </p>
+                                        </div>
+                                        <div class="item">
+                                            <p class="fleft">存管开通未投资人数</p>
+                                            <p class="fright">
+                                                <span v-text="toQfw(data3.kaitongcunguanweitouziCount)"></span> <span class="unit">人</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </section>
+            </div>
+            <!-- 箭头提示 -->
+            <img src="https://images.51rz.com/images/app/bg-statistics/web-swipe-tip.png" id="array">
+            <!-- 导航按钮 -->
+            <div :class="{'nav': true, 'nav-fadeIn': !isShowNavList}" @click="openNavList"></div>
+            <!-- 导航菜单 -->
+            <ul :class="{'nav-list': true, 'navlist-fadeIn ': isShowNavList}">
+                <li @click="linkTo('1')">实时</li>
+                <li @click="linkTo('2')">详情</li>
+                <li @click="linkTo('3')">累计</li>
+            </ul>
+        </div>
+        <!-- 登录页面 -->
+        <div class="login-content" v-else>
+            <p class="login-title">欢迎登录后台数据监控</p>
+            <div class="input">
+                <p>手机号</p>
+                <input class="phone-input" type="tel" ref="account" v-model="account" maxlength="11" placeholder="请输入11位手机号码"></input>
+                <div style="padding: 0 .2rem;" v-show="showCloseBtn" @click="clearAccount">
+                   <a class="close"></a> 
+                </div>
+            </div>
+            <div class="input">
+                <p>验证码</p>
+                <input class="code-input" type="tel"  maxlength="6" v-model="vcode" placeholder="请注意查收短信"></input>
+                <p class="get-code" v-show="!toggleVcode" @click="sendVcode">获取验证码</p>
+                <p class="re-get-code" v-show="toggleVcode"><span v-text="countDown"></span>秒后重发</p>
+            </div>
+            <div class="remember-psd">
+                <div class="click-area" @click="rememberPsd">
+                    <div :class="{'remember-btn': true, 'checked-bg': isRememberPsd, 'un-checked-bg': !isRememberPsd}"></div>
+                    <span>7日免登录</span>
+                </div>
+                
+            </div>
+            <div class="login-btn" type="primary" @click="login">登录</div>
+            <p class="footer">人众金服出品</p>
+        </div>
+
+        <!-- 弹窗提示 -->
+        <div class="dialog-tip">
+            <div class="content" v-text="dialogText"></div>
+        </div>
+
+        <!-- loading -->
+        <div class="loading-wrapper">
+            <div class="spinner-snake" style="border-top-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); height: 32px; width: 32px;"></div>
+            <span class="indicator-text">加载中...</span>
+        </div>
+
+        <!-- 加载页面时缓存图片 -->
+        <img src="https://images.51rz.com/images/app/bg-statistics/checked-btn.png" style="display: none;">
+        <img src="https://images.51rz.com/images/app/bg-statistics/open-eye.png" style="display: none;">
+    </div>
+
+    <script src="/static/js/fastclick.min.js"></script>
+    <script src="/static/js/zepto.min.js"></script>
+    <script src="/static/js/vue.min.js"></script> 
+    <!-- 触摸滑动插件 -->
+    <script src="/static/js/swiper.min.js"></script>
+    <!-- 弹窗插件 -->
+    <script src="/static/js/remodal.min.js"></script>
+    <!-- 工具类函数 -->
+    <script src="/static/js/util/util.js"></script>
+
+    <script>  
+        // 解决移动端页面click事件存在300毫秒延迟
+        document.addEventListener('DOMContentLoaded', function () {
+            FastClick.attach(document.body);
+        }, false);
+
+        // 避免页面从缓存中加载
+        window.onpageshow = function (e) {
+            e = e || event;
+            if (e.persisted) {
+                location.reload();
+            }
+        }
+
+        // 获取url参数
+        function getParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+
+        var mySwiper = null;
+
+        var vm = new Vue({
+        el: '#app',
+        data: function() {
+            return {
+                data1: {}, // 实时数据页数据
+                data2: {}, // 当日详情页数据
+                data3: {}, // 累计统计页数据
+                dataDetails: {}, // 详情页跳转数据
+                islogin: false, // 是否登录，默认没有登录
+                account:'', // 账号
+                vcode: '', // 验证码
+                isRememberPsd: true, // 是否勾选七天免登录，默认勾选
+                dialogText: '', // 弹窗提示文本内容
+                isShowNavList: false, // 是否显示导航菜单，默认不显示
+                toggleVcode: false, // 切换获取验证码按钮
+                countDown: 60, // 倒计时时间，初始60秒
+            }
+        },
+
+        created: function() {
+            var expiryTime = getLocalStorageItem('expiryTime');
+            if(expiryTime) {
+                var now = Math.round(new Date().getTime()/1000);
+                if(now < expiryTime) { // 登录状态没有过期
+                    this.queryAllData(); // 重新查询统计数据
+                    this.islogin = true; // 跳转到主页面
+                    var _this = this;
+                    setTimeout(function() {
+                        _this.initSwiper(); //重新初始化滑动效果
+                    }, 10);
+                    // 如果是从tj-detail.html页面返回，则跳转到当前页面
+                    var nav = getLocalStorageItem('nav');
+                    if(nav === 'realTime') {
+                        setTimeout(function() {
+                            mySwiper.slideTo(0, 10, true);
+                        }, 10);
+                    } else if(nav === 'currentDay') {
+                        setTimeout(function() {
+                            mySwiper.slideTo(1, 10, true);
+                        }, 10);
+                    }
+
+                    if (nav) {
+                        setTimeout(function () {
+                            removeLocalStorageItem('nav');
+                        }, 100);
+                    }
+                } else {
+                    this.logOut();
+                }
+            } else {
+                this.islogin = false;
+                localStorage.clear();
+            }
+        },
+
+        computed:{
+            showCloseBtn: function() {
+                var account = this.account;
+                return account? true: false;
+            },
+
+            currentDate: function() {
+                var currentDate = dateFtt('yyyy.MM.dd', new Date());
+                return currentDate;
+            }
+        },
+
+        mounted: function() {
+
+        },
+
+        methods: {
+            // 点击跳转到统计详情页
+            clickJump: function(nav, type) {
+                var dataDetails = this.dataDetails;
+                setLocalStorageItem('nav', nav);
+                switch (type) {
+                    case 'jinritouzie':
+                        var jinritouziedetails = dataDetails.jinritouziedetails;
+                        var tj_data = jinritouziedetails? jinritouziedetails: {};
+                        setLocalStorageItem('tj_data', tj_data);
+                        setLocalStorageItem('tj_title', '今日投资额统计'); 
+                        setLocalStorageItem('tj_unit', '金额');
+                        break;
+                    case 'chongzhijine':
+                        var chongzhijinedetails = dataDetails.chongzhijinedetails;
+                        var tj_data = chongzhijinedetails? chongzhijinedetails: {};
+                        setLocalStorageItem('tj_data', tj_data);
+                        setLocalStorageItem('tj_title', '充值金额统计');
+                        setLocalStorageItem('tj_unit', '金额');
+                        break;
+                    case 'tixianjine':
+                        var tixianjinedetails = dataDetails.tixianjinedetails;
+                        var tj_data = tixianjinedetails? tixianjinedetails: {};
+                        setLocalStorageItem('tj_data', tj_data);
+                        setLocalStorageItem('tj_title', '提现金额统计');
+                        setLocalStorageItem('tj_unit', '金额');
+                        break;
+                    case 'zhangangjine':
+                        var zhangangjinedetails = dataDetails.zhangangjinedetails;
+                        var tj_data = zhangangjinedetails? zhangangjinedetails: {};
+                        setLocalStorageItem('tj_data', tj_data);
+                        setLocalStorageItem('tj_title', '站岗资金统计');
+                        setLocalStorageItem('tj_unit', '金额');
+                        break;
+                    case 'rjihuahuikuan':
+                        var rjihuahuikuandetails = dataDetails.rjihuahuikuandetails;
+                        var tj_data = rjihuahuikuandetails? rjihuahuikuandetails: {};
+                        setLocalStorageItem('tj_data', tj_data);
+                        setLocalStorageItem('tj_title', 'R计划回款统计');
+                        setLocalStorageItem('tj_unit', '金额');
+                        break;
+                    case 'daoqihuikuan':
+                        var daoqihuikuandetails = dataDetails.daoqihuikuandetails;
+                        var tj_data = daoqihuikuandetails? daoqihuikuandetails: {};
+                        setLocalStorageItem('tj_data', tj_data);
+                        setLocalStorageItem('tj_title', '到期回款统计');
+                        setLocalStorageItem('tj_unit', '金额');
+                        break;
+                    case 'jinefutoulv':
+                        var jinefutoulvdetails = dataDetails.jinefutoulvdetails;
+                        var tj_data = jinefutoulvdetails? jinefutoulvdetails: {};
+                        setLocalStorageItem('tj_data', tj_data);
+                        setLocalStorageItem('tj_title', '金额复投率统计');
+                        setLocalStorageItem('tj_unit', '复投率');
+                        break;
+                    case 'renshufutoulv':
+                        var renshufutoulvdetails = dataDetails.renshufutoulvdetails;
+                        var tj_data = renshufutoulvdetails? renshufutoulvdetails: {};
+                        setLocalStorageItem('tj_data', tj_data);
+                        setLocalStorageItem('tj_title', '人数复投率统计');
+                        setLocalStorageItem('tj_unit', '复投率');
+                        break;
+                }
+                window.location.href = 'tj-detail.html';
+            },
+
+            // 查询统计数据
+            queryAllData: function() {
+                var _self = this;
+                var token = getLocalStorageItem('token');
+                $(".loading-wrapper").show();
+                // 查询实时数据页面
+                $.post('/apiApp/data/index.html', {token: token}, function(result) {
+                    $(".loading-wrapper").hide();
+                    result = JSON.parse(result);
+                    if(result.responseCode === '000000') {
+                        var dataObj = result.obj;
+                        _self.data1 = {
+                            jinritouziMoney: dataObj.jinritouziMoney,
+                            rjihuazouziMoney: dataObj.rjihuazouziMoney,
+                            sanbiaoMoney: dataObj.sanbiaoMoney,
+                            feirjihuafutouMoney: dataObj.feirjihuafutouMoney,
+                            rxitouMoney: dataObj.rxitouMoney,
+                            touzirenCount: dataObj.touzirenCount,
+                            denglurenshuCount: dataObj.denglurenshuCount,
+                            zhucerenshuCount: dataObj.zhucerenshuCount,
+                            chongzhijineCount: dataObj.chongzhijineCount,
+                            zhangangjineCount: dataObj.zhangangjineCount,
+                            tixianjineCount: dataObj.tixianjineCount
+                        }
+                    } else if(result.responseCode === '999998') {
+                        this.logOut();
+                    } else {
+                        _self.showMsg(result.responseMessage);
+                    }
+                })
+
+                // 查询当日详情页面数据
+                $.post('/apiApp/data/todayDetails.html', {token: token}, function(result) {
+                    $(".loading-wrapper").hide();
+                    result = JSON.parse(result);
+                    if(result.responseCode === '000000') {
+                        var dataObj = result.obj;
+                        _self.data2 = {
+                            chongzhirenshuCount: dataObj.chongzhirenshuCount,
+                            renjunchongzhiCount: dataObj.renjunchongzhiCount,
+                            tixianrenshuCount: dataObj.tixianrenshuCount,
+                            renjuntixianrenshuCount: dataObj.renjuntixianrenshuCount,
+                            zhangangrenshuCount: dataObj.zhangangrenshuCount,
+                            renjunzhangangrenshuCount: dataObj.renjunzhangangrenshuCount,
+                            tuiguangxinzengrenshuCount: dataObj.tuiguangxinzengrenshuCount,
+                            tuiguangxinzengtouziCount: dataObj.tuiguangxinzengtouziCount,
+                            yaoqingxinzengrenshuCount: dataObj.yaoqingxinzengrenshuCount,
+                            yaoqingxinzengtouziCount: dataObj.yaoqingxinzengtouziCount,
+                            rjihuahuikuan: dataObj.rjihuahuikuan,
+                            daoqihuikuanjine: dataObj.daoqihuikuanjine,
+                            jinefutoulv: dataObj.jinefutoulv,
+                            huikuanrenshu: dataObj.huikuanrenshu,
+                            renshufutoulv: dataObj.renshufutoulv
+                        }
+                    } else if(result.responseCode === '999998') {
+                        this.logOut();
+                    } else {
+                        _self.showMsg(result.responseMessage);
+                    }
+                })
+
+                // 查询累计统计页面数据
+                $.post('/apiApp/data/totalData.html', {token: token}, function(result) {
+                    $(".loading-wrapper").hide();
+                    result = JSON.parse(result);
+                    if(result.responseCode === '000000') {
+                        var dataObj = result.obj;
+                        _self.data3 = {
+                            leijijiaoyiCount: dataObj.leijijiaoyiCount,
+                            leijiweihuanCount: dataObj.leijiweihuanCount,
+                            leijizhuceCount: dataObj.leijizhuceCount,
+                            leijitouziCount: dataObj.leijitouziCount,
+                            zaitouzongrenshu: dataObj.zaitouzongrenshu,
+                            renjundaishou: dataObj.renjundaishou,
+                            kaitongcunguanCount: dataObj.kaitongcunguanCount,
+                            kaitongcunguanweitouziCount: dataObj.kaitongcunguanweitouziCount
+                        }
+                    } else if(result.responseCode === '999998') {
+                        this.logOut();
+                    } else {
+                        _self.showMsg(result.responseMessage);
+                    }
+                })
+
+                // 查询详情页数据
+                $.post('/apiApp/data/thirtyDataDetails.html', {token: token}, function(result) {
+                    $(".loading-wrapper").hide();
+                    result = JSON.parse(result);
+                    if(result.responseCode === '000000') {
+                        var dataObj = result.obj;
+                        for(var key in dataObj){   
+                            //只遍历对象自身的属性，而不包含继承于原型链上的属性。  
+                            if (dataObj.hasOwnProperty(key) === true){
+                                dataObj[key] = JSON.parse(dataObj[key]);
+                            }                 
+                        }  
+                        _self.dataDetails = dataObj;
+                    } else if(result.responseCode === '999998') {
+                        this.logOut();
+                    } else {
+                        _self.showMsg(result.responseMessage);
+                    }
+                })
+            },
+
+            // 打开弹窗提示
+            showMsg: function(msg) {
+                this.dialogText = msg;
+                $(".dialog-tip").show();
+                setTimeout(function() {
+                    $(".dialog-tip").hide();
+                }, 2000);
+            },
+
+            // 点击登录
+            login: function() {
+                var name = this.account;
+                var vcode = this.vcode;
+                var isRememberPsd = this.isRememberPsd;
+                var _self = this;
+                if(!name) {
+                    this.showMsg('请输入手机号码');
+                    return false;
+                }
+
+                if(!vcode) {
+                    this.showMsg('请输入验证码');
+                    return false;
+                }
+
+                $(".loading-wrapper").show();
+                var param = {
+                    mobile: this.account,
+                    mobilecode: this.vcode
+                }
+                // 登录接口
+                $.post('/apiApp/data/login.html', param, function(result) {
+                    result = JSON.parse(result);
+                    if(result.responseCode === '000000') {
+                        $(".loading-wrapper").hide();
+                        if(isRememberPsd) { // 勾选记住密码
+                            var expiryTime = Math.round(new Date().getTime()/1000) + 7*24*60*60; // 设置登录状态过期时间为7天
+                            setLocalStorageItem('expiryTime', expiryTime);
+                        } else { // 不勾选记住账户密码
+                            var expiryTime = Math.round(new Date().getTime()/1000) + 30*60; // 保存登录状态30分钟
+                            setLocalStorageItem('expiryTime', expiryTime);
+                        }
+                        
+                        setLocalStorageItem('token', result.obj); // 存储用户信息
+                        _self.queryAllData(); //查询统计数据
+                        _self.islogin = true; // 跳转登录
+                        setTimeout(function() {
+                            _self.initSwiper();
+                        }, 10);
+                    } else {
+                        $(".loading-wrapper").hide();
+                        _self.islogin = false;
+                        _self.showMsg(result.responseMessage);
+                    }
+                });
+
+            },
+
+            // 初始化swiper滑动效果
+            initSwiper: function() {
+                mySwiper = new Swiper('.swiper-container-v', {
+                    direction: 'vertical', // 竖直方向
+                    speed: 1500, // 切换速度
+                    followFinger: false, // 是否跟随手指
+                    noSwiping : true,
+                    navigation: {
+                        nextEl: '.open-bill-btn'
+                    },
+                    on: {
+                        // 过渡开始时触发
+                        transitionStart: function(){
+                            $("#array").hide();
+                        },
+                        // 过渡结束时触发
+                        transitionEnd: function(){
+                            $("#array").show();
+                        }
+                    }
+                })
+                // 创建子页面的嵌套滑动效果
+                var swiperScrollbar = new Swiper('.swiper-container-scrollbar', {
+                    scrollbar: '.swiper-container-scrollbar',
+                    direction: 'vertical',
+                    slidesPerView: 'auto',
+                    mousewheelControl: true,
+                    freeMode: true,
+                    nested: true
+                });
+            },
+
+            // 点击清空账户input内容
+            clearAccount: function() {
+                this.account = '';
+                this.$refs.account.focus();
+            },
+
+            // 点击是否记住密码
+            rememberPsd: function() {
+                this.isRememberPsd = !this.isRememberPsd;
+            },
+
+            // 打开导航菜单
+            openNavList: function() {
+                this.isShowNavList = !this.isShowNavList;
+            },
+
+            // 导航跳转页面
+            linkTo: function(index) {
+                if(index === "1") {
+                    mySwiper.slideTo(0, 10, true);
+                } else if(index === "2") {
+                    mySwiper.slideTo(1, 10, true);
+                } else if(index === "3") {
+                    mySwiper.slideTo(2, 10, true);
+                }
+                this.isShowNavList = !this.isShowNavList;
+            },
+
+            // 点击获取验证码
+            sendVcode: function() {
+                var _self = this;
+                var param = {
+                    mobile: this.account
+                }
+                var name = this.account;
+                if(!name) {
+                    this.showMsg('请输入手机号码');
+                    return false;
+                }
+                $.post('/apiApp/data/sendVcode.html', param, function(result) {
+                    result = JSON.parse(result);
+                    if(result.responseCode !== '000000') {
+                        _self.showMsg(result.responseMessage);
+                    }else {
+                        _self.toggleVcode = true; // 切换为重发提示
+                        var timer = setInterval(function() {
+                            _self.countDown--;
+                            if(_self.countDown === 0) {
+                                clearInterval(timer);
+                                _self.countDown = 60;
+                                _self.toggleVcode = false;
+                            }
+                        }, 1000)
+                    }
+                })
+            },
+
+            // 打开标的明细页面
+            openBdDetail: function() {
+                window.location.href = 'bd-detail.html';
+            },
+
+            // 打开区域标的明细页面
+            openQuYuBdDetail: function() {
+                window.location.href = 'quyubd-detail.html';
+            },
+
+            // 登录状态过期跳转到登录页面并清空存储
+            logOut: function() {
+                this.islogin = false;
+                localStorage.clear();
+                this.showMsg('登录状态已过期，请重新登录！');
+            },
+
+            // 保留两位小数
+            toFixed: function(num) {
+                return num? (num*1).toFixed(2): 0;
+            },
+            convert: function(num) {
+                //转万元
+                if(num) {
+                    return ((num*1/10000).toFixed(2)*1).toLocaleString();
+                } else {
+                    return '';
+                }
+                
+            }
+        }
+    });
+
+    </script>
+
+</body>
+
+</html>

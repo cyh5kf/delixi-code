@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script>
+    function getParam(url, name) {
+      var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)'); //构造一个含有目标参数的正则表达式对象
+      var r = (url.split('?')[1] || ' ').match(reg); //匹配目标参数
+      if (r != null) return unescape(r[2]);
+      return null; //返回参数值
+    }
+  
+  
+    function getmenu() {
+      var token = getParam(window.location.href,'token')
+      // var jump = getParam(window.location.href,'urlPrefix')
+      sessionStorage.setItem('token', JSON.stringify({token:token}));
+      var xhr = new XMLHttpRequest()
+      var form = new FormData()
+      form.append('token', token)
+      // xhr.onreadystatechange=()=>{
+        //   if (xhr.readyState ==4) {
+          //     console.log(xhr)
+          //   }
+          // }
+      xhr.onload = () => {
+        if (xhr.status == 200 || xhr.status == 304) {
+          if(JSON.parse(xhr.responseText).error_code==0){
+            const res = JSON.parse(xhr.responseText)
+            localStorage.setItem('userInfo', JSON.stringify(res.data.user));
+            if(res.data.menu.length>=1){
+                var list = res.data.menu.filter((item)=>{
+                  return item.type == 1
+                });
+                localStorage.setItem('mymenu', JSON.stringify(res.data.menu));
+                sessionStorage.setItem('jump', JSON.stringify({jump:res.login_url}));
+            }
+          }else if(JSON.parse(xhr.responseText).error_code==1){                
+            window.location.href = JSON.parse(xhr.responseText).login_url
+          }
+        }
+      }
+      xhr.open("POST", '/index.php?_url=/admin/index/getMenu',true)
+      // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.send(form)
+    }
+    if (getParam(window.location.href,'token')||!JSON.parse(sessionStorage.getItem('token'))||JSON.parse(sessionStorage.getItem('token'))&&!JSON.parse(sessionStorage.getItem('token')).token) {
+      getmenu()
+    }
+  
+    // window.onload=myfun;
+  </script>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>积分商城后台管理系统</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
+</html>

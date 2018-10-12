@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/components/header-footer/header-footer.css">
+    <title>会员特权--升级礼包</title>
+    <style type="text/css">
+        html,body{
+            margin: 0;
+            padding: 0;
+            background:#f6f6f6;
+        }
+        .container{
+            margin: 0 auto;
+            text-align:center;
+        }
+        .box-bg{
+            width:1200px;
+            background:#fff;
+            padding:30px 100px;
+            display:inline-block;
+            box-sizing:border-box;
+            margin:20px 0 80px 0;
+        }
+        .box-bg h3{
+            width:100%;
+            height:45px;
+            line-height:45px;
+            text-align:left;
+            font-size:18px;
+            color:#333;
+            font-weight:500;
+        }
+        .box-bg ul{
+            padding:0;
+            margin:0;
+            text-align:left;
+            position:relative;
+        }
+        .box-bg ul li{
+            display:inline-block;
+            padding:0 10px;
+            height:32px;
+            line-height:32px;
+            font-size:14px;
+            color:#555;
+            margin-right:10px;
+            float:left;
+            cursor:pointer;
+        }
+        .box-bg ul li.act{
+            background:#4b92ec;
+            border-radius:3px;
+            color:#fff;
+            cursor:pointer;
+        }
+        .box-bg ul li span{
+            display:inline-block;
+            font-size:14px;
+            color:#555;
+            float:left;
+            padding-right:10px;
+        }
+        .inputBorder{
+            display:inline-block;
+            width:130px;
+            height:30px;
+            line-height:30px;
+            border:1px solid #e8e8e8;
+            float:left;
+            padding:0 5px;
+        }
+        .inputBorder input{
+            width: 95px;
+            height: 28px;
+            border: none;
+            outline: none;
+            float:left;
+        }
+        .inputBorder:after{
+            content:'';
+            width:20px;
+            height:18px;
+            margin: 4px 0 0 3px;
+            display:inline-block;
+            cursor:pointer;
+            background:url(https://images.51rz.com/images/pc-jifen/icon.png) no-repeat;
+        }
+        .wzText{
+            font-size:14px;
+            float:left;
+            color:#555;
+            padding:0 5px;
+        }
+        .btn{
+            width:68px;
+            height:32px;
+            line-height:32px;
+            background:#f64c3e;
+            font-size:14px;
+            color:#fff;
+            text-align:center;
+            border:none;
+            float:left;
+            outline:none;
+            cursor:pointer;
+        }
+
+        .tab-list{
+            width:100%;
+            display:inline-block;
+            margin-top:30px;
+        }
+        .tab-list table{
+            width:100%;
+        }
+        .tab-list table th{
+            height:48px;
+            line-height:48px;
+            background:#f6f6f6;
+            font-size:14px;
+            font-weight:500;
+            color:#333;
+            text-align:center;
+        }
+        .tab-list table td{
+            height:48px;
+            font-size:14px;
+            color:#555;
+            text-align:center;
+            border-bottom:1px solid #f6f6f6;
+        }
+        .paging{
+            width:100%;
+            margin-top:30px;
+            display:inline-block;
+            text-align:center;
+        }
+        .pre,.next,.pre-dis,.next-dis{
+            width:60px;
+            height:16px;
+            font-size:14px;
+            line-height:16px;
+            display:inline-block;
+            cursor:pointer;
+        }
+        .pre strong,.next strong,.pre-dis strong,.next-dis strong{
+            font-weight:500;
+            color:#999;
+        }
+        .next strong,.next-dis strong{
+            margin-right:5px;
+        }
+        .pre-dis strong,.next-dis strong{
+            color:#4992ec;
+        }
+        .pre i,.pre-dis i{
+            width:11px;
+            height:15px;
+            float:left;
+        }
+        .pre i{
+            background:url(https://images.51rz.com/images/pc-jifen/page_prev_disabled.png) no-repeat;
+        }
+        .pre-dis i{
+            background:url(https://images.51rz.com/images/pc-jifen/page_prev.png) no-repeat;
+        }
+
+        .next i,.next-dis i{
+            width:11px;
+            height:15px;
+            float:right;
+        }
+        .next i{
+            background:url(https://images.51rz.com/images/pc-jifen/page_next_disabled.png) no-repeat;
+        }
+        .next-dis i{
+            background:url(https://images.51rz.com/images/pc-jifen/page_next.png) no-repeat;
+        }
+
+        .goTo{
+            width:90px;
+            display:inline-block;
+            font-size:14px;
+        }
+        .goTo input{
+            width:40px;
+            text-align:center;
+            color:#333;
+            border:1px solid #e8e8e8;
+            outline:none;
+        }
+
+        .calendar{
+            width:250px;
+            border:1px solid #e8e8e8;
+            background:#fff;
+            position: absolute;
+            top: 30px;
+            z-index: 100;
+        }
+        .p-l{
+            left: 320px;
+            display:none;
+        }
+        .p-r{
+            left: 474px;
+            display:none;
+        }
+        .calendar h4{
+            width:100%;
+            height:35px;
+            line-height:35px;
+            border-bottom:1px solid #f6f6f6;
+            font-size:14px;
+            font-weight:500;
+            text-align:center;
+        }
+        .calendar h4 small{
+            display:inline-block;
+        }
+        .iconLeft-y{
+            width:5px;
+            height:35px;
+            background-image:url(https://images.51rz.com/images/pc-jifen/callendar_prev_year.png);
+            background-repeat:no-repeat;
+            background-position: 50%;
+            margin:0 5px;
+        }
+        .iconLeft-m{
+            width:5px;
+            height:35px;
+            background-image:url(https://images.51rz.com/images/pc-jifen/callendar_prev_month.png);
+            background-repeat:no-repeat;
+            background-position: 50%;
+            margin:0 5px;
+        }
+        .timeText{
+            font-size: 14px;
+            color: #4992ec;
+            display: inline-block;
+            font-weight: 500;
+            height: 20px;
+            vertical-align: 12px;
+            margin: 0 15px;
+        }
+        .iconRight-m{
+            width:5px;
+            height:35px;
+            background-image:url(https://images.51rz.com/images/pc-jifen/callendar_next_month.png);
+            background-repeat:no-repeat;
+            background-position: 50%;
+            margin:0 5px;
+        }
+        .iconRight-y{
+            width:5px;
+            height:35px;
+            background-image:url(https://images.51rz.com/images/pc-jifen/callendar_next_year.png);
+            background-repeat:no-repeat;
+            background-position: 50%;
+            margin:0 5px;
+        }
+        .calendar table{
+            width:100%;
+            text-align:center;
+        }
+
+    </style>
+</head>
+<body>
+<div id="header"></div>
+<div class="container" id="app">
+    <div class="box-bg">
+        <h3>成长值记录</h3>
+
+        <div class="tab-list">
+            <table cellspacing="0" cellpadding="0" border="0">
+                <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>类型</th>
+                        <th>内容</th>
+                        <th>成长值变化</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,index) in list">
+                        <td v-text="item.create_time"></td>
+                        <td v-text="item.type == 1?'投资':(item.type == 2?'降级':'')"></td>
+                        <td v-text="item.grow_desc"></td>
+                        <td v-text="growUpdate(item.optype,item.grow)"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="empty" v-if="pageCount==0">
+                <img src="https://images.51rz.com/images/jifen/index/empty.png" alt="">
+                <p>暂时没有记录</p>
+            </div>
+        </div>
+        <div class="paging" v-show="!pageCount==0">
+            <span :class="page==1?'pre':'pre-dis'" @click="pageChange(1)">
+                <i></i><strong>上一页</strong>
+            </span>
+            <span class="goTo">
+                <input v-model="page" type="text"> /
+                <span v-text="pageCount"></span>
+            </span>
+            <span :class="page==pageCount?'next':'next-dis'" @click="pageChange(2)">
+                <strong>下一页</strong><i></i>
+            </span>
+        </div>
+    </div>
+</div>
+<div id="footer"></div>
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/components/header-footer/header-footer.js"></script>
+<script>
+    //避免页面从缓存中加载
+    window.onpageshow = function (e) {
+        e = e || event;
+        if (e.persisted) {
+            location.reload();
+        }
+    }
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            token: '',
+            pageCount: 1,
+            page: 1,
+            list: [],
+            userInfo:{},
+        },
+        methods: {
+            getGrowList: function () {
+                var _this = this;
+                $.post('/index.php?_url=/vipcenter/Grow/growFlow',{
+                    token: _this.userInfo.token,
+                    page: _this.page,
+                },function (data) {
+                    var json = JSON.parse(data)
+                    if(json.code === 0){
+                        _this.list = json.list;
+                        _this.pageCount = json.pageCount;
+                    }else{
+                        alert(json.msg)
+                    }
+                })
+            },
+            pageChange: function (flag) {
+                var page = this.page;
+                if(flag === 1 && page > 1) {
+                    this.page = page - 1;
+                    this.getGrowList()
+                }else if(flag === 2 && page < this.pageCount) {
+                    this.page = page + 1;
+                    this.getGrowList()
+                }
+            },
+            growUpdate: function (type,grow) {
+                const typeArr = ['','+','-'];
+                return typeArr[type] + grow;
+            },
+            getQueryString:function(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            }
+        },
+        mounted:function () {
+            var activeUserInfo=JSON.parse(localStorage.getItem('activeUserInfo'));
+            this.userInfo=activeUserInfo;
+            this.token = activeUserInfo.token;
+            this.getGrowList()
+        }
+    })
+</script>
+</body>
+</html>

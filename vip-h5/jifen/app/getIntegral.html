@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="wap-font-scale" content="no"/>
+    <title>积分获取</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico"/>
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+</head>
+<style>
+    html {
+        font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft Yahei, STHeiTi, Arial, sans-serif;
+        background-color: #fff;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0.22rem;
+        box-sizing: border-box;
+        line-height: 1.5;
+        text-decoration: none;
+        color: #222;
+    }
+
+    body {
+        background: #f6f6f6;
+    }
+
+    #container {
+        max-width: 7.5rem;
+        margin: 0 auto;
+    }
+
+    .banner {
+        height: 2.1rem;
+        width: 100%;
+        padding: 0.4rem 0.3rem 0;
+        background: url(https://images.51rz.com/images/jifen/getIntegral.png) ;
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+
+    .banner p {
+        text-align: center;
+    }
+
+    .banner p.integralTotal {
+        font-size: 0.88rem;
+        color: #222;
+        line-height: 1.2rem;
+    }
+
+    .selectTitle {
+        background: #fff;
+        height: 0.87rem;
+        width: 100%;
+        border-bottom: 0.01rem solid #e5e5e5;
+    }
+
+    .selectTitle p {
+        width: 50%;
+        float: left;
+        height: 100%;
+        border-bottom: 0.02rem solid #fff;
+        line-height: 0.84rem;
+        text-align: center;
+        font-size: 0.28rem;
+        color: #999;
+    }
+
+    .selectTitle p.active {
+        color: #f64c3e;
+        border-bottom: 0.02rem solid #f64c3e;
+    }
+
+    .month, .novice {
+        padding: 0 0.3rem;
+        background: #fff;
+    }
+
+    li {
+        border-bottom: 0.01rem solid #e5e5e5;
+        height: 1.45rem;
+    }
+
+    .month li:last-child {
+        border-bottom: 0.01rem solid #fff;
+    }
+
+    .novice li:last-child {
+        border-bottom: 0.01rem solid #fff;
+    }
+
+    .clearfix:after {
+        content: '';
+        width: 0;
+        height: 0;
+        display: block;
+        clear: both;
+    }
+
+    .left {
+        float: left;
+        padding-top: 0.4rem;
+    }
+
+    .right {
+        float: right;
+    }
+
+    .left p {
+        font-size: 0.28rem;
+        color: #222;
+    }
+
+    .left span {
+        font-size: 0.24rem;
+    }
+
+    .left .green {
+        color: #8cbe37;
+    }
+
+    .left .red {
+        color: #f64c3e;
+    }
+
+    .right {
+        line-height: 1.44rem;
+    }
+
+    .right p {
+        font-size: 0.24rem;
+        line-height: 1.44rem;
+    }
+
+    .right a {
+        font-size: 0.24rem;
+        color: #4992ec;
+    }
+
+    .right span {
+        font-size: 0.24rem;
+        color: #4992ec;
+    }
+</style>
+<body>
+<div id="container">
+    <div class="banner">
+        <p style="color:#999">当前积分</p>
+        <p class="integralTotal" v-text="currentIntegral"></p>
+    </div>
+    <div class="selectContent">
+        <div class="selectTitle clearfix">
+            <p @click="changeActive(0)" :class="currentActive==0?'active':''">每月任务</p>
+            <p @click="changeActive(1)" :class="currentActive==1?'active':''">新手任务</p>
+        </div>
+        <ul v-show="currentActive==0" class="month">
+            <li v-for="(item,index) in monthTask" :key="index" class="clearfix">
+                <div class="left">
+                    <p v-text="item.name"></p>
+                    <span :class="item.status==true?'green':'red'" v-text="''+'+'+item.num"></span>
+                </div>
+                <div class="right">
+                    <p v-if="!item.go&&item.status==false" v-text="'未完成'"
+                       style="color:#555"></p>
+                    <p v-if="item.status==true" v-text="'已完成'"
+                       style="color:#999"></p>
+                    <a v-if="item.linkUrl&&(item.go&&item.status==false)" :href="item.linkUrl">立即前往></a>
+                    <span v-if="!item.linkUrl&&(item.go&&item.status==false)" @click="backHome">立即前往></span>
+                </div>
+            </li>
+        </ul>
+        <ul v-show="currentActive==1" class="novice">
+            <li v-for="(item,index) in noviceTask" class="clearfix">
+                <div class="left">
+                    <p v-text="item.name"></p>
+                    <span :class="item.status==true?'green':'red'" v-text="''+'+'+item.num"></span>
+                </div>
+                <div class="right">
+                    <p v-if="!item.go&&item.status==false" v-text="'未完成'"
+                       style="color:#555"></p>
+                    <p v-if="item.status==true" v-text="'已完成'"
+                       style="color:#999"></p>
+                    <a v-if="item.go&&item.status==false" :href="!!isLogined?item.linkUrl:'https://m.51rz.com/login'">立即前往></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/static/js/util/webView.js"></script>
+<script>
+    //    避免页面从缓存中加载
+    window.onpageshow = function (e) {
+        e = e || event;
+        if (e.persisted) {
+            location.reload();
+        }
+    }
+
+    function getParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值
+    }
+    var token = getParam('token') || 0;
+    var type = getParam('type') || 0;
+    var realName = getParam("realName");
+    var isLogined = token ? true : false;//是否登录
+    window.el = new Vue({
+        el: '#container',
+        data: {
+            currentActive: 0,
+            isLogined: isLogined,
+            currentIntegral: 0,
+            monthTask: {
+                8: {
+                    name: '完成一次积分兑换',
+                    num: '20',
+                    status: false,
+                    go:true,
+                    linkUrl: ''
+                },
+                9: {
+                    name: '完成充值≥1000元',
+                    num: '50',
+                    go: true,
+                    status: false,
+                    linkUrl: realName=='false'?'https://'+type+'.51rz.com/my/bankOpen':'https://'+type+'.51rz.com/my/recharge'
+                },
+                10: {
+                    name: '完成投资≥1000元',
+                    num: '50',
+                    status: false,
+                    go:true,
+                    linkUrl:'https://'+type+'.51rz.com/tender/index'
+                },
+                11: {
+                    name: '当月累计投资≥3次',
+                    num: '100',
+                    status: false,
+                    go:true,
+                    linkUrl:'https://'+type+'.51rz.com/tender/index'
+                },
+                12: {
+                    name: '当月累计投资金额≥10000元',
+                    num: '100',
+                    status: false,
+                    go:true,
+                    linkUrl:'https://'+type+'.51rz.com/tender/index'
+                },
+                13: {
+                    name: '完成所有任务',
+                    num: '200',
+                    status: false
+                }
+            },
+            noviceTask: {
+                1: {
+                    name: '注册',
+                    num: '30',
+                    status: true,
+                    go:true,
+                    linkUrl:'https://'+type+'.51rz.com/register'
+                },
+                2: {
+                    name: '开通存管账户',
+                    num: '50',
+                    go: true,
+                    status: false,
+                    linkUrl: 'https://'+type+'.51rz.com/my/bankOpen'
+                },
+                3: {
+                    name: '首次充值',
+                    num: '100',
+                    go: true,
+                    status:false,
+                    linkUrl:realName=='false'?'https://'+type+'.51rz.com/my/bankOpen':'https://'+type+'.51rz.com/my/recharge'
+                },
+                4: {
+                    name: '首次投资',
+                    num: '100',
+                    status: false,
+                    go:true,
+                    linkUrl:'https://'+type+'.51rz.com/tender/index'
+                },
+                5: {
+                    name: '完成复投',
+                    num: '200',
+                    status: false,
+                    go:true,
+                    linkUrl:'https://'+type+'.51rz.com/tender/index'
+                },
+                6: {
+                    name: '首次邀请好友注册',
+                    num: '200',
+                    go: true,
+                    status: false,
+                    linkUrl: 'https://'+type+'.51rz.com/invite/index?uid=' + this.uid
+                },
+                7: {
+                    name: '完成所有任务',
+                    num: 200,
+                    status: false
+                }
+            },
+        },
+        methods: {
+            changeActive: function (index) {
+                this.currentActive = index
+            },
+            getIntegral: function () {
+                var self = this;
+                $.post('/index.php?_url=/vipshop/integral/userIntegralAccount', {token:token}, function (data) {
+                    var integralObj = JSON.parse(data).data||{};
+                    if (integralObj.integral) {
+                        self.currentIntegral = Number(integralObj.integral).toFixed(0)
+                    }
+                })
+            },
+            getTask: function () {
+                var self = this;
+                //月任务
+                $.post('/index.php?_url=/vipshop/user_task/monthlyTaskComplete', {
+                    token:token,
+                }, function (data) {
+                    var monthStatus = JSON.parse(data).data
+                    for (var key in monthStatus) {
+                        if (monthStatus.hasOwnProperty(key)) {
+                            self.monthTask[Number(key)].status = monthStatus[key]
+                        }
+                    }
+                })
+                //新手任务
+                $.post('/index.php?_url=/vipshop/user_task/noviceTaskComplete', {
+                    token:token,
+                }, function (data) {
+                    var noviceStatus = JSON.parse(data).data
+                    for (var key in noviceStatus) {
+                        if (noviceStatus.hasOwnProperty(key)) {
+                            if (self.noviceTask[Number(key)]) {
+                                self.noviceTask[Number(key)].status = noviceStatus[key]
+                            }
+                        }
+                    }
+                    self.noviceTask[1].ststus=true;
+                    self.uid=noviceStatus.user_id;
+                    self.noviceTask[6].linkUrl='https://m.51rz.com/invite/index?uid=' + self.uid
+                })
+            },
+            backHome: function() {
+                var u = navigator.userAgent;
+                var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                var vipType = '';
+                if(type === 'm') {
+                    vipType = 'vip';
+                } else if(type === 'mobile') {
+                    vipType = 'pre-vip';
+                } else if(type === 'testm') {
+                    vipType = 'lvip'
+                } else {
+                    vipType = 'vip';
+                }
+                if(isiOS) {
+                    webView('backHome');
+                    window.location.href = 'https://'+vipType+'.51rz.com/jifen/app/index.html?token=' + token + '&type=' + type + '&realName=' + realName;
+                } else {
+                    window.history.go(-2);
+                }
+            }
+        },
+        mounted: function () {
+            this.getTask();
+            this.getIntegral();
+        },
+        created: function () {
+
+        }
+    })
+</script>
+</body>
+</html>

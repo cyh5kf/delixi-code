@@ -1,0 +1,15 @@
+@import "../../assets/css/libs/mixin.scss";
+
+.labels{
+    li{
+        @include box((d:inline-block,c:$black5,lh:20px,m:0 18px,p:0 10px,bdr:4px,fs:14px));
+        cursor: pointer;
+        &.active{
+            @include box((bg:$blue,c:$white));
+        }
+        &.disabled{
+            cursor: auto;
+            color:#999;
+        }
+    }
+}

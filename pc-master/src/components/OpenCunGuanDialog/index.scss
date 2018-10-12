@@ -1,0 +1,32 @@
+@import "../../assets/css/libs/mixin.scss";
+
+
+.cunGuanDialog{
+    .shade{
+        @include box((w:100%,h:100%,bg:rgba(0,0,0,0.7)));
+        @include position((p:fixed,t:0,l:0,z:9))
+    }
+    .content{
+        @include box((w:460px,mt:-230px,ml:-230px,p:180px 0 0 0,bdr:5px));
+        @include background((url:'cun_guan_dialog.png',size:100% auto,repeat:no-repeat,pos:center 17px));
+        @include position((p:fixed,t:50%,l:50%,z:10));
+        overflow: hidden;
+        .close {
+            @include box((d:block, w:30px, h:30px));
+            @include position((p:absolute, t:0px, r:0px));
+            @include background((url:'member/cancle_cunguan.png', size:100% 100%));
+            cursor: pointer;
+        }
+        h5{
+            @include box((fs:26px,ta:center,c:$white,lh:48px));
+            font-weight: normal;
+        }
+        p{
+            @include box((ta:center,fs:18px,c:#ffc6c3,lh:34px))
+        }
+        a{
+            @include box((w:292px,h:65px,d:block,ta:center,lh:65px,m:0 auto,mt:157px,c:#fefefe,fs:28px,));
+            @include background((url:'member/open_cunguan_btn.png'))
+        }
+    }
+}

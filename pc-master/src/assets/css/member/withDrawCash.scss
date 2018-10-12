@@ -1,0 +1,139 @@
+@import "../libs/mixin.scss";
+
+.wrap{
+    @include box((p:40px 30px 50px));
+}
+
+.pageTitle{
+    @include box((lh:40px,fw:normal,c:$black2,fs:18px,p:0 0 5px 0));
+}
+
+.content{
+    $border:1px solid #e5e5e5;
+    @include box((bd:$border,m:15px 0,p:0 0 50px 0));
+    .label{
+        @include box((w:110px,fl:left,ta:left,lh:30px,c:$black5));
+        text-indent:24px;
+    }
+    .bankCardArea{
+        @include clearfix();
+        @include box((m:24px 0 0 0));
+    }
+    .tixianRow{
+        @include box((lh:28px,m:20px 0));
+        .money{
+            @include box((c:$red,fs:18px));
+            span{
+                @include box((c:#565656,fs:14px));
+            }
+        }
+    }
+    .daiRu{
+        @include box((lh:28px,m:20px 0));
+        position: relative;
+        .money{
+            @include box((c:$black2,fs:16px));
+            i{
+                @include box((d:inline-block,w:16px,h:16px,m:0 10px 0 0));
+                @include background((url:'icon_question.png',size:100% 100%,repeat:no-repeat));
+                vertical-align: middle;
+            }
+            span{
+                @include box((c:#565656,fs:14px));
+            }
+        }
+    }
+    .payPassRow{
+        @include clearfix();
+        .input{
+            @include box((fl:left))
+        }
+        .forget{
+            @include box((fl:left,c:$blue,lh:46px,m:0 0 0 10px));
+        }
+    }
+    .imgCodeRow{
+        .imgCode{
+            @include box((d:inline-block,w:106px,h:46px,m:0 0 0 12px,bd:$border,fl:left));
+            img{
+                @include box((w:100%,h:100%));
+            }
+        }
+        .changeImg{
+            @include box((fl:left,c:$blue,lh:46px,m:0 0 0 10px));
+            cursor: pointer;
+        }
+    }
+}
+
+.tips{
+    @include box((m:10px 0,fs:12px,c:#a9a9a9));
+    h5{
+        @include box((lh:44px,fw:normal,c:$black5,fs:14px))
+    }
+    li{
+        @include box((lh:24px))
+    }
+}
+
+
+.colorTable{
+    $border:1px solid #e5e5e5;
+    @include box((bd:1px solid #e5e5e5,w:520px,m:15px 0));
+    &.col2{
+        width:350px;
+        th,td{
+            width:50%;
+            &:first-child{
+                padding-left:36px;
+            }
+        }
+    }
+    thead{
+        @include box((bg:#f9f2e7,lh:36px));
+        th,td{
+            @include box((fw:normal,c:$black5,ta:left));
+            padding-left: 60px;
+            border-right:$border;
+        }
+    }
+    tbody{
+        tr{
+            @include box((lh:36px))
+        }
+        td{
+            @include box((c:$black5,ta:left));
+            padding-left: 60px;
+            border-right:$border;
+            border-bottom:$border;
+        }
+    }
+}
+
+
+
+.noPayPassDialog{
+    @include box((w:320px));
+    h5{
+        @include box((lh:30px,ta:center,c:$black5,fs:16px,m:40px 0));
+        font-weight: normal;
+    }
+    p{
+        @include box((ta:center));
+        span,a{
+            @include box((d:inline-block,w:120px,lh:38px,ta:center,m:0 5px));
+            cursor: pointer;
+            &:first-child{
+                @include box((bd:1px solid #e5e5e5,c:$black9));
+            }
+            &:last-child{
+                @include box((bg:$red,c:$white));
+            }
+        }
+    }
+}
+
+
+
+
+

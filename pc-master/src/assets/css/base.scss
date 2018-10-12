@@ -1,0 +1,206 @@
+@charset "utf-8";
+@import "./libs/mixin.scss";
+
+* {
+  outline: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box
+}
+
+html {
+  font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Hiragino Sans GB, STHeiTi, Arial, sans-serif;
+  //font-family: 微软雅黑;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased
+}
+
+body {
+  margin: 0 auto;
+  font-size: 12px;
+  color: #333;
+  line-height: 1;
+  background-color: #f6f6f6;
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  -webkit-touch-callout: none
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block
+}
+
+a {
+  text-decoration: none;
+  color: inherit
+}
+
+a:active {
+  outline: 0
+}
+
+b, strong {
+  font-weight: 700
+}
+
+dfn {
+  font-style: normal
+}
+
+img {
+  border: 0;
+  vertical-align: middle
+}
+
+button, input, textarea {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Hiragino Sans GB, STHeiTi, Arial, sans-serif
+}
+
+textarea {
+  resize: none
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+td, th {
+  padding: 0
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #ccc;
+  line-height: 1.5em;
+  font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Hiragino Sans GB, STHeiTi, Arial, sans-serif
+}
+
+body {
+  background: #f6f6f6;
+  line-height:1.5;
+}
+
+h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, code, form, fieldset, legend, button, input, textarea {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+a, a:visited {
+  color: #333;
+  text-decoration: none;
+}
+
+a:active, a:hover {
+  text-decoration: none;
+}
+
+a:focus, input:hover, button:hover, input[type='button']:hover {
+  outline: none;
+}
+
+i, em, cite {
+  font-style: normal;
+}
+
+li {
+  vertical-align: bottom;
+  overflow: hidden;
+  list-style-type: none;
+}
+
+body, button, input, select, textarea {
+  outline: none;
+}
+
+/* 设置HTML5元素为块 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  max-width: 640px;
+}
+
+body {
+  font-size: 14px;
+  margin: 0 auto;
+  min-width: 1200px;
+}
+
+:global { //class名字不需要被编译
+  .dis-block {
+    display: block
+  }
+  .dis-inline-block {
+    display: inline-block
+  }
+  .pos-rel {
+    position: relative
+  }
+  .pos-abs {
+    position: absolute
+  }
+  .pos-fix {
+    position: fixed
+  }
+  .hide {
+    display: none;
+  }
+  .clearfix {
+    content: " ";
+    display: table;
+    clear: both;
+    *zoom: 1;
+    *display: block;
+  }
+  .text-left {
+    text-align: left;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-right {
+    text-align: right;
+  }
+  .fn-fl {
+    float: left
+  }
+  .fn-fr {
+    float: right
+  }
+  .fc-link {
+    color: #4992ec !important;
+  }
+
+  .animate-route {
+    animation: base_fadeRoute_20eNHXWu 0.5s cubic-bezier(0, 0.53, 0.96, 0.61);
+  }
+  @keyframes fadeRoute {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+  input[type='checkbox'] {
+    outline: none;
+    box-shadow: none;
+    -webkit-appearance: none;
+    border: 1px solid #8a8a8a;
+    &:checked {
+      @include background((url:'checkbox_yes.png', repeat:no-repeat, size:100% 100%));
+    }
+  }
+}
+
+
+
+

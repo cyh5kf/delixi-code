@@ -1,0 +1,67 @@
+export const data = {
+    'rPlanTenderList':{
+        name:'r 计划投资详情',
+        method:'rPlanTenderInfoList',
+        labels:[
+            {name:'borrowId',value:'小标ID'},
+            {name:'name',value:'小标名称'},
+            {name:'apr',value:'预期年化'},
+            {name:'timeLimit',value:'期限'},
+            {name:'nowPeriod',value:'当前期数'},
+            {name:'totalPeriod',value:'总期数'},
+            {name:'amount',value:'借款金额'},
+            {name:'money',value:'投资金额'},
+            {name:'repaymentAmount',value:'待收本息'},
+            {name:'capital',value:'待收本金'},
+            {name:'interest',value:'待收利息'},
+            {name:'createTime',value:'投标时间'},
+            {name:'repaymentTime',value:'还款时间'},
+            {name:'raiseInterest',value:'加息利息'},
+            {name:'cashingStatus',value:'兑付状态'},
+            // {name:'borrowTimeType',value:'0'},
+        ],
+        items:[]
+    },
+    'singleTenderList':{
+        name:'单标投资详情',
+        method:'singleTenderInfoList',
+        labels:[
+            {name:'borrowId',value:'标的ID'},
+            {name:'name',value:'标的名称'},
+            {name:'timeLimit',value:'期限'},
+            {name:'apr',value:'预期年化'},
+            {name:'nowPeriod',value:'当前期数'},
+            {name:'totalPeriod',value:'总期数'},
+            {name:'amount',value:'标的总额'},
+            {name:'money',value:'投资金额'},
+            {name:'repaymentAmount',value:'待收本息'},
+            {name:'capital',value:'待收本金'},
+            {name:'interest',value:'待收利息'},
+            {name:'awardApr',value:'加息利率'},
+            {name:'raiseInterest',value:'加息金额'},
+            {name:'createTime',value:'投标时间'},
+            {name:'repaymentTime',value:'还款时间'},
+            {name:'cashingStatus',value:'兑付状态'},
+        ],
+        items:[]
+    },
+    'rPlanCollectionList':{
+        name:'R计划回款详情',
+        method:'rPlanCollectionInfo',
+        labels:[
+            {name:'id',value:'标的ID'},
+            {name:'borrowName',value:'标的名称'},
+            {name:'apr',value:'年化'},
+            {name:'repaymentTime',value:'收款时间'},
+            {name:'timeLimit',value:'期限'},
+            {name:'nowPeriod',value:'当前期数'},
+            {name:'totalPeriod',value:'总期数'},
+            {name:'repaymentAmount',value:'收款总款'},
+            {name:'capital',value:'应收本金'},
+            {name:'interest',value:'应收利息'},
+            {name:'status',value:'状态'}
+        ],
+        items:[]
+    }
+}
+

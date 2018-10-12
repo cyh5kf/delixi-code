@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://activity-center.51rz.com/static/css/style.css">
+    <link rel="shortcut icon" href="https://activity-center.51rz.com/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <link rel="stylesheet" href="https://activity-center.51rz.com/components/header-footer/header-footer.css">
+    <title>人众金服</title>
+    <style type="text/css">
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: #200d69;
+            width: 100%;
+            height: 100%;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+        
+        .flt {
+            float: left;
+        }
+
+        .frt {
+            float: right;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .part1 {
+            width: 100%;
+            height: 475px;
+            background: url("https://images.51rz.com/images/pc/fiveAnniversary/five-anniversary01.png") no-repeat;
+            background-position: center center;
+        }
+
+        .part2 {
+            width: 100%;
+            height: 475px;
+            background: url("https://images.51rz.com/images/pc/fiveAnniversary/five-anniversary02.png") no-repeat;
+            background-position: center center;
+            position: relative;
+        }
+
+        .part3 {
+            width: 100%;
+            height: 415px;
+            background: url("https://images.51rz.com/images/pc/fiveAnniversary/five-anniversary03.png") no-repeat;
+            background-position: center center;
+            position: relative;
+            text-align: center;
+        }
+
+        .part4 {
+            width: 100%;
+            height: 612px;
+            background: url("https://images.51rz.com/images/pc/fiveAnniversary/five-anniversary04.png") no-repeat;
+            background-position: center center;
+            position: relative;
+            text-align: center;
+        }
+
+        .part5 {
+            width: 100%;
+            height: 690px;
+            background: url("https://images.51rz.com/images/pc/fiveAnniversary/five-anniversary05.png") no-repeat;
+            background-position: center top;
+            position: relative;
+        }
+
+        .part6 {
+            width: 100%;
+            /* height: 695px; */
+            background: url("https://images.51rz.com/images/pc/fiveAnniversary/five-anniversary06.png") no-repeat;
+            background-position: center top;
+            position: relative;
+            text-align:center;
+        }
+
+        .part7 {
+            width: 100%;
+            height: 442px;
+            background: url("https://images.51rz.com/images/pc/fiveAnniversary/five-anniversary07.png") no-repeat;
+            background-position: center top;
+            position: relative;
+        }
+
+        .title {
+            width: 100%;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .title img {
+            width: 302px;
+            height: 33px;
+        }
+
+        .title p {
+            width: 100%;
+            display: inline-block;
+            font-size: 20px;
+            color: #80d1fa;
+            padding-top: 15px;
+        }
+
+        .part3-list {
+            width: 922px;
+            padding-top: 20px;
+            display: inline-block;
+        }
+
+        .part3-list li {
+            width: 271px;
+            height: 250px;
+            float: left;
+            margin-right: 54px;
+            overflow: visible;
+            position: relative;
+        }
+
+        .part3-list li:last-child {
+            margin-right: 0;
+        }
+
+        .part3-list li span {
+            width: 192px;
+            height: 61px;
+            display: inline-block;
+            background: url("https://images.51rz.com/images/pc/fiveAnniversary/fp-btn.png") no-repeat center center;
+            color: #a61000;
+            font-size: 24px;
+            line-height: 60px;
+            cursor: pointer;
+            position: absolute;
+            left: 40px;
+            top: 228px;
+        }
+
+        .part3-list li p {
+            width: 100%;
+            font-size: 18px;
+            color: #e75648;
+            padding-top: 64px;
+            position: absolute;
+            left: 3px;
+        }
+
+        .part3-list li p strong {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .cake {
+            width: 638px;
+            height: 495px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .cake p {
+            font-size: 20px;
+            color: #321684;
+            display: inline-block;
+            padding-top: 335px;
+        }
+
+        .cake span {
+            width: 322px;
+            height: 64px;
+            position: absolute;
+            left: 157px;
+            top: 460px;
+            cursor: pointer;
+        }
+
+        .cakebg1 {
+            background: url("https://images.51rz.com/images/pc/fiveAnniversary/cake-close.png")
+        }
+
+        .cakebg2 {
+            background: url("https://images.51rz.com/images/pc/fiveAnniversary/cake-open.png")
+        }
+
+        .gift {
+            width: 922px;
+            background: rgba(73, 112, 253, 0.3);
+            border: 6px solid rgba(163, 168, 255, 0.3);
+            border-radius: 10px;
+            margin-top: 25px;
+            height: 622px;
+            padding: 25px;
+            text-align:center;
+        }
+
+        .gift p {
+            font-size: 20px;
+            color: #fff;
+            line-height: 30px;
+            text-align:left;
+        }
+
+        .gift p span {
+            color: #fff600;
+        }
+
+        .gift-list{
+            width:100%;
+            display:inline-block;
+            margin-top:20px;
+        }
+
+        .gift-list li{
+            border-left:1px solid #5952b7;
+        }
+
+        .gift-list li:first-child{
+            border-left:none;
+        }
+        .gift-list li:first-child{
+            color:#4fcdf1;
+            text-align:center;
+        }
+
+        .gift-list li:first-child span{
+            border:none;
+            background:#6687fd;
+        }
+
+        .gift-list li span{
+            width:33%;
+            height:35px;
+            line-height:35px;
+            font-size:20px;
+            float:left;
+            border-bottom:1px solid #5952b7;
+            border-right:1px solid #5952b7;
+            color:#fff;
+            text-align:center;
+        }
+
+        .gift-list li span:last-child{
+            width:34%;
+        }
+
+        .btn_tz{
+            height:64px;
+            display:inline-block;
+            text-align:center;
+            padding-top:25px;
+            cursor:pointer;
+        }
+
+        .tips{
+            font-size:20px;
+            color:#8ad7ff;
+            padding-top:10px;
+            text-align:left;
+        }
+
+        .pad{
+            padding-top:42px;
+        }
+
+        .rankingList{
+            width:922px;
+            display:inline-block;
+            margin-top:25px;
+        }
+
+        .rankingTab{
+            width:100%;
+        }
+
+        .rankingTab span{
+            width:450px;
+            height:64px;
+            text-align:center;
+            font-size:24px;
+            line-height:64px;
+            background:#4670fe;
+            border-radius:5px 5px 0 0;
+            float:left;
+            color:#fff;
+        }
+        .rankingTab span:last-child{
+            margin-left:18px;
+            float:right;
+        }
+
+        .rankingTab .act{
+            background:#2c48a9;
+            color:#5471d7;
+        }
+
+        .content-bg{
+            width:100%;
+            display:inline-block;
+            background: -webkit-linear-gradient(top,#4670fe,#a64fec);
+            background: -moz-linear-gradient( top,#4670fe,#a64fec);
+            position:relative;
+            padding:20px 30px 0 30px;
+        }
+        .tabTitle{
+            position:absolute;
+            left:30px;
+            top:20px;
+            font-size:20px;
+            color:#fff;
+            text-align:left;
+        }
+
+        .tabTitle span{
+            color:#ffde00;
+        }
+
+        .rankingTab1{
+            width:100%;
+            /* height:461px; */
+            display:inline-block;
+            padding-top:64px;
+        }
+        .ranking-title{
+            width:100%;
+            font-size:20px;
+            color:#fff;
+            text-align:center;
+            height:33px;
+            background:#7581fb;
+            color:#2e147e;
+        }
+        .ranking-title small{
+            width:25%;
+            float:left;
+            height:33px;
+            line-height:33px;
+        }
+        .listleft{
+            width:75%;
+            float:left;
+        }
+        .listleft span{
+            width:100%;
+            display:inline-block;
+        }
+        .listleft span small{
+            width:33.3%;
+            height:30px;
+            line-height:30px;
+            color:#fff;
+            font-size:20px;
+            text-align:center;
+            float:left;
+            font-weight:100;
+        }
+        .listRight{
+            width:25%;
+            float:right;
+        }
+        .listRight span{
+            width:100%;
+            color:#fff;
+            font-size:20px;
+            display:inline-block;
+        }
+        .listRight span small{
+            width:100%;
+            height:30px;
+            line-height:30px;
+            float:left;
+            font-size:20px;
+            font-weight:100;
+        }
+        .ranking-text{
+            font-size:20px;
+            width:100%;
+            display:inline-block;
+            padding:10px 0;
+            color:#682b9a;
+            text-align:left;
+        }
+        .rule{
+            width:922px;
+            text-align:center;
+        }
+        .rule img{
+            width:923px;
+            height:363px;
+            display:inline-block;
+            margin-top:25px;
+        }
+        .lsList{
+            font-size:20px;
+            color:#89f4b4;
+            cursor:pointer;
+            text-decoration:underline;
+        }
+
+        .lsFixed{
+            width:100%;
+            height:100%;
+            position:fixed;
+            background:rgba(0,0,0,0.3);
+            z-index:10;
+            top:0;
+        }
+
+        .lsOpen{
+            width:814px;
+            height:450px;
+            border:1px solid #321684;
+            position:fixed;
+            left:50%;
+            top:15%;
+            margin-left:-407px;
+            background:#fff;
+        }
+        .lsOpen img{
+            width:40px;
+            height:40px;
+            position:absolute;
+            top:18px;
+            right:18px;
+            cursor:pointer;
+        }
+
+        .lsOpen h3{
+            width:100%;
+            height:82px;
+            line-height:82px;
+            color:#fff;
+            font-size:28px;
+            text-align:center;
+            font-weight:500;
+            background:#8258ff;
+        }
+
+        .tabList{
+            width:100%;
+            display:inline-block;
+        }
+
+        .tabList li{
+            width:100%;
+            border-bottom:1px solid #8a63ff;
+            font-size:20px;
+        }
+
+        .tabList li:first-child{
+            color:#333;
+        }
+
+        .tabList li span{
+            width:33%;
+            height:85px;
+            line-height:85px;
+            color:#e13333;
+            text-align:center;
+            float:left;
+            font-weight:300;
+        }
+        .tabList li span:first-child{
+            padding:0 75px;
+            line-height:22px;
+            padding-top:22px;
+        }
+        .scroll {
+            height: 366px;
+            overflow-y: auto;
+        }
+
+        .scroll::-webkit-scrollbar {/*滚动条整体样式*/
+            width: 10px;     /*高宽分别对应横竖滚动条的尺寸*/
+        }
+
+        .scroll::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+            border-radius: 10px;
+            background: #4391e6;
+        }
+        .scroll::-webkit-scrollbar-track {/*滚动条里面轨道*/
+            background: transparent;
+        }
+
+        .hbOpen{
+            width:131px;
+            position:fixed;
+            left:50%;
+            margin-left:-65px;
+            top:30%;
+        }
+        .hbOpen span:first-child{
+            width:131px;
+            height:215px;
+            display:inline-block;
+            background:url("https://images.51rz.com/images/pc/fiveAnniversary/openHb.png") no-repeat;
+        }
+        .hbOpen span{
+            font-size:18px;
+            color:#e75648;
+            text-align:center;
+            padding-top: 52px;
+        }
+        .hbOpen span strong{
+            font-size:30px;
+            font-weight:500;
+        }
+        .hbOpen small{
+            width:192px;
+            height:61px;
+            text-align:center;
+            line-height:62px;
+            color:#a61000;
+            font-size:24px;
+            display:inline-block;
+            margin:5px 0 0 -31px;
+            cursor:pointer;
+            background:url("https://images.51rz.com/images/pc/fiveAnniversary/fp-btn.png") no-repeat;
+        }
+        .hbOpen img{
+            width:40px;
+            height:40px;
+            position:absolute;
+            top:-50px;
+            right:-50px;
+            cursor:pointer;
+        }
+        .fpBtn3{
+            color:#fff !important;
+            background:url("https://images.51rz.com/images/pc/fiveAnniversary/fpBtn3.png")  !important;
+        }
+        .ktNull{
+            width:100%;
+            display:inline-block;
+            text-align:center;
+            padding-top:50px;
+        }
+        #ktImg{
+            width:375px;
+            height:212px;
+            left:0;
+            top:36%;
+        }
+        .toppad{
+            padding-top:31px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header"></div>
+    <div class="container">
+        <div class="lsFixed" style="display:none;" v-show="showCake">
+            <div class="hbOpen">
+                <span>
+                    <img src="https://images.51rz.com/images/pc/act-july/app-close.png" @click="hideHistory" />
+                    <strong>8.8</strong>元<br />红包
+                </span>
+                <small @click="go">去投资</small>
+            </div>
+        </div>
+        <div class="lsFixed" style="display:none;" v-show="showHistory">
+            <div class="lsOpen">
+                <h3>历史获奖记录</h3>
+                <img src="https://images.51rz.com/images/pc/act-july/app-close.png" @click="hideHistory" />
+                <ul class="tabList scroll" v-show="lshb != 0">
+                    <li>
+                        <span class="toppad">获得时间</span>
+                        <span>奖品</span>
+                        <span>红包状态</span>
+                    </li>
+                    <li v-for="(item, index) in lshb" :key="index">
+                        <span v-text="item.date"></span>
+                        <span v-text="item.reward"></span>
+                        <span v-text="item.status"></span>
+                    </li>
+                </ul>
+                <div style="display:none;" class="ktNull" v-show="lshb == 0"><img id="ktImg" src="https://images.51rz.com/images/pc/fiveAnniversary/ktNull.png" /></div>
+            </div>
+        </div>
+        <div class="part1"></div>
+        <div class="part2"></div>
+
+        <!-- 翻牌领红包 -->
+        <div class="part3">
+            <div class="title">
+                <img src="https://images.51rz.com/images/pc/fiveAnniversary/title01.png" />
+                <p>活动期间，每个用户每天登录可随机翻牌领取一个红包，红包面值为1、2、3元不等。</p>
+            </div>
+            <ul class="part3-list">
+                <li>
+                    <!-- 置灰 -->
+                    <div v-show="pack[0].rewardType == '3'">
+                        <img src="https://images.51rz.com/images/pc/fiveAnniversary/fp01.png" />
+                        <span class="fpBtn3">翻我</span>
+                    </div>
+                    <!-- 已翻 -->
+                    <div v-show="pack[0].rewardType == '1'">
+                        <p><strong v-text="pack[0].money"></strong>元<br />红包</p>
+                        <img src="https://images.51rz.com/images/pc/fiveAnniversary/hb.png" />
+                        <span @click="go">去投资</span>
+                    </div>
+                    <!-- 未翻 -->
+                    <div v-show="pack[0].rewardType == '0'">
+                        <img src="https://images.51rz.com/images/pc/fiveAnniversary/fp01.png" />
+                        <span v-show="!isLogined" @click="gologin">翻我</span>
+                        <span v-show="isLogined" @click="open('hb1')">翻我</span>
+                    </div>
+                </li>
+                <li>
+                    <!-- 置灰 -->
+                    <div v-show="pack[1].rewardType == '3'">
+                        <img src="https://images.51rz.com/images/pc/fiveAnniversary/fp02.png" />
+                        <span class="fpBtn3">翻我</span>
+                    </div>
+                    <!-- 已翻 -->
+                    <div v-show="pack[1].rewardType == '1'">
+                        <p><strong v-text="pack[1].money"></strong>元<br />红包</p>
+                        <img src="https://images.51rz.com/images/pc/fiveAnniversary/hb.png" />
+                        <span @click="go">去投资</span>
+                    </div>
+                    <!-- 未翻 -->
+                    <div v-show="pack[1].rewardType == '0'">
+                        <img src="https://images.51rz.com/images/pc/fiveAnniversary/fp02.png" />
+                        <span v-show="!isLogined" @click="gologin">翻我</span>
+                        <span v-show="isLogined" @click="open('hb2')">翻我</span>
+                    </div>
+                </li>
+                <li>
+                    <!-- 置灰 -->
+                    <div v-show="pack[2].rewardType == '3'">
+                        <img src="https://images.51rz.com/images/pc/fiveAnniversary/fp03.png" />
+                        <span class="fpBtn3">翻我</span>
+                    </div>
+                    <!-- 已翻 -->
+                    <div v-show="pack[2].rewardType == '1'">
+                        <p><strong v-text="pack[2].money"></strong>元<br />红包</p>
+                        <img src="https://images.51rz.com/images/pc/fiveAnniversary/hb.png" />
+                        <span @click="go">去投资</span>
+                    </div>
+                    <!-- 未翻 -->
+                    <div  v-show="pack[2].rewardType == '0'">
+                        <img src="https://images.51rz.com/images/pc/fiveAnniversary/fp03.png" />
+                        <span v-show="!isLogined" @click="gologin">翻我</span>
+                        <span v-show="isLogined" @click="open('hb3')">翻我</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 点蜡烛-->
+        <div class="part4">
+            <div class="cake cakebg2" v-show="parseInt(totalNum) > 0">
+                <p>活动期间，点亮蜡烛即可领8.8元红包，每个用户
+                    <br />仅可领取1次。</p>
+                <span>
+                    <img src="https://images.51rz.com/images/pc/fiveAnniversary/cake-btn2.png" />
+                </span>
+            </div>
+            <div class="cake cakebg1" v-show="parseInt(totalNum) == 0">
+                <p>活动期间，点亮蜡烛即可领8.8元红包，每个用户
+                    <br />仅可领取1次。</p>
+                <span v-show="!isLogined" @click="gologin">
+                    <img src="https://images.51rz.com/images/pc/fiveAnniversary/cake-btn1.png" />
+                </span>
+                <span v-show="isLogined" @click="openAlert">
+                    <img src="https://images.51rz.com/images/pc/fiveAnniversary/cake-btn1.png" />
+                </span>
+            </div>
+        </div>
+
+        <!-- 礼品屋 -->
+        <div class="part5">
+            <div class="title">
+                <img src="https://images.51rz.com/images/pc/fiveAnniversary/title02.png" />
+            </div>
+            <div class="gift">
+                <p>
+                    活动期间内，投资90天及以上标，实物现金任意选！
+                    <br /> 您累计投资金额（90天－179天标）：
+                    <span v-show="!isLogined">0.00</span><span v-show="isLogined" v-text="myBamboo[0].totalAmount + '.00'"></span> 元
+                    <br /> 您累计投资金额（180天及以上标）：
+                    <span v-show="!isLogined">0.00</span><span v-show="isLogined" v-text="myBamboo[1].totalAmount + '.00'"></span> 元
+                </p>
+                <ul class="gift-list">
+                    <li>
+                        <span>累计投资金额</span>
+                        <span>90天-179天标</span>
+                        <span>180天及以上标</span>
+                    </li>
+                    <li>
+                        <span>投满1万免费送</span>
+                        <span>16元现金</span>
+                        <span>35元现金</span>
+                    </li>
+                    <li>
+                        <span>投满2万免费送</span>
+                        <span>32元现金</span>
+                        <span>65元现金</span>
+                    </li>
+                    <li>
+                        <span>投满5万免费送</span>
+                        <span>80元现金</span>
+                        <span>180元现金</span>
+                    </li>
+                    <li>
+                        <span>投满10万免费送</span>
+                        <span>150元现金</span>
+                        <span>320元现金</span>
+                    </li>
+                    <li>
+                        <span>投满20万免费送</span>
+                        <span>300元现金</span>
+                        <span>600元现金</span>
+                    </li>
+                    <li>
+                        <span>投满50万免费送</span>
+                        <span>700元京东卡</span>
+                        <span>1500元京东卡</span>
+                    </li>
+                    <li>
+                        <span>投满80万免费送</span>
+                        <span>1200元油卡</span>
+                        <span>2400元油卡</span>
+                    </li>
+                    <li>
+                        <span>投满130万免费送</span>
+                        <span>2000元油卡</span>
+                        <span>中国黄金15g金条</span>
+                    </li>
+                </ul>
+                <div class="btn_tz"  @click="go"><img src="https://images.51rz.com/images/pc/fiveAnniversary/btn_tz.png" /></div>
+                <div class="tips">注：默认为可获得奖励中价值最高的那个</div>
+            </div>
+        </div>
+
+        <!-- 富豪榜 -->
+        <div class="part6">
+            <div class="title pad">
+                <img src="https://images.51rz.com/images/pc/fiveAnniversary/title03.png" />
+            </div>
+            <div class="rankingList">
+                <div class="rankingTab">
+                    <span v-for="(item,index) in tabsParam" 
+                    @click="toggleTabs(index)"
+                    :class="{act:index!=nowIndex}">{{item}}</span>
+                </div>
+                <div class="content-bg">
+                    <div class="rankingTab1" v-show="nowIndex===0">
+                        <div class="tabTitle">
+                            活动期间内，单日累计投资额前三名用户,可获得额外红包大奖，天天开奖，等你来拿！<br />
+                            您今日累计投资金额（90天及以上标的）：<span v-show="!isLogined">0.00</span>
+                            <span v-show="isLogined" v-text="todayUser + '.00'"></span> 元
+                        </div>
+                        <div class="lsList" v-show="!isLogined" @click="gologin">历史获奖记录</div>
+                        <div class="lsList" v-show="isLogined" @click="openHistory">历史获奖记录</div><br />
+                        <div class="ranking-title">
+                            <small>排名</small>
+                            <small>用户</small>
+                            <small>累计投资额</small>
+                            <small>奖励</small>
+                        </div>
+                        <div class="listleft">
+                            <span v-for="(item, index) in todayReward" :key="index">
+                                <small v-text="item.No"></small>
+                                <small v-text="item.mobile"></small>
+                                <small v-text="item.money"></small>
+                            </span>
+                        </div>
+                        <div class="listRight">
+                            <span><small>800元红包</small></span>
+                            <span><small>500元红包</small></span>
+                            <span><small>300元红包</small></span>
+                        </div>
+                    </div>
+                    <div class="rankingTab1" v-show="nowIndex===1">
+                        <div class="tabTitle">
+                            活动期间，投180天及以上标的可参与累计英雄榜排名获得额外大奖！<br />
+                            您累计投资金额(180天及以上标的）：<span v-show="!isLogined">0.00</span>
+                            <span v-show="isLogined" v-text="totalUser + '.00'"></span> 元
+                        </div>
+                        <div class="ranking-title">
+                            <small>排名</small>
+                            <small>用户</small>
+                            <small>累计投资额</small>
+                            <small>奖励</small>
+                        </div>
+                        <div class="listleft">
+                            <span v-for="(item, index) in totalReward" :key="index">
+                                <small v-text="item.No"></small>
+                                <small v-text="item.mobile === ''? '--': item.mobile"></small>
+                                <small v-text="item.money === ''? '--': item.money"></small>
+                            </span>
+                        </div>
+                        <div class="listRight">
+                            <span v-for="(item, index) in rewardList" :key="index">
+                                <small v-text="item.jiangl"></small>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="ranking-text"><span v-show="nowIndex===0">注：排名实时更新，以每日截止时间最终排名为准！</span><span v-show="nowIndex===1">注：排名实时更新，以活动结束后最终排名为准！</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 活动规则 -->
+        <div class="part7">
+            <div class="rule">
+                <img src="https://images.51rz.com/images/pc/fiveAnniversary/five-anniversary-text.png" />
+            </div>
+        </div>
+
+        <!-- 弹窗提示 -->
+        <div class="pc-dialog">
+            <div class="content"></div>
+        </div>
+    </div>
+    <div id="footer"></div>
+    <script src="/static/js/vue.min.js"></script>
+    <script src="/static/js/jquery-1.11.1.min.js"></script>
+    <script src="/components/header-footer/header-footer.js"></script>
+    <script>
+
+        function getParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+        var token = getParam("token") || '';
+        var type = 'www';
+        if (getParam('type')) {
+            type = getParam('type');
+        } else {
+            if (window.location.href.indexOf('pre-activity-center') > -1) {
+                type = 'wwww';
+            } else {
+                type = 'www';
+            }
+        }
+
+        var vm = new Vue({
+            el: '.container',
+            data: {
+                isLogined: token ? true : false, //是否登录
+                tabsParam:['每日英雄榜','累计英雄榜'],//Tab标签
+                nowIndex:0,//默认第一个tab为激活状态
+                totalNum:"0",//点亮次数
+                showCake:false,
+                showHistory:false,
+                todayUser:0,//今日统计投资
+                totalUser:0,//累计统计投资
+                myBamboo:[
+                    {
+                        totalAmount:0
+                    },
+                    {
+                        totalAmount:0
+                    }
+                ],//礼品屋
+                lshb:[],//我的红包记录
+                todayReward:[],//每日英雄榜
+                totalReward:[],//累计英雄榜
+                pack:[
+                    {
+                        rewardType:"0",
+                        money:""
+                    },
+                    {
+                        rewardType:"0",
+                        money:""
+                    },
+                    {
+                        rewardType:"0",
+                        money:""
+                    }
+                ], //红包翻牌
+                rewardList:[
+                    {
+                        jiangl:'10000元现金'
+                    },
+                    {
+                        jiangl:'8000元现金'
+                    },
+                    {
+                        jiangl:'5000元现金'
+                    },
+                    {
+                        jiangl:'3000元现金'
+                    },
+                    {
+                        jiangl:'1000元现金'
+                    },
+                    {
+                        jiangl:'600元现金'
+                    },
+                    {
+                        jiangl:'500元现金'
+                    },
+                    {
+                        jiangl:'300元现金'
+                    },
+                    {
+                        jiangl:'200元现金'
+                    },
+                    {
+                        jiangl:'100元现金'
+                    },
+                ],
+            },
+            mounted: function () {
+                if (this.isLogined) {
+                    this.initData();
+                    this.packIndex();
+                    this.cakeIndex();
+                }
+                this.bambooIndex();
+                this.todayphb();
+                this.totalphb();
+            },
+            methods: {
+                toggleTabs:function(index){
+                    this.nowIndex=index;
+                },
+                initData: function () {
+                    var _this = this;
+                    $.post('/index.php?_url=/api/activity/index', { activityId: 27, token: token }, function (data) {
+                        if (data && data.error_code === 0) {
+                            var islogin = data.data.islogin;
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                },
+
+                // 显示我的红包弹窗
+                openAlert: function () {
+                    this.cakeOpen();
+                    //this.showCake = true;
+                },
+
+                openHistory: function(){
+                    this.showHistory = true;
+                    this.historyReward();
+                },
+
+                hideHistory: function(){
+                    this.showHistory = false;
+                    this.showCake = false;
+                },
+
+                //礼品屋
+                bambooIndex: function(){
+                    var _this=this;
+                    $.post('/index.php?_url=/api/bamboo/index',{activityId: 27, token: token, code: "bamboo", mark: "gift"},function(data){
+                        if(data && data.error_code == 0){
+                            var bamboo = data.data;
+                            _this.myBamboo = bamboo;
+                        }
+                    });
+                },
+
+                    
+                // 翻牌
+                open: function(hb){
+                    var _this=this;
+                    $.post('/index.php?_url=/api/pack/open',{activityId: 27, token: token, code: "random", openRemark: hb},function(data){
+                        if(data.error_code == 0){
+                            var openRemark = data.data.pack[0].openRemark;
+                            var rewardType = data.data.pack[0].rewardType;
+                            var money = data.data.pack[0].money;
+                            var totalNum = data.data.totalNum;
+                            if(openRemark == 'hb1'){
+                                _this.pack[0].rewardType = rewardType;
+                                _this.pack[0].money = money;
+                                _this.pack[1].rewardType = "3";
+                                _this.pack[2].rewardType = "3";
+                            } else if(openRemark == 'hb2'){
+                                _this.pack[1].rewardType = rewardType;
+                                _this.pack[1].money = money;
+                                _this.pack[0].rewardType = "3";
+                                _this.pack[2].rewardType = "3";
+                            }else {
+                                _this.pack[2].rewardType = rewardType;
+                                _this.pack[2].money = money;
+                                _this.pack[0].rewardType = "3";
+                                _this.pack[1].rewardType = "3";
+                            }
+                        } else if(data.error_code === 201) {
+                            location.href = 'https://' + type + '.51rz.com/login.html';
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    });
+                    
+                },
+                // 翻我首页接口
+                packIndex: function(){
+                    var _this=this;
+                    $.post('/index.php?_url=/api/pack/index',{activityId: 27, token: token, code: "random",mark: "turn"},function(data){
+                        if(data.error_code == 0){
+                            var openRemark = data.data.today[0].openRemark;
+                            var rewardType = data.data.today[0].rewardType;
+                            var money = data.data.today[0].money;
+                            var totalNum = data.data.totalNum;
+                            if(openRemark){
+                                if(openRemark == 'hb1'){
+                                    _this.pack[0].rewardType = rewardType;
+                                    _this.pack[0].money = money;
+                                    _this.pack[1].rewardType = "3";
+                                    _this.pack[2].rewardType = "3";
+                                } else if(openRemark == 'hb2'){
+                                    _this.pack[1].rewardType = rewardType;
+                                    _this.pack[1].money = money;
+                                    _this.pack[0].rewardType = "3";
+                                    _this.pack[2].rewardType = "3";
+                                }else {
+                                    _this.pack[2].rewardType = rewardType;
+                                    _this.pack[2].money = money;
+                                    _this.pack[0].rewardType = "3";
+                                    _this.pack[1].rewardType = "3";
+                                }
+                            }
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                },
+
+                //点蜡烛首页
+                cakeIndex:function(){
+                    var _this=this;
+                    $.post('/index.php?_url=/api/pack/index',{activityId: 27, token: token, code: "candle", mark: "blessing"},function(data){
+                        if(data.error_code == 0){
+                            _this.totalNum = data.data.totalNum;
+                        }else{
+                            _this.totalNum = data.data.totalNum;
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                },
+
+                //点蜡烛
+                cakeOpen:function(){
+                    if (!this.isLogined) {
+                        location.href = 'https://' + type + '.51rz.com/login.html';
+                        return false;           
+                    }
+                    var _this=this;
+                    $.post('/index.php?_url=/api/pack/open',{activityId: 27, token: token, code: "candle", mark: "blessing"},function(data){
+                        if(data.error_code == 0){
+                            _this.totalNum = data.data.totalNum;
+                            _this.showCake = true;
+                        }else if(data.error_code === 201) {
+                            _this.showCake = false;
+                            location.href = 'https://' + type + '.51rz.com/login.html';
+                        }else{
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                },
+
+                //今日排行榜
+                todayphb: function(){
+                    var _this=this;
+                    $.post('/index.php?_url=/api/rank/index',{activityId: 27, token: token, code: "candle", mark: "today"},function(data){
+                        var currentRanks = data.data.currentRanks;
+                        var user = data.data.user;
+                        _this.todayReward = currentRanks;
+                        var todayReward = [{No:1, mobile:'--', money:'--'}, {No:2,mobile:'--',money:'--'},{No:3,mobile:'--',money:'--'},]
+                        _this.todayUser = user;
+                        if(currentRanks.length < 3){
+                            for(var i = 0; i < 3; i++){
+                                if (i+1>currentRanks.length) {
+                                    currentRanks.push(todayReward[i])
+                                }
+                            }
+                            _this.todayReward = currentRanks;
+                            return;
+                        }
+                    })
+                },
+                //累计英雄榜
+                totalphb: function(){
+                    var _this=this;
+                    $.post('/index.php?_url=/api/rank/index',{activityId: 27, token: token, code: "candle", mark: "total"},function(data){
+                        var currentRanks = data.data.currentRanks;
+                        var user = data.data.user;
+                        var totalReward = [{No:1, mobile:'--', money:'--'}, {No:2,mobile:'--',money:'--'},{No:3,mobile:'--',money:'--'},{No:4,mobile:'--',money:'--'},{No:5,mobile:'--',money:'--'},{No:6,mobile:'--',money:'--'},{No:7,mobile:'--',money:'--'},{No:8,mobile:'--',money:'--'},{No:9,mobile:'--',money:'--'},{No:10,mobile:'--',money:'--'},]
+                        _this.totalReward = currentRanks;
+                        _this.totalUser = user;
+                        if(currentRanks.length < 10){
+                            for(var i = 0; i < 10; i++){
+                                if(i+1>currentRanks.length){
+                                    currentRanks.push(totalReward[i])
+                                }
+                            }
+                            _this.totalReward = currentRanks;
+                            return;
+                        }
+                    })
+                },
+
+                //奖励记录
+
+                historyReward: function(){
+                    var _this=this;
+                    $.post('/index.php?_url=/api/rank/rewardsHistory',{activityId: 27, token: token, mark: "today"},function(data){
+                        var lshb = data.data;
+                        _this.lshb = lshb;
+                    })
+                },
+
+                gologin: function () {
+                    location.href = 'https://' + type + '.51rz.com/login.html';
+                },
+                go: function () {
+                    location.href = 'https://' + type + '.51rz.com/projectList.html';
+                },
+                // 打开弹窗提示
+                showMsg: function (msg) {
+                    $(".pc-dialog .content").text(msg);
+                    $(".pc-dialog").show();
+                    setTimeout(function () {
+                        $(".pc-dialog .content").text('');
+                        $(".pc-dialog").hide();
+                    }, 2000);
+                },
+            },
+        })
+    </script>
+</body>
+
+</html>

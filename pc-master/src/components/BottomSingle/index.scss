@@ -1,0 +1,19 @@
+@import "../../assets/css/libs/mixin.scss";
+
+.bottomWraper{
+    @include box((bg:$white));
+    .content{
+        @include box((ta:center,p:34px 0  24px 0));
+        .banquan{
+            @include box((fs:12px,c:$black9,ta:center,m:0 0 10px 0));
+            .icp{
+                @include box((d:inline-block,c:$blue,m:0 5px 0 10px))
+            }
+        }
+        .icons{
+            img{
+                @include box((h:28px,m:0 5px));
+            }
+        }
+    }
+}

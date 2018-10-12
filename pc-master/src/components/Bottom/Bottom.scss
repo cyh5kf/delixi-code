@@ -1,0 +1,187 @@
+@import "../../assets/css/libs/mixin";
+.Bottom {
+  @include box((w:100%, m:0 auto));
+  .Bottomtop {
+    @include box((h:214px, w:100%, m:0 auto));
+    @include background((url:'bg1.png', repeat:no-repeat, size:cover));
+    .topzhe {
+      @include box((w:100%, h:100%, bg:rgba(1, 7, 15, 0.65), pt:30px));
+      .topcontent {
+        @include box((w:1200px, h:100%, m:0 auto));
+        h5 {
+          @include box((fs:16px, c:#e8e8e8, fw:500,mb:12px));
+        }
+        .about {
+          @include box((w:397px, fl:left, h:100%));
+          & > li {
+            @include box((fl:left));
+            &:nth-child(2){
+              @include box((ml:87px,mr:100px));
+            }
+            ul {
+              li {
+                margin-bottom: 11px;
+                a {
+                  @include box((c:#c2c2c2, fs:14px))
+                }
+                &:hover a {
+                  color: #fff;
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.about1 {
+  @include box((fl:left, ml:184px, mr:168px));
+  ul {
+    @include box((w:320px));
+    li {
+      @include box((fl:left,w:72px,pt:15px));
+      &:nth-child(2){
+        @include box((ml:30px,mr:30px));
+      }
+      text-align: center;
+      position: relative;
+      overflow: visible;
+      .img {
+        @include box((w:72px, h:72px, m:0 auto));
+        @include background((url:'wx.png', repeat:no-repeat, size:100%))
+      }
+      p {
+        @include box((mt:18px, fs:12px, c:#c2c2c2));
+      }
+      .alert {
+        @include box((w:108px, h:110px));
+        background-color: #fff;
+        .downloadImg {
+          background-color: #fff;
+          @include box((w:100%,h:100%));
+          @include background((url:'wxdyh.jpg', repeat:no-repeat, pos:center center,));
+          @include position((p:relative,z:2))
+        }
+        @include position((p:absolute, t:0px, l:-19px));
+        border:5px solid #f64c3e;
+        display: none;
+        .arrow{
+          @include box((w:15px,h:15px,bg:#f64c3e,m:auto));
+          @include position((p:absolute,l:0,r:0,b:-10px,z:1));
+          transform: rotate(45deg);
+        }
+      }
+      &:hover {
+        .img {
+          @include background((url:'wxactive.png'));
+        }
+        .alert {
+          top: -105px;
+          display: block;
+        }
+      }
+      &:nth-child(2) {
+        .img {
+          @include background((url:'wb.png'));
+        }
+        &:hover {
+          .img {
+            @include background((url:'wbactive.png'));
+          }
+        }
+      }
+      &:nth-child(3) {
+        .img {
+          @include background((url:'sj.png'));
+        }
+          .downloadImg{
+            @include background((url:'xzapp.png', size:90px 90px));
+          }
+        &:hover {
+          .img {
+            @include background((url:'sjactive.png'));
+          }
+        }
+      }
+    }
+  }
+}
+
+.connect {
+  float: right;
+  p {
+    @include box((c:#e8e8e8, fs:14px));
+  }
+  .tel {
+    margin-bottom: 25px;
+    .telphone {
+      @include box((c:#fff, fs:18px, mt:5px));
+    }
+  }
+  .work {
+    margin-bottom: 5px;
+    .worktime {
+      @include box((fs:16px, c:#fff));
+      span {
+        @include box((fs:12px));
+      }
+    }
+  }
+}
+
+.bottom {
+  @include box((w:100%, h:124px, m:0 auto, bg:#333));
+  .bottomcontent{
+    @include box((w:1200px,m:0 auto,h:124px,pt:20px));
+    .link{
+      span{
+        @include box((c:#999,fs:18px));
+        &.split{
+          @include box((c:#fff,m:0 16px))
+        }
+      }
+      a{
+        @include box((c:#c2c2c2,fs:14px,mr:24px));
+        &:hover{
+          color:#fff;
+        }
+      }
+    }
+    .copyright{
+      .copyLeft{
+        float:left;
+        p{
+          @include box((c:#c2c2c2,fs:12px));
+          line-height: 18px;
+        }
+        a{
+          display: block;
+          margin-top: 4px;
+          img{
+            display: block;
+            float:left;
+          }
+          p{
+            margin-left: 4px;
+            float:left;
+          }
+        }
+      }
+      .copyRight{
+        float:right;
+        margin-top:14px;
+        a{
+          margin-right: 4px;
+
+        }
+      }
+    }
+  }
+}
+
+
+
+

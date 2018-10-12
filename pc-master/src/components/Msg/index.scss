@@ -1,0 +1,19 @@
+@import "../../assets/css/libs/mixin.scss";
+
+.msg{
+    @include box((d:none));
+    &.show{
+        @include box((d:block));
+    }
+    .shade{
+        @include box((bg:rgba(200,200,200,0.2)));
+        @include box((bg:transparent));
+        @include position((p:fixed,t:0,l:0,b:0,r:0,z:15));
+    }
+    .content{
+        @include box((bg:rgba(50,50,50,0.8),c:$white,lh:60px,p:0 10px,ta:center,bdr:6px));
+        @include position((p:fixed,t:50%,l:50%,z:16));
+        transform: translate3d(-50%,-50%,0);
+        min-width: 200px;
+    }
+}

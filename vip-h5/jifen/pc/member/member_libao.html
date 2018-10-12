@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/components/header-footer/header-footer.css">
+    <title>会员特权--升级礼包</title>
+    <style type="text/css">
+        html,body{
+            margin: 0;
+            padding: 0;
+            background:#f6f6f6;
+        }
+        ul{
+            padding:0;
+            margin:0;
+        }
+        ul li{
+            list-style-type: none;
+        }
+        .container{
+            margin: 0 auto;
+        }
+        .member-box{
+            width:1200px;
+            margin:30px auto;
+        }
+        .box{
+            width:100%;
+            background:#fff;
+        }
+        .member-title{
+            width:100%;
+            height:48px;
+            position:relative;
+        }
+        .mt{
+            margin-top:55px;
+        }
+        .member-title img{
+            width:650px;
+            height:48px;
+            position:absolute;
+            top:-5px;
+            left:50%;
+            margin-left:-325px;
+        }
+        .member-line{
+            width:100%;
+            height:79px;
+            text-align:center;
+        }
+        .dj-title{
+            width:100%;
+            text-align:center;
+            font-size:16px;
+            color:#333;
+            padding:20px 0;
+        }
+        .dj-title i{
+            font-style:normal;
+            font-size:16px;
+            color:#dea634;
+            margin:0 5px;
+        }
+        .dj-list{
+            width:100%;
+            margin-top:-30px;
+            text-align:center;
+            border-bottom: 1px dashed #e8e8e8;
+            padding-bottom:40px;
+        }
+        .dj-list p{
+            width:130px;
+            margin-left:15px;
+            display:inline-block;
+            text-align:center;
+            vertical-align: bottom;
+        }
+        .dj-list p:nth-child(1){
+            margin-left:0;
+            background:#765d51;
+            height:140px;
+        }
+        .dj-list p:nth-child(2){
+            background:#876851;
+            height:160px;
+            padding-top:10px;
+        }
+        .dj-list p:nth-child(3){
+            background:#a17950;
+            height:180px;
+            padding-top:18px;
+        }
+        .dj-list p:nth-child(3) span:first-child small,.dj-list p:nth-child(4) span:first-child small,.dj-list p:nth-child(5) span:first-child small{
+            font-size:16px;
+        }
+        .dj-list p:nth-child(4){
+            background:#b5854c;
+            height:200px;
+            padding-top:26px;
+        }
+        .dj-list p:nth-child(5){
+            background:#cd964e;
+            height:220px;
+            padding-top:39px;
+        }
+        .dj-list p:nth-child(6){
+            background:#e1a34d;
+            height:240px;
+            padding-top:48px;
+        }
+        .dj-list p:nth-child(6) span:first-child small{
+            font-size:18px;
+        }
+        .dj-list p:nth-child(7){
+            background:#f5aa40;
+            height:260px;
+            padding-top:60px;
+        }
+        .dj-list p:nth-child(7) span:first-child small{
+            font-size:20px;
+        }
+        .dj-mt{
+            margin-top:10px;
+        }
+        .dj-mt1{
+            margin-top:20px;
+        }
+        .dj-mt2{
+            margin-top:30px;
+        }
+        .dj-mt3{
+            margin-top:40px;
+        }
+        .dj-mt4{
+            margin-top:50px;
+        }
+        .dj-mt5{
+            margin-top:60px;
+        }
+        .dj-mt6{
+            margin-top:70px;
+        }
+        .dj-mt7{
+            margin-top:22px;
+        }
+        .member-tx{
+            width:100%;
+            float:left;
+            text-align:center;
+            font-size:14px;
+            color:#fff;
+            text-shadow: 1px 2px 3px #333;
+        }
+        .member-tx i{
+            width:27px;
+            height:21px;
+            background:url(https://images.51rz.com/images/pc-jifen/vip.png) no-repeat left;
+            display:inline-block;
+            font-size:14px;
+            color:#fff;
+            font-style: normal;
+            padding: 5px 0 0 10px;
+        }
+        .member-tx small{
+            font-size:14px;
+            color:#fff;
+        }
+        .member-qj{
+            float:left;
+            width:100%;
+            text-align:center;
+            margin-top:10px;
+            color:#fff;
+            font-size:14px;
+        }
+        .member-gz{
+            width:100%;
+            font-size:12px;
+            line-height:21px;
+            color:#fff;
+            display:inline-block;
+            text-align:left;
+            padding:10px 0 0 10px;
+            box-sizing:border-box;
+        }
+        .shouyi{
+            width:100%;
+            display:inline-block;
+            text-align:center;
+            color:#999;
+        }
+        .shouyi span{
+            font-size:14px;
+        }
+        .shouyi span small{
+            font-size:18px;
+        }
+        .shouyi span:first-child{
+            display:inline-block;
+            width:65px;
+            height:31px;
+            line-height:31px;
+            color:#fff;
+            background:url(https://images.51rz.com/images/pc-jifen/member-ico1.png) no-repeat;
+        }
+        .shouyi span:last-child{
+            display:inline-block;
+            width:36px;
+            height:36px;
+            line-height:36px;
+            color:#de4a4a;
+            background:url(https://images.51rz.com/images/pc-jifen/member-ico2.png) no-repeat;
+        }
+        .dinyi{
+            width:100%;
+            padding-top:10px;
+            color:#d7a55e;
+            font-size:14px;
+            text-align:center;
+        }
+        .dinyi-text{
+            width:100%;
+            margin-top:10px;
+            padding:0 100px 50px 100px;
+            box-sizing:border-box;
+            border-bottom:1px dashed #e8e8e8;
+        }
+        .dinyi-text p{
+            width:100%;
+            font-size:14px;
+            color:#555;
+            line-height:25px;
+            margin:5px 0 0 0;
+        }
+        .dinyi-text p strong{
+            color:#d7a55e;
+        }
+        .tab-vipList{
+            width:100%;
+            padding:0 100px 70px 100px;
+            box-sizing:border-box;
+            position:relative;
+            display:inline-block;
+        }
+        .tab-vipList table{
+            width:100%;
+            border-left:1px solid #e5ccaa;
+            border-bottom:1px solid #e5ccaa;
+            box-shadow:0 0 5px #b9a090;
+            float:left;
+        }
+        .tab-vipList table td{
+            height:35px;
+            line-height:35px;
+            border-right:1px solid #e5ccaa;
+            border-top:1px solid #e5ccaa;
+            font-size:14px;
+            color:#555;
+            text-align:center;
+            background:#fbf6ef;
+        }
+        .tab-vipList table tr td:last-child{
+            width:190px;
+            border-right:none;
+            background:none;
+        }
+        .tab-vipRight_color{
+            width:190px;
+            height:331px;
+            position:absolute;
+            right:100px;
+            top:-20px;;
+            padding-top:21px;
+            box-shadow:0 0 5px #b9a090;
+            background-color: #b3935d;
+            background-image: -webkit-linear-gradient(to right,#b3935d, #dac28f);
+            background-image: -moz-linear-gradient(to right,#b3935d, #dac28f);
+            background-image: -o-linear-gradient(to right,#b3935d, #dac28f);
+            background-image: -ms-linear-gradient(to right,#b3935d, #dac28f);
+            background-image: -chrome-linear-gradient(to right,#b3935d, #dac28f);
+            background-image: linear-gradient(to right,#b3935d, #dac28f);
+        }
+        .tab-vipRight_color p{
+            width:100%;
+            border-bottom:1px solid #fff;
+            color:#fff;
+            text-align:center;
+            margin:0;
+            font-size:14px;
+        }
+        .tab-vipRight_color p:last-child{
+            border-bottom:none;
+        }
+        .lineH{
+            height:56px;
+            line-height:73px;
+        }
+        .lineH1{
+            height:36px;
+            line-height:36px;
+        }
+        .lb-list{
+            width:100%;
+            padding:0 100px;
+            box-sizing:border-box;
+            margin-top:50px;
+        }
+        .lb-list ul li{
+            width:192px;
+            height:34px;
+            line-height:34px;
+            text-align:center;
+            font-size:16px;
+            color:#555;
+            float:left;
+            margin-right:10px;
+            border-bottom:1px solid #ededed;
+            cursor:pointer;
+        }
+        .lb-list ul li:last-child{
+            margin-right:0;
+        }
+        .lb-list ul li.act{
+            width:192px;
+            height:34px;
+            background:url(https://images.51rz.com/images/pc-jifen/member-act.png) no-repeat;
+            position:relative;
+        }
+        .lb-list ul li.act:after{
+            content:'';
+            background:url(https://images.51rz.com/images/pc-jifen/member-act1.png) no-repeat;
+            width:18px;
+            height:3px;
+            font-size:0;
+            display: inline-block;
+            position: absolute;
+            left: 46%;
+            top: 34px;
+        }
+        .lb-tab{
+            width:100%;
+        }
+        .lb-tab table{
+            width:100%;
+            background:#fbf6ef;
+            border-left:1px solid #e5ccaa;
+            border-bottom:1px solid #e5ccaa;
+            box-shadow:0 0 5px #b9a090;
+        }
+        .lb-tab table td{
+            /*height:35px;*/
+            line-height:40px;
+            border-right:1px solid #e5ccaa;
+            border-top:1px solid #e5ccaa;
+            font-size:14px;
+            color:#555;
+            text-align:center;
+        }
+        .lb-tab table td.hb-color{
+            color:#cd964e;
+        }
+        .gz-text{
+            width:100%;
+            padding:35px 100px 50px 100px;
+            box-sizing:border-box;
+            font-size:14px;
+            color:#555;
+        }
+        .gz-text h3{
+            width:100%;
+            font-size:14px;
+        }
+        .gz-text p{
+            width:100%;
+            line-height:25px;
+        }
+
+        .vip-box{
+            width:100%;
+            min-width:1200px;
+            text-align:center;
+            background:url(https://images.51rz.com/images/pc-jifen/banner.png) no-repeat center top;
+        }
+        .vip-top{
+            width:1200px;
+            height:453px;
+            display:inline-block;
+        }
+        .vip-tou{
+            width:130px;
+            height:130px;
+            background:#5e5961;
+            border-radius:300px;
+            box-shadow:0 0 5px #333;
+            display:inline-block;
+            margin-top:60px;
+            padding:5px;
+            box-sizing:border-box;
+            position:relative;
+        }
+        .vip-tou img{
+            width:120px;
+            height:120px;
+            border-radius:300px;
+        }
+        .vip-tou span{
+            width:30px;
+            height:30px;
+            position:absolute;
+            right:0;
+            top:100px;
+            display:inline-block;
+            background:#d7a55e;
+            border-radius:100px;
+        }
+        .vip-tou span i{
+            width: 15px;
+            height: 18px;
+            margin: 5px 0 0 3px;
+            float: left;
+            background: url(https://images.51rz.com/images/pc-jifen/v-01.png) no-repeat;
+        }
+        .vip-tou span small{
+            font-size: 14px;
+            color: #fff;
+            float: left;
+            margin-top: 8px;
+        }
+        .vip-mobile{
+            width:100%;
+            text-align:center;
+            font-size:16px;
+            color:#fff;
+            display:inline-block;
+            padding-top:15px;
+        }
+        .vip-hy{
+            width:100%;
+            text-align:center;
+            font-size:14px;
+            color:#fff;
+            padding-top:10px;
+        }
+        .vip-hy small{
+            font-size:16px;
+            color:#c79a5b;
+            padding-left:5px;
+        }
+        .vip-text{
+            width:100%;
+            text-align:center;
+            font-size:12px;
+            color:#fff;
+            padding-top:10px;
+            cursor:pointer;
+        }
+
+
+        .vip-bottom{
+            width:1200px;
+            background:#fff;
+            display:inline-block;
+            height:460px;
+            padding-top:35px;
+        }
+        .vip-dengji{
+            width:100%;
+            margin-top:48px;
+            padding-left:28px;
+        }
+        .vip-listBox{
+            width:185px;
+            float:left;
+            position:relative;
+        }
+        .vip-radius-box{
+            width:46px;
+            height:30px;
+            float:left;
+            position:relative;
+        }
+        .vip-act:after{
+            content:"";
+            background:url(https://images.51rz.com/images/pc-jifen/sj.png) no-repeat;
+            width:30px;
+            height:15px;
+            position:absolute;
+            left:6px;
+            top:107px;
+            display:inline-block;
+        }
+        .vip-radius-box strong{
+            width:100%;
+            display:inline-block;
+            font-size:14px;
+            color:#d7a55e;
+            font-weight:500;
+            text-align:center;
+            padding-top:10px;
+        }
+        .vip-radius-normal{
+            width:46px;
+            height:46px;
+            float:left;
+            text-align:center;
+        }
+        .vip-radius-normal strong{
+            width:60px;
+            display:inline-block;
+            font-size:14px;
+            color:#fff;
+            font-weight:500;
+            text-align:center;
+            padding-top:10px;
+            margin-left:-14px;
+        }
+        .vip-listBox:last-child{
+            width:30px;
+            height:30px;
+            float:left;
+            padding-right:0;
+        }
+        .vip-listBox p{
+            width:30px;
+            height:30px;
+            border-radius:100px;
+            padding:0;
+            margin:0;
+            cursor:pointer;
+            display:inline-block;
+        }
+        .vip-normal{
+            background:#59545e;
+        }
+        .vip-normal strong{
+            padding-top:14px;
+        }
+        .vip-ok{
+            background:#d7a55e;
+        }
+        .vip-listBox p.vip-act{
+            width:46px;
+            height:46px;
+            background:#d7a55e;
+            margin-top:-9px;
+            background-image: -webkit-linear-gradient(to right,#dcb256, #ebc88f);
+            background-image: -moz-linear-gradient(to right,#dcb256, #ebc88f);
+            background-image: -o-linear-gradient(to right,#dcb256, #ebc88f);
+            background-image: -ms-linear-gradient(to right,#dcb256, #ebc88f);
+            background-image: -chrome-linear-gradient(to right,#dcb256, #ebc88f);
+            background-image: linear-gradient(to right,#dcb256, #ebc88f);
+        }
+        .vip-listBox p.vip-act i{
+            width:22px;
+            height:27px;
+            margin: 8px 0 0 6px;
+            background:url(https://images.51rz.com/images/pc-jifen/v-02.png) no-repeat;
+        }
+        .vip-listBox p.vip-act small{
+            font-size:20px;
+            color:#fff;
+            margin-top: 14px;
+        }
+        .vip-listBox p.vip-act strong{
+            width:60px;
+            color:#d7a55e;
+            margin-left:-6px;
+        }
+        .vip-listBox span.line-act{
+            background:#81674a;
+        }
+        .vip-listBox p i{
+            width:15px;
+            height:18px;
+            margin: 5px 0 0 3px;
+            float:left;
+            background:url(https://images.51rz.com/images/pc-jifen/v-01.png) no-repeat;
+        }
+        .vip-listBox p small{
+            font-size:14px;
+            color:#fff;
+            float:left;
+            margin-top: 8px;
+        }
+        .vip-listBox span{
+            width:114px;
+            float:right;
+            height:4px;
+            background:#6b6973;
+            font-size:0;
+            margin:13px 13px 0 0;
+        }
+
+        .vip-jlBox{
+            width:100%;
+            box-sizing:border-box;
+            padding:0 50px;
+            display:inline-block;
+            margin-top:30px;
+            position:relative;
+        }
+        .vip-jlBox .jl-left{
+            width:750px;
+            height:283px;
+            float:left;
+            cursor:pointer;
+        }
+        .vip-jlBox .jl-left div{
+            width:251px;
+            height:283px;
+            border:1px solid #e8e8e8;
+            padding:0;
+            margin:0;
+            text-align:center;
+            box-sizing:border-box;
+            float:left;
+            transition:All 0.4s ease-in-out;
+            -webkit-transition:All 0.4s ease-in-out;
+            -moz-transition:All 0.4s ease-in-out;
+            -o-transition:All 0.4s ease-in-out;
+            margin-left:-1px;
+            position:relative;
+        }
+        .vip-jlBox .jl-left div:hover{
+            transform:translate(0,-10px);
+            -webkit-transform:translate(0,-10px);
+            -moz-transform:translate(0,-10px);
+            -o-transform:translate(0,-10px);
+            -ms-transform:translate(0,-10px);
+            -webkit-box-shadow:0px 5px 15px #9e9e9e;
+            -moz-box-shadow:0px 5px 15px #9e9e9e;
+            box-shadow:0px 5px 15px #9e9e9e;
+        }
+        .vip-jlBox .jl-left div:hover .get{
+            display:none;
+        }
+        .vip-jlBox .jl-left div:hover .notGet{
+            display:none;
+        }
+
+
+        .vip-jlBox .jl-left div .active{
+            display:none;
+        }
+        .vip-jlBox .jl-left div:hover .active{
+            display:block;
+        }
+        .vip-jlBox .jl-left div .notActive{
+            display:none;
+        }
+        .vip-jlBox .jl-left div:hover .notActive{
+            display:block;
+        }
+        .draw-ok{
+            width:251px;
+            height:283px;
+            position:absolute;
+            text-align:center;
+            left:0;
+        }
+        .draw-btn{
+            width:120px;
+            height:40px;
+            display:inline-block;
+            margin-top:36px;
+            text-align:center;
+            line-height:40px;
+            color:#fff;
+            font-size:16px;
+            border-radius:3px;
+        }
+        .btn-bg{
+            background:#999;
+        }
+        .btn-bg1{
+           background:#f64c3e;
+        }
+        .draw-bg{
+            background:rgba(255,255,255,0.5);
+        }
+        .jl-no{
+            margin-top:50px;
+            width:111px;
+            height:125px;
+            background:url(https://images.51rz.com/images/pc-jifen/jl-02.png) no-repeat;
+            display:inline-block;
+        }
+        .jl-no3{
+            width: 198px;
+            height:125px;
+            margin:50px auto 0;
+            display: flex;
+            display: -ms-flex;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -o-flex;
+        }
+        .jl-no3 span:nth-child(2){
+            margin-left: -26px;
+            margin-top: 10px;
+            transform: scale(0.8);
+        }
+        .jl-no3 strong small{
+            font-size:24px;
+        }
+        .jl-redPacket{
+            display: inline-block;
+            width:111px;
+            height:125px;
+            margin: 0 auto;
+            background:url(https://images.51rz.com/images/pc-jifen/jl-01.png) no-repeat left top;
+            background-size:100% 100%;
+        }
+        .jl-redPacket strong{
+            width:100%;
+            float:left;
+            font-size:12px;
+            font-weight:500;
+            padding-top: 54px;
+            color: #ffff00;
+        }
+        .jl-no3Text{
+            width:100%;
+            padding-top:3px;
+            font-size:12px;
+            color:#fff;
+        }
+        .jl-interest{
+            width:111px;
+            height:125px;
+            padding-top:50px;
+            color:#fff;
+            margin: 0 auto;
+            background:url(https://images.51rz.com/images/pc-jifen/jl-03.png) no-repeat left top;
+            background-size:100% 100%;
+        }
+        .jl-interest strong{
+            width:100%;
+            display:inline-block;
+            font-weight:500;
+            font-size:12px;
+        }
+        .jl-text{
+            padding-top:25px;
+        }
+        .jl-text img{
+            vertical-align:middle;
+            display:inline-block;
+        }
+        .jlhy-text{
+            width:100%;
+            text-align:center;
+            font-size:12px;
+            color:#999;
+            font-weight:500;
+            padding-top:96px;
+            display:inline-block;
+        }
+        .jl-text small{
+            font-size:16px;
+            color:#555;
+            vertical-align: bottom;
+            padding-left:5px;
+        }
+        .jl-right{
+            width:348px;
+            height:280px;
+            position:absolute;
+            right:52px;
+            top:1px;
+        }
+
+        .jl-right p{
+            float:left;
+            width:173px;
+            height:142px;
+            border:1px solid #e8e8e8;
+            padding:0;
+            margin:0;
+            background:#fff;
+            cursor:pointer;
+            margin:-1px 0 0 -1px;
+            transition:All 0.4s ease-in-out;
+            -webkit-transition:All 0.4s ease-in-out;
+            -moz-transition:All 0.4s ease-in-out;
+            -o-transition:All 0.4s ease-in-out;
+        }
+        .jl-right p:hover{
+            transform:translate(0,-10px);
+            -webkit-transform:translate(0,-10px);
+            -moz-transform:translate(0,-10px);
+            -o-transform:translate(0,-10px);
+            -ms-transform:translate(0,-10px);
+            -webkit-box-shadow:0px 5px 15px #9e9e9e;
+            -moz-box-shadow:0px 5px 15px #9e9e9e;
+            box-shadow:0px 5px 15px #9e9e9e;
+        }
+        .jl-right p:last-child{
+            font-size:16px;
+            color:#999;
+            line-height:140px;
+        }
+        .jl-right p img{
+            margin-top:20px;
+        }
+        .jl-right p span{
+            font-size:16px;
+            color:#555;
+            display:inline-block;
+            width:100%;
+        }
+        .jl-right p strong{
+            width:100%;
+            display:inline-block;
+            font-size:14px;
+            color:#d7a55e;
+            font-weight:500;
+        }
+        .jl-right p strong small{
+            font-size:14px;
+        }
+
+        .jl-hb{
+            width:100%;
+            display:inline-block;
+            padding-top:52px;
+            font-size:12px;
+            color:#ffff00;
+        }
+        .jl-hb strong{
+            font-weight:500;
+            font-size:24px;
+        }
+        .jl-hbText{
+            font-size:12px;
+            color:#fff;
+            width:100%;
+            display:inline-block;
+            padding-top:3px;
+        }
+
+        .jl-jx{
+            width:100%;
+            display:inline-block;
+            padding-top:45px;
+            font-size:12px;
+            color:#fff;
+        }
+        .jl-jx strong{
+            font-weight:500;
+            font-size:24px;
+        }
+
+        .openFixed{
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.5);
+            position:fixed;
+            left:0;
+            top:0;
+            z-index:20;
+        }
+
+        .openBox{
+            width:372px;
+            background:#fff;
+            border-radius:5px;
+            position:absolute;
+            left:50%;
+            margin-left:-186px;
+            top:30%;
+            z-index:21;
+        }
+        .openBox h3{
+            font-size:18px;
+            font-weight:500;
+            color:#d7a55e;
+            text-align:center;
+        }
+        .openBox h4{
+            font-size:14px;
+            font-weight:500;
+            color:#999;
+            text-align:center;
+            padding-top:10px;
+        }
+        .openClose{
+            width:100%;
+            height:42px;
+            display:inline-block;
+            text-align:right;
+            cursor:pointer;
+            padding-right:5px;
+        }
+        .openClose img{
+            display:inline-block;
+        }
+        .openList{
+            width:100%;
+            box-sizing:border-box;
+            padding:30px 10px 10px 10px;
+            display: flex;
+            display: -ms-flex;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -o-flex;
+        }
+        .openList li{
+            flex: 1;
+            -ms-flex: 1;
+            -webkit-flex:1;
+            -moz-flex: 1;
+            -o-flex: 1;
+            height:125px;
+            text-align:center;
+            background:url(https://images.51rz.com/images/pc-jifen/openLine.png) no-repeat right top;
+        }
+        .openList li:last-child{
+            background:none;
+        }
+        .openList p{
+            width:103px;
+            height:125px;
+            display:inline-block;
+        }
+        .openHb_bg{
+            background:url(https://images.51rz.com/images/pc-jifen/hbjl.png) no-repeat;
+        }
+        .openMoney{
+            width:100%;
+            float:left;
+            text-align:center;
+            padding-top:42px;
+            font-size:14px;
+            color:#ffff00;
+        }
+        .openMoney strong{
+            font-size:24px;
+            font-weight:500;
+        }
+        .openJx{
+            color:#fff;
+        }
+        .openDate{
+            width:100%;
+            display:inline-block;
+            font-size:12px;
+            color:#fff;
+            padding-top:8px;
+            text-align:center;
+        }
+        .openDate small{
+            font-size:12px;
+            color:#fff;
+            opacity:0.5;
+        }
+
+        .openJx_bg{
+            background:url(https://images.51rz.com/images/pc-jifen/jxjl.png) no-repeat;
+        }
+
+        .btnWrap{
+            width:100%;
+            padding:20px 0;
+            display:inline-block;
+            text-align:center;
+        }
+        .btnNo{
+            width:115px;
+            height:30px;
+            text-align:center;
+            font-size:16px;
+            color:#999;
+            border:1px solid #e5e5e5;
+            background:#fff;
+            margin:0 5px;
+            cursor:pointer;
+        }
+        .btnGo{
+            width:115px;
+            height:30px;
+            text-align:center;
+            font-size:16px;
+            color:#fff;
+            border:1px solid #f64c3e;
+            background:#f64c3e;
+            margin:0 5px;
+            cursor:pointer;
+        }
+        .btnTz{
+            display: block;
+            width:250px;
+            height:38px;
+            background:#f64c3e;
+            font-size:16px;
+            text-align:center;
+            line-height:38px;
+            color:#fff !important;
+            border:1px solid #f64c3e;
+            cursor:pointer;
+        }
+
+        .v-list1{
+            width:177px;
+            height:72px;
+            line-height:72px;
+            font-size:14px;
+            color:#555;
+            border-right:1px solid #e5ccaa;
+            text-align:center;
+            float:left;
+        }
+        .v-list2{
+            width:178px;
+            height:72px;
+            line-height:72px;
+            font-size:14px;
+            color:#555;
+            border-right:1px solid #e5ccaa;
+            text-align:center;
+            float:left;
+        }
+        .v-list3{
+            width:643px;
+            height:72px;
+            float:left;
+        }
+        .v-list3 p{
+            width:100%;
+            height:36px;
+            text-align:center;
+            line-height:36px;
+            font-size:14px;
+            color:#555;
+        }
+        .v-list3 p:nth-child(1){
+            border-bottom:1px solid #e5ccaa;
+        }
+        .v-list3 p span:nth-child(1){
+            width:262px;
+            height:36px;
+            border-right:1px solid #e5ccaa;
+            float:left;
+            color:#cd964e;
+        }
+        .v-list3 p span:nth-child(2){
+            width:203px;
+            height:36px;
+            border-right:1px solid #e5ccaa;
+            float:left;
+        }
+        .v-list3 p span:nth-child(3){
+            width:178px;
+            height:36px;
+            float:left;
+        }
+        .v-01{
+            width:177px;
+            float:left;
+            height:36px;
+            /*border-left:1px solid #e5ccaa;*/
+        }
+        .v-r-border{
+            width:100%;
+            float:left;
+            border-bottom:1px solid #e5ccaa;
+        }
+        .v-r-border:last-child{
+            border-bottom:0;
+        }
+        .v-02{
+            width:178px;
+            float:left;
+            height:36px;
+            border-left:1px solid #e5ccaa;
+        }
+        .v-03{
+            width:262px;
+            float:left;
+            height:40px;
+            border-right:1px solid #e5ccaa;
+            color:#cd964e;
+        }
+        .v-04{
+            width:203px;
+            float:left;
+            height:36px;
+            border-right:1px solid #e5ccaa;
+        }
+        .v-05{
+            width:178px;
+            float:left;
+            height:36px;
+        }
+        .v-r{
+            width:643px;
+            float:left;
+        }
+        .lb-js{
+            font-size:14px;
+            padding:20px 0;
+            width:100%;
+            display:inline-block;
+        }
+
+        .vipList-left{
+            width:115px;
+            float:left;
+            text-align:center;
+            border-left:1px solid #e5ccaa;
+            border-top:1px solid #e5ccaa;
+            font-size:14px;
+            color:#555;
+        }
+        .vipList-wrap{
+            width:999px;
+            height:321px;
+            box-shadow:0 0 5px #b9a090;
+        }
+        .vipList-left span{
+            float:left;
+            width:100%;
+            height:40px;
+            line-height:40px;
+            border-bottom:1px solid #e5ccaa;
+            background:#fbf6ef;
+        }
+        .vipList-right{
+            width:884px;
+            float:left;
+        }
+        .vipList-right div{
+            float:left;
+            font-size:14px;
+            color:#555;
+            text-align:center;
+        }
+        .vipList-right div{
+            width:115px;
+            border-left:1px solid #e5ccaa;
+            border-top:1px solid #e5ccaa;
+        }
+        .vipList-right div span{
+            float:left;
+            width:100%;
+            height:40px;
+            line-height:40px;
+            border-bottom:1px solid #e5ccaa;
+            background:#fbf6ef;
+        }
+        .vipList-right div.active{
+            width:194px;
+            border-left:1px solid #e5ccaa;
+            border-top:1px solid #e5ccaa;
+            height:364px;
+            position:relative;
+            top:-21px;;
+            padding-top:21px;
+            color:#fff;
+            box-shadow:0 0 5px #b9a090;
+            background-color: #b3935d;
+            background-image: -webkit-linear-gradient(to right,#b3935d, #dac28f);
+            background-image: -moz-linear-gradient(to right,#b3935d, #dac28f);
+            background-image: -o-linear-gradient(to right,#b3935d, #dac28f);
+            background-image: -ms-linear-gradient(to right,#b3935d, #dac28f);
+            background-image: -chrome-linear-gradient(to right,#b3935d, #dac28f);
+            background-image: linear-gradient(to right,#b3935d, #dac28f);
+        }
+        .vipList-right div.active span{
+            background:none;
+            border-bottom:1px solid #e0d2b7;
+        }
+        .vipList-right div.active span:first-child{
+            font-size:18px;
+        }
+        [v-show],[v-if]{
+            display:none;
+        }
+
+        .f_18{
+            font-size:18px;
+        }
+        .f_16{
+            font-size:16px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="header"></div>
+<div class="container" id="container">
+    <!--弹窗-->
+    <div class="openFixed" v-show="dialog">
+        <div class="openBox" v-show="dialogStep == 1">
+            <span class="openClose" @click="hideDialog"><img src="https://images.51rz.com/images/pc-jifen/openClose.png" /></span>
+            <h3>确定领取V<span v-text="(active-1)+dialogTypeDesc"></span>？</h3>
+            <ul class="openList">
+                <li v-for="(item,index) in dialogArr">
+                    <p :class="item.cate_id == 2 ? 'openHb_bg':(item.cate_id == 3)?'openJx_bg':''">
+                        <span class="openMoney">
+                            <strong v-text="item.coupon_money"></strong>
+                            <span v-text="item.cate_id == 2 ? '元':(item.cate_id == 3)?'%':''"></span>
+                        </span>
+                        <span class="openDate">
+                            <span v-text="item.tender_limit"></span>元起投<br />
+                            <small v-text="item.borrow_limit_desc"></small>
+                        </span>
+                    </p>
+                </li>
+            </ul>
+            <p class="btnWrap">
+                <button type="button" class="btnNo" @click="hideDialog">取消</button>
+                <button type="button" class="btnGo" @click="getPacket">领取</button>
+            </p>
+        </div>
+        <div class="openBox" v-show="dialogStep == 2">
+            <span class="openClose" @click="hideDialog"><img src="https://images.51rz.com/images/pc-jifen/openClose.png" /></span>
+            <h3>恭喜您！成功领取V<span v-text="(active-1)+dialogTypeDesc"></span></h3>
+            <h4>
+                <template v-for="(item,index) in dialogArr">
+                    <span v-text="item.coupon_money"></span>
+                    <span v-text="item.cate_id == 2 ? '元投资红包':(item.cate_id == 3)?'%加息券':''"></span>
+                    <span v-if="index !== dialogArr.length -1">、</span>
+                </template>
+                已发放到您的账户
+            </h4>
+            <p class="btnWrap">
+                <a :href="'https://'+userInfo.type+'.51rz.com/projectList.html'" class="btnTz">立即去投资</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="vip-box">
+        <div class="vip-top">
+            <div class="vip-tou">
+                <img :src="info.avatar_pic_path || 'https://images.51rz.com/images/pc-jifen/my_head.png'" />
+                <span>
+                    <i></i>
+                    <small v-text="Number(info.level)-1"></small>
+                </span>
+            </div>
+            <div class="vip-mobile" v-text="info.user_name"></div>
+            <div class="vip-hy"><small v-text="info.level_name"></small> | 成长值<small v-text="info.grow"> </small></div>
+            <div class="vip-text" @click="goList">成长记录</div>
+
+            <div class="vip-dengji">
+                <div class="vip-listBox" v-for="index in 7">
+                    <div class="vip-radius-normal">
+                        <p :class="active==index?'vip-act':'vip-normal'" @click="changeActive(index)">
+                            <i></i>
+                            <small v-text="index-1"></small>
+                            <strong v-text="levelList.length?levelList[index-1].level_min:0"></strong>
+                        </p>
+                    </div>
+                    <span v-if="index !== 7" class="line-act"></span>
+                </div>
+            </div>
+        </div>
+        <div class="vip-bottom">
+            <h3 class="member-title"><img src="https://images.51rz.com/images/pc-jifen/member-title1.png" /></h3>
+            <div class="vip-jlBox">
+                <div class="jl-right">
+                    <p @click="setScroll(5)">
+                        <img v-show="levelConfig.withdraw_times==0" style="height: 60px" src="https://images.51rz.com/images/pc-jifen/jl-02.png"/>
+                        <img v-show="levelConfig.withdraw_times!=0" src="https://images.51rz.com/images/pc-jifen/jl-09.png" />
+                        <span>提现减免</span>
+                        <strong v-show="info.level==active&&levelConfig.withdraw_times == 9">(<small v-text="levelConfig.withdraw_times"></small>不限次数)</strong>
+                        <strong v-show="info.level==active&&levelConfig.withdraw_times != 9">(本月可享受<small v-text="levelConfig.withdraw_times"></small>笔)</strong>
+                    </p>
+                    <p @click="setScroll(4)">
+                        <img v-show="!levelConfig.coefficient" style="height: 60px" src="https://images.51rz.com/images/pc-jifen/jl-02.png"/>
+                        <img v-show="levelConfig.coefficient" src="https://images.51rz.com/images/pc-jifen/jl-08.png" />
+                        <span>积分加倍</span>
+                        <strong>(加倍<small v-text="levelConfig.coefficient"></small>)</strong>
+                    </p>
+                    <p>
+                        <img v-show="levelConfig.vip_service==0" style="height: 60px" src="https://images.51rz.com/images/pc-jifen/jl-02.png"/>
+                        <img v-show="levelConfig.vip_service!=0" src="https://images.51rz.com/images/pc-jifen/jl-07.png" />
+                        <span>专属客服</span>
+                    </p>
+                    <p>
+                        敬请期待
+                    </p>
+                </div>
+                <!--v0-->
+                <div class="jl-left">
+                    <div v-for="(item,index) in levelConfigList">
+                        <!--没有的状态-->
+                        <p class="jl-no" v-if="item.onOff == 0">
+                            <strong class="jlhy-text" v-text="item.offDesc"></strong>
+                        </p>
+                        <!--红包，加息券-->
+                        <p class="jl-no3"
+                           v-if="item.onOff == 1">
+                            <template v-for="(data,i) in item.arr">
+                                <span class="jl-redPacket" v-if="data.cate_id == 2">
+                                    <strong><small v-text="data.coupon_money"></small>元</strong>
+                                    <a class="jl-no3Text">投资红包</a>
+                                </span>
+                                <span class="jl-interest" v-if="data.cate_id == 3">
+                                    <strong><small v-text="data.coupon_money"></small>%</strong>
+                                    <a class="jl-no3Text">加息券</a>
+                                </span>
+                            </template>
+                        </p>
+                        <!--已领取-->
+                        <p v-if="index==0&&info.level*1>=active&&item.onOff == 1 && item.hasGet==1" :class="'draw-ok draw-bg '+index!=2&&info.level*1>=active&&item.onOff == 1 && item.hasGet==1&&'active'" >
+                            <a class="draw-btn btn-bg">已领取</a>
+                        </p>
+                        <p v-if="index==1&&info.level*1==active&&item.onOff == 1 && item.hasGet==1" :class="'draw-ok draw-bg '+index!=2&&info.level*1>=active&&item.onOff == 1 && item.hasGet==1&&'active'" >
+                            <a class="draw-btn btn-bg">已领取</a>
+                        </p>
+                        <p v-if="index==0&&info.level*1>=active&&item.onOff == 1 && item.hasGet==2" :class="index==0&&info.level*1>=active&&item.onOff == 1 && item.hasGet==2&&'active'" >
+                            <a class="draw-btn btn-bg">已过期</a>
+                        </p>
+                        <!--未领取-->
+                        <p v-if="index==0&&info.level*1>=active&&item.onOff==1&&!item.hasGet" :class="'draw-ok '+' '+(index==0&&info.level*1>=active&&item.onOff==1&&!item.hasGet&&'notActive')">
+                            <a class="draw-btn btn-bg1" @click="showDialog(index)">领取</a>
+                        </p>
+                        <p v-if="index==1&&info.level*1==active&&item.onOff==1&&!item.hasGet" :class="'draw-ok '+' '+(index==1&&info.level*1==active&&item.onOff==1&&!item.hasGet&&'notActive')">
+                            <a class="draw-btn btn-bg1" @click="showDialog(index)">领取</a>
+                        </p>
+                        <p v-if="index!=1" :class="'jl-text '+(index!=2&&info.level*1>=active&&item.onOff == 1 && item.hasGet&&'get')+' '+(index!=2&&info.level*1>=active&&item.onOff==1&&!item.hasGet&&'notGet')">
+                            <img :src="item.icon" /><small v-text="item.desc"></small>
+                        </p>
+                        <p v-if="index==1" :class="'jl-text '+(index==1&&info.level*1==active&&item.onOff == 1 && item.hasGet&&'get')+' '+(index==1&&info.level*1==active&&item.onOff==1&&!item.hasGet&&'notGet')">
+                            <img :src="item.icon" /><small v-text="item.desc"></small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="member-box">
+        <div class="box mt">
+            <h3 class="member-title"><img src="https://images.51rz.com/images/pc-jifen/member-title2.png" /></h3>
+            <div class="dj-title"><i>◆</i>等级划分<i>◆</i></div>
+            <div class="member-line"><img src="https://images.51rz.com/images/pc-jifen/member-line.png" /></div>
+            <div class="dj-list">
+                <p v-for="(item,index) in levelList">
+                    <span class="member-tx dj-mt">
+                        <i v-text="Number(item.level) - 1">0</i><small v-text="item.level_name">普通用户</small>
+                    </span>
+                    <span class="member-qj" v-show="item.level_max == 0 && item.level_min == 0">成长值区间<br /><small v-text="item.level_min">0</small></span>
+                    <span class="member-qj" v-show="item.level_max != 0">成长值区间<br /><small v-text="item.level_min">0</small> - <small v-text="item.level_max"></small></span>
+                    <span class="member-qj" v-show="item.level_max == 0 && item.level_min != 0">成长值区间<br /><small v-text="item.level_min">0</small> +</span>
+                    <span class="member-gz">降级规则：<small v-show="item.is_degrade == 1">循环降级</small><small v-show="item.is_degrade == 0">不降</small><br />循环降级时间：<small v-show="item.degrade_days < 1">无</small><small v-show="item.degrade_days > 1" v-text="item.degrade_days"></small><small v-show="item.degrade_days > 1">天</small></span>
+                </p>
+            </div>
+            <div class="dj-title dj-mt7"><i>◆</i>规则说明<i>◆</i></div>
+            <div class="shouyi"><span><small>1</small>元</span> (投资收益) = <span><small v-text="info.rate*1"></small>点</span> (成长值)</div>
+            <div class="dinyi"><strong>成长值定义：</strong>会员的成长值由投资收益决定，会员通过投资获取收益，得到成长值，进行升级，每天通过投资获得成长值次数最多为10次。</div>
+            <div class="dinyi-text">
+                <p><strong>升级：</strong>每笔投资成功后所得收益就是成长值。成长值为整数，根据收益计算后判断小数点第一位值，四舍五入计算成长值。（用户投资成功之后即生效，如果发生
+                    债转行为，则承接人无成长值）会员初始等级根据历史累计投资收益划分</p>
+                <p><strong>降级：</strong>对最后一笔回款后在相应的天数内未进行投资行为的用户，采用循环降级，用户在第二个循环内，如果又未能投资，继续降级。降级后成长值为当前等级的
+                    最大值，直至降至V2。（循环降级时间从回款后的第二天计算）</p>
+                <p><strong>提醒：</strong>正式降级前7天，系统将会自动发送一条短信对您进行提醒，进行投资且满标，即可保留等级。</p>
+            </div>
+            <div class="dj-title dj-mt7"><i>◆</i>等级特权<i>◆</i></div>
+            <div class="tab-vipList">
+                <div class="vipList-wrap">
+                    <div class="vipList-left">
+                        <span>会员等级</span>
+                        <span>等级称号</span>
+                        <span>升级礼包</span>
+                        <span>每月礼包</span>
+                        <span>生日礼包</span>
+                        <span>积分加倍</span>
+                        <span>专属客服</span>
+                        <span>提现减免</span>
+                    </div>
+                    <div class="vipList-right">
+                        <div v-for="(item,index) in levelList" :class="index==6?'active':''">
+                            <span v-text="item.level_code"></span>
+                            <span v-text="item.level_name" style="font-weight:bold;"></span>
+                            <span v-show="item.gift_upgrade == 1">✓</span>
+                            <span v-show="item.gift_upgrade == 0">无</span>
+
+                            <span v-show="item.gift_month == 1">✓</span>
+                            <span v-show="item.gift_month == 0">无</span>
+
+                            <span v-show="item.gift_birth == 1">✓</span>
+                            <span v-show="item.gift_birth == 0">无</span>
+
+                            <span v-text="item.coefficient" v-show="item.coefficient != 0"></span>
+                            <span v-show="item.coefficient == 0">无</span>
+
+                            <span v-show="item.vip_service == 1">✓</span>
+                            <span v-show="item.vip_service == 0">无</span>
+
+                            <span v-text="item.withdraw_times+'笔/月'" v-show="item.withdraw_times > 0 && item.withdraw_times <= 8"></span>
+                            <span v-show="item.withdraw_times == 0">无</span>
+                            <span v-show="item.withdraw_times == 9">不限次数</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box mt" ref="lb-list">
+            <h3 class="member-title"><img src="https://images.51rz.com/images/pc-jifen/member-title3.png" /></h3>
+            <div class="lb-list" >
+                <ul>
+                    <li :class="tabIndex == 1?'act':''" @click="changTab(1)">升级礼包</li>
+                    <li :class="tabIndex == 2?'act':''" @click="changTab(2)">每月礼包</li>
+                    <li :class="tabIndex == 3?'act':''" @click="changTab(3)">生日礼包</li>
+                    <li :class="tabIndex == 4?'act':''" @click="changTab(4)">积分加倍</li>
+                    <li :class="tabIndex == 5?'act':''" @click="changTab(5)">提现减免</li>
+                </ul>
+                <div class="lb-tab">
+                    <!--升级礼包-->
+                    <p class="lb-js" v-show="tabIndex == 1">人众金服用户首次升级成为V1-V6等级会员，可分别获得不同金额的升级礼包。</p>
+                    <!--每月礼包-->
+                    <p class="lb-js" v-show="tabIndex == 2">人众金服V2(白银会员)及以上等级用户可每月领取一份福利礼包。（每月1号零点重置）</p>
+                    <!--生日礼包-->
+                    <p class="lb-js" v-show="tabIndex == 3">人众金服V1（青铜会员）及以上，在过生日当天均享有生日福利。生日当天0点，会员等级越高，福利越多。</p>
+                    <!--积分加倍-->
+                    <p class="lb-js" v-show="tabIndex == 4">人众金服V3(黄金会员)及以上等级用户，在投资时可享受积分加倍福利。</p>
+                    <!--提现减免-->
+                    <p class="lb-js" v-show="tabIndex == 5">人众金服V1（青铜会员）及以上等级用户，每月可享受免手续费提现的机会，等级越高，免手续费次数越多。</p>
+                    <table v-show="tabIndex == 1" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td width="177">会员等级</td>
+                            <td width="178">等级称号</td>
+                            <td width="262">面值</td>
+                            <td width="203">起投金额</td>
+                            <td width="179">起投期限</td>
+                        </tr>
+                        <tr v-for="(item,index) in level">
+                            <td width="177" v-text="item.level_code">&nbsp;</td>
+                            <td width="178" v-text="item.level_name">&nbsp;</td>
+                            <td width="643" colspan="3">
+                                <div v-if="item.goods" class="v-r">
+                                    <div class="v-r-border" v-for="list in item.goods">
+                                        <div class="v-03" v-text="list.goods_name">&nbsp;</div>
+                                        <div class="v-04" v-text="list.tender_limit">&nbsp;</div>
+                                        <div class="v-05" v-text="list.borrow_limit_desc">&nbsp;</div>
+                                    </div>
+                                </div>
+                                <div v-else class="v-r">
+                                    <div class="v-r-border">
+                                        <div class="v-03" v-text="'无'">&nbsp;</div>
+                                        <div class="v-04" v-text="'无'">&nbsp;</div>
+                                        <div class="v-05" v-text="'无'">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <!--<td colspan="5">
+                                <div style="width:100%;">
+                                    <div class="v-01" v-text="item.level_code"></div>
+                                    <div class="v-02" v-text="item.level_name"></div>
+                                    <div class="v-r">
+                                        <div class="v-r-border" v-for="list in item.goods">
+                                            <div class="v-03" v-text="list.goods_name">&nbsp;</div>
+                                            <div class="v-04" v-text="list.tender_limit">&nbsp;</div>
+                                            <div class="v-05" v-text="list.borrow_limit_desc">&nbsp;</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                &lt;!&ndash;<div v-else-if="item.goods && item.goods.length > 1">
+                                    <div class="v-list1" v-text="item.level_code"></div>
+                                    <div class="v-list2" v-text="item.level_name"></div>
+                                    <div class="v-list3">
+                                        <p v-for="list in item.goods">
+                                            <span v-text="list.goods_name"></span>
+                                            <span v-text="list.tender_limit"></span>
+                                            <span v-text="list.borrow_limit_desc"></span>
+                                        </p>
+                                    </div>
+                                </div>&ndash;&gt;
+                            </td>-->
+                        </tr>
+                    </table>
+                    <!--每月礼包-->
+                    <table v-show="tabIndex == 2" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td width="177">会员等级</td>
+                            <td width="178">等级称号</td>
+                            <td width="262">红包面值</td>
+                            <td width="203">起投金额</td>
+                            <td width="179">起投期限</td>
+                        </tr>
+                        <tr v-for="(item,index) in level">
+                            <td width="177" v-text="item.level_code">&nbsp;</td>
+                            <td width="178" v-text="item.level_name">&nbsp;</td>
+                            <td width="643" colspan="3">
+                                <div v-if="item.goods" class="v-r">
+                                    <div class="v-r-border" v-for="list in item.goods">
+                                        <div class="v-03" v-text="list.goods_name">&nbsp;</div>
+                                        <div class="v-04" v-text="list.tender_limit">&nbsp;</div>
+                                        <div class="v-05" v-text="list.borrow_limit_desc">&nbsp;</div>
+                                    </div>
+                                </div>
+                                <div v-else class="v-r">
+                                    <div class="v-r-border">
+                                        <div class="v-03" v-text="'无'">&nbsp;</div>
+                                        <div class="v-04" v-text="'无'">&nbsp;</div>
+                                        <div class="v-05" v-text="'无'">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--生日礼包-->
+                    <table v-show="tabIndex == 3" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td width="177">会员等级</td>
+                            <td width="178">等级称号</td>
+                            <td width="262">面值</td>
+                            <td width="203">起投金额</td>
+                            <td width="179">起投期限</td>
+                        </tr>
+                        <tr v-for="(item,index) in level">
+                            <td width="177" v-text="item.level_code">&nbsp;</td>
+                            <td width="178" v-text="item.level_name">&nbsp;</td>
+                            <td width="643" colspan="3">
+                                <div v-if="item.goods" class="v-r">
+                                    <div class="v-r-border" v-for="list in item.goods">
+                                        <div class="v-03" v-text="list.goods_name">&nbsp;</div>
+                                        <div class="v-04" v-text="list.tender_limit">&nbsp;</div>
+                                        <div class="v-05" v-text="list.borrow_limit_desc">&nbsp;</div>
+                                    </div>
+                                </div>
+                                <div v-else class="v-r">
+                                    <div class="v-r-border">
+                                        <div class="v-03" v-text="'无'">&nbsp;</div>
+                                        <div class="v-04" v-text="'无'">&nbsp;</div>
+                                        <div class="v-05" v-text="'无'">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <!--积分加倍-->
+                    <table v-show="tabIndex == 4" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td>会员等级</td>
+                            <td>等级称号</td>
+                            <td>积分加倍系数</td>
+                        </tr>
+                        <tr v-for="(item,index) in levelList">
+                            <td v-text="item.level_code">&nbsp;</td>
+                            <td v-text="item.level_name">&nbsp;</td>
+                            <td class="hb-color" v-show="item.coefficient == 0">无</td>
+                            <td class="hb-color" v-show="item.coefficient != 0" v-text="item.coefficient">&nbsp;</td>
+                        </tr>
+                    </table>
+                    <!--免费提现-->
+                    <table v-show="tabIndex == 5" cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td>会员等级</td>
+                            <td>等级称号</td>
+                            <td>提现减免</td>
+                        </tr>
+                        <tr v-for="(item,index) in levelList">
+                            <td v-text="item.level_code">&nbsp;</td>
+                            <td v-text="item.level_name">&nbsp;</td>
+                            <td class="hb-color" v-show="item.withdraw_times == 0"><span v-text="item.withdraw_times"></span>笔/月</td>
+                            <td class="hb-color" v-show="item.withdraw_times > 0 && item.withdraw_times <= 8"><span v-text="item.withdraw_times"></span>笔/月</td>
+                            <td class="hb-color" v-show="item.withdraw_times == 9">不限次数</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+            <!--//升级礼包-->
+            <div class="gz-text" v-show="tabIndex == 1">
+                <h3>规则说明</h3>
+                <p>
+                    1. 用户首次升级成为青铜会员-至尊会员时（V1-V6等级会员），可获得升级礼包，等级越高获得的礼包奖励力度越大；<br/>
+                    2. 如您的会员等级跨级提升，则可一次性获得该等级及以下所有等级的升级礼包；<br/>
+                    3. 升级礼包需您主动领取，领取后奖励将发放至您的人众账户，请到个人中心查看；<br/>
+                    4. 升级礼包中的所有奖励只可在获得后的6个月内领取，领取后有效期均为30天；<br/>
+                    5. 每个等级的升级礼包，每位用户仅可领取一次，不可重复领取；<br/>
+                    6. 如您未在6个月内领取当前会员等级的升级礼包，且又降级，则需要再次升级之后才可领取。
+                </p>
+            </div>
+            <!--//每月礼包-->
+            <div class="gz-text" v-show="tabIndex == 2">
+                <h3>规则说明</h3>
+                <p>
+                    1. 符合各会员等级要求的用户，每月可领取对应等级的礼包；<br/>
+                    2. 每月礼包需您主动领取，领取后奖励将发放至您的人众账户，请到个人中心查看；<br/>
+                    3. 每月仅可领取一次，如您的会员等级发生变化，则以领取时间当前的等级为准；<br/>
+                    4. 红包有效期截止到每月最后一天23点59分59秒。
+                </p>
+            </div>
+            <!--生日礼包-->
+            <div class="gz-text" v-show="tabIndex == 3">
+                <h3>规则说明</h3>
+                <p>
+                    1. 用户生日以实名认证的身份证号码为准；<br/>
+                    2. 根据您生日当天0点所处不同会员等级，可自动获得对应等级的礼包；<br/>3. 生日礼包将于您生日当天上午9：00前，自动发放至您的人众账户，请到个人中心查看；<br/>4. 生日礼包所有奖励的有效期均为30天。
+                </p>
+            </div>
+            <!--积分加倍-->
+            <div class="gz-text" v-show="tabIndex == 4">
+                <h3>规则说明</h3>
+                <p>
+                    1. 仅通过投资获得积分时可享受加倍福利；<br/>2. 等级越高，加倍系数越高；<br/>3. 积分加倍系数以投资当时的会员等级为准。
+                </p>
+            </div>
+            <!--提现减免-->
+            <div class="gz-text" v-show="tabIndex == 5">
+                <h3>规则说明</h3>
+                <p>
+                    1. 等级越高，免费提现的次数越多；<br/>2. 以每月1号0点的用户等级来确定该月可享受的免费提现次数。
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer"></div>
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/components/header-footer/header-footer.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#container',
+        data: {
+            token: '',//是否登录
+            tabIndex:1,
+            level:[],
+            levelList:[],
+            levelConfig: [],
+            levelConfigList: [
+                {
+                    icon: 'https://images.51rz.com/images/pc-jifen/jl-04.png',
+                    desc: '升级礼包',
+                    onOff: 1,   //1打勾 0无
+                    offDesc: '限青铜会员',
+                    hasGet: 0,
+                    arr: [],
+                },
+                {
+                    icon: 'https://images.51rz.com/images/pc-jifen/jl-05.png',
+                    desc: '每月礼包',
+                    onOff: 1,
+                    offDesc: '',
+                    hasGet: 1,
+                    arr: [],
+                },
+                {
+                    icon: 'https://images.51rz.com/images/pc-jifen/jl-06.png',
+                    desc: '生日礼包',
+                    onOff: 1,
+                    offDesc: '',
+                    hasGet: 1,
+                    arr: [],
+                }
+            ],
+            active:'',
+            info: {},
+            dialog: false,
+            dialogStep: 1,
+            dialogArr: [],
+            dialogType: 0,
+            dialogTypeDesc: '',
+            userInfo:{}
+        },
+        methods:{
+            goList:function(){
+                var userInfo=JSON.parse(localStorage.getItem('activeUserInfo'));
+                if(!userInfo.token){
+                    location.href='https://'+userInfo.type+'.51rz.com/login.html';
+                    return;
+                }
+                location.href="member_list.html?active=0&type=" + userInfo.type+"&token="+userInfo.token;
+            },
+            hideDialog:function(){
+                if(this.dialogStep==2){
+                    location.reload();
+                    return;
+                }
+                this.dialog = false;
+            },
+            showDialog: function (type) {
+                this.dialog = true;
+                var typeArr = ['升级礼包','每月礼包','生日礼包'];
+                this.dialogType = type;
+                this.dialogTypeDesc = typeArr[type];
+                this.dialogArr = this.levelConfigList[type].arr;
+            },
+            changeActive:function(type){
+                this.active = type;
+                this.getLevelConfig(type)
+            },
+            changTab:function(type){
+                this.tabIndex = type;
+                if(type==1){
+                    this.getData(1);
+                }else if(type==2){
+                    this.getData(3);
+                }else if(type==3){
+                    this.getData(2);
+                }else{
+                    return;
+                }
+            },
+            setScroll:function(pos){
+                this.$refs['lb-list'].scrollIntoView();
+                this.changTab(pos);
+            },
+            getQueryString:function(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            },
+            //字符串进行解密
+            uncompileStr: function (code) {
+                code = unescape(code);
+                var c = String.fromCharCode(code.charCodeAt(0) - code.length);
+                for (var i = 1; i < code.length; i++) {
+                    c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1));
+                }
+                return c;
+            },
+            getData:function(type){
+                var _this = this;
+                $.post('/index.php?_url=/vipshop/gift/giftConfig',{type:type,source:2},function(data){
+                    if(data&&data.error_code === 0){
+                        _this.level = data.data;
+                    }
+                },'json')
+            },
+            getLevelConfig: function (level) {
+                var _this = this;
+                $.post('/index.php?_url=/vipcenter/level/levelBenefit', {
+                        token: _this.userInfo.token,
+                        level: level,
+                        source: 2,
+                    },function(json){
+                        if(json&&json.error_code === 0){
+                            var data = json.data;
+                            _this.levelConfig = data;
+                            _this.levelConfigList =  [
+                                {
+                                    icon: 'https://images.51rz.com/images/pc-jifen/jl-04.png',
+                                    desc: '升级礼包',
+                                    onOff: data.gift_upgrade,   //1打勾 0无
+                                    offDesc: data.upgrade_desc,
+                                    hasGet: data.upgrade_has,
+                                    arr: data.upgrade,
+                                },
+                                {
+                                    icon: 'https://images.51rz.com/images/pc-jifen/jl-05.png',
+                                    desc: '每月礼包',
+                                    onOff: data.gift_month,
+                                    offDesc: data.month_desc,
+                                    hasGet: data.month_has,
+                                    arr: data.month,
+                                },
+                                {
+                                    icon: 'https://images.51rz.com/images/pc-jifen/jl-06.png',
+                                    desc: '生日礼包',
+                                    onOff: data.gift_birth,
+                                    offDesc: data.birth_desc,
+                                    hasGet: data.birth_has,
+                                    arr: data.birth,
+                                }
+                            ]
+                        }else if(json.code === 1){
+                            alert('登录已过期');
+//                        window.location.href = 'https://www.51rz.com/login.html';
+                        }
+                },'json');
+            },
+            getInitData: function() {
+                var _this = this
+                $.post('/index.php?_url=/vipcenter/level/levelConfig',{},function(data){
+                    if(data&&data.error_code === 0){
+                        _this.levelList = data.data;
+                    }
+                },'json');
+            },
+            getUserInfo:function(){
+                var _this=this;
+                //用户信息查询接口
+                $.post('/index.php?_url=/vipcenter/Grow/index',{token:this.userInfo.token},function(data){
+                    if(data&&data.code === 0){
+                        _this.info = data.info;
+                        _this.active=data.info.level;
+                        _this.getLevelConfig(data.info.level);
+                    }else if(data.code === 1) {
+                        alert('登录已过期');
+//                        window.location.href = 'https://www.51rz.com/login.html';
+                    }
+                },'json');
+            },
+            getPacket: function() {
+                //领取红包
+                var _this = this;
+                var type={
+                    0:1,//升级礼包
+                    1:3,//每月礼包
+                    2:2,//生日礼包
+                }
+                $.post('/index.php?_url=/vipshop/gift/addGift',{
+                    type: type[this.dialogType],
+                    token:this.userInfo.token,
+                    level: this.active,
+                    source: 2,
+                },function(data){
+                    if(data&&data.error_code === 0){
+                        _this.dialogStep = 2;
+                        _this.levelConfigList[_this.dialogType].hasGet = 1;
+                        _this.levelConfigList.push()
+                    }else {
+                        alert(data.msg);
+                    }
+                },'json');
+            }
+        },
+        mounted:function () {
+            var activeUserInfo = JSON.parse(localStorage.getItem('activeUserInfo'))||{};
+            var token=activeUserInfo.token?activeUserInfo.token:'';
+            this.userInfo=activeUserInfo;
+            this.getData(1);
+            this.getInitData();
+            if(token != 'undefined' && token != '') {
+                this.getUserInfo();
+            }
+        }
+    })
+</script>
+</body>
+</html>

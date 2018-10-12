@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="https://www.51rz.com/favicon.ico">
+    <link rel="stylesheet" href="https://www.51rz.com/ind/css/style.css">
+    <link rel="stylesheet" href="https://www.51rz.com/ind/css/index.css">
+    <link rel="shortcut icon" href="https://www.51rz.com/ind/favicon.ico">
+    <title>天天签到开宝箱</title>
+    <script type="text/javascript">
+        document.write('<script charset="utf-8" src="/api/t.php?d=' + (new Date().getTime()) + '" type="text/javascript"></sc' + 'ript>');
+    </script>
+    <style>
+        html, body{margin: 0;padding: 0;background:#ffed9b;}
+        .banner{background: url(https://images.51rz.com/images/pc/activity_sign/sign-banner.jpg) no-repeat center;background-size: cover;width: 100%;height: 606px;}
+        .content{width:1100px;margin:0 auto;}
+        .dateTime{margin-top:40px;width:1100px;background:#fffef2;border-radius:10px;}
+        .dateTime-title{width:100%;height:68px;line-height:68px;font-size:16px;background:#ffbd66;border-radius:10px 10px 0 0;}
+        .dateTime-title strong{display:inline-block;background:#c56300;font-weight:500;width:100px;text-align:center;border-radius:10px 0 0 0;line-height:68px;color:#fff;}
+        .dateTime-title span{color:#c56300;width:980px;display:inline-block;text-align:center;}
+        .dateTime-bottom{display:inline-block;height:780px;width:100%;padding:50px;}
+
+        .signJiangli{width:100%;background:#ffbd66;border-radius:10px 10px 0 0;height:60px;line-height:60px;text-align:center;color:#c56300;font-size:18px;}
+        .signList{width:1100px;display:flex;display:-webkit-flex;flex-wrap:wrap;}
+        .signList p{width:25%;display:inline-block;margin-top:100px;text-align:center;position:relative;}
+        .signList p a{width:191px;height:175px;display:inline-block;background:url(https://images.51rz.com/images/pc/activity_sign/signclose.jpg) no-repeat;}
+        .signList p a:hover{background:url(https://images.51rz.com/images/pc/activity_sign/sign01.jpg) no-repeat;}
+        .one:hover{background:url(https://images.51rz.com/images/pc/activity_sign/sign00.jpg) no-repeat !important;}
+        .signList p em{width:288px;height:51px;font-style:normal;font-size:14px;background:#f88a55;border-radius:100px;position:absolute;left:29px;top:-58px;padding:5px 10px;text-align:left;color:#fff;}
+        .signList p em strong{font-weight:500;}
+        .signList p em small{font-size:14px;color:#ff0000;cursor:pointer;}
+        .signList p em img{width:16px;height:14px;position:absolute;left:15px;top:48px;}
+        .signList p span{width:100%;display:inline-block;font-size:16px;text-align:center;color:#8e682a;padding-top:30px;}
+        .signList-text{color:#a7a7a7;font-size:16px;text-align:center;padding:30px 0;}
+
+        .activity-rules{width:100%;padding:0 30px 20px 30px;position:relative;}
+        .activity-pic{width:754px;height:86px;display:inline-block;position:absolute;left:164px;top:-72px;}
+        .activity-rules h3{width:100%;padding-top:30px;text-align:center;font-weight:500;font-size:28px;color:#333;}
+        .activity-rules p{font-size:16px;color:#333;height:35px;line-height:35px;}
+
+        .openFixed{display:none;width:100%;height:100%;background:rgba(0,0,0,0.5);position:fixed;left:0;top:0;z-index:10;}
+        .hb-open{width:433px;height:488px;text-align:center;background:url(https://images.51rz.com/images/pc/activity_sign/signHb-open.png) no-repeat;position:fixed;left:50%;top:15%;margin-left:-216px;z-index:20;}
+        #open1 h3{width:100%;font-weight:500;font-size:30px;color:#f46e57;padding-top:28px;}
+        .hb-text{text-align:center;margin-top:20px;color:#fff;}
+        .hb-text1{text-align:center;color:#fff;font-size:24px;}
+        .hb-text strong{font-size:72px;font-weight:500;}
+        .hb-text small{font-size:32px;}
+        .hb-btn{width:359px;height:72px;color:#f74728;background:#fff;display:inline-block;border-radius:5px;line-height:72px;font-size:28px;margin-top:45px;cursor:pointer;}
+        .hb-no{width:100%;font-size:28px;color:#fff;margin-top:50px;padding:20px 0 10px 0;}
+        .mt{padding-top:143px;}
+        .mt1{padding-top:183px;}
+        .mt2{margin-top:70px;}
+
+        .openRight{position:fixed;right:10px;top:20%;z-index:20;width:181px;height:205px;padding:0 10px;background:url(https://images.51rz.com/images/pc/activity_sign/hb-right.png) no-repeat;background-size:contain;}
+        .openRight h3{width:100%;text-align:center;font-weight:500;font-size:16px;color:#f46e57;padding-top:10px;}
+        .openRight p{text-align:center;color:#fff;padding-top:50px;}
+        .openRight p strong{font-weight:500;font-size:50px;}
+        .openRight p small{font-size:20px;}
+        .rightBtn{width:100%;background:#fff;border-radius:5px;text-align:center;height:30px;line-height:30px;display:inline-block;font-size:16px;color:#f74728;cursor:pointer;}
+
+        .sign-btn{width:100%;text-align:center;padding-top:20px;}
+        .sign-btn span{display:inline-block;width:420px;height:80px;text-align:center;line-height:80px;font-size:24px;color:#fff;background:#ff793d;border-radius:100px;cursor:pointer;}
+
+        /*时间日历*/
+        #calendar{width:100%;margin: 0 auto;}
+        .month ul li {color: white;font-size: 20px;text-transform: uppercase;letter-spacing: 3px; }
+        .weekdays li {display: inline-block;width: 13.6%;text-align: center;}
+        .days {padding: 0;margin: 0;display: flex;flex-wrap: wrap;justify-content: space-around;}
+        .days li {list-style-type: none;display: inline-block;width: 14.2%;text-align: center; padding-bottom: 15px;padding-top: 15px; color: #363636;font-size: 42px;line-height: 40px;height:100px;position: relative}
+        .yes{
+            width:36px;
+            height:36px;
+            color: #dcdcdc;
+            background:url(https://images.51rz.com/images/pc/activity_sign/yes.png) no-repeat;
+        }
+        .no{
+            width:36px;
+            height:36px;
+            color: #dcdcdc;
+            background:url(https://images.51rz.com/images/pc/activity_sign/no.png) no-repeat;
+        }
+    </style>
+</head>
+<body>
+ <div id="header"></div>
+<div class="container" id="app">
+    <div class="openRight" v-show="uid&&is_sign==1&&sign_hb.used==0&&sign_hb.type=='HB'">
+        <h3>签到红包</h3>
+        <p><strong v-text="uid&&sign_hb.hb"></strong><small>元</small></p>
+        <span class="rightBtn" @click="go('/ind/tender-jing-xuan.html')">立即使用</span>
+    </div>
+    <div class="openRight" v-show="uid&&is_sign==1&&sign_hb.used==0&&sign_hb.type=='RW'">
+        <h3>签到红包</h3>
+        <p><strong v-text="uid&&sign_hb.hb"></strong><small>元</small></p>
+        <p>投{{taskMoney}}元90天以上标即可获得</p>
+        <span class="rightBtn" @click="go('/ind/tender-jing-xuan.html')">去投资</span>
+    </div>
+    <div class="openFixed" ref="openFixed"></div>
+    <div class="hb-open"  ref="open1" style="display:none">
+        <!--2元签到红包-->
+        <h3>签到红包</h3>
+        <p class="hb-text mt"><strong v-text="hb"></strong><small>元</small></p>
+        <span class="hb-btn" @click="go('/ind/tender-jing-xuan.html')">立即使用</span>
+    </div>
+    <div class="hb-open"  ref="open2" style="display:none">
+        <!--任务红包-->
+        <p class="hb-text mt1"><strong>5</strong><small>元</small></p>
+        <p class="hb-text1" v-text="limitMsg"></p>
+        <span class="hb-btn" @click="go('/ind/tender-jing-xuan.html')">去投资</span>
+    </div>
+    <div class="hb-open" ref="open3" style="display:none">
+        <!--未获得红包 未到签到次数-->
+        <p class="hb-no mt1">未获得红包奖励</p>
+        <p class="hb-text1" v-text="limitMsg"></p>
+        <span class="hb-btn mt2" @click="close('openFixed','open3')">确定</span>
+    </div>
+    <div class="hb-open" ref="open4" style="display:none">
+        <!--未获得红包 已到签到次数-->
+        <p class="hb-no mt1">未获得红包奖励</p>
+        <p class="hb-text1" v-text="limitMsg"></p>
+        <span class="hb-btn mt2" @click="close('openFixed','open4')">确定</span>
+    </div>
+    <div class="banner"></div>
+    <div class="content">
+        <div class="dateTime">
+            <div class="dateTime-title">
+                <strong>12月</strong>
+                <span>每天可签到一次，有机会获得红包或任务红包(最高获得100元红包).</span>
+            </div>
+            <div class="dateTime-bottom" id="dateTime">
+                <div id="calendar">
+                    <ul class="days">
+                        <li v-for="(day,index) in days" :key="index">
+                            <div v-text="day.getDate()" :class="hasSignedToday(day)?'yes':''"></div>
+                        </li>
+                    </ul>
+                </div>
+                <p class="sign-btn" ><span @click="signJl" v-text="is_sign === 1?'已签到':'签到领奖'"></span></p>
+            </div>
+        </div>
+
+        <div class="dateTime">
+            <div class="signJiangli">累计签到奖励</div>
+            <div class="signList">
+                <p>
+                    <a class="one"><img src="https://images.51rz.com/images/pc/activity_sign/sign00.jpg"  v-show="total > 0 || total < 2 && jx_sch > 0" /></a>
+                    <span>1次</span>
+                    <em v-show="total == 1">
+                        本月您已累计签到<strong>1</strong>次，2%加息券已经发放至您账户，快<small @click="go('/ind/tender-jing-xuan.html')">去使用</small>吧！
+                        <img src="https://images.51rz.com/images/pc/activity_sign/sign-icon.png" />
+                    </em>
+                </p>
+                <p>
+                    <a><img src="https://images.51rz.com/images/pc/activity_sign/sign01.jpg"  v-show="total > 2 || total < 5 && jx_sch > 1" /></a>
+                    <span>3次</span>
+                    <em v-show="total == 3">
+                        本月您已累计签到<strong>3</strong>次，1%加息券和1.3%加息券已经发放至您账户，快<small @click="go('/ind/tender-jing-xuan.html')">去使用</small>吧！
+                        <img src="https://images.51rz.com/images/pc/activity_sign/sign-icon.png" />
+                    </em>
+                </p>
+                <p>
+                    <a><img src="https://images.51rz.com/images/pc/activity_sign/sign01.jpg"  v-show="total > 5 || total < 9 && jx_sch > 2" /></a>
+                    <span>6次</span>
+                    <em v-show="total == 6">
+                        本月您已累计签到<strong>6</strong>次，1%加息券和1.3%加息券已经发放至您账户，快<small @click="go('/ind/tender-jing-xuan.html')">去使用</small>吧！
+                        <img src="https://images.51rz.com/images/pc/activity_sign/sign-icon.png" />
+                    </em>
+                </p>
+                <p>
+                    <a><img src="https://images.51rz.com/images/pc/activity_sign/sign01.jpg"  v-show="total > 9 || total < 14 && jx_sch > 3" /></a>
+                    <span>10次</span>
+                    <em v-show="total == 10">
+                        本月您已累计签到<strong>10</strong>次，1%加息券和1.3%加息券已经发放至您账户，快<small @click="go('/ind/tender-jing-xuan.html')">去使用</small>吧！
+                        <img src="https://images.51rz.com/images/pc/activity_sign/sign-icon.png" />
+                    </em>
+                </p>
+                <p>
+                    <a><img src="https://images.51rz.com/images/pc/activity_sign/sign01.jpg"  v-show="total > 14 || total < 17 && jx_sch > 4" /></a>
+                    <span>15次</span>
+                    <em v-show="total == 15">
+                        本月您已累计签到<strong>15</strong>次，1%加息券和1.3%加息券已经发放至您账户，快<small @click="go('/ind/tender-jing-xuan.html')">去使用</small>吧！
+                        <img src="https://images.51rz.com/images/pc/activity_sign/sign-icon.png" />
+                    </em>
+                </p>
+                <p>
+                    <a><img src="https://images.51rz.com/images/pc/activity_sign/sign01.jpg"  v-show="total > 17 || total < 21 && jx_sch > 5" /></a>
+                    <span>18次</span>
+                    <em v-show="total == 18">
+                        本月您已累计签到<strong>18</strong>次，1%加息券和1.3%加息券已经发放至您账户，快<small @click="go('/ind/tender-jing-xuan.html')">去使用</small>吧！
+                        <img src="https://images.51rz.com/images/pc/activity_sign/sign-icon.png" />
+                    </em>
+                </p>
+                <p>
+                    <a><img src="https://images.51rz.com/images/pc/activity_sign/sign01.jpg"  v-show="total > 21 || total < 24 && jx_sch > 6" /></a>
+                    <span>22次</span>
+                    <em v-show="total == 22">
+                        本月您已累计签到<strong>22</strong>次，1%加息券和1.3%加息券已经发放至您账户，快<small @click="go('/ind/tender-jing-xuan.html')">去使用</small>吧！
+                        <img src="https://images.51rz.com/images/pc/activity_sign/sign-icon.png" />
+                    </em>
+                </p>
+                <p>
+                    <a class="one"><img src="https://images.51rz.com/images/pc/activity_sign/sign00.jpg"  v-show="total > 24 && jx_sch > 7" /></a>
+                    <span>25次</span>
+                    <em v-show="total > 25">
+                        本月您已累计签到<strong>25</strong>次，2%加息券已经发放至您账户，快<small @click="go('/ind/tender-jing-xuan.html')">去使用</small>吧！
+                        <img src="https://images.51rz.com/images/pc/activity_sign/sign-icon.png" />
+                    </em>
+                </p>
+            </div>
+            <div class="signList-text">点击宝箱可查看对应奖励</div>
+        </div>
+        <div class="dateTime">
+            <div class="activity-rules">
+                <img src="https://images.51rz.com/images/pc/activity_sign/signline.jpg" class="activity-pic" />
+                <h3>活动规则</h3>
+                <p>1. 活动时间：2017年12月1日--2017年12月31日</p>
+                <p>2. 每天登录即可签到一次并有机会获得红包，完成红包任务要求单笔投资。红包仅当天有效，100元起投，限90天以上项目可用。</p>
+                <p>3. 首次签到可得2%加息券，活动期间签到满相应次数则宝箱打开自动发放对应加息券至用户账户。加息券有效期3天，具体使用规则详见券面。</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer"></div>
+<script src="https://www.51rz.com/ind/js/bn.js"></script>
+<script src="https://www.51rz.com/ind/PC/js/vue.js"></script>
+<script>
+    window.vm = new Vue({
+        el: '#app',
+        data: {
+            uid:false,
+            total:0,//宝箱签到次数
+            jx_sch:0,//加息券的打开进度
+            is_sign:0, //默认没签到
+            sign_hb:null, //
+            date:new Date(),
+            currentDay: 1,
+            currentMonth: 1,
+            currentYear: 1970,
+            currentWeek: 1,
+            limitMsg:'',
+            days:[],
+            limit:0,
+            hb:0,
+            taskMoney:0,
+            signDate: [] ,//具体签到日期
+        },
+        methods: {
+            hasSignedToday:function(day){
+                var _self = this;
+                var isIn = false;
+                this.signDate.map(function(item){
+                    var sign = item === _self.formatDate(day.getFullYear(),day.getMonth()+1,day.getDate());
+                    if(sign) isIn = sign;
+                })
+                return isIn;
+            },
+            go:function(url){
+                if(this.$data.uid){
+                    location.href = url;
+                }else{
+                    location.href = '/ind/login.html'
+                }
+            },
+            signJl:function(){
+                if(this.is_sign === 1){
+                    return;
+                }
+                if(!this.uid){
+                    location.href = '/ind/login.html';
+                }
+                var self = this;
+                var date = this.formatDate(this.currentYear , this.currentMonth, this.currentDay);
+                $.get('/?m=Activity&s=signDecGetHb&date='+date,function(data){
+                    if(data.r === 1){
+                        self.signDate.push(date);
+                        self.is_sign = 1;
+                        switch (data.type){
+                            case 'HB':
+                                self.limitMsg = data.limit_msg;
+                                self.hb = data.hb;
+                                self.open('openFixed','open1');
+                                break;
+                            case 'RW':
+                                self.limitMsg = data.limit_msg;
+                                self.open('openFixed','open2');
+                                break;
+                            case 'TKS':
+                                self.limitMsg = data.limit_msg;
+                                self.open('openFixed','open3');
+                                break;
+                        }
+                    }
+                })
+            },
+            open:function(name,ref){
+                this.$refs[name].style.display = 'block';
+                this.$refs[ref].style.display = 'block';
+            },
+            close:function(name,ref){
+                this.$refs[name].style.display = 'none';
+                this.$refs[ref].style.display = 'none';
+            },
+            initData: function() {
+                this.currentDay = this.date.getDate();
+                this.currentYear = this.date.getFullYear();
+                this.currentMonth = this.date.getMonth() + 1;
+                this.currentWeek = this.date.getDay();
+                if (this.currentWeek == 0) {
+                    this.currentWeek = 7;
+                }
+                var str = this.formatDate(this.currentYear , this.currentMonth, this.currentDay,1);
+                // 今天是周日，放在第一行第7个位置，前面6个
+                for (var i = this.currentWeek; i >= 0; i--) {
+                    var d = new Date(str);
+                    d.setDate(d.getDate() - i);
+                    this.days.push(d);
+                }
+                for (var i = 1; i < 42 - this.currentWeek; i++) {
+                    var d = new Date(str);
+                    d.setDate(d.getDate() + i);
+                    this.days.push(d);
+                }
+            },
+            formatDate: function(year,month,day,type){
+                var y = year;
+                var m = month;
+                if(m<10) m = "0" + m;
+                var d = day;
+                if(d<10) d = "0" + d;
+                return type === 1? y+"-"+m+"-"+d:y.toString()+m.toString()+d.toString();
+            },
+            changeMoney:function(money){
+                if(money.hb == 5){
+                    self.taskMoney = 1000;
+                }else if(money.hb == 8){
+                    self.taskMoney = 5000;
+                }else if(money.hb == 12){
+                    self.taskMoney = 10000;
+                }else if(money.hb == 100){
+                    self.taskMoney = 30000;
+                }
+            }
+        },
+        created: function() {
+            var self = this;
+            this.initData();
+            $.get('/?m=Activity&s=signDecIndex',function(data){
+                if(data.r === 1){
+                    self.uid = true;
+                    self.is_sign = data.is_sign;
+                    self.sign_hb = data.sign_hb
+                    self.total = data.total;
+                    self.signDate = data.sign_date;
+                    if(data.sign_hb.type === 'RW'){
+                        self.changeMoney(sign.hb);
+                    }
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

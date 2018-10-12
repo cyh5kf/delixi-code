@@ -1,0 +1,82 @@
+@import "../libs/mixin.scss";
+
+.wrap{
+    @include box((p:40px 30px 0));
+}
+
+.pageTitle{
+    @include box((lh:40px,fw:normal,c:$black2,fs:18px,p:0 0 5px 0));
+}
+
+.red{
+    color:$red
+}
+.orange{
+    color:$orange
+}
+.blue{
+    color:$blue
+}
+
+
+.selectRow{
+    height:30px;
+    margin:20px 0;
+    ul{
+        float:left;
+        height:30px;
+        line-height:25px;
+    }
+    span{
+        display:block;
+        float:left;
+    }
+}
+
+.searchBtn{
+    @include box((d:inline-block,lh:28px,w:70px,bg:$red,ta:center,c:$white,fs:14px,m:0 0 0 10px));
+    cursor: pointer;
+}
+
+.empty{
+    @include box((m:50px auto));
+    div{
+        @include box((h:88px));
+        background-position:center center;
+        background-size:auto 100%;
+        background-repeat:no-repeat;
+        &.empty0{
+            @include background((url:'empty/no_finance_all.png'))
+        }
+        &.empty1{
+            @include background((url:'empty/no_finance_recharge_lists.png'))
+        }
+        &.empty2{
+            @include background((url:'empty/no_finance_withdraw_cash.png'))
+        }
+        &.empty3{
+            @include background((url:'empty/no_finance_tender.png'))
+        }
+        &.empty4{
+            @include background((url:'empty/no_finance_hukuan.png'))
+        }
+        &.empty5{
+            @include background((url:'empty/no_finance_redpacket.png'))
+        }
+        &.empty6{
+            @include background((url:'empty/no_finance_money.png'));
+            height:81px;
+        }
+        &.empty7{
+            @include background((url:'empty/no_finance_other.png'))
+        }
+    }
+    p{
+        @include box((ta:center,fs:14px,c:$black9,lh:40px));
+    }
+}
+
+
+
+
+

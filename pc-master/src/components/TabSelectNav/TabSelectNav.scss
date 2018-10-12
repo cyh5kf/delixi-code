@@ -1,0 +1,15 @@
+@import "../../assets/css/libs/mixin.scss";
+
+.navs{
+    li{
+        @include box((d:inline-block,p:0 30px,fs:16px,c:$black5,lh:16px));
+        border-right:1px solid #e5e5e5;
+        cursor: pointer;
+        &.active{
+            @include box((c:$red));
+        }
+        &:last-child{
+            border-right:0;
+        }
+    }
+}

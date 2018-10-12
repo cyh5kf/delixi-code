@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <link rel="stylesheet" href="/components/header-footer/header-footer.css">
+    <title>二月活动</title>
+    <style type="text/css">
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin: 0 auto;
+        }
+        .banner{
+            width: 100%;
+            height: 828px;
+            background: url("https://images.51rz.com/images/pc/pc-february/pc-banner.png") no-repeat center;
+            position: relative;
+        }
+        .wallet-box{
+            width: 100%;
+            position: absolute;
+            bottom: 54px;
+        }
+        .wallet-text{
+            background-color: #ef9b5e;
+            border-radius: 8px;
+            width: 230px;
+            padding: 0px 23px;
+            font-size: 16px;
+            color: #ffffff;
+        }
+        .cash{
+            font-size: 24px;
+        }
+        .first{
+            width: 100%;
+            height: 573px;
+            background: url("https://images.51rz.com/images/pc/pc-february/bg1.png") no-repeat center;
+            background-size: cover;
+            font-size: 0;
+        }
+        .left-box,.right-box{
+            width: 50%;
+            height: 457px;
+            display: inline-block;
+        }
+        .close,.open{
+            width: 100%;
+            height: 100%;
+        }
+        .img-box{
+            width: 519px;
+            height: 457px;
+            position: relative;
+            text-align: center;
+        }
+
+        .btn-open{
+            background: url("https://images.51rz.com/images/pc/pc-february/btn.png");
+            width: 226px;
+            height: 72px;
+            outline: none;
+            border: none;
+            margin-top: 24px;
+            font-size: 18px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        .dis-block{
+            display: block;
+            vertical-align: top;
+        }
+        .btn-disabled{
+            background: url("https://images.51rz.com/images/pc/pc-february/btn-disabled.png");
+        }
+        .close-text{
+            color: #ffd55c;
+            font-size: 16px;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 57px;
+            padding-right: 22px;
+        }
+        .mg-right-10x{
+            margin-right: 20px;
+        }
+        .mg-left-5x{
+            margin-left: 10px;
+        }
+        .rank-gift{
+            margin-top: 26px;
+            width: 380px;
+            height: 42px;
+            font-size: 14px;
+            border-radius: 8px;
+            color: #ffffff;
+            text-align: center;
+            background-color: #e29454;
+            overflow: hidden;
+        }
+        .second{
+            width: 100%;
+            height: 1038px;
+            background: url("https://images.51rz.com/images/pc/pc-february/bg2.png") no-repeat center;
+            background-size: cover;
+        }
+        .get-gift{
+            width: 1101px;
+            height: 1006px;
+            background-color: #f6b873;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .tips-red{
+            margin-top: 30px;
+        }
+        .fs-7x{
+            font-size: 14px;
+        }
+        .color-bf2c12{
+            color: #bf2c12;
+        }
+        .slide-bar{
+            width: 801px;
+            height: 42px;
+            margin-top: 30px;
+            background-color: #cc3f26;
+            border-radius: 50px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .bar{
+            width: 50%;
+            height: 42px;
+            line-height: 42px;
+            font-size: 16px;
+            color: #ffc444;
+            cursor: pointer;
+        }
+        .bar-active{
+            height: 42px;
+            line-height: 42px;
+            color: #ffffff;
+            border-radius: 60px;
+            background-color: #ffdfa2;
+            position: relative;
+            background: -webkit-linear-gradient(#ffbe00, #ff950a);
+            background: -o-linear-gradient(#ffbe00, #ff950a);
+            background: -moz-linear-gradient(#ffbe00, #ff950a);
+            background: linear-gradient(#ffbe00, #ff950a);
+        }
+        .slide-item{
+            margin-top: 36px;
+            width: 839px;
+            height: 766px;
+            font-size: 0;
+        }
+        .item{
+            width: 201px;
+            height: 212px;
+            background-color: #ffeabd;
+            display: inline-block;
+            border-radius: 10px;
+            vertical-align: top;
+            margin-bottom: 28px;
+        }
+        .item:nth-of-type(3n-1){
+            margin: 0 118px;
+        }
+        .item-bg{
+            margin-top: 22px;
+            width: 114px;
+            height: 116px;
+            background: url("https://images.51rz.com/images/pc/pc-february/bag.png") no-repeat center;
+        }
+        .item-cash{
+            background: url("https://images.51rz.com/images/pc/pc-february/cash.png") no-repeat center;
+        }
+        .item-coupons{
+            width: 100px;
+            height: 91px;
+            background: url("https://images.51rz.com/images/pc/pc-february/coupons.png") no-repeat center;
+        }
+        .item-fuel-card{
+            width: 128px;
+            height: 80px;
+            background: url("https://images.51rz.com/images/pc/pc-february/fuel-card.png") no-repeat center;
+        }
+        .item-gold{
+            margin-top: 11px;
+            width: 94px;
+            height: 102px;
+            background: url("https://images.51rz.com/images/pc/pc-february/gold.png") no-repeat center;
+        }
+        .item-ipx{
+            margin-top: 10px;
+            width: 56px;
+            height: 110px;
+            background: url("https://images.51rz.com/images/pc/pc-february/iPhone-8.png") no-repeat center;
+        }
+        .item > button{
+            margin-top: 11px;
+            width: 160px;
+            height: 42px;
+            outline: none;
+            border: none;
+            font-size: 16px;
+            color: #ffffff;
+            cursor: pointer;
+            background: url("https://images.51rz.com/images/pc/pc-february/small-btn.png") no-repeat center;
+        }
+        .pack-money{
+            font-size: 20px;
+            color: #f65352;
+            padding-top: 40px;
+        }
+        .pack-money > span{
+            font-size: 12px;
+        }
+        .pack-text{
+            color: #fdfcf8;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .three{
+            background: url("https://images.51rz.com/images/pc/pc-february/bg3.png") no-repeat center;
+            width: 100%;
+            height: 1111px;
+            background-size: cover;
+        }
+        .my-count{
+            color: #ffffff;
+        }
+        .fs-8x{
+            font-size: 16px;
+        }
+        .touzi-money{
+            font-size: 24px;
+            color: #ffffff;
+        }
+        .rank{
+            background-color: #e05a09;
+            width: 1101px;
+            height: 740px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .rank-text{
+            color: #ffffff;
+            margin-top: 22px;
+        }
+        .rank-money{
+            font-size: 24px;
+            color: #ffffff;
+        }
+        .count{
+            color: #ffffff;
+            width: 270px;
+            height: 38px;
+            background-color: #c0510e;
+            border-radius: 8px;
+            margin-top: 12px;
+            line-height: 38px;
+        }
+        .rank-item{
+            width: 1040px;
+            height: 501px;
+            margin-top: 14px;
+        }
+        table{
+            width: 100%;
+        }
+        table tr{
+            height: 45px;
+            font-size: 18px;
+            color: #ffffff;
+        }
+        table tr:nth-child(2n-1){
+            background-color: #f9ab3b;
+        }
+        table tr:nth-child(2n){
+            background-color: #ee9f2f;
+        }
+        table tr:first-child {
+            color: #ffffff;
+            font-size: 20px;
+        }
+        table tr td{
+            width: 20%;
+        }
+        .rule{
+            margin-top: 26px;
+            background-color: #e05a09;
+            width: 1101px;
+            height: 259px;
+            border-radius: 10px;
+            padding: 0 27px;
+        }
+        .rule-title{
+            font-size: 18px;
+            color: #ffffff;
+            padding-top: 25px;
+        }
+        .rule-item{
+            font-size: 16px;
+            color: #ffffff;
+            line-height: 25px;
+        }
+        .rule-item span:first-child{
+            width: 2%;
+            float: left;
+        }
+        .rule-item span:last-child{
+            width: 98%;
+            float: left;
+        }
+        .scroll-box ul li{
+            height: 42px;
+            box-sizing: border-box;
+            line-height: 42px;
+            text-align: center;
+        }
+        .anim{
+            transition: all 0.5s;
+        }
+        .notLogin{
+            font-size: 18px;
+            color: #cc3f26;
+            border-bottom:1px solid #cc3f26;
+        }
+
+    </style>
+</head>
+<body>
+<div id="header"></div>
+    <div class="container">
+        <div class="banner">
+            <div class="wallet-box">
+                <p class="wallet-text" v-show="uid">我的现金钱包：<span class="cash" v-text="totalCash+'元'"></span></p>
+                <p class="wallet-text" v-show="!uid">我的现金钱包：<span @click="go">登录查看</span></p>
+            </div>
+        </div>
+        <div class="content">
+            <div class="first">
+                <div class="left-box" >
+                    <div class="close">
+                        <div class="img-box mg-right-10x" v-show="!uid">
+                            <img src="https://images.51rz.com/images/pc/pc-february/cash-close.png" class="dis-block" v-show="today[0].rewardType == 0">
+                            <p class="close-text">压岁红包</p>
+                            <p class="close-text" style="top: 102px;padding-right: 27px;"><img src="https://images.51rz.com/images/pc/pc-february/rzjf_logo.png"></p>
+                            <button class="btn-open" @click="go">立即领取</button>
+                        </div>
+                        <div class="img-box mg-right-10x" v-show="uid && today[0].rewardType == 0">
+                            <img src="https://images.51rz.com/images/pc/pc-february/cash-close.png" class="dis-block">
+                            <p class="close-text" >压岁红包</p>
+                            <p class="close-text" style="top: 102px;padding-right: 27px;"><img src="https://images.51rz.com/images/pc/pc-february/rzjf_logo.png"></p>
+                            <button class="btn-open" @click="open(today[0].packId,0)" v-show="today[0].rewardType == 0">立即领取</button>
+                        </div>
+                        <div class="img-box mg-right-10x"  v-show="uid && today[0].rewardType == 1">
+                            <img src="https://images.51rz.com/images/pc/pc-february/cash-open.png" class="dis-block" >
+                            <p class="close-text" style="top: 223px;padding-right: 32px" >压岁红包</p>
+                            <p class="close-text" style="color: #f65352;top: 100px;padding-right: 49px;text-align: center"><span style="font-size: 17px">￥</span><span style="font-size: 42px" v-text="Number(today[0].money).toFixed(0)"></span></p>
+                            <button class="btn-open" style="margin-right: 30px" v-show="today[0].used == 0" @click="go">去使用</button>
+                            <button class="btn-open btn-disabled" style="margin-right: 30px" v-show="today[0].used == 1">已使用</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-box">
+                    <div class="close">
+                        <div class="img-box mg-left-5x" v-show="!uid">
+                            <img src="https://images.51rz.com/images/pc/pc-february/bag-close.png" class="dis-block" >
+                            <p class="close-text" style="padding-right: 10px">现金礼包</p>
+                            <p class="close-text" style="top: 99px;padding-right: 12px"><img src="https://images.51rz.com/images/pc/pc-february/rzjf_logo.png"></p>
+                            <p class="close-text" style="color: #ffffff;top: 180px">最高可领88元</p>
+                            <p class="close-text" style="color: #fffdf9;font-size: 14px;top: 220px">单笔投30天以上标的即可获得</p>
+                            <button class="btn-open btn-disabled" @click="go">拆开</button>
+                        </div>
+                        <div class="img-box mg-left-5x" v-show="uid&&today[1].rewardType == 0">
+                            <img src="https://images.51rz.com/images/pc/pc-february/bag-close.png" class="dis-block" >
+                            <p class="close-text" style="padding-right: 10px">现金礼包</p>
+                            <p class="close-text" style="top: 99px;padding-right: 12px"><img src="https://images.51rz.com/images/pc/pc-february/rzjf_logo.png"></p>
+                            <p class="close-text" style="color: #ffffff;top: 180px">最高可领88元</p>
+                            <p class="close-text" style="color: #fffdf9;font-size: 14px;top: 220px">单笔投30天以上标的即可获得</p>
+                            <button class="btn-open btn-disabled" @click="go" v-show="today[1].activated == 1">拆开</button>
+                            <button class="btn-open" @click="open(today[1].packId,1)" v-show="today[1].activated == 2">拆开</button>
+                        </div>
+                        <div class="img-box mg-left-5x" v-show="uid&&today[1].rewardType == 4">
+                            <img src="https://images.51rz.com/images/pc/pc-february/bag-open.png" class="dis-block" >
+                            <p class="close-text" style="color: #f65352;font-size: 24px;top: 100px;text-align: center"><span style="font-size: 18px">￥</span><span v-text="today[1].money"></span></p>
+                            <p class="close-text" style="color: #fffdf9;font-size: 14px;top: 220px">现金礼包</p>
+                            <button class="btn-open btn-disabled">已领取</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="rank-gift scroll-box" v-show="itemNews.length > 0">
+                    <ul :class="animate?'anim':''" ref="rank">
+                        <li v-for="(item,index) in itemNews" :key="index" v-cloak >今日获得88元现金的是{{item}}用户</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="second">
+                <div class="get-gift">
+                    <img src="https://images.51rz.com/images/pc/pc-february/rank-tips-red.png?v=2" class="tips-red">
+                    <p class="fs-7x color-bf2c12">红火过大年，喜欢的都送你！<br />活动期间，投资达到相应金额，即可获得人众送出的年货大礼，金条、实物、现金全场任你挑选。</p>
+                    <div class="slide-bar">
+                        <div class="bar" :class="barActive ? 'bar-active':''" @click="changeActive">30天≤投资期限＜180天</div>
+                        <div class="bar" :class="barActive?'':'bar-active'" @click="changeActive">投资期限≥180天</div>
+                    </div>
+                    <div class="slide">
+                        <div class="slide-item" v-show="barActive">
+                            <div class="item" v-for="(items,index) in item" :key="index">
+                                <div class="item-bg" :class="items.isCash ? 'item-cash':''">
+                                    <p class="pack-money" v-cloak><span>￥</span>{{items.money}}</p>
+                                    <p class="pack-text" v-text="items.text"></p>
+                                </div>
+                                <button v-cloak @click="go">投满{{items.btnText}}万免费送</button>
+                            </div>
+                            <div class="my-count">
+                                <p class="fs-8x" v-show="uid">30天≤投资期限＜180天标的累投金额：<span class="touzi-money" v-text="Number(bamboo[0].totalAmount).toFixed(0)"></span>元</p>
+                                <p class="fs-8x" v-show="!uid">30天≤投资期限＜180天标的累投金额：<span class="touzi-money cursor-pointer notLogin"  @click="go">登录查看</span></p>
+                            </div>
+                        </div>
+                        <div class="slide-item" v-show="!barActive">
+                            <div class="item">
+                                <div class="item-bg item-cash">
+                                    <p class="pack-money" ><span>￥</span>60</p>
+                                    <p class="pack-text">现金</p>
+                                </div>
+                                <button @click="go">投满2万免费送</button>
+                            </div>
+                            <div class="item">
+                                <div class="item-bg item-cash">
+                                    <p class="pack-money"><span>￥</span>150</p>
+                                    <p class="pack-text">现金</p>
+                                </div>
+                                <button @click="go">投满5万免费送</button>
+                            </div>
+                            <div class="item" >
+                                <div class="item-bg item-cash">
+                                    <p class="pack-money"><span>￥</span>320</p>
+                                    <p class="pack-text">现金</p>
+                                </div>
+                                <button @click="go">投满10万免费送</button>
+                            </div>
+                            <div class="item" >
+                                <div class="item-bg item-cash">
+                                    <p class="pack-money"><span>￥</span>580</p>
+                                    <p class="pack-text">现金</p>
+                                </div>
+                                <button @click="go">投满18万免费送</button>
+                            </div>
+                            <div class="item" >
+                                <div class="item-bg item-cash">
+                                    <p class="pack-money"><span>￥</span>990</p>
+                                    <p class="pack-text">现金</p>
+                                </div>
+                                <button @click="go">投满30万免费送</button>
+                            </div>
+                            <div class="item">
+                                <div class="item-bg item-coupons"></div>
+                                <p class="pack-text fs-7x" style="margin-top: 5px;color: #e01b1b;">旺大年1200元海鲜券</p>
+                                <button @click="go">投满50万免费送</button>
+                            </div>
+                            <div class="item" >
+                                <div class="item-bg item-coupons item-fuel-card"></div>
+                                <p class="pack-text fs-7x" style="margin-top: 5px;color: #e01b1b;">2600元加油卡</p>
+                                <button @click="go">投满80万免费送</button>
+                            </div>
+                            <div class="item" >
+                                <div class="item-bg item-coupons item-gold"></div>
+                                <p class="pack-text fs-7x" style="margin-top: 2px;color: #e01b1b;">中国黄金17g金条</p>
+                                <button style="margin-top: 5px" @click="go">投满140万免费送</button>
+                            </div>
+                            <div class="item" >
+                                <div class="item-bg item-coupons item-ipx"></div>
+                                <p class="pack-text fs-7x" style="margin-top: 0px;color: #e01b1b;">iphone 8 256g</p>
+                                <button style="margin-top: 0px" @click="go">投满200万免费送</button>
+                            </div>
+                            <div class="my-count">
+                                <p class="fs-8x" v-show="uid">投资期限≥180天的累投金额：<span v-text="Number(bamboo[1].totalAmount).toFixed(0)" class="touzi-money" ></span>元</p>
+                                <p class="fs-8x" v-show="!uid">投资期限≥180天的累投金额：<span class="touzi-money cursor-pointer notLogin"  @click="go">登录查看</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="three">
+                <div class="rank">
+                    <img src="https://images.51rz.com/images/pc/pc-february/rank-tips-yellow.png?v=2" class="tips-red">
+                    <p class="fs-7x rank-text">活动期间，投资期限≥180天标的可参与英雄榜排名获得额外大奖！</p>
+                    <p class="fs-8x count" v-show="!uid">您当前累计投资额：<span class="rank-money notLogin" style="color: #ffffff;border: none" @click="go">登录查看</span></p>
+                    <p class="fs-8x count" v-show="uid">您当前累计投资额：<span class="rank-money" v-text="Number(countMoney).toFixed(0)+'元'"></span></p>
+                    <div class="rank-item">
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td>排名</td>
+                                <td>用户</td>
+                                <td>资产总额</td>
+                                <td>奖品</td>
+                            </tr>
+                            <tr v-for="item in rank">
+                                <td v-text="item.No"></td>
+                                <td v-text="item.mobile"></td>
+                                <td v-text="item.money"></td>
+                                <td v-text="item.name"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="rule">
+                    <p class="rule-title">活动规则：</p>
+                    <p class="rule-item" style="margin-top: 5px;"><span>1、</span><span>本活动新手标、债转项目、30天以下标的不计入；</span></p>
+                    <p class="rule-item"><span>2、</span><span>翻出压岁钱环节红包即时到账，仅当天有效，红包使用信息详见劵面，100元起投。现金压岁钱奖励在活动结束后五个工作日内四舍五入到账；</span></p>
+                    <p class="rule-item"><span>3、</span><span>第二部分投资送奖励环节，累计投资金额数据截止到2月13日23:54:59。现金、红包奖励活动结束后五个工作日发放。100元以下红包100元起用，100元以上红包1000元起用，限30天以上项目可用。实物奖励在活动结束后20个工作日内发放，节假日顺延。根据用户最终累计达到的投资额发放一种对应奖励（默认为可获得奖励中价值最高的那个）；</span></p>
+                    <p class="rule-item"><span>4、</span><span>大壕排行榜投资总额根据投资变化实时变动，累计投资金额数据截止到2月13日23:54:59；</span></p>
+                    <p class="rule-item"><span>5、</span><span>活动最终解释权法律允许的范围归人众金服所有，如有疑问请致电客服：400-655-8858。（咨询时间：9:00——21:00）</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 弹窗提示 -->
+        <div class="pc-dialog">
+            <div class="content"></div>
+        </div>
+    </div>
+<div id="footer"></div>
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/components/header-footer/header-footer.js"></script>
+<script>
+    var vm = new Vue({
+        el:'.container',
+        data:{
+            uid:false,//是否登录
+            animate:false,//初始化不滚动
+            barActive:true,
+            item:[
+                {
+                    money:8,
+                    text:'红包',
+                    btnText:2,
+                    isCash:false,
+                },
+                {
+                    money:22,
+                    text:'红包',
+                    btnText:5,
+                    isCash:false,
+                },
+                {
+                    money:48,
+                    text:'红包',
+                    btnText:10,
+                    isCash:false,
+                },
+                {
+                    money:90,
+                    text:'红包',
+                    btnText:18,
+                    isCash:false,
+                },
+                {
+                    money:160,
+                    text:'红包',
+                    btnText:30,
+                    isCash:false,
+                },
+                {
+                    money:260,
+                    text:'现金',
+                    btnText:50,
+                    isCash:true,
+                },
+                {
+                    money:420,
+                    text:'现金',
+                    btnText:80,
+                    isCash:true,
+                },
+                {
+                    money:768,
+                    text:'现金',
+                    btnText:140,
+                    isCash:true,
+                },
+                {
+                    money:1088,
+                    text:'现金',
+                    btnText:200,
+                    isCash:true,
+                },
+            ],
+            itemNews:[],
+            bamboo:[{totalAmount:0},{totalAmount:0}],//切换投资额度
+            rank:[],//获奖历史记录
+            giftName:[
+                {name:'iPhone X 64G'},
+                {name:'博洋家纺羽绒被'},
+                {name:'雅诗兰黛肌因修护黄金组'},
+                {name:'小米空气净化器'},
+                {name:'小米空气净化器'},
+                {name:'泰昌全自动按摩洗脚盆'},
+                {name:'泰昌全自动按摩洗脚盆'},
+                {name:'现金红包100元'},
+                {name:'现金红包100元'},
+                {name:'现金红包100元'},
+            ],
+            totalCash:0,//累计获取的现金
+            countMoney:0,//累计投资额
+            today:[{rewardType:0},{rewardType:0}]//拆礼包
+        },
+        methods:{
+            open:function(packId,index){
+                var _this = this;
+                var type = this.getQueryString('type');
+                if(this.uid) {
+                    var id = _this.uncompileStr(this.getQueryString("uid"));
+                    $.post('/index.php?_url=/api/pack/open',{activityId:'20',uid:id,packId:packId},function(data){
+                        if(data.error_code == 0){
+                            Object.assign(_this.today[index],data.data.pack[0]);
+                            if(index == 1){
+                                _this.totalCash = data.data.totalCash;
+                            }
+                        }else{
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                }else{
+                    location.href = 'https://'+type+'.51rz.com/login.html'
+                }
+            },
+            changeActive:function(event){
+                if(event.target.className.indexOf('bar-active') > -1){
+                    return;
+                }
+                this.$data.barActive = !this.$data.barActive;
+            },
+            scroll:function(){
+                var that = this;
+                var rank = this.$refs.rank;
+                rank.style.marginTop= '-42px';
+                this.animate=!this.animate;
+                setTimeout(function(){
+                    that.itemNews.push(that.itemNews[0]);
+                    that.itemNews.shift();
+                    rank.style.marginTop='0px';
+                    that.animate = !that.animate;
+                },1000)
+            },
+            go:function(){
+                var type = this.getQueryString('type');
+                this.uid ? location.href = 'https://'+type+'.51rz.com/projectList.html':location.href = 'https://'+type+'.51rz.com/login.html';
+            },
+            getQueryString:function(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            },
+            //字符串进行解密
+            uncompileStr: function (code) {
+                code = unescape(code);
+                var c = String.fromCharCode(code.charCodeAt(0) - code.length);
+                for (var i = 1; i < code.length; i++) {
+                    c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1));
+                }
+                return c;
+            },
+            // 打开弹窗提示
+            showMsg: function(msg) {
+                $(".pc-dialog .content").text(msg);
+                $(".pc-dialog").show();
+                setTimeout(function() {
+                    $(".pc-dialog .content").text('');
+                    $(".pc-dialog").hide();
+                }, 2000);
+            },
+        },
+        created:function(){
+            var _this = this;
+            var id = this.getQueryString("uid");
+            if(id != 'undefined' && id != '') {
+                var uid = this.uncompileStr(id)
+                $.post('/index.php?_url=/api/activity/index',{activityId:'20',uid:uid},function(data){
+                    if(data&&data.error_code === 0){
+                        _this.uid = true;
+                        _this.today = data.data.pack.today;
+                        if(data.data&&data.data.bamboo.length > 0){
+                            _this.bamboo = data.data.bamboo;
+                        }
+                        _this.countMoney = data.data.rank.user;
+                        _this.rank = data.data.rank.currentRanks;
+                        _this.totalCash = data.data.pack.totalCash;
+                        _this.rank.forEach(function(item,index){
+                            item.name = _this.giftName[index].name
+                        })
+                        var luck = data.data.pack.lucks
+                        _this.itemNews = luck;
+                        if(luck.length > 0){
+                            setInterval(_this.scroll,2000)
+                        }
+                    }else{
+                        _this.rank = data.data.rank.currentRanks;
+                        _this.rank.forEach(function(item,index){
+                            item.name = _this.giftName[index].name
+                        })
+                    }
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://activity-center.51rz.com/static/css/style.css">
+    <link rel="stylesheet" href="https://activity-center.51rz.com/static/css/index.css">
+    <link rel="shortcut icon" href="https://activity-center.51rz.com/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <link rel="stylesheet" href="https://activity-center.51rz.com/components/header-footer/header-footer.css">
+    <title>春日福利撒金币 红包好礼等你羸</title>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: #fff;
+        }
+
+        .font-18 {
+            font-size: 18px;
+        }
+
+        .font-20 {
+            font-size: 20px;
+        }
+
+        .font-24 {
+            font-size: 24px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .container {
+            margin: 0 auto;
+        }
+
+        .banner {
+            width: 100%;
+            height: 485px;
+            background: url("https://images.51rz.com/images/pc/act_may/pc_may_01.png") no-repeat center top;
+        }
+
+        .may_wrap {
+            width: 867px;
+            margin: 0 auto;
+        }
+
+        .may_box1 {
+            width: 100%;
+            height: 260px;
+            background: url("https://images.51rz.com/images/pc/act_may/may_02.jpg") no-repeat center top;
+        }
+
+        .may_box1 h3 {
+            text-align: center;
+            font-size: 28px;
+            color: #568398;
+            font-weight: 500;
+            padding: 37px 5px 0 0;
+        }
+
+        .may_box1_text {
+            width: 100%;
+            color: #568398;
+            word-spacing: 1px;
+            letter-spacing:0.1px;
+            padding-top: 14px;
+        }
+
+        .dw {
+            position: relative;
+        }
+
+        .fanbei {
+            position: absolute;
+            left: 529px;
+            top: 43px;
+            width: 98px;
+            height: 106px;
+            background: url(https://images.51rz.com/images/pc/act_may/pc_pic02.jpg) no-repeat center top;
+        }
+
+        .may_sign {
+            display: inline-block;
+            color: #ff8947;
+        }
+
+        .may_sign strong {
+            font-weight: 500;
+        }
+
+        .may_sign_date {
+            display: inline-block;
+            border: 1px dashed #dde6ea;
+            border-radius: 100px;
+            padding: 3px 20px;
+            font-size: 18px;
+            color: #568398;
+            margin-top: 9px;
+        }
+
+        .may_sign_date strong {
+            font-weight: 500;
+            color: #ff8947;
+        }
+
+        .may_pic {
+            display: inline-block;
+            width: 435px;
+            height: 220px;
+            margin: 35px 0 0 59px;
+            background: url(https://images.51rz.com/images/pc/act_may/pc_pic01.jpg) no-repeat center top;
+        }
+
+        .may_pic strong {
+            font-size: 48px;
+            color: #f25540;
+            width: 100%;
+            display: inline-block;
+            padding: 66px 57px 0 0;
+        }
+
+        .may_pic small {
+            font-size: 24px;
+            color: #f25540;
+            display: inline-block;
+            padding: 0 57px 0 0;
+        }
+
+        .btn {
+            width: 240px;
+            height: 64px;
+            border: none;
+            outline: 0;
+            cursor: pointer;
+            color: #fff;
+            line-height: 62px;
+            margin-top: 45px;
+        }
+
+        .btn_red {
+            background: url(https://images.51rz.com/images/pc/act_may/btn.png) no-repeat center top;
+        }
+
+        .btn_gray {
+            background: url(https://images.51rz.com/images/pc/act_may/btn-no.png) no-repeat center top;
+        }
+
+        .dh_text {
+            display: inline-block;
+            color: #f25540;
+            margin-top: 23px;
+            font-weight: 500;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .may_box2 {
+            width: 100%;
+            height: 608px;
+            background: url("https://images.51rz.com/images/pc/act_may/pc_may_02.jpg") no-repeat center top;
+        }
+
+        .may_box3 {
+            width: 100%;
+            height: 339px;
+            text-align: center;
+            background: url("https://images.51rz.com/images/pc/act_may/pc_may_03.jpg") no-repeat center top;
+        }
+
+        .may_box3 h3 {
+            text-align: center;
+            font-size: 24px;
+            color: #568398;
+            font-weight: 500;
+            padding: 37px 5px 0 0;
+        }
+
+        .p_text {
+            width: 911px;
+            display: inline-block;
+            padding-top: 20px;
+            font-size: 20px;
+            color: #2e5f75;
+            line-height: 33px;
+        }
+
+        .p_text p {
+            text-indent: -17px;
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .fixed_bg {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            display: none;
+        }
+
+        .open_wind {
+            display: inline-block;
+            position: fixed;
+            left: 50%;
+            margin-left: -250px;
+            top: 15%;
+            width: 500px;
+            text-align: center;
+            background: #fff;
+            border: 1px solid #72d7d4;
+        }
+
+        .open_wind h3 {
+            width: 100%;
+            height: 83px;
+            line-height: 83px;
+            color: #fff;
+            font-size: 32px;
+            background: #72d7d4;
+            font-weight: 500;
+        }
+
+        .jb_list {
+            width: 100%;
+            height: 283px;
+            display: inline-block;
+            overflow-y: scroll;
+        }
+
+        .jb_list ul li {
+            width: 100%;
+            height: 94px;
+            line-height: 94px;
+            font-size: 24px;
+            text-align: center;
+            border-bottom: 1px solid #72d7d4;
+            color: #e13333;
+        }
+
+        .jb_list ul li span {
+            width: 33%;
+            float: left;
+        }
+
+        .jb_list ul li:first-child {
+            color: #333;
+        }
+
+        .bankScroll::-webkit-scrollbar {
+            width: 8px;
+            height: 16px;
+            background-color: #F5F5F5;
+        }
+
+        .bankScroll::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 3px;
+            background-color: #F5F5F5;
+        }
+
+        .bankScroll::-webkit-scrollbar-thumb {
+            border-radius: 3px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: #72d7d4;
+        }
+
+        .open_jb {
+            width: 500px;
+            height: 425px;
+            display: inline-block;
+            background: #fff;
+            border-radius: 10px;
+            position: fixed;
+            left: 50%;
+            top: 15%;
+            margin-left: -250px;
+            text-align: center;
+        }
+
+        .openPic {
+            width: 100%;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .open_jb p {
+            font-size: 28px;
+            color: #545454;
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        .tzBtn {
+            width: 240px;
+            height: 65px;
+            font-size: 24px;
+            color: #fff;
+            line-height: 65px;
+            border: none;
+            outline: 0;
+            margin-top: 30px;
+            cursor: pointer;
+            background: url(https://images.51rz.com/images/pc/act_may/tz.png) no-repeat center top;
+        }
+
+        .pc_Close {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            position: absolute;
+            bottom: -93px;
+            left: 50%;
+            margin-left: -50px;
+            cursor: pointer;
+        }
+        [v-show],[v-if]{
+            display:none;
+        }
+        .noList_text{
+            width:100%;
+            text-align:center;
+            font-size:24px;
+            color:#c9c9c9 !important;
+            border-bottom:none !important;
+        }
+    </style>
+</head>
+<body>
+<div id="header"></div>
+<div class="container">
+    <!--规则弹窗-->
+    <div class="fixed_bg" ref="fixed_bg">
+        <div class="open_wind">
+            <div class="pc_Close" @click="hideAlert('fixed_bg')"><img
+                    src="https://images.51rz.com/images/pc/act_may/app-colse.png"/></div>
+            <h3>我的金币记录</h3>
+            <div class="jb_list bankScroll">
+                <ul>
+                    <li>
+                        <span>日期</span>
+                        <span>金币</span>
+                        <span>翻倍</span>
+                    </li>
+                    <li v-for="(item,index) in myData" v-show="myData != '' ">
+                        <span v-text="item.date"></span>
+                        <span v-text="item.money"></span>
+                        <span v-show="item.active == 0">否</span>
+                        <span v-show="item.active == 1">是</span>
+                    </li>
+                    <li class="noList_text" v-show="myData == '' ">暂无记录</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   <div class="fixed_bg" ref="tenderDialog">
+        <div class="open_jb">
+            <div class="pc_Close" @click="hideAlert('tenderDialog')"><img src="https://images.51rz.com/images/pc/act_may/app-colse.png" /></div>
+            <div class="openPic"><img src="https://images.51rz.com/images/pc/act_may/open_pic.png" /></div>
+            <p>单笔投资≥30天标，即可翻倍！</p>
+            <button class="tzBtn" @click="go()">立即投资</button>
+        </div>
+    </div>
+    <div class="banner"></div>
+    <div class="may_box2">
+        <div class="may_wrap">
+            <p class="may_box1_text center" style="padding-top:50px">
+                <span class="may_sign font-24">我的金币数：<strong v-text="!!sign.goldNum?sign.goldNum:0">0</strong>个</span><br/>
+            </p>
+            <p class="may_box1_text font-20">每天签到可领取随机金币，当日完成单笔投资≥30天标，则当日所得金币翻一倍。活动结束后根据用户金币总额发放红包（10金币=1元红包)。
+            </p>
+            <!--未登录-->
+            <div class="may_box1_text center dw" v-if="!token">
+            <span class="may_pic">
+            <strong>?</strong>
+            <small>金币</small>
+            </span><br />
+            <button class="btn btn_red font-24" @click="go">签到领金币</button><br />
+            <strong class="dh_text font-20" @click="go">我的金币记录</strong>
+            </div>
+
+            <!--已登录-->
+            <div class="may_box1_text center dw" v-if="token">
+                <div class="fanbei" v-show="(sign.isSign==1&&sign.active==1) || (sign.isSign==1&&sign.active==0)"></div>
+                <span class="may_pic">
+                    <strong v-text="!!sign.isSign?parseInt(today[0].money):'?'">?</strong>
+                    <small>金币</small>
+                </span>
+                <br/>
+                <button v-if="sign.isSign==0" class="btn btn_red font-24" @click="open()">签到领金币</button>
+                <!--已签到未投资-->
+                <button v-if="sign.isSign==1&&sign.active==0" class="btn btn_red font-24" @click="showAlert('tenderDialog')">点击翻倍</button>
+                <!--已签到已投资-->
+                <button v-if="sign.isSign==1&&sign.active==1" class="btn btn_red font-24" @click="double()">点击翻倍</button>
+                <!--已签到已翻倍-->
+                <button v-if="sign.isSign==1&&sign.active==2" class="btn btn_red font-24 btn_gray" >已翻倍</button>
+                <br/>
+                <strong class="dh_text font-20" @click="showAlert('fixed_bg')">我的金币记录</strong>
+            </div>
+
+        </div>
+    </div>
+    <div class="may_box3">
+        <h3>活动规则</h3>
+        <div class="p_text">
+            <p>1.本活动新手标、债转项目、30天以下标的不计入；</p>
+            <p>2.每天签到可领取随机金币，当日完成单笔投资≥30天标，则当日所得金币翻一倍(仅翻倍一次)；</p>
+            <p>3.活动结束后3个工作日内根据用户金币总额发放红包（10金币=1元红包）。若最终用户所得总金币不满10个，则仍计为10个，可对应获得1元红包（例金币总额52个，则对应获得6元红包），红包使用规则详见券面；</p>
+            <p>4.活动最终解释权法律允许的范围归人众金服所有，如有疑问请致电客服：400-655-8858。(咨询时间：9:00--21:00）。</p>
+        </div>
+    </div>
+
+    <!-- 弹窗提示 -->
+    <div class="pc-dialog">
+        <div class="content"></div>
+    </div>
+</div>
+<div id="footer"></div>
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/components/header-footer/header-footer.js"></script>
+<script>
+    var vm = new Vue({
+        el: '.container',
+        data: {
+            token: '',//是否登录
+            animate: false,//初始化不滚动
+            barActive: true,
+            itemNews: [],
+            tabList: [],
+            bamboo: [{totalAmount: 0}, {totalAmount: 0}],//切换投资额度
+            rank: [],//获奖历史记录
+            goldNum: 0,
+            active: null,
+            isSign: 0,
+            money: '',
+            packId: '',
+            userId:0,
+            totalCash: 0,//累计获取的现金
+            countMoney: 0,//累计投资额
+            today: [{rewardType: 0}, {rewardType: 0}],
+            //拆礼包 "packId": "1",  //礼包ID
+            //"rewardType": "1",  //礼包状态 0未拆  1红包 2加息券  3任务 4现金  99谢谢惠顾
+            //"money": "100",  //红包金额 |加息幅度
+            sign:{},//"goldNum": "6",  //签到获得总金币
+                    // "active": 2,     //金币是否已翻倍 0不可翻倍 未投资 1已投资可翻倍 2已翻倍
+                    //"isSign": 1,     //今日是否已签到 1已签到 0未签到
+                    //"money": "6"  //今日获得金币
+            myData:[],
+
+        },
+        methods: {
+            showAlert: function (ref) {//显示弹框
+                var _this=this;
+                if(ref=='fixed_bg'){
+                    _this.getMyData();
+                }
+                this.$refs[ref].style.display = "block";
+
+            },
+            hideAlert: function (ref) {
+                this.$refs[ref].style.display = "none";
+            },
+            open: function () {
+                var _this = this;
+                var type = this.getQueryString('type') || 'www';
+                var packId = this.packId;
+                var token  = this.token;
+                if (token) {
+                    $.post('/index.php?_url=/api/pack/open', {
+                        activityId: '23',
+                        token: token,
+                        packId: packId
+                    }, function (data) {
+                        if (data.error_code == 0) {
+                            _this.sign.goldNum=_this.sign.goldNum*1+parseInt(data.data.pack[0].money);
+                            _this.today[0].money=parseInt(data.data.pack[0].money);
+                            _this.sign.active=0
+                            _this.sign.isSign=1
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                } else {
+                    location.href = 'https://' + type + '.51rz.com/login.html'
+                }
+            },
+            changeActive: function (event) {
+                if (event.target.className.indexOf('bar-active') > -1) {
+                    return;
+                }
+                this.$data.barActive = !this.$data.barActive;
+            },
+            actIndex: function () {
+                var _this = this;
+                var token  = this.token;
+                $.post('/index.php?_url=/api/activity/index', {activityId: 23, token: token}, function (data) {
+                    if (data && data.error_code === 0) {
+//                        _this.goldNum = data.data.pack.sign.goldNum;
+//                        _this.money = data.data.pack.sign.money;
+//                        _this.isSign = data.data.pack.sign.isSign;
+//                        _this.active = data.data.pack.sign.active;
+                        _this.today=data.data.pack.today;
+                        _this.sign=data.data.pack.sign;
+                        _this.packId = data.data.pack.today[0].packId;
+                    } else {
+
+                    }
+                });
+            },
+            getMyData:function(){
+                var _this=this;
+                var token  = this.token;
+                $.post('/index.php?_url=/api/pack/gold',{activityId: 23,token:token},function(data){
+                    if(data.error_code == 0){
+                        _this.myData = data.data;
+                    }
+                })
+            },
+            double:function(){
+                var _this = this;
+                var type = this.getQueryString('type') || 'www';
+                var token  = this.token;
+                if (token) {
+                    $.post('/index.php?_url=/api/pack/double', {
+                        activityId: '23',
+                        token: token,
+                    }, function (data) {
+                        if (data.error_code == 0) {
+                            _this.sign.goldNum=_this.sign.goldNum*1+parseInt(_this.today[0].money);
+                            _this.today[0].money=parseInt(_this.today[0].money)*2;
+                            _this.sign.active=2
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                } else {
+                    location.href = 'https://' + type + '.51rz.com/login.html'
+                }
+            },
+            go: function () {
+                var type = this.getQueryString('type') || 'www';
+                this.token ? location.href = 'https://' + type + '.51rz.com/projectList.html' : location.href = 'https://' + type + '.51rz.com/login.html';
+            },
+            getQueryString: function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            },
+            //字符串进行解密
+            uncompileStr: function (code) {
+                code = unescape(code);
+                var c = String.fromCharCode(code.charCodeAt(0) - code.length);
+                for (var i = 1; i < code.length; i++) {
+                    c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1));
+                }
+                return c;
+            },
+            // 打开弹窗提示
+            showMsg: function (msg) {
+                $(".pc-dialog .content").text(msg);
+                $(".pc-dialog").show();
+                setTimeout(function () {
+                    $(".pc-dialog .content").text('');
+                    $(".pc-dialog").hide();
+                }, 2000);
+            },
+        },
+        created: function () {
+            var _this = this;
+            var token = this.getQueryString("token");
+            if (token) {
+                _this.token=token;
+                _this.actIndex();
+                _this.getMyData();
+            } else {
+                $.post('/index.php?_url=/api/activity/index', {activityId: 23}, function (data) {
+                    var luck = data.data.pack.lucks
+                    _this.itemNews = luck;
+
+                });
+            }
+        }
+    })
+</script>
+</body>
+</html>

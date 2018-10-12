@@ -1,0 +1,68 @@
+.funnelSelectInfo {
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  .rangePicker {
+    // 时间组件日历图标位置
+    width: 200px;
+    height: 20px;
+    margin-right: 21px;
+    span {
+      background: #f3f7fd;
+      border-radius: 15px;
+      span {
+        left: 12px;
+      }
+    }
+  }
+
+  .chartsInfoContainer {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    margin-right: 63px;
+    align-items: center;
+    position: relative;
+
+    button[class="ant-btn ant-dropdown-trigger"] {
+      width: 120px;
+      height: 30px;
+      background: #f3f7fd;
+    }
+
+    button[class="ant-btn ant-dropdown-trigger ant-btn-clicked"] {
+      width: 120px;
+      height: 30px;
+      background: #f3f7fd;
+    }
+
+    .hideDropdownContainer {
+      display: none;
+    }
+
+    .dropdownContainer {
+      position: absolute;
+      top: 25px;
+      right: 0;
+      z-index: 1;
+      background: #fff;
+      box-shadow: 0 0 4px 3px #f5f5f5;
+      padding-bottom: 9px;
+
+      div[role="tab"] {
+        width: 140px;
+        text-align: center;
+      }
+
+      .displayIndicators {
+        display: flex;
+        flex-direction: column;
+
+        label[class="ant-checkbox-wrapper"] {
+          margin-left: 32px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

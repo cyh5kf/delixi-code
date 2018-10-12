@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection" />
+    <title>二十四节气专享福利</title>
+    <link rel="shortcut icon" href="http://www.51rz.com/favicon.ico" />
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+    <!--background-image: linear-gradient(to top, #fb814e,#f94638);background-image: -webkit-linear-gradient(to top, #fb814e,#f94638);-->
+    <style type="text/css">
+        *{margin: 0;padding: 0;box-sizing: border-box;-webkit-box-sizing: border-box;}
+        body{max-width:750px;margin:0 auto;background:#74a94a;}
+        img{width: 100%;display: block;}
+        ul li{list-style-type:none;}
+        #wraper{
+            margin: 0 auto;
+        }
+        .banner{
+            width: 100%;
+            height: 3.66rem;
+            background: url("https://images.51rz.com/images/app/jieqi/app-jieqi01.png") no-repeat center;
+        }
+        .box-one{
+            width:100%;
+            height:2.6rem;
+            background: url("https://images.51rz.com/images/app/jieqi/app-jieqi02.png") no-repeat center;
+        }
+        .box-title{
+            width:100%;
+            height:0.49rem;
+            text-align:center;
+            line-height:0.49rem;
+            color:#fff;
+            font-size:0.24rem;
+            background:url("https://images.51rz.com/images/app/jieqi/app-jieqi03.png") no-repeat center;
+        }
+        .box-two{
+            width:100%;
+            text-align:center;
+            padding:0 0.2rem;
+        }
+        .box-two-bg{
+            width:100%;
+            background:#fed563;
+            border-radius:0.2rem;
+            box-shadow:0 0 0.05rem #666;
+            padding:0.3rem 0.2rem 0.3rem 0.2rem;
+        }
+        .two1{
+            width:100%;
+            padding-top:0.1rem;
+            display:inline-block;
+        }
+        .twoLeft,.twoRight{
+            width:0.45rem;
+            height:1.3rem;
+            cursor:pointer;
+        }
+        .twoLeft{
+            float:left;
+            background: url("https://images.51rz.com/images/app/jieqi/appLeft.png") no-repeat center;
+        }
+        .twoRight{
+            float:right;
+            background: url("https://images.51rz.com/images/app/jieqi/appRight.png") no-repeat center;
+        }
+        .twoCenter{
+            width:5.8rem;
+            height:1.3rem;
+            float:left;
+            overflow:hidden;
+        }
+        .twoCenter li{
+            width:1.3rem;
+            height:1.3rem;
+            background:#fed563;
+            box-shadow:0 0 0.05rem #dea211;
+            float:left;
+            margin-left:0.12rem;
+        }
+        .twoCenter li p{
+            font-size:0.18rem;
+            color:#6d250f;
+            padding-top:0.1rem;
+        }
+        .twoCenter li .hot{
+            color:#ee3800;
+        }
+        .twoCenter li .green{
+            color:#51910f;
+        }
+        .twoCenter li.act{
+            background:#fff7e2;
+        }
+        .two2,.two3{
+            width:100%;
+            height:1.92rem;
+            margin-top:0.1rem;
+            background:#fff7e2;
+            box-shadow:0 0 0.05rem #f8ba27;
+            display:flex;
+            font-size:0;
+        }
+        .two2 p{
+            margin:0;
+        }
+        .two2 p:nth-child(1),.two2 p:nth-child(3){
+            width:3rem;
+            color:#64a704;
+            font-size:0;
+            margin-top:0.2rem;
+        }
+        .two2 p:nth-child(1) small,.two2 p:nth-child(3) small{
+            font-size:0.52rem;
+        }
+        .two2 p:nth-child(1) span,.two2 p:nth-child(3) span{
+            display:inline-block;
+            font-size:0.82rem;
+            color:#64a704;
+        }
+        .two2 p:nth-child(1) strong,.two2 p:nth-child(3) strong{
+            width:100%;
+            display:inline-block;
+            font-size:0.24rem;
+            font-weight:500;
+            color:#64a704;
+        }
+        .two2 p:nth-child(2){
+            width:1.06rem;
+            height:1.06rem;
+            border-radius:100%;
+            background:#fff;
+            box-shadow:0 0 0.05rem #ec6900;
+            font-size:0.72rem;
+            color:#64a704;
+            margin-top:0.45rem;
+        }
+        .two2Text{
+            width:100%;;
+            font-size:0.18rem;
+            color:#98750a;
+            padding-top:0.18rem;
+            text-align:left;
+        }
+        .two2Btn{
+            width:3rem;
+            height:0.6rem;
+            background:#dd4905;
+            color:#fff;
+            font-size:0.2rem;
+            line-height:0.6rem;
+            margin:0.3rem 0 0 1.85rem;
+            cursor:pointer;
+            border-radius:0.6rem;
+            box-shadow:0 0.03rem 0 #b3450e;
+        }
+        .two3{
+            font-size:0.24rem;
+            line-height:1.92rem;
+            display:inline-block;
+        }
+        .color1{
+            color:#6d250f;
+        }
+        .color2{
+            color:#64a704;
+        }
+        .box-there{
+            width:100%;
+            padding:0.2rem;
+            display:inline-block;
+            margin-top:0.2rem;
+        }
+        .banner,.box-one,.box-there,.box-title{
+            background-size:100% 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="wraper">
+    <div class="banner"></div>
+    <div class="box-one"></div>
+    <div class="box-title">春分加息标</div>
+    <div class="box-two">
+        <div class="box-two-bg">
+            <div class="two1">
+                <div class="twoLeft"></div>
+                <ul class="twoCenter">
+                    <li v-for="(item,index) in tabs">
+                        <p v-text="item.date"></p>
+                        <p v-text="item.name"></p>
+                        <p v-text="item.state"></p>
+                    </li>
+                    <!--<li>
+                        <p>3月05日</p>
+                        <p>惊蛰</p>
+                        <p>已结束</p>
+                    </li>
+                    <li class="act">
+                        <p>3月20日</p>
+                        <p>春分</p>
+                        <p class="hot">正在热抢</p>
+                    </li>
+                    <li>
+                        <p>4月04日</p>
+                        <p>清明</p>
+                        <p class="green">敬请期待</p>
+                    </li>-->
+                </ul>
+                <div class="twoRight"></div>
+            </div>
+
+            <div class="two2">
+                <p><span>10</span><small>%</small><strong>原始年化</strong></p>
+                <p>+</p>
+                <p><span>0.5</span><small>%</small><strong>奖励年化</strong></p>
+            </div>
+            <div class="two3 color1" style="display:none;">已结束！</div>
+            <div class="two3 color2" style="display:none;">敬请期待！</div>
+            <div class="two2Text">注：单人单标不限额</div>
+            <div class="two2Btn">点击查看</div>
+        </div>
+    </div>
+
+    <div class="box-there">
+        <div class="box-title">春分加息标</div>
+        <div class="box-two-bg"><img src="https://images.51rz.com/images/app/jieqi/appText.png" /></div>
+    </div>
+
+    <!-- 弹窗提示 -->
+    <div class="dialog-tip">
+        <div class="content"></div>
+    </div>
+</div>
+
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript">
+    //    避免页面从缓存中加载
+    window.onpageshow = function(e){
+        e = e || event;
+        if(e.persisted){
+            location.reload();
+        }
+    }
+
+    function getParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r!=null) return unescape(r[2]); return null; //返回参数值
+    }
+    var uid= getParam("uid")||0;
+    var isLogined =uid?true:false;//是否登录
+    window.vm=new Vue({
+        el:"#wraper",
+        data:{
+            uid:uid,
+            isLogined:isLogined,   //是否登录
+            tabs:[
+                {
+                    date:'2月18日',
+                    name:'雨水',
+                    state:'已结束'
+                },
+                {
+                    date:'3月05日',
+                    name:'惊蛰',
+                    state:'已结束'
+                },
+                {
+                    date:'3月20日',
+                    name:'春分',
+                    state:'已结束'
+                },
+                {
+                    date:'4月04日',
+                    name:'清明',
+                    state:'已结束'
+                },
+                {
+                    date:'4月04日',
+                    name:'清明',
+                    state:'已结束'
+                },
+                {
+                    date:'4月04日',
+                    name:'清明',
+                    state:'已结束'
+                },
+                {
+                    date:'4月04日',
+                    name:'清明',
+                    state:'已结束'
+                },
+                {
+                    date:'4月04日',
+                    name:'清明',
+                    state:'已结束'
+                },
+                {
+                    date:'4月04日',
+                    name:'清明',
+                    state:'已结束'
+                },
+                {
+                    date:'4月04日',
+                    name:'清明',
+                    state:'已结束'
+                },
+            ],
+        },
+        methods: {
+
+            showAlert:function(ref){//显示弹框
+                this.$refs[ref].style.display="block";
+            },
+            hideAlert:function(ref){
+                this.$refs[ref].style.display="none";
+            },
+            changeActive:function(event){
+                if(event.target.className.indexOf('active') > -1){
+                    return;
+                }
+                this.$data.barActive = !this.$data.barActive;
+            },
+            scroll:function(){
+                var that = this;
+                var rank = this.$refs.rank;
+                rank.style.marginTop= '-0.45rem';
+                this.animate=!this.animate;
+                setTimeout(function(){
+                    that.itemNews.push(that.itemNews[0]);
+                    that.itemNews.shift();
+                    rank.style.marginTop='0';
+                    that.animate = !that.animate;
+                },1000)
+            },
+            go:function(){
+                if(this.$data.isLogined){
+                    location.href="https://m.51rz.com/tender/index"
+                }else{
+                    location.href="https://m.51rz.com/login"
+                }
+            },
+            but:function(packId,index){
+                var _this = this;
+                if(_this.$data.isLogined) {
+                    $.post('/index.php?_url=/api/pack/open',{activityId:20,uid:uid,packId:packId},function(data){
+                        if(data.error_code == 0){
+                            Object.assign(_this.today[index],data.data.pack[0]);
+                            if(index == 1){
+                                _this.totalCash = data.data.totalCash;
+                            }
+                        }else{
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                }else{
+                    location.href = 'https://m.51rz.com/login'
+                }
+            },
+            // 打开弹窗提示
+            showMsg: function(msg) {
+                $(".dialog-tip .content").text(msg);
+                $(".dialog-tip").show();
+                setTimeout(function() {
+                    $(".dialog-tip .content").text('');
+                    $(".dialog-tip").hide();
+                }, 2000);
+            },
+        },
+        created:function () {
+            var _this = this;
+            if(_this.uid){//如果uid存在 说明是app端 需要加uid 参数
+                _this.$data.uid=uid;
+                $.post('/index.php?_url=/api/activity/index',{activityId:20,uid:uid},function(data) {//活动主接口
+                    if(data && data.error_code == 0){
+                        _this.isLogined = true;
+                        _this.today = data.data.pack.today;
+                        _this.user = data.data.rank.user;
+                        _this.totalCash = data.data.pack.totalCash;
+                        _this.rank = data.data.rank.currentRanks;
+                        _this.bamboo = data.data.bamboo;
+                        _this.rank.forEach(function(item,index){
+                            item.name = _this.giftName[index].name
+                        });
+                        var luck = data.data.pack.lucks
+                        _this.itemNews = luck;
+                        if(luck.length > 0){
+                            setInterval(_this.scroll,2000)
+                        }
+                    }else{
+                        _this.rank = data.data.rank.currentRanks;
+                        _this.rank.forEach(function(item,index){
+                            item.name = _this.giftName[index].name
+                        })
+                    }
+                });
+            }
+        }
+    })
+</script>
+</body>
+</html>

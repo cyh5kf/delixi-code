@@ -1,0 +1,22 @@
+@import "../../assets/css/libs/mixin.scss";
+
+.btn{
+    $btnH:46px;
+    @include box((w:360px,h:$btnH,lh:$btnH,ta:center,fs:16px,d:block));
+    cursor: pointer;
+    &.red{
+        @include box((bg:$red,c:$white))
+    }
+    &.borderRed{
+        @include box((bg:$white,c:$red,bd:1px solid $red))
+    }
+    &.blue{
+        @include box((bg:$blue,c:$white))
+    }
+    &.borderBlue{
+        @include box((bg:$white,c:$blue,bd:1px solid $blue))
+    }
+    &.gray{
+        @include box((bg:#ccc,c:$white))
+    }
+}

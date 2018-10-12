@@ -1,0 +1,49 @@
+.packRulesView {
+    .noAllowed {
+        cursor: not-allowed;
+        color: #ccc;
+    }
+
+    .newItem {
+        cursor: pointer;
+        margin-top: 5px;
+        display: inline-block;
+    }
+
+    .submitContent {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .submitBtn {
+            width: 200px;
+            height: 40px;
+        }
+    }
+
+    .rewardContent {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .tabs-tabpane {
+        width: 100%;
+        transition: opacity .45s;
+        opacity: 1;
+        flex-shrink: 0;
+    }
+
+    .tabpane-active {
+        
+    }
+
+    .tabpane-inactive {
+        opacity: 0;
+        height: 0;
+        padding: 0 !important;
+        pointer-events: none;
+    }
+
+    
+}

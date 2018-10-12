@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection" />
+    <title>新年翻牌乐 天天领红包</title>
+    <link rel="shortcut icon" href="http://www.51rz.com/favicon.ico" />
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <script type='text/javascript' src='https://assets.growingio.com/sdk/wx/vds-wx-plugin.js'></script>
+    <script type="text/javascript">
+        (function() {
+            var deviceWidth = document.documentElement.clientWidth;
+            if(deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+    </script>
+    <script>
+        // 统计脚本
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5395127f074c49150bc6578ff60ff4e8";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            var uid = getParam("uid");
+            if(uid) {
+                _vds.push(['setCS1', 'user_id', uid])
+            }
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+<!--    <script type="text/javascript">
+        document.write('<script charset="utf-8" src="/api/t.php?d='+(new Date().getTime())+'" type="text/javascript"></sc' + 'ript>');
+    </script>-->
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+        body{
+            max-width:750px;
+            margin:0 auto;
+            background-image: linear-gradient(to top, #fb814e,#f94638);
+            background-image: -webkit-linear-gradient(to top, #fb814e,#f94638);
+        }
+        img{
+            width: 100%;
+            display: block;
+        }
+        ul li{
+            list-style-type:none;
+        }
+        .flopBanner{
+            width:100%;
+            height:3.1rem;
+            background:url(https://images.51rz.com/images/app/flop/app-flop01.png) no-repeat center top;
+            background-size:100% 100%
+        }
+        .flopBanner1{
+            width:100%;
+            height:6.2rem;
+            background:url(https://images.51rz.com/images/app/flop/app-flop02.png) no-repeat center top;
+            background-size:100% 100%
+        }
+        .flopBtn{
+            width:100%;
+            text-align:center;
+            font-size:0;
+            padding-top:0.1rem;
+        }
+        .flopBtn span{
+            display:inline-block;
+            width:5.35rem;
+            height:0.88rem;
+            font-size:0.36rem;
+            color:#fff;
+            line-height:0.88rem;
+            border-radius:1rem;
+            background-image: linear-gradient(to top, #e564e3,#fd6df7,#e564e3);
+            background-image: -webkit-linear-gradient(to top, #e564e3,#fd6df7,#e564e3);
+            box-shadow:0 0 0.2rem #fc3c40;
+        }
+        .flopFooter{
+            width:100%;
+            text-align:center;
+            padding:0.6rem 0;
+        }
+        .flopFooter p{
+            display:inline-block;
+            width:6.9rem;
+            background:#ef5654;
+            border-radius:0.2rem;
+            font-size:0.24rem;
+            color:#fff;
+            padding:0.2rem;
+            text-align:left;
+        }
+        .flopFooter p strong{
+            display:inline-block;
+            width:100%;
+            font-size:0.28rem;
+            font-weight:500;
+        }
+        .flopFooter p span{
+            width:100%;
+            display:inline-block;
+            text-indent:-0.4rem;
+            padding-left:0.4rem;
+            padding-top:0.1rem;
+            line-height:0.4rem;
+        }
+
+        .hbNo{
+            width:100%;
+            text-align:center;
+            padding-top:1.95rem;
+            padding-right:0.1rem;
+            color:#ffeec4;
+            font-size:0.82rem;
+        }
+
+        .hb2{
+            width:100%;
+            text-align:center;
+            padding-top:1.95rem;
+            padding-right:0.1rem;
+            color:#f65352;
+            font-size:0.82rem;
+        }
+        .hb2 span{
+            font-size:0.3rem;
+            font-weight:600;
+        }
+        .hbText{
+            width:100%;
+            padding:0.32rem 2.6rem 0 2.4rem;
+            font-size:0.24rem;
+            color:#fff;
+            text-align:center;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wraper">
+    <div class="flopBanner"></div>
+    <div class="content" v-for="(item,index) in today">
+        <div class="flopBanner1">
+            <div class="hbNo" v-show="item.rewardType == 0">￥</div>
+            <div class="hb2" v-show="item.rewardType != 0"><small v-text="Number(item.money).toFixed(0)"></small><span>元</span></div>
+            <div class="hbText"  v-show="item.rewardType == 1">恭喜获得<span v-text="Number(item.money).toFixed(0)"></span>元红包</div>
+            <div class="hbText"  v-show="item.rewardType == 3">投<span v-text="Number(item.amount).toFixed(0)"></span>元<span v-text="item.limitDayText"></span>得<span v-text="Number(item.money).toFixed(0)"></span>元红包</div>
+        </div>
+        <div class="flopBtn">
+            <span v-show="item.rewardType == 0" @click="but(item.packId,index)">立即翻牌</span>
+            <span v-show="item.rewardType == 1 && item.used == 1">红包已使用</span>
+            <span v-show="item.rewardType == 1 && item.used == 0" @click="go('https://m.51rz.com/tender/index')">去使用</span>
+            <span v-show="item.rewardType == 3 " @click="go('https://m.51rz.com/tender/index')">去投资</span>
+        </div>
+    </div>
+    <div class="flopFooter">
+        <p>
+            <strong>活动规则：</strong>
+            <span>1、活动时间：2018年1月1日－2018年1月31日；</span>
+            <span>2、每天翻牌可获得红包，完成红包任务要求单笔投资；红包当天有效，100元起投，限90天以上项目可用。</span>
+        </p>
+    </div>
+
+    <!-- 弹窗提示 -->
+    <div class="dialog-tip">
+        <div class="content"></div>
+    </div>
+</div>
+
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript">
+    //    避免页面从缓存中加载
+    window.onpageshow = function(e){
+        e = e || event;
+        if(e.persisted){
+            location.reload();
+        }
+    }
+
+    function getParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r!=null) return unescape(r[2]); return null; //返回参数值
+    }
+    var uid= getParam("uid")||0;
+    var isLogined =uid?true:false;//是否登录
+    window.vm=new Vue({
+        el:"#wraper",
+        data:{
+            uid:uid,
+            isLogined:isLogined,   //是否登录
+            today:[{rewardType:0}],
+        },
+        methods: {
+            go:function(url){
+                location.href = url;
+            },
+            but:function(packId,index){
+                var _this = this;
+                if(_this.$data.isLogined) {
+                    $.post('/index.php?_url=/api/pack/open',{activityId:19,uid:uid,packId:packId},function(data){
+                        if(data.error_code == 0){
+                            Object.assign(_this.today[index],data.data.pack[0])
+                        }else{
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                }else{
+                    location.href = 'https://m.51rz.com/login'
+                }
+            },
+            // 打开弹窗提示
+            showMsg: function(msg) {
+                $(".dialog-tip .content").text(msg);
+                $(".dialog-tip").show();
+                setTimeout(function() {
+                    $(".dialog-tip .content").text('');
+                    $(".dialog-tip").hide();
+                }, 2000);
+            },
+        },
+
+        created:function () {
+            var _this = this;
+            if(_this.uid){//如果uid存在 说明是app端 需要加uid 参数
+                _this.$data.uid=uid;
+                _this.$data.isLogined = true;
+                $.post('/index.php?_url=/api/activity/index',{activityId:19,uid:uid},function(data) {//活动主接口
+                    if(data.error_code == 0){
+                        _this.isLogined = true;
+                        _this.today = data.data.pack.today;
+                    }
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

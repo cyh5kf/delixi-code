@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta  name="format-detection" content="telephone=no"/>
+	<meta name="wap-font-scale" content="no" />
+	<link href="../../static/css/channel.css" rel="stylesheet" />
+	<script src="../../static/js/sha256.js"></script>
+	<script src="../../static/js/md5.js"></script>
+	<script src="../../static/js/jquery-1.11.1.min.js"></script>
+	<script src="../../static/js/register.js"></script>
+	<title>人众金服</title>
+	<script type="text/javascript">
+		(function() {
+			var deviceWidth = document.documentElement.clientWidth;
+			if(deviceWidth > 750) deviceWidth = 750;
+			document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+		})();
+		//WPS渠道
+		function seed() {
+			var channel = getParam('channel');
+			var extra = getParam("extra"),
+					userid = getParam("userid");
+
+			if(channel == 'wps-wap') {
+				//获取当前日期
+				var expiresDate = new Date();
+				//设置生存期，一天后过期
+				expiresDate.setDate(expiresDate.getDate() + 30);
+				//document.cookie = "channel=wps-wap;expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+				document.cookie = "extra="+extra+";expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+				document.cookie = "userid="+userid+";expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+				/* document.cookie = "channel=wps-wap;expires= " + expiresDate.toGMTString()+"; domain=demo3.renrunkeji.com; path=/;";
+				 document.cookie = "extra="+extra+";expires= " + expiresDate.toGMTString()+"; domain=demo3.renrunkeji.com; path=/;";
+				 document.cookie = "userid="+userid+";expires= " + expiresDate.toGMTString()+"; domain=demo3.renrunkeji.com; path=/;"; */
+			}
+		}
+		seed();
+	</script>
+	<script>
+		(function(root) {
+			root._tt_config = true;
+			var tt_version = '1.2.6';
+			var ta = document.createElement('script'); ta.type = 'text/javascript'; ta.async = true;
+			ta.src = document.location.protocol + '//' + 's3.pstatp.com/adstatic/resource/landing_log/dist/' + tt_version + '/static/js/toutiao-tetris-analytics.js';
+			ta.onerror = function () {
+				var request = new XMLHttpRequest();
+				var web_url = window.encodeURIComponent(window.location.href);
+				var js_url  = ta.src;
+				var url = '//ad.toutiao.com/link_monitor/cdn_failed?web_url=' + web_url + '&js_url=' + js_url;
+				request.open('GET', url, true);
+				request.send(null);
+			}
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ta, s);
+		})(window);
+	</script>
+	<script>
+
+		/**
+		 * 智能机浏览器版本信息:
+		 **/
+		var browser = {
+			versions: function() {
+				var u = navigator.userAgent,
+						app = navigator.appVersion;
+				return { //移动终端浏览器版本信息
+					trident: u.indexOf('Trident') > -1,
+					//IE内核
+					presto: u.indexOf('Presto') > -1,
+					//opera内核
+					webKit: u.indexOf('AppleWebKit') > -1,
+					//苹果、谷歌内核
+					gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
+					//火狐内核
+					mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/),
+					//是否为移动终端
+					ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+					//ios终端
+					android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+					//android终端或者uc浏览器
+					iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1,
+					//是否为iPhone或者QQHD浏览器
+					iPad: u.indexOf('iPad') > -1,
+					//是否iPad
+					webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+				};
+			} (),
+			language: (navigator.browserLanguage || navigator.language).toLowerCase()
+		}
+		/**
+		 * 下载APP
+		 */
+		function Down() {
+			var appUrl = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.rd.rozo360';
+			//苹果
+			if (browser.versions.ios || browser.versions.iPhone || browser.versions.iPad) {
+				var channel = getParam('channel');
+				appUrl ="http://a.app.qq.com/o/simple.jsp?pkgname=com.rd.rozo360";
+			}
+			//安卓
+			if (browser.versions.android) {
+				var channel = getParam('channel');
+				if(channel=="app-sinaweibo1"){         //渠道1
+					appUrl = "http://old.51rz.com/data/qiantuhao-rzjf-release1.apk";
+				}else if(channel=="app-sinaweibo2"){   //渠道2
+					appUrl = "http://old.51rz.com/data/qiantuhao-rzjf-release2.apk";
+				}else{                             //默认渠道
+					appUrl = "http://a.app.qq.com/o/simple.jsp?pkgname=com.rd.rozo360";
+				}
+			}
+			window.location=appUrl;
+			//alert(browser+appUrl);
+		}
+	</script>
+	<style type="text/css">
+		ul li{ list-style:none}
+		*{ margin:0; padding:0;box-sizing: border-box;}
+		img{ vertical-align:middle;}
+		body{
+			font: 400 14px/1.5 "microsoft yahei",Helvetica,STHeiTi,sans-serif;
+		}
+		a{text-decoration: none;}
+		.v1-wrap{
+			width: 100%;max-width: 750px;margin: 0 auto;background:#4b7fe7;padding-bottom: 0.4rem;
+		}
+		.v1-banner{background: #fe660e;}
+		.v1-banner img{width:100%;display:block;}
+		.v1-box1 > img,.v1-box2 > img{margin-top: 0.7rem;}
+		.v1-box1 ul li,.v1-box2 ul li{float:left;width: 50%;text-align: center;padding-top: 0.67rem;}
+		.v1-box1 ul li img{width: 2.89rem;}
+		.v1-box1 > p{font-size: 0.23rem;color: #595757;padding-top:0.4rem;text-align: center;}
+		.v1-box2 ul{margin-top:0.2rem;}
+		.v1-box2 ul li{padding-top: 0.5rem;}
+		.v1-box2 ul li img{width:1.72rem;}
+		.v1-box1 ul::after,.v1-box2 ul::after{content: '';display: table;clear: both;}
+		.v1-box2 ul li p{
+			font-size: 0.3rem;color: #313131;padding-top: 0.1rem;line-height: 1.6;
+		}
+		.v1-box2 ul li p span{font-size: 0.24rem;}
+		.v1-box2 > a{font-size:0.38rem;color: #fff;display: block;width: 6rem;padding: 0.25rem 0;text-align: center;background: #f9480a;margin:0.7rem auto 0;
+			border-radius: 5px;box-shadow: 0 3px #2a3447;line-height: 1;
+		}
+		.v1-footer{width:100%;text-align: center;}
+		.v1-footer p{text-align: center;}
+		.v1-footer p img{width: 0.44rem;}
+		.v1-footer p.v1-text{font-size: 0.34rem;color: #010101;font-weight: bold;padding-top: 0.8rem;}
+		.v1-footer p.v1-text2{font-size: 0.28rem;color: #04225c;padding-top: 0.3rem;border-bottom:1px dashed #04225c;display:inline-block;padding-bottom:0.2rem;}
+		.v1-footer p.v1-text3{font-size: 0.21rem;padding-top: 0.3rem;color:#04225c}
+		/*  */
+		.xsfx-reg-box{border-radius: 0;position: fixed;left: 0;top: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.7);z-index: 1;display:none;}
+		.register_passwords, .register_usenames
+		{background:#fff;border:none;color:#606061;font-size:0.3rem;height:0.8rem;line-height:0.8rem;border-radius:0.2rem}
+		::-webkit-input-placeholder {color: #606061; }
+		:-moz-placeholder {color: #606061; }
+		::-moz-placeholder {color: #606061; }
+		:-ms-input-placeholder {color: #606061; }
+		.reg-tip{color:#0000EE;font-size:0.24rem;}
+		.timeval{background:#e6a110;color:#FFF;border:1px solid #fff;border-radius:0.2rem}
+		.phone-ico img{width:auto;height:0.4rem}
+		.inputDiv label a {color: #fff;}
+		.inputDiv label{color:#ccc}
+		.tg-but{height:0.8rem;font-size:0.32rem;border-radius:0.5rem;color:#fff;box-shadow:none;line-height:0.8rem;background:#4b7ee7;cursor:pointer;margin-top:0.2rem;}
+		.tg-reg-text{text-align:center;color:#666;}
+		.tg-reg-text a{color:#4f1602;}
+		.phone-ico{top:0.2rem;}
+		#numcode{position: absolute;top: 0.07rem;right:0.05rem;border-radius:0.2rem;width: 1.8rem;height: 0.65rem;background: #fee5b0;}
+		.showPwd {
+			position: absolute;top: 0;right: 0;font-size: 0.24rem;color: #522a05;width: 1.3rem;text-align: center;}
+		.showPwd img{width:0.4rem;}
+		.reg-checkbox{color:#555;font-size:0.26rem;}
+		.reg-checkbox a{color:#555;}
+		.reg-checkbox input{position:relative;top:0.05rem;}
+		.tg-reg-text{font-size:0.26rem;color: #fff;}
+		.xsfx-login-box{height: 4.15rem;color: #fff;background:url(https://images.51rz.com/images/wechat/tg/wx-login-bg.png) no-repeat center top;background-size: cover;}
+		.xsfx-login-box a{width: 1.9rem;height: 0.62rem;display: inline-block;font-size: 0.3rem;color: #9e2a02;margin: 0 0.3rem;padding: 0.05rem 0.4rem 0 0;background:url(https://images.51rz.com/images/wechat/tg/wx-hb-btn.png)no-repeat center top;background-size: cover;}
+		.xsfx-login-box h3{padding: 0.8rem 0 0.4rem 0.5rem;}
+		.xsfx-login-box div { width: 100%;}
+		.xsfx-reg-list li{width:90%;margin:0 auto;height:0.85rem;border:1px solid #a9a9a9;margin-top:0.2rem;background:rgba(225,225,225,0.8);border-radius:0.2rem;}
+		.xsfx-reg-list{width:100%;margin:0 auto;padding: 0.2rem 0;}
+		.margin3{margin:0 auto;width:90%;}
+		.reg_container{width:90%;background:#fff;padding-bottom:0.4rem;border: 2px solid #4b7ee7;border-top:none;border-radius:0.2rem;position: absolute;left: 5%;top: 15%;}
+		.reg_container h3{width:100%;height:0.7rem;background:#4b7ee7;border-radius:0.2rem 0.2rem 0 0;padding:0.1rem;}
+		.reg_container h3 img{width:0.51rem;height:0.51rem;float:right;}
+		.banner-container{background:#45c251}
+		.banner-container img{display: block;}
+		.xsfx-reg-box{border-radius:0;}
+		.reg_footer{padding:0.9rem 0.7rem;background: #fff0d1;font-size: 0.25rem;line-height: 1.7;color: #0a0a0a;}
+		.reg_footer h3{font-size:0.4rem;font-weight:normal;}
+		.reg_footer h3 img{width: 0.29rem;margin-right: 0.1rem; margin-top: -0.05rem;}
+		.pop-container{position: fixed;margin: 0 auto;max-width: 750px;height: 100%;left:0;top: 0;
+			width:100%;background:rgba(0,0,0,0.5);display: none;}
+		.pop-wrap{
+			width: 93.3%;height:7.95rem;position: absolute;left: 0;right: 0;top: 50%;
+			margin: 0 auto;margin-top: -4rem;z-index: 100;
+		}
+		.reg-success{width:86.4%;height:7.95rem;margin: 0 auto;background: #fcdcc3;height: 100%;text-align: center;}
+		.pop-wrap img.img1{width:100%;position: absolute;left: 0;top:-0.4rem;}
+		.reg-success img.img2{width:60%;margin-top: 1rem;}
+		.pop-wrap img.img3{width:0.58rem;position: absolute;right: 0.1rem;top:-1rem;}
+		.reg-success p{font-size: 0.28rem;color: #393838;padding-top: 0.24rem;font-weight: bold;}
+		.reg-success a{font-size:0.3rem;display: block;width:70%;height: 0.7rem;background:#ffff00;box-shadow: 0 3px;
+			color:#ff0000;line-height: 0.7rem;margin: 0 auto;margin-top: 0.2rem;border-radius: 0.2rem;}
+		.mask{position: fixed;top:0;left: 0;z-index:10;width: 100%;height: 100%;background: #000;opacity: 0.8;}
+		.dialog{position: fixed;left: 16%;  top: 20%;  z-index: 11;  width: 67%;  height: 7.4rem;  background: #fff;}
+		.dialog img{width: 120%;margin-left: -10%;margin-top: -1rem;}
+		.dialog p{color: #111;text-align: center;margin-top: 0.2rem;font-size: 0.2rem;line-height: 0.4rem;}
+		.dialog a{    background: #3599fd;  display: block;  width: 3.4rem;  height: 0.6rem;  text-align: center;  line-height: 0.6rem;  font-size: 0.28rem;  color: #fff;  border-radius: 5px;  margin: 0.2rem auto 0;}
+		.clx{position: absolute;top: -51px;  right: -26px;  width: 30px;  height: 30px;}
+
+		.xcq-box{width:100%;padding:0.4rem 0.3rem 0 0.3rem;}
+		.xcq-box p{width:100%;display:inline-block;font-size:0.24rem;position: relative;padding-left: 0.22rem;}
+		.xcq-box p strong{color:#c11516;font-weight: normal;}
+		.xcq-box p span{padding-left:0.15rem;line-height:0.45rem;display:inline-block;}
+
+		.xcq-box p:before{content: '●';font-size:16px;color: #c11516;position: absolute;left: 0;top: -0.06rem;}
+
+		.dd-z{width:100%;display:inline-block;padding:0.3rem 0.2rem 0 0.2rem;font-size:0.24rem;position:relative;}
+		.dd-z span{width:7rem;display:inline-block;padding-left: 0.7rem;color:#c11516}
+		.dd-z:before{content: '注：';font-size: 0.24rem;color: #c11516;padding-left:0.3rem;position:absolute;top:0.3rem;left:0;}
+
+		.fm-bg{width:100%;height:100%;background:rgba(0,0,0,0.5);position:fixed;left:0;top:0;z-index:10;padding-top:1.8rem;}
+		.fm-pic{width:7.5rem;}
+		.fm-pic img{width:7.5rem;height:6.28rem;}
+		.fm-btn{width:100%;text-align:center;}
+		.fm-btn a{margin-top: 0.3rem;width: 3.42rem;height: 0.68rem;display: inline-block;}
+		.fm-btn a img{width:3.42rem;height:0.68rem;}
+
+		.ykxcq{width:100%;padding:0 0.17rem;}
+		.ykxcq_box{width:100%;background:#fff;border-radius:0.1rem;padding:0.2rem 0;text-align:center;margin-top:0.2rem;}
+		.ykxcq_box img{width:100%;}
+		.ykxcq_box p{width:100%;text-align:center;padding-top:0.2rem;}
+		.ykxcq_box p span{
+			display:inline-block;
+			width:2.8rem;
+			height:0.64rem;
+			font-size:0.3rem;
+			color:#6c3106;
+			line-height:0.6rem;
+			border:2px solid #d78104;
+			border-radius:0.1rem;
+			cursor:pointer;
+			background-color: #42c264;
+			background-image: -webkit-linear-gradient(#f6e7b5, #ec9218);
+			background-image: -moz-linear-gradient(#f6e7b5, #ec9218);
+			background-image: -o-linear-gradient(#f6e7b5, #ec9218);
+			background-image: -ms-linear-gradient(#f6e7b5, #ec9218);
+			background-image: -chrome-linear-gradient(#f6e7b5, #ec9218);
+			background-image: linear-gradient(#f6e7b5, #ec9218);
+		}
+		.ykGz{width:100%;border:2px solid #fff;border-radius:0.1rem;padding:0.2rem;margin-top:0.3rem;}
+		.ykGz h3{width:100%;text-align:center;padding-bottom:0.2rem;}
+		.ykGz h3 img{width:4.82rem;height:0.5rem;display:inline-block;}
+		.ykGz p{width:100%;font-size:0.24rem;line-height:0.4rem;color:#fff;text-indent:-0.23rem;padding-left:0.4rem;}
+
+	</style>
+</head>
+<body>
+<div class="v1-wrap">
+	<div class="v1-banner">
+		<img src="https://images.51rz.com/images/wechat/channel/xicq/ykxcq1.png"/>
+		<img src="https://images.51rz.com/images/wechat/channel/xicq/ykxcq2.png"/>
+	</div>
+	<!--reg-box-->
+	<div id="regbox" class="xsfx-reg-box">
+		<div class="reg_container">
+			<h3><img src="https://images.51rz.com/images/wechat/channel/xicq/ykclose.png" class="ykclose" /></h3>
+			<ul class="xsfx-reg-list">
+				<li style="margin-top:0">
+					<div class="phone-box">
+						<div class="phone-ico"><img src="https://images.51rz.com/images/icon/wx-icon.png"></div>
+						<input type="text" id="mobile" name="mobile" onkeyup="this.value=this.value.replace(/\D/g,'');" maxlength="11" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="请输入手机号码" class="register_usenames">
+					</div>
+				</li>
+				<li>
+					<div class="phone-box">
+						<div class="phone-ico"><img src="https://images.51rz.com/images/icon/wx-icon1.png"></div>
+						<div class="showPwd">
+							<img src="https://images.51rz.com/images/icon/wx-icon5.png" id="pwdLogo"><br>
+							<span id="pwdText">显示密码</span>
+						</div>
+						<div id="pwdControl">
+							<input type="password" id="password" name="password" class="register_passwords" placeholder="请设置6到16位密码">
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="phone-box">
+						<div class="phone-ico"><img src="https://images.51rz.com/images/icon/wx-icon3.png"></div>
+						<input type="text" id="verycode" name="verycode" placeholder="请输入图片验证码" class="register_usenames">
+						<img id="numcode" onclick="this.src='https://m.51rz.com/apiApp/pcrimg.html?imgToken=' + new Date().getTime() + '' + Math.floor(Math.random() * 10000);" alt="点击刷新" align="absMiddle" src="">
+					</div>
+				</li>
+				<li>
+					<div class="phone-box">
+						<div class="phone-ico"><img src="https://images.51rz.com/images/icon/wx-icon2.png"></div>
+						<input type="text" id="phonecode" name="phonecode" maxlength="6" onkeyup="this.value=this.value.replace(/\D/g,'');" class="register_usenames" placeholder="请输入短信验证码">
+						<div class="phone-info"><div class="timeval" id="btnSendPhoneCode" style="line-height:0.7rem;">获取验证码</div></div>
+					</div>
+				</li>
+			</ul>
+			<div class="margin3">
+				<p class="reg-checkbox">
+					<input type="checkbox" id="chk_lic" name="checkbox" checked="checked">
+					已阅读并同意<a href="xys.html">《人众金服服务协议》</a>
+				</p>
+			</div>
+			<div class="margin3">
+				<button type="button" class="tg-but" id="btnReg" style="cursor:pointer;">立即领取</button>
+			</div>
+		</div>
+	</div>
+	<div id="bt" class="xsfx-login-box" >
+		<div>
+			<h3>登录成功</h3>
+			<p>如需注册新用户，请从个人中心退出登录</p>
+			<a href="https://m.51rz.com/tender/index">我要理财</a>
+			<a href="https://m.51rz.com/my/index">个人中心</a>
+		</div>
+	</div>
+	<!--box2-->
+	<div class="ykxcq">
+		<div class="ykxcq_box">
+			<img src="https://images.51rz.com/images/wechat/channel/xicq/ykxcq3.png" />
+			<p>
+				<span class="ykBtn">立即领取</span>
+			</p>
+		</div>
+	</div>
+	<div class="ykxcq">
+		<div class="ykGz">
+			<h3><img src="https://images.51rz.com/images/wechat/channel/xicq/ykxcq4.png" /></h3>
+			<p>● 活动时间：2017年10月16日00:00起，本次活动仅针对活动期间内注册的新用户；</p>
+			<p>● 用户需投资30天及以上的理财产品，才可领取奖励（新手标、债券转让标不在活动范围内）；</p>
+			<p>● 活动奖励不叠加，需首次投资才可获取相应的奖励；</p>
+			<p>● 活动期间产生的任何手续费用及手续费用由用户自理；</p>
+			<p>● 券类奖励将在用户注册成功后每周五发放投资人众金服的手机号码，请前往车点点PC端“我的账户-我的赠券”或车点点APP端“我-优惠券”查看；</p>
+			<p>● 每个身份证仅限参加一次，刷奖或冒用他人身份证、银行卡者一经核实，取消活动资格，所得奖励不予承兑；</p>
+			<p style="color:#04225c;">★本活动规则解释权归人众金服所有，如有疑问请联系在线客服或拨打400-655-8858。本活动不代表任何投资建议，投资有风险请谨慎选择</p>
+		</div>
+	</div>
+	<div class="v1-footer">
+		<p class="v1-text2">
+			红包为投资理财代金券<br />理财有风险　入市需谨慎
+		</p>
+		<p class="v1-text3">
+			浙江人众金融服务股份有限公司<br />
+			<span>@人众金服www.51rz.com　浙ICP备13009823号-1</span>
+		</p>
+
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+    //    避免页面从缓存中加载
+    window.onpageshow = function(e){
+        e = e || event;
+        if(e.persisted){
+            location.reload();
+        }
+    }
+    var result = Register.getCookie(Register.userInfoName,true);
+	//判断登录状态1
+	if(result&&result.uid){
+		$("#bt").show();
+		$("#bt div h3").html("您已登录");
+		$("#regbox").hide();
+	}else{
+		$("#bt").hide();
+	}
+	$('.ykBtn').click(function() {
+		$('.xsfx-reg-box').show();
+	});
+	$('.ykclose').click(function() {
+		$('.xsfx-reg-box').hide();
+	})
+	/*显示密码  */
+	$(function(){
+		var _showPwd = false;
+		$(".showPwd").click(function(){
+			if(!_showPwd){
+				var pwd = $("#password").val();
+				$("#pwdControl").html('<input type="text" id="password" name="password" class="register_passwords" placeholder="请设置6到16位密码" value="' + pwd +
+						'" onkeyup="value = value.replace(/[\u4e00-\u9fa5]/g, \'\')">');
+				$("#pwdLogo").attr("src","https://images.51rz.com/images/icon/wx-icon5.png");
+				$("#pwdText").text("隐藏密码");
+			}else{
+				var pwd = $("#password").val();
+				$("#pwdControl").html('<input type="password" id="password" name="password" class="register_passwords" placeholder="请设置6到16位密码" value="' + pwd + '">');
+				$("#pwdLogo").attr("src","https://images.51rz.com/images/icon/wx-icon4.png");
+				$("#pwdText").text("显示密码");
+			}
+			_showPwd = !_showPwd;
+		});
+	});
+</script>
+</html>

@@ -1,0 +1,244 @@
+@import "../libs/mixin.scss";
+
+.headerWraper{
+    @include position((p:relative));
+    padding:0 30px;
+    border-bottom:1px solid $gray;
+    height:48px;
+    overflow: hidden;
+    .noticeBar{
+        @include box((d:block));
+        @include position((p:relative,z:1));
+        .header {
+            @include box((lh:48px,h:48px,bg:$white));
+            p:first-child{
+                @include box((fl:left,c:$black5,fs:12px,p:0 0 0 30px));
+                @include background((url:'icon_email.png',repeat:no-repeat,pos:left center,size:20px 14px));
+                position: relative;
+                &:before{
+                    content:'';
+                    @include box((d:block,w:7px,h:7px,bg:$red,bdr:50%));
+                    @include position((p:absolute,l:15px,t:16px));
+                }
+            }
+            p:last-child{
+                @include box((fl:right,c:$black9,fs:12px));
+            }
+        }
+    }
+    .safeTest{
+        @include box((w:100%,h:48px,lh:50px,p:0 31px,bg:$white,fs:12px,c:#555));
+        @include position((p:absolute,t:0,l:0,z:2));
+        p{
+            width:600px;
+            float: left;
+            padding-left:30px;
+            @include background((url:'member/safeTestIcon.png',pos:left center,repeat:no-repeat,size:20px 20px));
+        }
+        a{
+            @include box((fl:right,c:$blue));
+        }
+    }
+    &.animate{
+        transform-origin: 50% 50%;
+        .noticeBar{
+            animation:rotate 8s infinite;
+        }
+        .safeTest{
+            animation:rotate1 8s infinite;
+        }
+        @keyframes rotate {
+            0% {
+                transform:rotateX(0deg);
+                z-index: 2;
+            }
+            50% {
+                transform:rotateX(180deg);
+                z-index: 1;
+            }
+            100% {
+                transform:rotateX(360deg);
+                z-index: 2;
+            }
+        }
+        @keyframes rotate1 {
+            0% {
+                transform:rotateX(-180deg);
+                z-index: 1;
+            }
+            50% {
+                transform:rotateX(0deg);
+                z-index: 2;
+            }
+            100% {
+                transform:rotateX(180deg);
+                z-index: 1;
+            }
+        }
+    }
+}
+
+
+.msgCont{
+    @include clearfix();
+    @include box((p:30px));
+    border-bottom:2px solid $gray;
+    .left,.right{
+        @include box((fl:left));
+        h4{
+            @include box((lh:62px,fs:18px,fw:normal,c:$black2));
+            span{
+                @include box((fs:14px));
+            }
+            a{
+                @include box((c:$blue,fl:right,fs:12px));
+            }
+        }
+        h5{
+            @include box((fs:36px,c:$red,fw:normal))
+        }
+        p{
+            @include box((m:20px 0 0 0))
+        }
+    }
+    .left{
+        @include box((w:310px));
+        .btn{
+            @include box((d:inline-block,lh:24px,w:86px,ta:center,bd:1px solid $red,m:0 20px 0 0))
+        }
+        .btnRed{
+            @include box((bg:$red,c:$white))
+        }
+        .btnRedBorder{
+            @include box((c:$red,bd:1px solid $red))
+        }
+    }
+    .right{
+        @include box((w:250px,p:0 55px 0 0));
+        p{
+            @include box((c:$black9));
+            span{
+                @include box((c:$black5,fs:16px));
+            }
+        }
+    }
+    .couponArea{
+        @include clearfix();
+        @include box((w:344px,fl:right,h:140px,m:35px 0 0 0));
+        @include background((url:'member/split_line.png',pos:left top,repeat:no-repeat));
+        >a{
+            @include box((h:124px,p:74px 0 0 0,fl:left,m:0 0 0 65px));
+            p{
+                @include box((lh:60px,c:$black6));
+                span{
+                    @include box((c:$orange,m:0 5px))
+                }
+            }
+        }
+        .redPacket {
+            @include background((url:'member/redpacket.png',pos:top center,size:84px 72px,repeat:no-repeat))
+        }
+        .coupon{
+            @include background((url:'member/coupon.png',pos:top center,size:82px 74px,repeat:no-repeat))
+        }
+    }
+
+}
+
+//存管
+.cunGuanArea{
+    @include box((lh:66px,h:66px,p:0 30px));
+    @include clearfix();
+    border-bottom:2px solid $gray;
+    p{
+        @include box((fl:left,p:0 0 0 130px));
+        @include background((url:'member/icon_bank_bj.png',repeat:no-repeat,pos:left center,size:100px 30px));
+    }
+    a{
+        @include box((fl:right,c:$blue));
+    }
+}
+
+.hasCunGuanArea{
+    @include box((p:40px 30px));
+    border-bottom:2px solid $gray;
+    .title{
+        @include box((p:0 0 0 130px,lh:30px,m:0 0 15px 0,c:#555));
+        @include background((url:'member/icon_bank_bj.png',repeat:no-repeat,pos:left center,size:102px 28px));
+    }
+    .msg{
+        @include clearfix();
+        .left,.right{
+            @include box((fl:left,w:390px));
+            p{
+                @include box((lh:30px,c:$black5))
+            }
+        }
+    }
+}
+
+.circleArea{
+    @include box((p:30px));
+    >h4{
+        @include box((lh:55px,fs:16px,fw:normal));
+        span{
+            @include box((fs:12px))
+        }
+    }
+    .circleCont{
+        min-height: 240px;
+        @include clearfix();
+        div:first-child{
+            @include box((w:180px,fl:left,m:90px 0 0 0,fs:16px,c:#555));
+            p.money{
+                @include box((c:$orange,fs:24px,lh:40px))
+            }
+        }
+        .graph{
+            @include box((fl:left,w:200px,h:200px,m:20px 0 0 150px));
+            position: relative;
+            canvas{
+                @include box((w:200px,h:200px));
+            }
+            div{
+                @include position((p:absolute,t:50%,l:-85px));
+                @include box((h:20px,lh:20px,m:-10px 0 0 0,fs:20px,c:$black9));
+            }
+        }
+        .desc{
+            @include box((fl:left,w:200px,h:200px,m:0 0 0 110px));
+            li{
+                @include box((m:0 0 20px));
+                overflow: visible;
+                h4 {
+                    @include box((fw:normal, fs:14px,c:$black5,lh:36px,h:36px));
+                    position: relative;
+                    span{
+                        @include box((fs:20px,c:$black2,fl:right))
+                    }
+                    &:before{
+                        content:'';
+                        @include box((d:block,w:6px,h:6px,bdr:50%,bg:$orange,m:-3px 0 0 0));
+                        @include position((p:absolute,l:-10px,t:50%))
+                    }
+                }
+                &:first-child{
+                    h4:before{
+                        @include box((bg:$blue));
+                    }
+                }
+                &:last-child{
+                    h4:before{
+                        @include box((bg:$green));
+                    }
+                }
+                p{
+                    @include box((lh:22px,fs:12px,c:$black9));
+                    span{
+                        @include box((fl:right))
+                    }
+                }
+            }
+        }
+    }
+}

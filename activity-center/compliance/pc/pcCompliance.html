@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/components/header-footer/header-footer.css">
+    <title>人众金服合规之路</title>
+    <style type="text/css">
+        html,body{
+            margin: 0;
+            padding: 0;
+            background:#f7f2ff;
+        }
+        ul li{
+            margin:0;
+            padding:0;
+            list-style-type: none;
+        }
+        .container{
+            margin: 0 auto;
+        }
+        .pcCompliance1{
+            background:url("https://images.51rz.com/images/pc/compliance/pcHg01.png") no-repeat center top;
+            height:560px !important;
+        }
+        .pcCompliance2{
+            background:url("https://images.51rz.com/images/pc/compliance/pcHg02.png") no-repeat center top;
+        }
+        .pcCompliance3{
+            background:url("https://images.51rz.com/images/pc/compliance/pcHg03.png") no-repeat center top;
+        }
+        .pcCompliance4{
+            background:url("https://images.51rz.com/images/pc/compliance/pcHg04.png") no-repeat center top;
+        }
+        .pcCompliance5{
+            background:url("https://images.51rz.com/images/pc/compliance/pcHg05.png") no-repeat center top;
+        }
+        .pcCompliance6{
+            background:url("https://images.51rz.com/images/pc/compliance/pcHg06.png") no-repeat center top;
+        }
+        .pcCompliance7{
+            background:url("https://images.51rz.com/images/pc/compliance/pcHg07.png") no-repeat center top;
+            height:530px !important;
+            text-align:center;
+        }
+        .pcCompliance7 span{
+            width:369px;
+            height:70px;
+            display:inline-block;
+            margin-top:365px;
+            cursor:pointer;
+        }
+        .hg{
+            width:100%;
+            height:500px;
+            background-size:cover;
+        }
+        
+    </style>
+</head>
+<body>
+<div id="header"></div>
+    <div class="container">
+        <div class="pcCompliance1 hg"></div>
+        <div class="pcCompliance2 hg"></div>
+        <div class="pcCompliance3 hg"></div>
+        <div class="pcCompliance4 hg"></div>
+        <div class="pcCompliance5 hg"></div>
+        <div class="pcCompliance6 hg"></div>
+        <div class="pcCompliance7 hg">
+            <span @click="backTop"><img src="https://images.51rz.com/images/pc/compliance/pcHgbtn.png" /></span>
+        </div>
+    </div>
+<div id="footer"></div>
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/components/header-footer/header-footer.js"></script>
+<script>
+    var vm = new Vue({
+        el:'.container',
+        data:{
+            uid:false,//是否登录
+        },
+        methods:{
+            backTop() {
+                document.body.scrollTop = 0
+                document.documentElement.scrollTop = 0
+            },
+            getQueryString:function(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            },
+            //字符串进行解密
+            uncompileStr: function (code) {
+                code = unescape(code);
+                var c = String.fromCharCode(code.charCodeAt(0) - code.length);
+                for (var i = 1; i < code.length; i++) {
+                    c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1));
+                }
+                return c;
+            }
+        },
+        created:function(){
+
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+@import "../../assets/css/libs/mixin.scss";
+
+
+.borrowPersonInfoDialog{
+    h5{
+        @include box((fs:16px));
+        font-weight: normal;
+    }
+    .gridTable{
+        @include box((w:100%,m:20px auto));
+        &.first{
+            thead{
+                th{
+                    font-weight: 600;
+                }
+            }
+        }
+        thead{
+            background-color: #f5f5f5;
+        }
+        tr{
+            @include box((h:40px));
+        }
+        th,td{
+            @include box((lh:36px,ta:center,fs:15px));
+            border:1px solid #eaeaea;
+            font-weight: normal;
+        }
+    }
+}

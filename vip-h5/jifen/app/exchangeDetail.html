@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="wap-font-scale" content="no"/>
+    <title>商品详情</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico"/>
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+</head>
+<style>
+    html {
+        font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft Yahei, STHeiTi, Arial, sans-serif;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0.22rem;
+        box-sizing: border-box;
+        line-height: 1.5;
+        text-decoration: none;
+        color: #222;
+    }
+
+    body {
+        background: #f6f6f6;
+    }
+
+    #container {
+        max-width: 7.5rem;
+        margin: 0 auto;
+    }
+
+    .banner {
+        width: 100%;
+        height: 3.7rem;
+        background: #eaf0f7;
+        padding-top: 0.8rem;
+    }
+
+    .goods {
+        display: block;
+        width: 3.03rem;
+        height: 2.09rem;
+        margin: 0 auto;
+    }
+
+    .banner .redpack {
+        width: 3.03rem;
+        height: 2.09rem;
+        margin: 0 auto;
+        background: url('https://images.51rz.com/images/jifen/redpack.png') ;
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .banner .interest {
+        background: url('https://images.51rz.com/images/jifen/interest.png') ;
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        padding: 0 0.1rem;
+    }
+
+    .redpack .title {
+        text-align: center;
+        line-height: 0.89rem;
+        font-size: 0.36rem;
+        color: #ffb4a1;
+    }
+
+    .interest .title {
+        color: #f0cd9c;
+        border-bottom: 0.02rem dashed #ebc796;
+    }
+
+    .redpack p {
+        font-size: 0.74rem;
+        color: #fff;
+        text-align: center;
+    }
+
+    .redpack p span {
+        font-size: 0.44rem;
+        color: #fff;
+    }
+
+    .rule {
+        padding: 0.35rem 0.3rem 0.5rem 0.3rem;
+        background: #fff;
+    }
+    u{
+        font-weight: 500;
+        color:#d7a55e;
+        font-size: 0.24rem;
+    }
+
+    /*.rule h5 {*/
+    /*margin-top: 0.35rem;*/
+    /*padding-left: 0.3rem;*/
+    /*font-size: 0.28rem;*/
+    /*color: #222;*/
+    /*font-weight: 500;*/
+    /*position: relative;*/
+    /*!*margin-bottom: 0.1rem;*!*/
+    /*}*/
+    .rule ul li > span{
+        display: block;
+        margin-top: 0.35rem;
+        padding-left: 0.3rem;
+        font-size: 0.28rem;
+        color: #222;
+        font-weight: 500;
+        position: relative;
+        /*margin-bottom: 0.1rem;*/
+    }
+
+    .rule ul li > span span {
+        display: block;
+        font-size: 0.28rem;
+        color: #222;
+        font-weight: 500;
+        position: relative;
+        /*margin-bottom: 0.1rem;*/
+    }
+
+    /*.rule h5:before {*/
+    /*content: '';*/
+    /*display: inline-block;*/
+    /*width: 0.1rem;*/
+    /*height: 0.1rem;*/
+    /*border-radius: 50%;*/
+    /*background: #999;*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*top: 0;*/
+    /*bottom: 0;*/
+    /*margin: auto;*/
+    /*}*/
+
+    .rule ul li > span:before{
+        content: '';
+        display: inline-block;
+        width: 0.1rem;
+        height: 0.1rem;
+        border-radius: 50%;
+        background: #999;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    /*.rule>p:nth-child(2)>span{*/
+    /*color: #d7a55e;*/
+    /*padding-left: 0.3rem;*/
+    /*font-size: 0.24rem;*/
+    /*}*/
+    .rule > p{
+        padding-left: 0.3rem;
+    }
+    .rule > p > span {
+        /*padding-left: 0.3rem;*/
+        font-size: 0.24rem;
+        color: #555;
+    }
+
+    .rule > p > span span {
+        font-size: 0.24rem;
+        color: #555;
+    }
+
+    .rule > p.name > span {
+        color: #d7a55e;
+    }
+
+    .clearfix:after {
+        content: '';
+        width: 0;
+        height: 0;
+        display: block;
+        clear: both;
+    }
+
+    .btnBox {
+        width: 100%;
+        height: 1.98rem;
+        background: #fff;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        z-index: 2;
+        padding: 0 0.3rem;
+    }
+
+    .btnBox p {
+        line-height: 0.8rem;
+        font-size: 0.28rem;
+        color: #999;
+    }
+
+    .btnBox p span {
+        font-size: 0.28rem;
+        color: #f64c3e;
+    }
+
+    .btnBox .btn {
+        width: 100%;
+        height: 0.8rem;
+        background: #f64c3e;
+        color: #fff;
+        border-radius: 0.4rem;
+        line-height: 0.8rem;
+        font-size: 0.36rem;
+    }
+
+    .dialog {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 3;
+    }
+
+    .dialogContent {
+        width: 6rem;
+        height: 2.56rem;
+        background: #fff;
+        border-radius: 0.07rem;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .dialogContent p {
+        line-height: 1.66rem;
+        font-size: 0.32rem;
+        color: #222;
+        text-align: center;
+        border-bottom: 0.01rem solid #e5e5e5;
+    }
+
+    .dialogBtnBox {
+        height: 0.89rem;
+        padding: 0.2rem 0;
+    }
+
+    .dialogBtn {
+        width: 50%;
+        float: left;
+        text-align: center;
+        line-height: 0.5rem;
+        font-size: 0.32rem;
+        color: #555;
+        position: relative;
+    }
+
+    .dialogBtn.sure:before {
+        content: '';
+        position: absolute;
+        width: 0.01rem;
+        height: 0.5rem;
+        background: #e5e5e5;
+        left: 0;
+    }
+
+    .resultDialog {
+        position: fixed;
+        top: 35%;
+        left: 5%;
+        z-index: 30;
+        width: 90%;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 0.2rem;
+        text-align: center;
+    }
+
+    .dialogContent.content {
+        background: url(https://images.51rz.com/images/jifen/exchange_success.png) center no-repeat;
+        background-position: center 0.59rem;
+        background-size: 4.60rem 2.21rem;
+        background-color: #fff;
+        padding-top: 2.66rem;
+    }
+    .dialogContent.content .close{
+        display: block;
+        position:absolute;
+        width:0.24rem;
+        height:0.24rem;
+        top:0.21rem;
+        right:0.21rem;
+        background: url(/static/img/close_dialog.png) center/cover no-repeat;
+    }
+
+    .dialogContent.content .btnBox {
+        position: absolute;
+        bottom: 0.4rem;
+        width: 100%;
+        height: 0.8rem;
+        padding: 0 0.4rem;
+    }
+
+    .dialogContent.content .btnBox .btn {
+        width: 2.4rem;
+        height: 0.8rem;
+    }
+    .dialogContent.content .btnBox .btn a{
+        font-size: 0.36rem;
+        color:#fff;
+        display: block;
+        width:100%;
+        height:100%;
+        line-height: 0.8rem;
+    }
+
+    [v-show] {
+        display: none
+    }
+    .changeResult{
+        width:50%;
+        position:fixed;
+        left:25%;
+        top:35%;
+        background:rgba(0,0,0,0.7);
+        /*height:0.8rem;*/
+        border-radius: 0.2rem;
+        text-align:center;
+        font-size: 0.24rem;
+        color:#fff;
+        padding:0.25rem 0.3rem;
+    }
+</style>
+<body>
+<div id="container" class="container">
+    <div class="banner">
+        <img v-show="couponDetail.goods_type==2" :src="couponDetail.gallery" alt="" class="goods">
+        <div v-show="couponDetail.cate_id==2" class="redpack">
+            <div class="title">红包</div>
+            <p>{{couponDetail.coupon_money}} <span>元</span></p>
+        </div>
+        <div v-show="couponDetail.cate_id==3" class="redpack interest">
+            <div class="title">加息券</div>
+            <p>{{couponDetail.coupon_money}} <span>%</span></p>
+        </div>
+    </div>
+    <div class="rule" v-html="couponDetail.wap_goods_detail">
+        <!--<h5 style="margin-top:0">商品介绍：</h5>-->
+        <!--<p class="name" v-text="couponDetail.coupon_name"></p>-->
+        <!--<p v-text="couponDetail.goods_detail"></p>-->
+        <!--<h5 v-show="couponDetail.goods_type!==2">使用范围：</h5>-->
+        <!--<p v-show="couponDetail.goods_type!==2" v-text="couponDetail.borrow_limit_desc"></p>-->
+        <!--<h5 v-show="couponDetail.goods_type!==2">有限期：</h5>-->
+        <!--<p v-show="couponDetail.goods_type!==2" v-text="couponDetail.expire_time_desc"></p>-->
+        <!--<h5>温馨提示：</h5>-->
+        <!--<p v-text="couponDetail.coupon_remind"></p>-->
+    </div>
+    <div class="btnBox">
+        <p>单价&nbsp;<span v-text="Number(couponDetail.change_integral).toFixed(0)+'积分'"></span></p>
+        <div class="btn" @click="exchangeDialog">立即兑换</div>
+    </div>
+    <div class="dialog" v-show="showDialog">
+        <div class="dialogContent">
+            <p>确认兑换么？</p>
+            <div class="dialogBtnBox">
+                <div class="dialogBtn" @click="closeDialog">取消</div>
+                <div class="dialogBtn sure" style="color:#222" @click="doExchange">确认</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog" v-show="showResult">
+        <div class="dialogContent content" :style="{width:'6rem',height:'5.46rem'}">
+            <i class="close" @click="showResult=false"></i>
+            <p>兑换成功</p>
+            <div class="btnBox">
+                <div class="btn" :style="{float:'left',background:'#4992ec'}"><a :href="'https://'+type+'.51rz.com/my/redPacket'">查看详情</a></div>
+                <div class="btn" :style="{float:'right'}"><a :href="'https://'+type+'.51rz.com/tender/index'">立即使用</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="changeResult" v-show="!!resultDesc" v-text="resultDesc"></div>
+</div>
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script>
+    //    避免页面从缓存中加载
+    window.onpageshow = function (e) {
+        e = e || event;
+        if (e.persisted) {
+            location.reload();
+        }
+    }
+
+    function getParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值
+    }
+
+    var goods_id = getParam('goods_id');
+    var token = getParam('token');
+    var type = getParam('type') || 'testm';
+    var vm = new Vue({
+        el: '#container',
+        data: {
+            couponDetail: {},
+            showDialog: false,
+            showResult: false,
+            resultDesc: '',
+            type:type,
+        },
+        methods: {
+            doExchange: function () {
+                var self = this;
+                $.post('/index.php?_url=/vipshop/goods/addOrder', {
+                    token: token,
+                    goods_id: goods_id,
+                    source: 1
+                }, function (data) {
+                    const result= JSON.parse(data);
+                    self.showDialog = false;
+                    if(result.error_code===0){
+                        self.showResult = true;
+                    }else{
+                        self.resultDesc = JSON.parse(data).msg;
+                        setTimeout(function(){
+                            self.resultDesc=''
+                        },2000)
+                    }
+                })
+            },
+            exchangeDialog: function () {
+                this.showDialog = true;
+            },
+            closeDialog: function () {
+                this.showDialog = false;
+            },
+            getDetail: function () {
+                var self = this;
+                $.post('/index.php?_url=/vipshop/goods/goodsInfo', {source: 1, goods_id: goods_id}, function (date) {
+                    self.couponDetail = JSON.parse(date).data;
+                })
+            }
+        },
+        computed: {
+            changeType: function () {
+                var tyleArr = ['0', '积分', '现金', '积分和现金']
+                if (this.couponDetail.id) {
+
+                }
+            }
+        },
+        created: function () {
+            this.getDetail();
+        }
+    })
+
+</script>
+</body>
+</html>

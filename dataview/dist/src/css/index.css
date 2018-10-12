@@ -1,0 +1,700 @@
+body, html {
+    /* width: 100%; */
+    height: 100%;
+    width: 38rem;
+
+}
+
+#container {
+    /* width: 100%; */
+    /* height: 100%; */
+    width: 38rem;
+    height: 21.37rem;
+    background: url(https://images.51rz.com/images/dataview/bg.png) no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    padding: .3rem .8rem .4rem;
+    display: flex;
+}
+
+.box_canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.box_canvas .con{
+    display: flex;
+    justify-content: center;
+    margin-top: -.3rem;
+}
+
+.box_canvas .con div{
+    padding: .1rem .1rem;    
+    margin: .1rem;
+}
+.box_canvas .con div span:first-child{
+    color: #fff;
+}
+.box_canvas .con .app{
+    border:1px solid #53fbc3;
+    background: rgba(83,251,195,0.3);
+    color:#53fbc3;
+}
+
+.box_canvas .con .web{
+    border:1px solid #2588ff;
+    background: rgba(37,136,255,0.3);
+    color:#2588ff;
+}
+.box_canvas .con .wep{
+    border:1px solid #f8a036;
+    background: rgba(248,160,54,0.3);
+    color:#f8a036;
+}
+
+.datacenter {
+    width: 19.2rem;
+    height: 100%;
+    position: relative;
+}
+
+.area {
+    position: absolute;
+    top: 6.5rem;
+    right: 1rem;
+}
+.area ul li{
+    font-size: .3rem;
+    line-height: .6rem;
+    border-bottom: 1px solid #53fbc3;
+}
+.area ul li span.proportion{
+    color: #53fbc3;
+    float: right;
+}
+.area ul li span.name{
+    color: #fff;
+}
+.area  li span.ranking{
+    padding-right: .3rem;
+    color: #f8a036;
+}
+.area ul li:nth-child(4) span.ranking{
+    color: #fff;
+}
+.area ul li:nth-child(5) span.ranking{
+    color: #fff;
+}
+
+.dataright {
+    width: 9.6rem;
+    height: 100%;
+    color: #fff;
+    padding-right: .4rem;
+}
+.dataright header{
+    text-align: right;
+
+}
+
+.dataright header div:nth-child(1) i{
+    /* font-size: .65rem; */
+}
+.clock {
+    display: inline-block;
+    height: .46rem;
+    width: .42rem;
+    background: url(https://images.51rz.com/images/dataview/clock.png) no-repeat;
+    background-size: 100% 100%;
+
+}
+.dataright header div:nth-child(1) span{
+    font-size: .6rem;
+}
+.dataright header div:nth-child(2) p{
+    font-size: .2rem;
+    display: inline;
+    margin-left: .2rem;
+}
+
+.dataright section {
+    position: relative;
+    margin-top: .4rem;
+    height: 12rem;
+    padding: .2rem .5rem;
+}
+.dataright section div.lt{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: .5rem;
+    border-top: 1px solid #53fbc3;
+    border-left: 1px solid #53fbc3;
+    height: .5rem;
+}
+.dataright section div.rt{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top: 1px solid #53fbc3;
+    border-right: 1px solid #53fbc3;
+    width: .5rem;
+    height: .5rem;
+}
+.dataright section div.lb{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid #53fbc3;
+    border-left: 1px solid #53fbc3;
+    width: .5rem;
+    height: .5rem;
+}
+.dataright section div.rb{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-bottom: 1px solid #53fbc3;
+    border-right: 1px solid #53fbc3;
+    width: .5rem;
+    height: .5rem;
+}
+
+.sdtzl {
+    margin-top: 1.1rem;
+}
+
+.logo {
+    width: 3.66rem;
+    height: .93rem;
+    background: url(https://images.51rz.com/images/dataview/logo.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.yhljsy {
+    margin-top: 1.12rem;
+}
+
+.yhljsy .num {
+    font-size: 1rem;
+    height: 1rem;
+    color: #2e8bff;
+}
+
+.yhljsy .label {
+    font-size: .3rem;
+    line-height: 1rem;
+    height: .72rem;
+    color: #fff;
+}
+
+.ljjybs {
+    margin-top: 1rem;
+}
+
+.ljjybs .num {
+    font-size: 1rem;
+    height: 1rem;
+    color: #f69f43;
+}
+
+.ljjybs .label {
+    line-height: 1rem;
+    font-size: .3rem;
+    height: .72rem;
+    color: #fff;
+}
+
+#chart {
+    width: 8.6rem;
+    height: 4.3rem;
+}
+
+.title {
+    position: relative;
+}
+
+.title .icon {
+    position: absolute;
+    top: .08rem;
+    left: 0;
+    width: .1rem;
+    height: .28rem;
+    background-color: #f69f43;
+}
+
+.title .content {
+    padding-left: .63rem;
+}
+
+ .headTitle {
+    font-size: .3rem;
+    color: #fff;
+}
+
+ .subTitle {
+    font-size: .18rem;
+    color: #808080;
+    margin-top: .1rem;
+}
+
+.tzrs24 {
+    margin-top: 1.26rem;
+}
+
+.sddlldb {
+    margin-top: 1.05rem;
+}
+
+.sddlldb .sdContent {
+    margin: 1.3rem 0 0 .6rem;
+}
+
+.sddlldb .common {
+    width: 7.52rem;
+    height: .92rem;
+    line-height: .92rem;
+    margin-bottom: .36rem;
+    text-align: center;
+    font-size: .36rem;
+    padding: 0 .4rem;
+}
+
+.sddlldb .common .fl {
+    float: left;
+    color: #fff;
+}
+
+.sddlldb .common .fr {
+    float: right;
+}
+
+.sddlldb .app {
+    border: 1px solid #5cfac4;
+    background-color: rgba(92, 250, 196, 0.4);
+}
+
+.sddlldb .sdContent .ct {
+    color: #5cfac4;
+    display: inline-block;
+    width: 2rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sddlldb .app .fr {
+    color: #5cfac4;
+}
+
+.sddlldb .web {
+    border: 1px solid #2e8bff;
+    background-color: rgba(46, 139, 255, 0.4);
+}
+
+.sddlldb .web .ct {
+    color: #2e8bff;
+}
+
+.sddlldb .web .fr {
+    color: #2e8bff;
+}
+
+.sddlldb .wap {
+    border: 1px solid #f69f43;
+    background-color: rgba(246, 159, 67, 0.4);
+}
+.sddlldb .wap .ct {
+    color: #f69f43;
+}
+
+.sddlldb .wap .fr {
+    color: #f69f43;
+}
+
+.message {
+    height: .53rem;
+    margin-top: .69rem;
+    /* border: 1px solid red; */
+    padding-left: .60rem;
+    background: url(https://images.51rz.com/images/dataview/speaker.png) no-repeat;
+    background-size: .37rem .30rem;
+    background-position-y: .10rem;
+    font-size: .3rem;
+    color: #5cfac4;
+    overflow: hidden;
+    position: relative;
+}
+
+.message .content {
+    line-height: .53rem;
+    /* position: absolute;
+    top: 0;
+    left: .5rem; */
+    /* transition: margin-top .5s;
+    -webkit-transition: margin-top .5s;
+    -o-transition: margin-top .5s;
+    -moz-transition: margin-top .5s; */
+}
+
+
+
+.ljjye{
+    width:100%;
+    position:relative;
+}
+.ljjye .accumulate{
+    width:100%;
+    position:absolute;
+    left:0;
+    top:.25rem;
+    z-index:10;
+    text-align:center;
+}
+.ljjye .accumulate p{
+    width:100%;
+}
+
+.ljjye .accumulate p small{
+    width:.25rem;
+    height:.89rem;
+    font-size:1rem;
+    color:#fff;
+}
+.accumulateText{
+    width:100%;
+    font-size:.3rem;
+    color:#fff;
+    padding-top:.2rem;
+}
+
+.center-bottom {
+    position: fixed;
+    bottom: .3rem;
+    left:9.3rem;
+    padding-top: .2rem;
+    display: flex;
+}
+
+.tznvbl .nvContent {
+    width: 6.73rem;
+    margin: 1.76rem 0 0 1.46rem;
+}
+
+.tznvbl .nvTop {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tznvbl .nvTop .man .avatar {
+    width: .9rem;
+    height: 1.31rem;
+    background: url(https://images.51rz.com/images/dataview/man_avatar.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.tznvbl .nvTop .women .avatar {
+    width: .81rem;
+    height: 1.31rem;
+    background: url(https://images.51rz.com/images/dataview/woman_avatar.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.tznvbl .man, .tznvbl .women {
+    display: flex;
+}
+
+.tznvbl .man .info {
+    margin: .10rem 0 0 .4rem;
+}
+
+.tznvbl .women .info {
+    margin: .1rem .4rem 0 0;
+    text-align: right;
+}
+
+.tznvbl .name {
+    font-size: .3rem;
+}
+
+.tznvbl .scale {
+    margin-top: .10rem;
+    font-size: .60rem;
+}
+
+.tznvbl .man .scale {
+    color: #f69f43;
+}
+
+.tznvbl .women .scale {
+    color: #5cfac4;
+}
+
+.tznvbl .nvBottom {
+    margin-top: .53rem;
+    font-size: 0;
+    -webkit-text-size-adjust:none;
+}
+
+.tznvbl .processLine {
+    width: .1rem;
+    height: .50rem;
+    margin-right: .34rem;
+    display: inline-block;
+}
+
+.tznvbl .processLine:last-child {
+    margin-right: 0;
+}
+
+.tzrxzzb {
+    margin-left: 1.44rem;
+}
+
+.tzrxzzb #radar-chart {
+    margin-left: 1.12rem;
+}
+
+.tzrxzzb .date{
+    position: absolute;
+    bottom: .2rem;
+    right: 0;
+    font-size: .18rem;
+    color: #808080;
+}
+.tzragezb {
+    position: fixed;
+    width: 9rem;
+    height: 7.1rem;
+    bottom: 0;
+    right: 0.8rem;
+    /* margin-top: .8rem; */
+}
+.tzragezb .date{
+    position: absolute;
+    bottom: .5rem;
+    right: 0.8rem;
+    font-size: .18rem;
+    color: #808080;
+    /* margin-top: .8rem; */
+}
+.tzragezb .title {
+    width: 9rem;
+}
+.tzragezb .con {
+    width: 9rem;
+    margin-top: .5rem;
+}
+.tzragezb .con .list{
+    font-size: .2rem;
+    display: flex;
+    width: 9rem;
+    margin-bottom: .4rem;
+}
+.tzragezb .con .list .title{
+    flex: 2;
+    color: #fff;
+    text-align: right;
+    padding-right: .2rem;
+}
+.tzragezb .con .list .line{
+    width: 6rem;
+    background: rgba(83,251,195,0.3);
+    border-radius: .5rem;
+}
+.tzragezb .con .list .line p{
+    background: rgba(83,251,195,1);
+    height: .4rem;
+    border-radius: .5rem;
+}
+
+.tzragezb .con .list .per{
+    flex: 1;
+    padding-left: .2rem;
+    color: #53fbc3;
+}
+
+.tzragezb .con .list div{
+    height: .4rem;
+}
+
+.amount {
+    overflow: hidden;
+    /* padding-left: 10px; */
+    display: flex;
+}
+.amount .b3d {
+    perspective: 50rem;
+    /* backface-visibility: hidden; */
+    padding-bottom: .2rem;
+    float: left;
+    margin: .05rem;
+}
+
+.amount .out {
+    border:1px solid #40dba7;
+    background:#1c6b6a;
+    width: .6rem;
+    height: .91rem;
+    margin: 0 .05rem ;
+}
+.ljjye .accumulate p span{
+    width:.48rem;
+    height:.89rem;
+    border:1px solid #40dba7;
+    background:#1c6b6a;
+    color:#fff;
+    text-align:center;
+    font-size:.8rem;
+}
+.amount .b3d .range {
+    width: .49rem;
+    height: .91rem;
+    backface-visibility: hidden;
+    /* overflow: hidden; */
+    transform: translateY(-.1rem);
+    position: relative;
+    /* border: 1px solid #c18; */
+    transition:transform 5s linear;
+    /*指定子元素定位在三维空间内*/
+    transform-style: preserve-3d;
+    /* transform:  rotateY(90deg); */
+       /*让所有item的父级元素（即items）旋转，item就是围绕着旋转了*/
+      /* animation: autoMove 4s infinite linear alternate; */
+      /* transform:  rotateX(-360deg);     */
+}
+.amount .b3d .anmt{
+      animation: autoMov 4s infinite linear ;    
+}
+.amount .out:nth-child(2) .b3d p.anmt{
+    animation: autoMove 4s infinite linear ;    
+}
+@-webkit-keyframes autoMove {
+    0% {
+        transform: rotateX(0) translateY(-.1rem);
+        
+    }
+    25% {
+        
+        transform: rotateX(0) translateY(-.1rem);
+    }
+    75% {
+        transform: rotateX(360deg) translateY(-.1rem);
+    }
+    100% {
+        transform: rotateX(360deg) translateY(-.1rem);       
+    }
+}
+@-webkit-keyframes autoMov {
+    0% {
+        transform: rotateX(0) translateY(-.1rem);
+        
+    }
+    40% {
+        
+        transform: rotateX(0) translateY(-.1rem);
+    }
+    90% {
+        transform: rotateX(360deg) translateY(-.1rem);
+    }
+    100% {
+        transform: rotateX(360deg) translateY(-.1rem);       
+    }
+}
+
+.amount .b3d .range:hover {
+}
+.amount .b3d .range span{
+    background-color: #022445;
+    /* font-size:60px ; */
+    position: absolute;
+    backface-visibility: hidden;
+    left: 0;
+    background: none;
+    border: none;    
+    top: 0;
+}
+.amount .b3d .range span:nth-child(1){
+    transform: translateZ(2rem)
+}
+.amount .b3d .range span:nth-child(2){
+    transform:rotateX(36deg) translateZ(2rem) ;
+}
+.amount .b3d .range span:nth-child(3){
+    transform:rotateX(72deg) translateZ(2rem) ;
+}
+.amount .b3d .range span:nth-child(4){
+    transform: rotateX(108deg) translateZ(2rem);
+}
+.amount .b3d .range span:nth-child(5){
+    transform: rotateX(144deg) translateZ(2rem);
+}
+.amount .b3d .range span:nth-child(6){
+    transform: rotateX(180deg) translateZ(2rem);
+}
+.amount .b3d .range span:nth-child(7){
+    transform: rotateX(216deg) translateZ(2rem);
+}
+.amount .b3d .range span:nth-child(8){
+    transform: rotateX(252deg) translateZ(2rem);
+}
+.amount .b3d .range span:nth-child(9){
+    transform: rotateX(288deg) translateZ(2rem);
+}
+.amount .b3d .range span:nth-child(10){
+    transform: rotateX(324deg) translateZ(2rem);
+}
+
+.dataright header div:nth-child(1)  span.time_s {
+    display: inline-block;
+    position: relative;
+    top: -.2rem;
+    left: 0;
+    font-size: .26rem;
+    line-height: .32rem;
+    margin-top:-.3rem; 
+    border-bottom: 1px solid #53fbc3;
+}
+
+.accumulate .ac {
+    transition: all 1s linear;
+    display: flex;
+    /* width: 60px; */
+    /* flex-direction: column; */
+    margin:0 .05rem;
+}
+.accumulate .acc {
+    /* transition: all 1s linear; */
+    display: flex;
+    width: .6rem;
+    flex-direction: column;
+    /* margin:0 5px; */
+}
+.accumulate .acc p{
+
+    border: 1px solid rgba(83,251,195,1);
+    background: rgba(83,251,195,.3);
+}
+.accumulate #money {
+    overflow: hidden;
+    height: .91rem;
+    display: flex;
+    justify-content: center;
+}
+.accumulate .ac  p{
+    height: .91rem;
+    font-size: .80rem;
+    color: #fff;
+    line-height: .91rem;
+
+}
+.symbol {
+    width:.2rem;
+    color:#fff;
+    font-size: .6rem;
+    font-weight: bold;
+    line-height: 1.2rem;
+}

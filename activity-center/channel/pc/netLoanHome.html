@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>新手大礼包 注册就送50元红包 投资再送4965元</title>
+  <link rel="shortcut icon" href="/static/img/favicon.ico" />
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/index.css">
+  <style>
+    *{margin:0 auto;padding:0;}
+    body{font-family:"微软雅黑"; font-size:12px; margin:0px; padding:0px; line-height:22px; color:#333;box-sizing:border-box;background:#fff;}
+    button,input{font-family:"微软雅黑";}
+    ul,li{margin:0px; padding:0px; list-style:none;}
+    a{ text-decoration:none;transition: color .6s,border-color .6s,background-color .6s,border .6s,padding .6s;}
+    a:hover{text-decoration:none;}
+    img{ border:none;}
+    .clear{clear:both;}
+    .tran{transition: color .6s,border-color .6s,background-color .6s,border .6s,padding .6s;}
+    .mr{margin-right:8px;}
+    .mt{margin-top:20px;}
+    .pr{padding-right:8px;}
+    .xsfl-head{width:100%;background:#fff;min-width:1000px;}
+    .head-mar{width:1000px;height: 80px;margin:0 auto;}
+    .head-mar img{float:left;}
+    .xsfx-top-bg{width:100%;min-width:1000px;height:732px;background:#fff url(https://images.51rz.com/images/pc/netLoadHome/v1-banner-0104.png) no-repeat center top;}
+    .xsfx-reg{width:1000px;margin:0 auto;}
+    .xsfx-reg-box{width:380px;float:right;background:#fff;height:418px;margin-top:150px;}
+    .xsfx-reg-box h1{width:100%;height:45px;background:#fe5c23;text-align:center;font-size:18px;color:#ffe600;line-height:45px;}
+    .xsfx-reg-box h1 span{font-size:24px;font-style:oblique;}
+    .xsfx-reg-list{display:inline-block;width:380px;padding:30px 20px 10px 20px;}
+    .xsfx-reg-list li{width:100%;padding:8px 0;}
+ 
+    .reg-pho{width:100%;}
+   
+    .inputDiv input{width:20px;height:20px;filter:alpha(opacity=1);-moz-opacity:1;-khtml-opacity:1;opacity:1;left:0;top:2px;position:absolute;z-index:4;margin:0;cursor:pointer}
+    .inputDiv{display:block;float:left;position:relative;margin-top:10px}
+    .inputDiv label{font-size:16px;color:#8f8f8f;padding-left:25px;position: static;}
+    .inputDiv label a{color:#8f8f8f}
+    .checkBox{float:left;width:20px;height:20px;border:0;background-image:url(images/checkbox.png);background-repeat:no-repeat;background-position:-20px 0;margin-right:10px}
+    .checkBox.checkedBox{background-image:url(images/checkbox.png);background-repeat:no-repeat;background-position:0 0}
+    
+    .phone-box{width:100%;position:relative;left:0;top:0}
+    .phone-input{width:100%;display:inline-block;position:relative}
+    .phone-input input{border-radius:3px;}
+
+    .icon1{width:20px;height:25px;position:absolute;left:10px;top:7px;}
+
+    .phone-ico{position:relative;left:0;top:6px;display:inline-block}
+    .phone-ico img{width:30px;height:30px}
+    .register_passwords,.register_usenames{padding-left:42px;width:340px;height:38px;background:#fff;border:1px solid #a9a9a9;outline:0;font-size:16px;color:#555;font-family:"微软雅黑";line-height:40px}
+    .phone-info{position: absolute;
+    right: 2px;
+    top: 0px;
+    display: inline;}
+    .timeval{border: none;
+    border-radius: 3px;
+    color: #fff;
+    background: #ffa800;
+    cursor: pointer;
+    margin-top: 2px;}
+    .reg-tip{margin-top:5px;color:#ff6058;font-size:16px}
+    .reg-tip img {float: left;margin: .01rem .1rem 0 0;}
+    .phone-input-yes {border-radius: 3px;position: absolute;right: 0;top: .45rem; z-index: 100;}
+    .phone-input-yes1 { border-radius: 3px;line-height: 30px;position: absolute;right: 123px; top: 20px; z-index: 100;}
+    .phone-input-yes2 {border-radius: 3px;line-height: 30px;position: absolute;right: 0;top: 4px;z-index: 100;}
+    .phone-input-yes3 {border-radius: 3px;line-height: 30px;position: absolute;right: 76px;top: 11px;z-index: 100;}
+    
+    .tg-but{width:340px;background:#ffa800;border-radius:3px;border:none;margin-top:10px;height:45px;text-align:center;color:#fff;font-size:20px;line-height:45px;cursor:pointer;}
+    .tg-reg-text{width:246px;padding:10px 0;text-align:right;font-size:14px;float:left;color:#ffa800;}
+    .tg-reg-text a{color:#555;}
+
+    .xs-gift{display:inline-block;width:100%;min-width:1000px;padding:50px 0;}
+    .qd-box-bg{background:#fff;}
+
+    .qd-new-box{width:1018px;margin:0 auto;}
+    .qd-new-box img{width:1018px;height:81px;display:inline-block;}
+
+    .qd-new-why{width:100%;float:left;}
+    .qd-new-why span{width:50%;float:left;font-size:16px;line-height:30px;color:#666;}
+    .qd-new-tz{width:50%;float:left;}
+    .qd-new-tz li{width:40%;float:left;padding-left:9%;}
+    .qd-new-tz li:first-child{border-right: 1px solid #f4f4f4;}
+    .qd-new-tz li strong{background:#f4f4f4;font-size:16px;padding:3px 10px;float:left;font-weight:500;}
+    .qd-new-tz li em{display:inline-block;padding-top:30px;font-style:normal;color:#e25353;font-size:48px;}
+    .qd-new-tz li em small{font-size:24px;}
+
+    .qd-xzlist{width:100%;float:left;padding-top:15px;}
+    .qd-xzlist li{width:25%;float:left;text-align:center;}
+    .qd-xzlist li img{width:118px;height:118px;}
+    .qd-xzlist li h3{font-size:20px;color:#e25353;padding:3px 0;}
+    .qd-xzlist li p{font-size:16px;color:#666;}
+
+    .qd-sllist,.qd-yslist,.qd-hdlist{width:100%;float:left;}
+    .qd-sllist li{width:50%;float:left;}
+    .qd-sllist li img{width:453px;height:167px;margin:10px 0;}
+
+    .qd-yslist li{float:left;}
+
+    .qd-hdlist li{width:312px;height:407px;float:left;margin:15px 32px 0 0;}
+    .qd-hdlist li:last-child{margin-right:0;}
+
+    .xsfx-reg-box h4{width:380px;float:left;padding-top:27px;text-align:center;font-size:24px;color:#666;}
+  
+    .input-pos{position:absolute;top:10px;left:5px;z-index:1;}
+
+    .footer{
+      width:100%;
+      background:#333;
+      height:80px;
+      text-align:center;
+      min-width:1000px;
+    }
+    .footer-min{
+      display:inline-block;
+      width:1000px;
+      color:#fff;
+      font-size:14px;
+    }
+    .footer-l{
+      width:700px;
+      padding-top:20px;
+      float:left;
+      text-align:left;
+    }
+    .footer-r{
+      width:300px;
+      float:right;
+      text-align:right;
+      padding-top:28px;
+    }
+
+    #psd{
+      width: 50px;
+      position: absolute;
+      right: 0px;
+      top: 11px;
+      cursor: pointer;
+    }
+
+    #psd img{
+      width: 38px;
+      height: 16px;
+    }
+    
+  </style>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5395127f074c49150bc6578ff60ff4e8";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+  <section class="xsfl-head">
+    <div class="head-mar">
+      <img src="https://images.51rz.com/images/rebuild/pc/img/logo.png" style="padding-top:23px;" />
+      <img src="https://images.51rz.com/images/rebuild/pc/img/logo_text.gif" />
+    </div>
+  </section>
+  <section class="xsfx-top-bg">
+    <div class="xsfx-reg">
+      <div class="xsfx-reg-box" id="box">
+        <ul class="xsfx-reg-list">
+          <li>
+            <div class="phone-box">
+              <div id="phoneVal1" class="phone-input-yes"></div>
+              <div class="phone-input icon">
+                <img src="https://images.51rz.com/images/icon/wx-icon.png" class="icon1" />
+                <input id="mobile" name="mobile" onKeyUp="this.value=this.value.replace(/\D/g,'');" maxlength="11" placeholder="输入手机号码" class="register_usenames">
+              </div>
+              <div id="phoneVal" class="reg-tip"></div>
+              <div class="clear"></div>
+            </div>
+          </li>
+          <li>
+            <div class="phone-box">
+              <div id="firstpwdVal1" class="phone-input-yes3"></div>
+              <div id="firstpwdVal2" class="phone-input-yes2"></div>
+              <div class="phone-input icon">
+                <img src="https://images.51rz.com/images/icon/wx-icon1.png" class="icon1" />
+                <input type="hidden" name="password" /><input type="password" style="display:none;" />
+                <input type="password" id="password" name="password" class="register_passwords" placeholder="设置登录密码">
+                <div id="psd"><img src="https://images.51rz.com/images/icon/wx-icon5.png"/></div>
+              </div>
+              <div id="firstpwdVal" class="reg-tip"></div>
+              <div class="clear"></div>
+            </div>
+          </li>
+          <li ><span style="left: -20px;position: relative;">
+      <!--极验验证码容器-->
+        <div id="geetestBox"></div></span>
+    </li>
+          <li>
+            <div class="phone-box">
+              <div id="smsCodeVal1" class="phone-input-yes1"></div>
+              <div class="phone-input icon">
+                <img src="https://images.51rz.com/images/icon/wx-icon3.png" class="icon1" />
+                <input id="phonecode" name="phonecode" maxlength="6" onKeyUp="this.value=this.value.replace(/\D/g,'');" class="register_usenames" placeholder="输入短信验证码" style="width:340px">
+              </div>
+              <!--极验验证码容器-->
+              <div id="geetestBox"></div>
+              <div id="smsCodeVal" class="reg-tip"></div>
+              <div class="phone-info"><div id="btnSendPhoneCode" class="timeval" style="text-align:center; height:34px;line-height:34px; width:80px;">获取验证码</div></div>
+            </div>
+          </li>
+          <li>
+            <div class="inputDiv">
+              <input type="checkbox" class="nowcheck" id="chk_lic" name="checkbox" checked="checked" value="1" />
+              <!-- <p class="checkBox checkedBox"></p> -->
+              <label>已阅读并同意<a href="https://www.51rz.com/zctk.html" target="_blank">《注册服务协议》</a></label>
+            </div>
+            <div id="checked" class="reg-tip"></div>
+          </li>
+          <li>
+            <button type="button" class="tg-but" id="btnReg">立即注册</button>
+            <div id="doregisterMsg" class="reg-tip"></div>
+            <p class="tg-reg-text">已有账号？<a href="https://www.51rz.com/login.html">立即登录</a></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="xs-gift qd-box-bg">
+    <div class="qd-new-box">
+      <img src="https://images.51rz.com/images/pc/netLoadHome/v1-banner-0105.png">
+    </div>
+  </section>
+  <section class="footer">
+    <div class="footer-min">
+      <div class="footer-l">
+        版权所有©浙江人众金融服务股份有限公司 Copyright Reserved 2015<br />
+        浙ICP备13009823号-1 ICP许可证编号浙B2-20160795
+      </div>
+      <div class="footer-r">
+        <img src="https://images.51rz.com/images/rebuild/pc/img/wj.png" />
+        浙公网安备 33010602002203号
+      </div>
+    </div>
+  </section>
+
+  <script src="/static/js/jquery-1.11.1.min.js"></script>
+  <script src="https://static.geetest.com/static/tools/gt.js"></script>
+  <script src="/static/js/md5.js"></script>
+  <script src="/static/js/sha256.js"></script>
+  <script src="/static/js/pc-Reg.js"></script>
+  <script>
+	  
+  function dochannel(){//注册渠道
+        var channel = getUrlParam('channel');
+        if(channel == 'wap-lczj'){
+            window.location.href = '/ind/index.html';
+        }
+        if(channel){
+            $.ajax({
+                url:"/?a=channel_save",
+                data:"channel="+channel,
+                dataType:"json",
+                success:function(json){  
+                }
+            });
+        }      
+    }
+    dochannel();
+    
+    //WPS渠道
+    function seed() {
+    	var channel = getUrlParam('channel');
+        var extra = getUrlParam("extra"),
+        userid = getUrlParam("userid");
+        var zid = getUrlParam("zid");
+        var uid = getUrlParam("uid");
+        var sign = getUrlParam("sign");
+        var hid = getUrlParam("hid");
+        var aid = getUrlParam("aid");
+        var cid = getUrlParam("cid");
+        var wi = getUrlParam("wi");
+        var target = getUrlParam("target");
+        
+        if(channel == 'wps-pc') {
+            //获取当前日期
+            var expiresDate = new Date();
+            //设置生存期，一天后过期
+            expiresDate.setDate(expiresDate.getDate() + 30);
+            //document.cookie = "channel=wps-pc;expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+            document.cookie = "extra="+extra+";expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+            document.cookie = "userid="+userid+";expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+            /* document.cookie = "channel=wps-pc;expires= " + expiresDate.toGMTString()+"; domain=demo3.renrunkeji.com; path=/;";
+            document.cookie = "extra="+extra+";expires= " + expiresDate.toGMTString()+"; domain=demo3.renrunkeji.com; path=/;";
+            document.cookie = "userid="+userid+";expires= " + expiresDate.toGMTString()+"; domain=demo3.renrunkeji.com; path=/;"; */
+        }
+        
+        if(channel == 'mk-pc') {
+            //获取当前日期
+            var expiresDate = new Date();
+            //设置生存期，一天后过期
+            expiresDate.setDate(expiresDate.getDate() + 30);
+           //document.cookie = "channel=mk-pc;expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+           document.cookie = "utm_source=ttnznet;expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+            document.cookie = "zid="+zid+";expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+            document.cookie = "uid="+uid+";expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+        }
+         if(channel == 'xicai2') {
+            //获取当前日期
+            var expiresDate = new Date();
+            //设置生存期，一天后过期
+            expiresDate.setDate(expiresDate.getDate() + 30);
+
+            //document.cookie = "channel=xicai2;expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+           document.cookie = "sign="+sign+";expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+
+   var password = Ext.MD5("123456");
+$.ajax({
+                    url: "/?m=XCBiaoDetail&s=login_wd",
+                    type: "post",
+                    dataType: "json",
+                    data: { "sign":sign,"pwd":password},
+
+                    success: function (result) {
+                    	if(result.msg == '账号注册成功'){
+                    	alert("您的账号为希财网手机号码,登录密码默认为123456,为了账户安全,请及时修改!");
+                    	}else if(result.msg == '链接已失效,请重新获取'){
+	                    	alert('链接已失效,请重新获取');
+                    	}
+                        if (result.script) {
+                            Register.g_Json = result;
+                            if (self.location.href.substr(0, 8) == 'https://') {
+                                for (var i = result.script.length - 1; i >= 0; i--) {
+                                    result.script[i] = result.script[i].replace('http://', 'https://');
+                                }
+                            }
+                            
+                            for(var i =0;i<result.script.length;i++) {
+                                $.getScript(result.script[i], function(){
+         
+                        if (!result) return;
+                        
+						
+                        if(parseInt(result['pid']) > 0){
+	                        self.location.href = 'http://www.51rz.com/ind/bidinfo.html?id='+result['pid'];
+	       
+                        }else{
+	                        self.location.href ='http://www.51rz.com';
+                        }
+                        
+                                });
+                            }
+                        }
+	                   
+                    }, failure: function (err) {
+                        Register.wait = 1;
+                        Register.windowRock("提交用户信息出问题了");
+                    }
+                });
+        }
+        
+        if(channel == 'wap-yg-pc') {
+            //获取当前日期
+            var expiresDate = new Date();
+            //设置生存期，一天后过期
+            expiresDate.setDate(expiresDate.getDate() + 30);
+
+            //document.cookie = "channel=wap-yg-pc;expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+            document.cookie = "hid="+hid+";expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+            document.cookie = "uid="+uid+";expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+        }
+
+        if(channel == 'wap-yqf-pc') {
+            //获取当前日期
+            var expiresDate = new Date();
+            //设置生存期，一天后过期
+            expiresDate.setDate(expiresDate.getDate() + 30);
+            //document.cookie = "channel=wap-yqf-pc;expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+            document.cookie = "aid="+aid+";expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+            document.cookie = "cid="+cid+";expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+            document.cookie = "wi="+wi+";expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+            document.cookie = "target="+target+";expires= " + expiresDate.toGMTString()+"; domain=www.51rz.com; path=/;";
+        }
+
+        if(channel == 'jxy'){
+            window.top.location.href = "/ind/ttthhh.html";
+        }
+
+        if(channel == 'xicai'){
+            window.top.location.href = "/ind/ttthhh.html";
+        }
+
+        if(channel == 'xicai2'){
+            window.top.location.href = "/ind/ttthhh.html";
+        }
+
+        if(channel == 'xicai3'){
+            window.top.location.href = "/ind/ttthhh.html";
+        }
+    }
+    
+    seed();
+
+    $(function() {
+      $('.qd-yslist li a').click(function() {
+        $("html,body").animate({scrollTop: $("#box").offset().top}, 1500);
+      })
+    })
+
+    var _showPwd = false;
+    $("#psd").click(function(){
+        if(!_showPwd){
+            $('#password').replaceWith($('#password').clone().attr('type', 'text'));
+            $('#psd img').attr('src','https://images.51rz.com/images/icon/wx-icon4.png');
+            $('#psd span').text('隐藏密码');
+        }else{
+            $('#password').replaceWith($('#password').clone().attr('type', 'password'));
+            $('#psd img').attr('src','https://images.51rz.com/images/icon/wx-icon5.png');
+            $('#psd span').text('显示密码');
+        }
+        _showPwd = !_showPwd;
+    });
+  </script>
+  <script type="text/javascript">
+    var src_dir = '${webroot}${theme_dir}';
+    var path = '${request.getContextPath()}';
+  </script>
+</body>
+</html>

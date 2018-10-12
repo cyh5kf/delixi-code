@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>积分兑换</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/components/header-footer/header-footer.css">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #f6f6f6;
+        }
+
+        .jf-banner {
+            width: 100%;
+            height: 380px;
+            background: url(https://images.51rz.com/images/jf-shop/jf-banner.png) no-repeat center;
+        }
+
+        .jf-box {
+            width: 1200px;
+            margin: auto;
+            height: 380px;
+            position: relative;
+        }
+
+        .use-jf {
+            width: 284px;
+            height: 230px;
+            position: absolute;
+            right: 0;
+            top: 75px;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+
+        .jf-text {
+            font-size: 16px;
+            color: #999999;
+            margin-top: 19px;
+            text-align: center;
+        }
+
+        .jf-number {
+            font-size: 36px;
+            color: #f64c3e;
+            text-align: center;
+            margin-top: 17px;
+        }
+
+        .jf-history {
+            margin-top: 30px;
+        }
+
+        .jf-his {
+            font-size: 14px;
+            color: #4992ec;
+            text-align: center;
+            border-bottom: 1px solid #4992ec;
+            cursor:pointer;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .jf-fs {
+            height: 50px;
+            line-height: 50px;
+            font-size: 18px;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 27px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            background: -webkit-linear-gradient(left, #d29f58, #e0bb87); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(right, #d29f58, #e0bb87); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(right, #d29f58, #e0bb87); /* Firefox 3.6 - 15 */
+            background: linear-gradient(to right, #d29f58, #e0bb87); /* 标准的语法 */
+            cursor:pointer;
+        }
+
+        .jf-coupons {
+            width: 1200px;
+            background-color: #ffffff;
+            margin: 20px auto 80px auto;
+            padding: 37px 25px 60px 25px;
+        }
+
+        .coupons-text-bg {
+            background: url(https://images.51rz.com/images/jf-shop/jf-dh.png) no-repeat center;
+            height: 23px;
+            width: 236px;
+        }
+
+        .coupons {
+            font-size: 0;
+            margin-top: 30px;
+        }
+
+        .coupons li:first-child {
+            margin-left: 0;
+        }
+
+        .coupons li:nth-child(5n) {
+            margin-top: 10px;
+            margin-left: 0;
+        }
+
+        .coupons li {
+            margin-left: 10px;
+            width: 280px;
+            height: 252px;
+            display: inline-block;
+            border: 1px solid #e8e8e8;
+            box-sizing: border-box;
+            -webkit-transition: all .5s;
+            -o-transition: all .5s;
+            -moz-transition: all .5s;
+            transition: all .5s;
+        }
+
+        .btn-small.btn-active-small:hover {
+            color: #ffffff;
+            background-color: #f64c3e;
+            border: 1px solid #f64c3e;
+        }
+
+        .btn-small:hover {
+            background-color: #cccccc;
+            color: #ffffff;
+        }
+
+        .coupons li:hover {
+            -webkit-box-shadow: 0 0 12px 3px hsla(0, 0%, 60%, .5);
+            -moz-box-shadow: 0 0 12px 3px hsla(0, 0%, 60%, .5);
+            box-shadow: 0 0 12px 3px hsla(0, 0%, 60%, .5);
+            -webkit-transform: translateY(-5px);
+            -moz-transform: translateY(-5px);
+            -ms-transform: translateY(-5px);
+            -o-transform: translateY(-5px);
+            transform: translateY(-5px);
+        }
+
+        .item {
+            width: 100%;
+            height: 100%;
+        }
+
+        .coupons-bg {
+            background: url(https://images.51rz.com/images/jf-shop/jf-coupons.png) no-repeat center;
+            width: 85px;
+            height: 101px;
+            margin-top: 21px;
+        }
+
+        .coupons-bg.pack {
+            background: url(https://images.51rz.com/images/jf-shop/jf-pack.png) no-repeat center;
+        }
+
+        .fontCoupons {
+            font-size: 28px;
+            color: #ffffff;
+            padding-top: 25px;
+            text-align: center;
+        }
+
+        .fontCoupons span {
+            font-size: 14px;
+        }
+
+        .fontCoupons-text {
+            font-size: 12px;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .coupons-footer {
+            margin-top: 40px;
+        }
+
+        .footer-title {
+            color: #222222;
+            font-size: 16px;
+            padding-left: 30px;
+        }
+
+        .footer-content {
+            height: 30px;
+            padding-left: 30px;
+            line-height: 30px;
+            margin-top: 13px;
+        }
+
+        .use-jf-number {
+            font-size: 18px;
+            color: #ff9b09;
+            display: inline-block;
+        }
+
+        .use-jf-number span:last-child {
+            font-size: 14px;
+            margin-left: 12px;
+        }
+
+        .btn-small.btn-active-small {
+            /*color: #f64c3e;
+            border: 1px solid #f64c3e;*/
+            cursor: pointer;
+        }
+
+        .btn-small {
+            margin-left: 34px;
+            width: 110px;
+            height: 30px;
+            outline: none;
+            padding: 0;
+            line-height: 30px;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            font-size: 14px;
+            color: #999999;
+            border-radius: 5px;
+        }
+
+        .pack .fontCoupons {
+            padding-top: 32px;
+            color: #ffff00;
+        }
+
+        .pagination {
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .pagination .next.disabled, .pagination .prev.disabled {
+            color: #888;
+            cursor: auto;
+        }
+
+        .pagination .prev {
+            padding-left: 25px;
+        }
+
+        .pagination .next, .pagination .prev {
+            height: 20px;
+            font-size: 14px;
+            line-height: 16px;
+            color: #4992ec;
+            display: inline-block;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .pagination .go {
+            margin: 0 10px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 14px;
+        }
+
+        .pagination .go input {
+            width: 40px;
+            line-height: 20px;
+            border: 1px solid #d7d7d7;
+            text-align: center;
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .pagination .next.disabled i {
+            background-image: url(https://images.51rz.com/images/jf-shop/page_next_disabled.png);
+        }
+
+        .pagination .prev.disabled i {
+            background-image: url(https://images.51rz.com/images/jf-shop/page_prev_disabled.png);
+        }
+
+        .pagination .next.disabled i, .pagination .next i {
+            background-repeat: no-repeat;
+            -webkit-background-size: 11px 16px;
+            -moz-background-size: 11px 16px;
+            -o-background-size: 11px 16px;
+            background-size: 11px 16px;
+            background-position: 100%;
+        }
+
+        .pagination .next i {
+            background-image: url(https://images.51rz.com/images/jf-shop/page_next.png);
+            float: right;
+            left: 5px;
+        }
+
+        .pagination .prev i {
+            background-image: url(https://images.51rz.com/images/jf-shop/page_prev.png);
+            float: left;
+            right: 5px;
+        }
+
+        .pagination .next i, .pagination .prev i {
+            width: 11px;
+            height: 16px;
+            display: block;
+            margin: 0 5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .noLogin {
+            height: 114px;
+            font-size: 18px;
+            color: #4992ec;
+            line-height: 114px;
+        }
+
+        .noLogin span {
+            border-bottom: 1px solid #4992ec;
+            cursor:pointer;
+        }
+
+        .mask {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            display: none;
+        }
+
+        .coupons-dh {
+            width: 372px;
+            height: 201px;
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            margin-left: -186px;
+            padding: 60px 20px 0 20px;
+            background-color: #ffffff;
+            z-index: 11;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .sure-text {
+            font-size: 18px;
+            color: #d7a55e;
+            text-align: center;
+        }
+
+        .btn-box {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .btn {
+            outline: none;
+            width: 115px;
+            height: 38px;
+            border: 1px solid #e5e5e5;
+            background-color: #ffffff;
+            font-size: 16px;
+            color: #999999;
+            cursor: pointer;
+        }
+
+        .btn.btn-dander {
+            border: none;
+            background-color: #f64c3e;
+            color: #ffffff;
+            margin-left: 20px;
+        }
+
+        .btn-close {
+            width: 30px;
+            height: 30px;
+            background: url(https://images.51rz.com/images/jf-shop/close-bg.png) no-repeat center center;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            cursor: pointer;
+        }
+
+        .coupons-dh-success {
+            position: fixed;
+            width: 510px;
+            height: 350px;
+            background: url(https://images.51rz.com/images/jf-shop/success-bg.png) no-repeat center center;
+            top: 20%;
+            left: 50%;
+            margin-left: -255px;
+            z-index: 11;
+            display: none;
+        }
+
+        .coupons-success-box {
+            width: 372px;
+            height: 350px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding-top: 50px;
+        }
+
+        .success-coupons {
+            margin-top: 25px;
+            width: 101px;
+            height: 101px;
+            background: url(https://images.51rz.com/images/jf-shop/jf-coupons.png) no-repeat center center;
+        }
+
+        .success-coupons > .coupons-text {
+            margin-top: 0;
+            padding-top: 40px;
+            font-size: 28px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .success-coupons .coupons-text span:last-child {
+            font-size: 14px;
+        }
+
+        .success-coupons.pack {
+            background: url(https://images.51rz.com/images/jf-shop/jf-pack.png) no-repeat center center;
+        }
+
+        .success-coupons.pack > .coupons-text {
+            color: #ffff00;
+        }
+
+        .coupons-text1 {
+            text-align: center;
+            font-size: 12px;
+            color: #ffffff;
+        }
+
+        .btn-big-danger {
+            width: 250px;
+            height: 38px;
+            outline: none;
+            border: none;
+            background-color: #f64c3e;
+            font-size: 16px;
+            color: #ffffff;
+            line-height: 38px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="header"></div>
+<div class="jf-container" id="container">
+    <div class="jf-banner">
+        <div class="jf-box">
+            <div class="use-jf" v-if="uid">
+                <p class="jf-text">可用积分</p>
+                <p class="jf-number" v-text="parseInt(user.integral)"></p>
+                <p class="text-center jf-history" style="cursor:pointer"><span class="jf-his"
+                                                                               @click="goHistory('jf_history.html')">积分记录</span>
+                </p>
+                <p class="jf-fs" @click="goHistory('jf_task.html')">获得积分方式</p>
+            </div>
+            <div class="use-jf" v-else-if="!uid">
+                <p class="jf-text">可用积分</p>
+                <p class="text-center noLogin" @click="goHistory('')"><span>登录后查看</span></p>
+                <p class="jf-fs">获得积分方式</p>
+            </div>
+        </div>
+    </div>
+    <div class="jf-coupons">
+        <p class="coupons-text-bg"></p>
+        <ul class="coupons">
+            <li v-if="goodList.length" v-for="(items,index) in goodList" :key="index">
+                <div class="item" @click="go('jf_info.html',items.id)">
+                    <div class="coupons-bg" :class="items.cate_id == 2?'pack':''">
+                        <p class="fontCoupons"><span style="font-size: 28px" v-text="items.coupon_money"></span><span
+                                v-text="items.cate_id == 2?'元':'%'">%</span></p>
+                        <p class="fontCoupons-text" v-show="items.cate_id == 3">加息券</p>
+                        <p class="fontCoupons-text" v-show="items.cate_id == 2">投资红包</p>
+                    </div>
+                    <div class="coupons-footer">
+                        <div class="footer-title" v-text="items?items.title:''"></div>
+                        <div class="footer-content">
+                            <p class="use-jf-number"><span
+                                    v-text="Number(!!items.change_integral?items.change_integral:0).toFixed(0)"></span><span>积分</span></p>
+                            <button class="btn-small btn-active-small" @click.stop="show(items.id,index)">兑换</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--<li>-->
+            <!--<div class="item">-->
+            <!--<div class="coupons-bg pack">-->
+            <!--<p class="fontCoupons">20</p>-->
+            <!--<p class="fontCoupons-text">投资红包</p>-->
+            <!--</div>-->
+            <!--<div class="coupons-footer">-->
+            <!--<div class="footer-title">1.0%加息券</div>-->
+            <!--<div class="footer-content">-->
+            <!--<p class="use-jf-number"><span>20000</span><span>积分</span></p>-->
+            <!--<button class="btn-small btn-active-small">兑换</button>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<div class="item">-->
+            <!--<div class="coupons-bg">-->
+            <!--<p class="fontCoupons">1.0<span>%</span></p>-->
+            <!--<p class="fontCoupons-text">加息券</p>-->
+            <!--</div>-->
+            <!--<div class="coupons-footer">-->
+            <!--<div class="footer-title">1.0%加息券</div>-->
+            <!--<div class="footer-content">-->
+            <!--<p class="use-jf-number"><span>20000</span><span>积分</span></p>-->
+            <!--<button class="btn-small">兑换</button>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</li> -->
+        </ul>
+        <div class="pagination" style="margin: 35px 0px 30px;">
+            <span class="prev" @click="prev" :class="page<=1?'disabled':''"><i></i><strong>上一页</strong></span>
+            <label class="go"><input type="text" :value="page">/<span v-text="totalPage"></span></label>
+            <span class="next" @click="next"
+                  :class="page >= totalPage ?'disabled':''"><strong>下一页</strong><i></i></span>
+        </div>
+    </div>
+    <div class="mask" ref="mask"></div>
+    <div class="coupons-dh" ref="coupons">
+        <p class="sure-text">
+            确定使用{{goodList.length?Number(goodList[goodsIndex].change_integral).toFixed(0):0}}积分兑换{{goodList.length?goodList[goodsIndex].title:''}}？</p>
+        <div class="btn-box">
+            <button class="btn" @click="hiddens">取消</button>
+            <button class="btn btn-dander" @click="exchange">确定</button>
+        </div>
+        <p class="btn-close" @click="hiddens"></p>
+    </div>
+    <div class="coupons-dh-success" ref="success">
+        <div class="coupons-success-box">
+            <p class="sure-text">恭喜您！{{goodList.length?goodList[goodsIndex].title:''}}兑换成功<br/>赶快投资吧！</p>
+            <div class="success-coupons" v-if="exchangeData.cate_id == 3">
+                <p class="coupons-text"><span v-text="exchangeData.coupon_money"></span><span>%</span></p>
+                <p class="coupons-text1">加息券</p>
+            </div>
+            <div class="success-coupons pack" v-else-if="exchangeData.cate_id == 2">
+                <p class="coupons-text" v-text="exchangeData.coupon_money"></p>
+                <p class="coupons-text1">红包</p>
+            </div>
+            <div class="btn-box">
+                <button class="btn btn-big-danger" @click="goTZList">立即去投资</button>
+            </div>
+            <p class="btn-close" style="right: 86px" @click="hiddens"></p>
+        </div>
+    </div>
+</div>
+<div id="footer"></div>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/static/js/vue.js"></script>
+<script src="/components/header-footer/header-footer.js"></script>
+<script>
+    function getParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值
+    }
+    var token = getParam('token');
+    var vm = new Vue({
+        el: '#container',
+        data: {
+            goodList: [],
+            token: '',
+            uid: false,
+            page: 1,
+            pageSize: 10,
+            totalPage: 0,
+            goodsIndex: 0,
+            user: {
+                expire_integral: 0,
+                freeze_integral: 0,
+                integral: 0,
+            },
+            exchangeData: {
+                cate_id: 0,
+                coupon_money: 0,
+            },
+            userInfo: {},
+            type: '',
+            loading: false
+        },
+        methods: {
+            getQueryString: function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            },
+            //字符串进行解密
+            uncompileStr: function (code) {
+                code = unescape(code);
+                var c = String.fromCharCode(code.charCodeAt(0) - code.length);
+                for (var i = 1; i < code.length; i++) {
+                    c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1));
+                }
+                return c;
+            },
+            prev: function () {
+                if (this.page > 1) {
+                    this.page -= 1;
+                    this.getData();
+                }
+            },
+            next: function () {
+                if (this.page < this.totalPage) {
+                    this.page += 1;
+                    this.getData();
+                }
+            },
+            go: function (url, id) {
+                var userInfo = JSON.parse(localStorage.getItem('activeUserInfo'))||{};
+                location.href = url + '?id=' + id + '&active=1'+'&token='+userInfo.token;
+            },
+            goHistory: function (url) {
+                var userInfo = JSON.parse(localStorage.getItem('activeUserInfo'))||{};
+                if (!userInfo.token) {
+                    location.href = 'https://' + userInfo.type + '.51rz.com/login.html';
+                    return;
+                }
+                location.href = url + '?active=1&type=' + userInfo.type+'&token='+userInfo.token;
+            },
+            goTZList: function () {
+                var type = this.userInfo.type;
+                location.href = 'https://' + type + '.51rz.com/projectList.html';
+            },
+            show: function (type, index) {
+                var mask = this.$refs.mask, coupons = this.$refs.coupons;
+                mask.style.display = 'block';
+                coupons.style.display = 'block';
+                this.goodsIndex = index;
+                this.type = type;
+            },
+            hiddens: function () {
+                var mask = this.$refs.mask, coupons = this.$refs.coupons, success = this.$refs.success;
+                mask.style.display = 'none';
+                coupons.style.display = 'none';
+                success.style.display = 'none';
+            },
+            exchange: function () {
+                var _this = this;
+                var success = this.$refs.success;
+                var token = this.userInfo.token;
+                var type = this.type;//商品分类
+                if (!token) {
+                    location.href = 'https://' + type + '.51rz.com/login.html';
+                    return;
+                }
+                if (this.loading) {
+                    return;
+                }
+                this.loading = true;
+                $.post('/index.php?_url=/vipshop/goods/addOrder', {
+                    token: token,
+                    goods_id: this.type,
+                    goods_num: 1,
+                    source: 2
+                }, function (data) {
+                    _this.loading = false;
+                    if (data.error_code == 0) {
+                        success.style.display = 'block';
+                        _this.exchangeData = data.data;
+                        _this.user.integral=_this.user.integral-Number(_this.goodList[_this.goodsIndex].change_integral).toFixed(0)
+                    } else {
+                        alert(data.msg)
+                    }
+                }, 'json')
+            },
+            getData: function () {
+                var _this = this;
+                $.post('/index.php?_url=/vipshop/goods/goodsList', {
+                    source: '2',
+                    page: _this.page,
+                    pageSize: _this.pageSize
+                }, function (data) {
+                    if (data.error_code == 0) {
+                        _this.page = data.data.page;
+                        _this.totalPage = data.data.totalPage;
+                        _this.goodList = data.data.data;
+                    }
+                }, 'json')
+            },
+            getJF: function () {
+                var _this = this;
+                var token = this.token;
+                $.post('/index.php?_url=/vipshop/integral/userIntegralAccount', {token: token}, function (data) {
+                    if (data.error_code == 0) {
+                        if (data.data.length != 0) {
+                            _this.user = data.data;
+                        }
+                    }
+                }, 'json')
+            }
+        },
+        created: function () {
+            var token='';
+            var activeUserInfo = JSON.parse(localStorage.getItem('activeUserInfo'))||{};
+            if(!!getParam('token')){
+                token=getParam('token')
+            }else{
+
+               token = activeUserInfo.token;
+            }
+            this.token = token;
+            this.userInfo = activeUserInfo;
+            if (!!token) {
+                this.uid = true;
+                this.getJF();//获取积分
+            }
+            this.getData();//获取积分兑换列表
+        }
+    })
+</script>
+</body>
+</html>

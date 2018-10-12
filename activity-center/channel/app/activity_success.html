@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title></title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin: 0 auto;
+            width: 100%;
+            max-width: 720px;
+        }
+        header{
+            font-size: 0.45rem;
+            text-align: center;
+            margin-top: 2.6rem;
+        }
+        header p{
+            margin: 0;
+        }
+        .header-title{
+            color: #fba103;
+            margin-bottom: 0.65rem
+        }
+        .header-content{
+            font-size: 0.27rem
+        }
+        section{
+            text-align: center;
+            margin-top: 1.61rem;
+        }
+        section img{
+            width: 3.85rem;
+            height: 4rem;
+        }
+    </style>
+    <script>
+        var deviceWidth = document.documentElement.clientWidth;
+        if(deviceWidth > 750) deviceWidth = 750;
+        document.documentElement.style.fontSize = deviceWidth / 7.5 +'px'
+    </script>
+</head>
+<body>
+<div class="container">
+    <header>
+        <p  class="header-title">恭喜您投资成功~</p>
+        <p class="header-content">
+            立即前往App store 应用商店，或者安卓
+            应用市场一键下载“人众金服”app！
+        </p>
+    </header>
+    <section>
+        <img src="https://images.51rz.com/images/wechat/channel/activity_wscf/success_mask.png">
+    </section>
+</div>
+</body>
+</html>

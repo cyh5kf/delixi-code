@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="wap-font-scale" content="no"/>
+    <title>专属客服</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico"/>
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+</head>
+<style>
+    html {
+        font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft Yahei, STHeiTi, Arial, sans-serif;
+        background-color: #fff;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0.22rem;
+        box-sizing: border-box;
+        line-height: 1.5;
+        text-decoration: none;
+        color: #222;
+    }
+    #container{
+        max-width:7.5rem;
+        margin:0 auto;
+    }
+    .header{
+        padding:0.46rem 0.3rem 0.46rem 1.56rem;
+        background-color:#eef3f9;
+        background-image:url(https://images.51rz.com/images/jifen/vip-customer.png) ;
+        background-repeat:no-repeat;
+        background-size:1rem;
+        background-position:0.4rem 0.4rem;
+    }
+    .header p{
+        line-height: 0.36rem;
+        color:#222;
+        font-size:0.24rem;
+    }
+</style>
+<body>
+<div id="container">
+    <div class="header">
+        <p>
+            人众金服V3—V6用户不仅可享受平台专属客服一对一
+            服务，更快更贴心！还可尊享一系列增值服务，包括优
+            先获得新产品体验机会、优先参与平台各类活动、账户
+            问题优先处理等！
+        </p>
+    </div>
+</div>
+
+<script src="/static/js/vue.min.js"></script>
+<script>
+    //    避免页面从缓存中加载
+    window.onpageshow = function (e) {
+        e = e || event;
+        if (e.persisted) {
+            location.reload();
+        }
+    }
+
+    function getParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值
+    }
+
+    window.el = new Vue({
+        el: '#container',
+        data: {
+
+        },
+        methods: {
+
+        },
+        created: function () {
+
+        }
+    })
+</script>
+</body>
+</html>

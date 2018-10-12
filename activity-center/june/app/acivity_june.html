@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection" />
+    <title>人众金服</title>
+    <link rel="shortcut icon" href="https://activity-center.51rz.com/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <script type='text/javascript' src='https://assets.growingio.com/sdk/wx/vds-wx-plugin.js'></script>
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5395127f074c49150bc6578ff60ff4e8";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+    <!--background-image: linear-gradient(to top, #fb814e,#f94638);background-image: -webkit-linear-gradient(to top, #fb814e,#f94638);-->
+    <style type="text/css">
+        *{margin: 0;padding: 0;box-sizing: border-box;-webkit-box-sizing: border-box;}
+        body{max-width:7.5rem;margin:0 auto;background:#a5e8e6;overflow:auto;height: 100%;}
+        img{width: 100%;display: block;}
+        ul li{list-style-type:none;}
+        [v-cloak] {
+            display: none;
+        }
+        .font-16 {
+            font-size: 0.16rem;
+        }
+        .font-18 {
+            font-size: 0.18rem;
+        }
+
+        .font-20 {
+            font-size: 0.2rem;
+        }
+
+        .font-24 {
+            font-size: 0.24rem;
+        }
+        .font-26{
+            font-size:0.26rem;
+        }
+
+        .flt {
+            float: left;
+        }
+
+        .frt {
+            float: right;
+        }
+
+        .center {
+            text-align: center;
+        }
+        #wraper {    
+            position: relative;  
+        }
+        .may-banner{
+            width:100%;
+            height:4.64rem;
+            background:url("https://images.51rz.com/images/app/act-june/app-june-01.jpg") no-repeat center top;
+            background-size:100% auto;
+        }
+        .may-box {
+            height:7.04rem;
+            text-align:center;
+            font-size:0.24rem;
+            position: relative;
+        }
+        .showgold {
+            width: 4.95rem;
+            height: 3.54rem;
+            position: absolute;
+            top: 4rem;
+            left: 1.3rem;
+            z-index: 22222;
+            font-size: 0.24rem;
+            background-color: #fff;       
+            text-align: center;
+            padding: 0;
+        }
+        .showgold h5{
+            font-size: 0.28rem;
+            color: #fff;
+            background-color: #89cc20;
+            line-height: 0.83rem;
+            height: 0.83rem;
+        }
+        .showgold .head{
+            color: #333;
+            height: 0.87rem;
+            line-height: 0.87rem;            
+            border-bottom: 1px solid #89cc20;
+            overflow: hidden;
+        }
+        .showgold .head p {
+            float: left;
+        }
+        .showgold .showgoldlist{
+            line-height: 0.87rem;                        
+            color: #e13333;         
+            height: 0.87rem;               
+            border-bottom: 1px solid #89cc20;
+            overflow: hidden;           
+        }
+
+        .showgold .showgoldlist span {
+            width: 25%;
+            float: left;
+        }
+        .showgold  p{
+            width: 25%;
+        }
+        .showgold .scrol {
+            height: 2.6rem;
+            width: 100%;
+            overflow-y: scroll;
+        }
+        p.none {
+            width: 100%;
+            line-height: 1.74rem;
+            text-align: center;
+            color: #aaa;
+        }
+        .showtoinvest{
+            width: 4.95rem;
+            height: 4.45rem;
+            position: absolute;
+            top: 4rem;
+            left: 1.3rem;
+            z-index: 22222;
+            font-size: 0.24rem;
+            text-align: center;
+            background:url(https://images.51rz.com/images/app/act-may/toinvest.png) no-repeat center top;
+            background-size:100% auto;
+        }
+        .showtoinvest a{
+            width: 2.4rem;
+            height: 0.64rem;
+            text-decoration: none;
+            background-color: #f5725b;
+            font-size: 0.28rem;
+            line-height: 0.64rem;
+            color: #fff;
+            border-radius: 0.32rem;
+            position: absolute;
+            left: 1.28rem;
+            top: 3.4rem;
+        }
+        .rulebtn {
+            position: absolute;
+            right: 0;
+            top: 1.75rem;
+            width:0.55rem;
+            height: 1.6rem;
+            background: rgba(0,0,0,0)
+        }
+        .close {
+            position: absolute;
+            bottom: -1.1rem;
+            left:2.2rem;
+            width: 0.49rem;
+            height: 0.6rem;
+            background:url(https://images.51rz.com/images/app/act-may/close.png) no-repeat center bottom;   
+            background-size: 100% auto;                     
+        }
+        .rule {
+            height: 4.87rem;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 3.67rem;
+            background:url(https://images.51rz.com/images/app/act-may/activerule.png) no-repeat center top;   
+            background-size: 100% auto;        
+            z-index: 22222;
+                         
+        }
+        .june-box2{
+            width:100%;
+            height:4.15rem;
+            background:url("https://images.51rz.com/images/app/act-june/app-june-03.jpg") no-repeat center top;
+            background-size:100% auto;
+        }
+        .june-box3{
+            width:100%;
+            height:4.81rem;
+            background:url("https://images.51rz.com/images/app/act-june/app-june-04.jpg") no-repeat center top;
+            background-size:100% auto;
+        }
+        .may-box{
+            width:100%;
+            height:8.5rem;
+            background:url("https://images.51rz.com/images/app/act-june/app-june-02.jpg") no-repeat center top;
+            background-size:100% 100%;
+            position:relative;
+        }
+        .may-box span{
+            font-size:0.24rem;
+            color:#ff821e;
+            display:inline-block;
+        }
+        .may-box .box-info {
+            line-height: 1rem;
+            font-size: 0.28rem;
+        }
+        .may-box .box-info .record{
+            font-size:0.24rem;
+            text-decoration: underline;
+            color:#568398;
+            line-height:0.35rem;
+            margin-right: 0.85rem;
+        }
+        .may-box .box-info span{
+            font-size: 0.28rem;
+        }
+        .may-box span.gold{
+            margin-left:-0.1rem; 
+            font-size: 28px;
+            font-family: 'consolas';
+            color: #f25540;
+            margin-top: 1.7rem;
+            font-weight: bold;
+        }
+        .may-box .double {
+            width: 1rem;
+            height: 1rem;
+            background:url(https://images.51rz.com/images/app/act-may/double.png) no-repeat center top;
+            background-size: 100% auto;
+            position: absolute;
+            right: 1.7rem;
+            top: 2.1rem;            
+        }
+        .may-box .box-always {
+            width: 100%;
+            margin: 0.15rem;
+        }
+        .may-box .box-always p {
+            display: inline;
+            padding: 0.05rem 0.2rem;
+            color: #568398;
+            border: 1px dashed #ccc;
+            border-radius: 0.2rem;
+        }
+        .may-box .box-btn {
+            margin-top: 1.4rem;
+            text-align: center;
+            width: 100%;
+        }
+        .may-box .box-btn p{
+            width: 2.8rem; 
+            height: 0.66rem;
+            margin: 0 auto;
+            border-radius: 0.33rem;
+            line-height: 0.66rem;
+            font-size: 0.28rem; 
+            color: #ffffff;
+            margin-bottom: 0.15rem;
+            background-color: #f3624c;
+        }
+        .may-box .box-btn p.doublesuccess{
+            background-color: #aaa;
+        }
+        .may-box .box-btn a{
+            line-height: 0.66rem;
+            font-size: 0.24rem; 
+            text-decoration: underline;
+            color: #f35d47;
+        }
+        /*定义滚动条轨道 内阴影+圆角*/
+        /* .bankScroll::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+        } */
+
+        /*定义滑块 内阴影+圆角*/
+        /* .bankScroll::-webkit-scrollbar-thumb
+        {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #55cfa9;
+        }
+   
+        .may-hb,.may-xj,.may-xj-ok,.may-hb-ok{background-size:100% 100%;}
+
+        .may-banner,.may-box,.may-box1,.may-box2,.may-box3{
+            background-size:100% 100%;
+            width:100%;
+        } */
+        .june-czTree{
+            width:2.5rem;
+            position:absolute;
+            top:1.8rem;
+            left:35%;
+            display:inline-block;
+            z-index:2;
+        }
+        .june-czTree p{
+            width:7.5rem;
+            display:inline-block;
+            font-size:0.2rem;
+            text-align:center;
+            position:absolute;
+            left:-2.62rem;
+        }
+        .june-czTree p span{
+            display:inline-block;
+            padding-top:0.1rem;
+        }
+        .june-czTree p span:nth-child(1){
+            color:#452819;
+        }
+        .cl{
+            color:#452819 !important; 
+        }
+        .june-czTree p span:last-child{
+            text-decoration:underline;
+            color:#e13333;
+            cursor:pointer;
+        }
+        .one{
+            position:absolute;
+            left:1rem;
+            top:2.2rem;
+        }
+        .two{
+            position:absolute;
+            left:3rem;
+            top:0.3rem;
+        }
+        .there{
+            position:absolute;
+            left:5.5rem;
+            top:2.8rem;
+        }
+        .june-tree span i{
+            width:1.32rem;
+            height:1.32rem;
+            display:inline-block;
+        }
+        .june-tree span small{
+            width:100%;
+            display: inline-block;
+            font-size:0.2rem;
+            text-align:center;
+            color:#452819;
+        }
+        .upDown{
+            -webkit-transform:translate(0.6rem);
+            -moz-transform:translate(0.6rem);
+            transform:translate(0.6rem);
+            -webkit-animation:upDown 12s ease-out infinite;
+            -moz-animation:upDown 12s ease-out infinite;
+            animation:upDown 12s ease-out infinite;
+        }
+        @-webkit-keyframes upDown{
+            0%{-webkit-transform:translate(-0.6rem,0);opacity:1;}
+            25%{-webkit-transform:translate(-0.6rem,-0.15rem);opacity:1;}
+            50%{-webkit-transform:translate(-0.6rem,-0px);opacity:1;}
+            75%{-webkit-transform:translate(-0.6rem,-0.15rem);opacity:1;}
+            100%{-webkit-transform:translate(-0.6rem,-0px);opacity:1;}
+        }
+        .upDown1{
+            -webkit-transform:translate(0.6rem);
+            -moz-transform:translate(0.6rem);
+            transform:translate(0.6rem);
+            -webkit-animation:upDown1 7s ease-out infinite;
+            -moz-animation:upDown1 7s ease-out infinite;
+            animation:upDown1 7s ease-out infinite;
+        }
+        @-webkit-keyframes upDown1{
+            0%{-webkit-transform:translate(-0.6rem,-0.1rem);opacity:1;}
+            25%{-webkit-transform:translate(-0.6rem,-0px);opacity:1;}
+            50%{-webkit-transform:translate(-0.6rem,-0.1rem);opacity:1;}
+            75%{-webkit-transform:translate(-0.6rem,-0px);opacity:1;}
+            100%{-webkit-transform:translate(-0.6rem,-0.1rem);opacity:1;}
+        }
+        .upDown2{
+            -webkit-transform:translate(0.6rem);
+            -moz-transform:translate(0.6rem);
+            transform:translate(0.6rem);
+            -webkit-animation:upDown2 9s ease-out infinite;
+            -moz-animation:upDown2 9s ease-out infinite;
+            animation:upDown2 9s ease-out infinite;
+        }
+        @-webkit-keyframes upDown2{
+            0%{-webkit-transform:translate(-0.6rem,-0px);opacity:1;}
+            25%{-webkit-transform:translate(-0.6rem,-0.08rem);opacity:1;}
+            50%{-webkit-transform:translate(-0.6rem,-0px);opacity:1;}
+            75%{-webkit-transform:translate(-0.6rem,-0.1rem);opacity:1;}
+            100%{-webkit-transform:translate(-0.6rem,-0px);opacity:1;}
+        }
+        .btn-wrap{
+            width:100%;
+            display:inline-block;
+            position:absolute;
+            top:6.7rem;
+            left:0;
+            z-index:1;
+        }
+        .btn-wrap span{
+            width:50%;
+            text-align:center;
+        }
+        .btn-wrap span button{
+            width:1.88rem;
+            height:0.62rem;
+            display:inline-block;
+            border:none;
+            outline:none;
+            cursor:pointer;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            -webkit-tap-highlight-color: transparent;
+        }
+        .btn-wrap span small{
+            color:#452819;
+            font-size:0.24rem;
+            display: block;
+        }
+        .btn-bg1{
+            background:url("https://images.51rz.com/images/pc/pc-june/june-btn01.png") no-repeat center top;
+        }
+        .btn-bg1-1{
+            background:url("https://images.51rz.com/images/pc/pc-june/june-btn01-1.png") no-repeat center top;
+        }
+        .btn-bg2{
+            background:url("https://images.51rz.com/images/pc/pc-june/june-btn02.png") no-repeat center top;
+        }
+        .btn-bg2-1{
+            background:url("https://images.51rz.com/images/pc/pc-june/june-btn02-1.png") no-repeat center top;
+        }
+        .june-btn{
+            width:1.9rem;
+            height:0.62rem;
+            display:inline-block;
+            background-size:100% auto;
+        }
+        .june-energy-box{
+            width:2rem;
+            display:inline-block;
+            position: absolute;
+            right: 0.2rem;
+            top:0.1rem;
+        }
+        .june-energy-text{
+            width:100%;
+            font-size:0.18rem;
+            color:#452819 !important;
+            display:inline-block;
+            text-align:center;
+            padding-bottom:0.1rem;
+        }
+
+        .june-energy{
+            width:0.3rem;
+            height:2rem;
+            border:0.05rem solid #d4ecdf;
+            background:#bedfcc;
+            display:inline-block;
+            border-radius:1rem;
+            position: absolute;
+            overflow: hidden;
+            right: 0.8rem;
+            top:0.4rem;
+        }
+        .june-energy p{
+            width:100%;
+            height:50%;
+            display:inline-block;
+            background:url("https://images.51rz.com/images/pc/pc-june/june-line.png");
+            border-radius:1rem;
+            position: absolute;
+            bottom: 0;
+            left:0;
+            background-size:100% 100%;
+        }
+        .june-box-wrap{
+            width:6.7rem;
+            background:#f9fbc9;
+            border-radius:5px;
+            padding:0.2rem 0.2rem 0.1rem 0.2rem;
+            margin:0 auto;
+        }
+        .june-text{
+            width:100%;
+            font-size:0.24rem;
+            text-align:left;
+            padding: 0.1rem 0 0.2rem 0;
+            color:#452819;
+        }
+        .june-tab{
+            width:100%;
+            display:inline-block;
+        }
+        .june-tab table{
+            width:100%;
+            border-left:1px solid #bec255;
+            border-top:1px solid #bec255;
+            border-right:none;
+            border-bottom:none;
+        }
+        .june-tab table tr td{
+            width:50%;
+            height:0.6rem;
+            text-align:center;
+            font-size:0.24rem;
+            color:#452819;
+            border-right:1px solid #bec255;
+            border-bottom:1px solid #bec255;
+        }
+        .may_sign {
+            color: #452819;
+            margin: 0.1rem 0 0 27%;
+            float:left;
+        }
+        .may_sign i{
+            width:0.39rem;
+            height:0.33rem;
+            background:url("https://images.51rz.com/images/pc/pc-june/june-icon.png") no-repeat center top;
+            float:left;
+            background-size:100% 100%;
+            margin-right:0.1rem;
+        }
+        .may_sign strong {
+            font-weight: 500;
+        }
+        .may_box1_text {
+            width: 100%;
+            color: #452819;
+            word-spacing: 1px;
+            letter-spacing:0.1px;
+            height:0.5rem;
+        }
+        .fixed_bg {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 5;
+        }
+    </style>
+</head>
+<body>
+<div id="wraper">
+    <div class="may-banner"></div>
+    <div class="fixed_bg"  v-cloak v-show="showRecords">
+        <div class="showgold">
+            <h5>我的获取记录</h5>
+            <div class="scrol">
+                <div class="head">
+                    <p>日期</p>
+                    <p>签到</p>
+                    <p>投资</p>
+                    <p>奖励</p>
+                </div>
+                <p class="none" v-if="myData.length === 0">暂无记录</p>
+                <div class="showgoldlist" v-for="(item,index) in myData" :key="index" v-else>
+                    <span v-text="item.date"></span>
+                    <span v-text="parseInt(item.sign)===0?'--': '+' + parseInt(item.sign) "></span>
+                    <span v-text="parseInt(item.tender)===0?'--': '+' + parseInt(item.tender) "></span>
+                    <span v-text="item.reward === 1? '领取': '--'"></span>
+                </div>
+            </div>
+            <div class="close" @click="hideAlert"></div>
+        </div>
+    </div>
+
+    <div class="may-box">
+        <!--悬浮球-->
+        <div class="june-tree">
+            <div v-if="exchange.list">
+                <span class="one upDown" v-show="exchange.list[0].activated === 2" @click="signHb(exchange.list[0].recordId, 15)">
+                    <i>
+                        <img src="https://images.51rz.com/images/pc/pc-june/june-hb01.png" />
+                    </i>
+                    <small>15g能量可摘取</small>
+                </span>
+                <span class="one upDown" v-show="exchange.list[0].activated === 1">
+                    <i>
+                        <img src="https://images.51rz.com/images/pc/pc-june/june-hb01-1.png" />
+                    </i>
+                    <small style="color:#999">15g能量可摘取</small>
+                </span>
+            
+                <span class="two upDown1" v-show="exchange.list[1].activated === 2" @click="signHb(exchange.list[1].recordId, 50)">
+                    <i>
+                        <img src="https://images.51rz.com/images/pc/pc-june/june-hb02.png" />
+                    </i>
+                    <small>50g能量可摘取</small>
+                </span>
+                <span class="two upDown1" v-show="exchange.list[1].activated === 1">
+                    <i>
+                        <img src="https://images.51rz.com/images/pc/pc-june/june-hb02-1.png" />
+                    </i>
+                    <small style="color:#999">50g能量可摘取</small>
+                </span>
+            
+                <span class="there upDown2" v-show="exchange.list[2].activated === 2" @click="signHb(exchange.list[2].recordId, 100)">
+                    <i>
+                        <img src="https://images.51rz.com/images/pc/pc-june/june-hb03.png" />
+                    </i>
+                    <small>100g能量可摘取</small>
+                </span>
+            
+                <span class="there upDown2" v-show="exchange.list[2].activated === 1">
+                    <i>
+                        <img src="https://images.51rz.com/images/pc/pc-june/june-hb03-1.png" />
+                    </i>
+                    <small style="color:#999">100g能量可摘取</small>
+                </span>
+            </div>
+        </div>
+        <!--能量条-->
+        <div class="june-energy-box">
+            <span class="june-energy-text" v-text="energyBoxValue + 'g太阳能'"></span>
+            <div class="june-energy">
+                <p :style="'height:' + energyBoxValue + '%'"></p>
+            </div>
+        </div>
+        <!--树-->
+        <div class="june-czTree">
+            <img src="https://images.51rz.com/images/pc/pc-june/hua01.png" v-show="energyValue < 50" />
+            <img src="https://images.51rz.com/images/pc/pc-june/hua02.png" v-show="energyValue >= 50 && energyValue < 100" />
+            <img src="https://images.51rz.com/images/pc/pc-june/hua03.png" v-show="energyValue >= 100"  />
+            <p>
+                <span v-show="isLogined" class="cl">我的太阳能：<small v-text="score"></small>g</span>
+                <span v-show="!isLogined" class="cl">我的太阳能：<small @click="go" style="cursor:pointer;font-size:0.24rem;">登录查看</small></span>
+                <span v-show="isLogined" style="padding-left:0.1rem" @click="showAlert">我的获取记录</span>
+            </p>
+        </div>
+        <!--未登录按钮-->
+        <div class="btn-wrap" v-show="!isLogined">
+                <span class="flt">
+                    <button type="button" class="june-btn btn-bg1" @click="go"></button><br />
+                    <small>每天浇水+5g能量</small>
+                </span>
+                <span class="frt">
+                    <button type="button" class="june-btn btn-bg2" @click="go"></button><br />
+                    <small>单笔投资≥30天满<br />3千元+15g能量</small>
+                </span>
+            </div>
+            <!--已登录按钮-->
+            <div class="btn-wrap" v-show="isLogined">
+                <div v-for="item in today" :key="item.packId">
+                    <span v-if="item.code == 'sign'" class="flt">
+                        <button type="button" class="june-btn btn-bg1" v-show="waterStatus" @click="watering"></button>
+                        <button type="button" class="june-btn btn-bg1-1" v-show="!waterStatus"></button><br />
+                        <small>每天签到+5g能量</small>
+                    </span>
+                    <span v-if="item.code == 'tender'" class="frt">
+                        <button type="button" class="june-btn btn-bg2" v-show="parseInt(item.rewardType) === 0" @click="go"></button>
+                        <button type="button" class="june-btn btn-bg2-1" v-show="parseInt(item.rewardType) > 0"></button><br />
+                        <small>单笔投资≥30天满</small>
+                        <small>3千元+15g能量</small>
+                    </span>
+                </div>
+            </div>
+    </div>
+    <div class="june-box2">
+        <div class="june-box-wrap">
+            <p class="may_box1_text center">
+                <span class="may_sign font-26"><i></i>向日葵数量：<strong v-text="treeNum"></strong>棵</span>
+            </p>
+            <p class="june-text">种植大比拼，养成规定数量的向日葵，可获得额外奖励！（仅限获得最高一项奖励）</p>
+            <div class="june-tab  font-24">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td style="color:#452819;background:#edefb1">养成向日葵</td>
+                        <td style="color:#452819;background:#edefb1">奖品</td>
+                    </tr>
+                    <tr>
+                        <td>2棵</td>
+                        <td>1%加息券</td>
+                    </tr>
+                    <tr>
+                        <td>6棵</td>
+                        <td>20元现金</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="june-box3"></div>
+
+    <!-- 弹窗提示 -->
+    <div class="dialog-tip">
+        <div class="content"></div>
+    </div>
+
+    <!-- loading -->
+    <div class="loading-wrapper">
+        <div class="spinner-snake" style="border-top-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); height: 32px; width: 32px;"></div>
+        <span class="indicator-text">加载中...</span>
+    </div>
+</div>
+
+<script src="/static/js/fastclick.min.js"></script>
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/zepto.min.js"></script>
+
+<script type="text/javascript">
+
+    // 解决移动端页面click事件存在300毫秒延迟
+    document.addEventListener('DOMContentLoaded', function () {
+        FastClick.attach(document.body);
+    }, false);
+
+    //    避免页面从缓存中加载
+    window.onpageshow = function(e){
+        e = e || event;
+        if(e.persisted){
+            location.reload();
+        }
+    }
+
+    function getParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r!=null) return unescape(r[2]); return null; //返回参数值
+    }
+    var token= getParam("token") || '';
+
+    window.vm=new Vue({
+        el:"#wraper",
+        data:{
+            exchange: {}, // 首页数据
+            isLogined: token? true: false, //是否登录
+            today: [], // 浇水施肥状态
+            myData:[], // 我的获取记录数据
+            showRecords: false, // 我的获取记录弹窗
+            waterStatus: false, // 是否浇水状态
+            energyValue: 0, // 能量条值
+            score: 0, // 总的积分能量
+        },
+        mounted: function () {
+            this.initData();
+        },
+        computed: {
+            treeNum: function () {
+                var exchange = this.exchange;
+                return exchange.current_num? exchange.current_num*1 - 1: 0;
+            },
+            energyBoxValue: function() {
+                var energyValue = this.energyValue;
+                return energyValue > 100? 100: energyValue;
+            }
+        },
+        methods: {
+            initData:function(){
+                var _this = this;
+                if (this.isLogined) {
+                    $.post('/index.php?_url=/api/activity/index',{activityId:24, token: token},function(data){
+                        if(data && data.error_code === 0){
+                            var islogin = data.data.islogin;
+                            if(typeof(islogin) == "undefined") {
+                                var packToday = data.data.pack.today;
+                                var exchange = data.data.exchange;
+                                _this.exchange = exchange;
+                                _this.score = parseInt(exchange.score);
+                                _this.energyValue = parseInt(exchange.score) - (exchange.current_num*1 - 1) * 100;
+                                _this.today = packToday;
+                                _this.waterStatus = packToday[0].rewardType === 0? true: false;
+                            } else if(islogin === 0) {
+                                var type = getParam('type') || 'www';
+                                window.location.href = location.origin + location.pathname + '?token=&type=' + type;
+                            }
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                }
+            },
+            showAlert: function () {//显示弹框
+                var _this=this;
+                $(".loading-wrapper").show();
+                $.post('/index.php?_url=/api/activity/record',{activityId: 24, token: token},function(data){
+                    $(".loading-wrapper").hide();
+                    if(data.error_code == 0){
+                        _this.myData = data.data;
+                        // 打开明细弹窗
+                        _this.showRecords = true;
+                    } else if(data.error_code === 201) {
+                        var type = getParam('type') || 'www';
+                        location.href = 'https://' + type + '.51rz.com/login';
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            },
+            hideAlert: function () {
+                this.showRecords = false;
+            },
+            // 点击能量球增加能量条和总积分，改能量球消失
+            signHb: function(recordId, value){
+                var _this = this;
+                $.post('/index.php?_url=/api/exchange/exchange',{activityId: 24, token: token, recordId: recordId}, function(data){
+                    if(data && data.error_code === 0){
+                        _this.initData();
+                    } else if(data.error_code === 201) {
+                        var type = getParam('type') || 'www';
+                        location.href = 'https://' + type + '.51rz.com/login';
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            },
+            // 点击浇水拆礼包接口，增加能量条和总积分
+            watering: function() {
+                var _this=this;
+                $.post('/index.php?_url=/api/pack/open',{activityId: 24, token: token, code: 'sign'},function(data){
+                    if(data.error_code === 0){
+                        _this.initData();
+                    } else if(data.error_code === 201) {
+                        var type = getParam('type') || 'www';
+                        location.href = 'https://' + type + '.51rz.com/login';
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            },
+            go: function () {
+                var type = getParam('type') || 'www';
+                this.isLogined ? location.href = 'https://' + type + '.51rz.com/tender/index': location.href = 'https://' + type + '.51rz.com/login';
+            },
+            // 打开弹窗提示
+            showMsg: function(msg) {
+                $(".dialog-tip .content").text(msg);
+                $(".dialog-tip").show();
+                setTimeout(function() {
+                    $(".dialog-tip .content").text('');
+                    $(".dialog-tip").hide();
+                }, 2000);
+            },
+        },
+    })
+</script>
+</body>
+</html>

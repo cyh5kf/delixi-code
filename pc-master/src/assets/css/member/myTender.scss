@@ -1,0 +1,297 @@
+@import "../libs/mixin.scss";
+
+.wrap{
+    @include box((p:40px 30px 50px));
+}
+
+.pageTitle{
+    @include box((lh:40px,fw:normal,c:$black2,fs:18px,p:0 0 5px 0));
+}
+
+.searchRow{
+    @include box((m:20px 0))
+}
+
+.searchBtn{
+    @include box((d:inline-block,lh:28px,w:70px,bg:$red,ta:center,c:$white,fs:14px,m:0 0 0 10px));
+    cursor: pointer;
+}
+
+.tableWraper{
+    table{
+        @include box((w:100%));
+        thead{
+            @include box((h:48px,lh:48px,bg:#f6f6f6,ta:center));
+            th {
+                @include box((c:$black2, fs:14px));
+                font-weight: normal;
+                &:nth-child(1){
+                    @include box((w:100px))
+                }
+                &:nth-child(2){
+                    @include box((w:180px))
+                }
+                &:nth-child(3){
+                    @include box((w:90px))
+                }
+                &:nth-child(6){
+                    @include box((w:100px))
+                }
+                &.sortArrow{
+                    cursor: pointer;
+                }
+                &.sortArrow:after{
+                   content:'';
+                    @include box((d:inline-block,w:10px,h:14px,m:0 0 0 5px));
+                    @include background((url:'member/sort_arrow.png',repeat:no-repeat,size:100% 100%));
+                    vertical-align: middle;
+                }
+                &.sortArrow.active:after{
+                    @include box((c:$blue));
+                    @include background((url:'member/sort_arrow_active.png',repeat:no-repeat,size:100% 100%));
+                }
+                &.sortArrow.active{
+                    @include box((c:$blue));
+                }
+            }
+        }
+        tbody{
+            tr{
+                height:69px;
+                border-bottom: 1px solid #e5e5e5;
+                td{
+                    @include box((c:$black5,fs:12px,ta:center))
+                }
+                .operate{
+                    @include box((d:inline-block,c:$blue,m:0 15px));
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+
+tr{
+    &.activeDetail{
+
+    }
+    &.hiddenDetail{
+        display:none;
+    }
+}
+
+
+.detailWrap{
+    @include clearfix();
+    @include box((p:26px 0));
+    ul{
+        @include box((m:0 0 0 290px));
+        li{
+            @include box((ta:left));
+            position: relative;
+            overflow: visible;
+            border-left:1px solid #e5e5e5;
+            &:not(:last-child){
+                @include box((p:0 0 24px 0 ));
+            }
+            &:last-child{
+                border-left:1px solid transparent;
+            }
+            &:before{
+                content:'';
+                @include box((d:block,w:7px,h:7px,bg:#e5e5e5,bdr:50%));
+                @include position((p:absolute,t:0,l:-4px))
+            }
+            &.active{
+                &:before{
+                   box-shadow: 0 0 0 3px $green;
+                    background-color: #fff;
+                }
+                .rightCont .detail p{
+                    @include box((c:$green));
+                }
+            }
+            &.unreach{
+                .rightCont .detail p{
+                    @include box((c:$black9));
+                }
+            }
+            $mT:-4px;
+            .leftLabel {
+                @include box((w:280px, p:0 24px 0 0,ta:right,fs:12px,c:$black9));
+                @include position((p:absolute,l:-280px,t:$mT));
+            }
+            .rightCont{
+                @include box((p:0 0 0 24px,fs:12px));
+                @include position((p:relative,t:$mT));
+                @include clearfix();
+                .detail{
+                    @include box((fl:left,w:320px,lh:18px));
+                    .tips{
+                        @include box((c:$black9));
+                    }
+                    .proTips{
+                        @include box((c:#fda240));
+                    }
+                }
+                .tails{
+                    @include box((fl:left));
+                    .aprTail{
+                        color:$black5;
+                        span{
+                            @include box((c:$red));
+                        }
+                    }
+                    label,a{
+                        @include box((d:inline-block,c:$blue,m:0 27px 0 0 ));
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.closeUp{
+    @include box((h:28px,lh:28px,ta:center,bg:#eceef1));
+    cursor: pointer;
+    &:after{
+        content:'';
+        vertical-align: middle;
+        @include box((d:inline-block,w:10px,h:5px,m:-3px 0 0 3px));
+        @include background((url:'member/detail_close_up.png',repeat:no-repeat,size:100% 100%))
+    }
+}
+
+.dialogWrap{
+    h5 {
+        @include box((fs:16px,fw:normal,c:$black2));
+    }
+    .info{
+        @include box((m:22px 0 ));
+        @include clearfix();
+        li{
+            @include box((w:50%,lh:30px,fl:left,c:$black5))
+        }
+    }
+    .formWraper{
+        div[class^="index_inputRow"]{
+            height: 60px;
+            display: flex;
+            align-items: center;
+            p{
+                display: none;
+            }
+        }
+        .dueInTotalMoney{
+            height: 60px;
+            display: flex;
+            align-items: center;
+        }
+        .rule{
+            margin-left: 76px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            a{
+                color: #4992ec;
+            }
+        }
+    }
+    .close{
+        @include box((w:20px,h:20px));
+        @include background((url:'closedetail.png',repeat:no-repeat,size:100% 100%,pos:center center));
+        @include position((p:absolute,t:20px,r:20px));
+        cursor: pointer;
+    }
+}
+//取消转让的弹框
+.cancelTransferDialog{
+    @include box((w:320px));
+    h5{
+        @include box((lh:100px,ta:center,c:$black2,fs:18px));
+        font-weight: normal;
+    }
+    p{
+        @include box((ta:center));
+        span{
+            @include box((d:inline-block,w:120px,lh:38px,ta:center,m:0 5px));
+            cursor: pointer;
+            &:first-child{
+                @include box((bg:$red,c:$white));
+            }
+            &:last-child{
+                @include box((bd:1px solid #e5e5e5,c:$black9));
+            }
+        }
+    }
+}
+
+//协议弹框
+.protocolDialogWrap{
+    table{
+        @include box((w:100%,ta:center,));
+        border-collapse: collapse;
+        thead{
+            @include box((lh:36px,bg:#f5f5f5));
+        }
+        th,td{
+            @include box((bd:1px solid #e5e5e5));
+            border-collapse: collapse;
+        }
+        .procotolLine{
+            @include box((lh:30px));
+            &:not(:last-child){
+
+            }
+            label,span,a {
+                cursor: pointer;
+                &:hover {
+                    @include box((c:$blue));
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+.borrowListsDialog{
+    height:200px;
+    overflow-y:scroll;
+    table{
+        $trH:48px;
+        @include box((lh:$trH,ta:center,fs:14px,w:100%));
+        thead tr {
+            @include box((h:$trH, bg:#f6f6f6));
+        }
+        tbody tr {
+            @include box((h:$trH,ta:center,fs:12px,c:$black5));
+            border-bottom: 1px solid #e5e5e5;
+            &:last-child{
+                border-bottom: none;
+            }
+            td {
+                p{
+                    @include box((m:0 auto));
+                }
+            }
+        }
+        th{
+            font-weight: normal;
+            @include box((fs:14px, c:$black2, w:100px, fw:500));
+            &:nth-child(5) {
+                @include box((w:100px));
+            }
+        }
+        a{
+            @include box((c:$blue));
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+
+
+

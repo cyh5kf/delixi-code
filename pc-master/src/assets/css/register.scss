@@ -1,0 +1,125 @@
+@import "./libs/mixin";
+
+$liH:46px;
+body{
+    background-color:$white;
+}
+
+.container{
+    background-color:#fff;
+}
+.wraper{
+    @include box((w:$contentW,p:80px 0 80px 0,m:0 auto));
+    min-height:534px;
+    @include background((url:'login_xc.png',repeat:no-repeat,size:485px auto,pos:620px 100px));
+
+    .registerWraper{
+        @include box((w:400px,m:0 0 0 100px,bg:#fff,bdr:2px));
+        min-height: 374px;
+        .formWraper{
+            .geetestBox{
+                width:400px;
+                //border:1px solid red;
+            }
+            li{
+                &.normal{
+                    position: relative;
+                }
+                label{
+                    @include box((lh:$liH,h:$liH,d:block,w:90px,c:#555));
+                    text-indent: 12px;
+                    @include position((p:absolute,t:0,l:0));
+                }
+                input{
+                    @include box((w:100%,h:$liH - 2px,lh:$liH,bd:1px solid #e5e5e5,p:0 0 0 90px));
+                    &:focus{
+                        border:1px solid #4992ec;
+                    }
+                    &.error,&.error:focus{
+                        border:1px solid $red;
+                    }
+                }
+
+                &.imgCodeRow{
+                    @include clearfix();
+                    @include box(());
+                    input{
+                        @include box((w:242px,p:15px,d:block));
+                        float:left;
+                    }
+                    img{
+                        @include box((w:106px,h:$liH,d:block));
+                        float:right;
+                    }
+                }
+                &.smsRow{
+                    @include position((p:relative));
+                    @include clearfix();
+
+                    .inputSmsCode{
+                        @include box((w:300px,fl:left));
+                        &.error{
+                            border-right:0;
+                        }
+                    }
+                    span{
+                        @include box((d:block,w:100px,h:100%,bg:#4b92ec,fl:right,lh:$liH,ta:center,c:#fff));
+                        cursor:pointer;
+                        &.disabled{
+                            background:#a8a8a8;
+                            cursor:auto;
+                        }
+                    }
+                }
+            }
+            .errorMsg{
+                @include box((h:30px,lh:30px,p:0 0 0 24px,fs:12px));
+                &.error{
+                    @include background((url:'icon_error.png',repeat:no-repeat,pos:6px center));
+                    color:$red;
+                }
+                &.tip{
+                    @include background((url:'icon_tip.png',repeat:no-repeat,pos:6px center));
+                    color:#999;
+                }
+            }
+            .tuijianRow{
+                $color:#d7a55e;
+                @include box((lh:34px,c:$color));
+                cursor: pointer;
+                &:before{
+                    content:"";
+                    @include box((d:inline-block,w:0,h:0));
+                    margin-right:10px;
+                    vertical-align: middle;
+                    border-left:14px solid $color;
+                    border-top:8px solid transparent;
+                    border-bottom:8px solid transparent;
+                    transition:all ease 200ms;
+                }
+                &.need{
+                    &:before{
+                        transform:rotate(90deg);
+                    }
+                }
+            }
+            .agree{
+                @include clearfix();
+                @include box((w:100%,fs:12px,m:10px));
+                input{
+                    @include box((w:16px,h:16px,bd:1px solid #929292));
+                    margin-right:5px;
+                    vertical-align: middle;
+                }
+            }
+            .loginBtn{
+                @include box((w:100%,lh:$liH,bg:$red,ta:center,c:#fff,fs:16px,m:15px 0 0 0 ));
+                cursor: pointer;
+                &.disabled{
+                    background:#ccc;
+                    cursor: auto;
+                }
+            }
+        }
+    }
+}

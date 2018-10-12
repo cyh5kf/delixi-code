@@ -1,0 +1,56 @@
+*{margin:0 auto;box-sizing: border-box;}
+body {
+  margin: 0;
+  padding: 0;
+    color: #5E5E5E;
+    font-family: "微软雅黑", "Arial",sans-serif;
+    font-size: 12px;
+    background-color: #fff;
+  }
+ul,li{margin:0px; padding:0px; list-style:none;}
+img{ border:none;}
+.mr{margin-right:8px;}
+.mt{margin-top:20px;}
+.pr{padding-right:8px;}
+.clear{clear:both;}
+a{ text-decoration:none;transition: color .6s,border-color .6s,background-color .6s,border .6s,padding .6s;}
+a:hover{text-decoration:none;}
+.tran{transition: color .6s,border-color .6s,background-color .6s,border .6s,padding .6s;}
+button,input{font-family:"Microsoft YaHei",Arial;}
+input,
+textarea{
+  font:inherit;
+  resize:none;
+}
+
+[placeholder]{
+  /*cursor:pointer; */
+  padding:5px;
+  border:1px solid #999;
+  -moz-border-radius:2px;
+  -webkit-border-radius:2px;
+  border-radius:2px;
+}
+[placeholder]:active,
+[placeholder]:focus{
+  cursor:text;
+}
+
+#wrapper {
+  padding: 12px;
+}
+
+select {
+  -webkit-appearance: menulist-button;
+  width: 200px;
+  height: 25px;
+}
+
+.loginwinmask{ position: fixed;height:100%; width: 100%;left:0;top:0;z-index: 9999;background: #ffffff; display: none;}
+.loginwin{ display: none;position: fixed;width: 100%;height: 100%; z-index: 10000; text-align: center; vertical-align: middle;}
+.loginwin .Box{ padding-top:30px; width: 1010px;}
+.loginwin .Box a{ display:block; box-shadow: 0 5px 25px #d6d6d8}
+.loginwin .Box a:hover{ display:block; box-shadow: 0 5px 25px #F7C0A8}
+.loginwin .new{ float:left; margin-left:45px;}
+.loginwin .old{ float:right; margin-right:45px; }
+

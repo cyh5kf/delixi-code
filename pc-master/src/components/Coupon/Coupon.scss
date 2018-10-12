@@ -1,0 +1,81 @@
+.coupon {
+
+  .coupon_select {
+
+  }
+  .coupon_list {
+    position: absolute;
+    z-index: 9;
+    width: 334px;
+    height: 412px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    .header {
+      background: #fff;
+      .cancel {
+        margin-left: 206px;
+        font-size: 14px;
+        color: rgba(73, 146, 236, 255);
+      }
+    }
+    .coupon_item_list {
+      $sector_width: 10px;
+      .coupon_item {
+        width: 334px;
+        height: 412px;
+        position: relative;
+        .coupon_item_header {
+          height: 10px;
+          .sector {
+            position: absolute;
+            //top: 0;
+            //left: 0;
+            background: red;
+            width: $sector_width;
+            height: $sector_width;
+            line-height: $sector_width;
+            text-align: center;
+            //margin: $sector_width;
+            border-radius: $sector_width 0 0;
+            transform: rotate(90deg);
+
+          }
+          .sector:nth-of-type(1) {
+            margin: 0;
+            left: 0;
+          }
+          .sector:nth-of-type(2) {
+            margin: 0;
+            right: 0;
+          }
+          .sector:nth-last-child(1) {
+            margin: 0;
+            right: 0;
+          }
+          .separate {
+            //border-style: dashed;
+            border: 1px dashed #dddddd;
+            margin-left: 10px;
+            margin-right: 10px;
+          }
+        }
+
+        .content {
+          $bg: #fff;
+          width: 324px;
+          height: 103px;
+          background: $bg;
+          background: radial-gradient(circle at top left,
+                  transparent 10px, $bg 0) top left,
+          radial-gradient(circle at top right,
+                          transparent 10px, $bg 0) top right,
+          radial-gradient(circle at bottom right,
+                          transparent 10px, $bg 0) bottom right,
+          radial-gradient(circle at bottom left,
+                          transparent 10px, $bg 0) bottom left;
+          background-size: 50% 50%;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+}

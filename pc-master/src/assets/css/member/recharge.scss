@@ -1,0 +1,139 @@
+@import "../libs/mixin.scss";
+
+.wrap{
+    @include box((p:40px 30px 50px));
+}
+
+.pageTitle{
+    @include box((lh:40px,fw:normal,c:$black2,fs:18px,p:0 0 5px 0));
+}
+
+.colorTable{
+    $border:1px solid #e5e5e5;
+    @include box((bd:1px solid #e5e5e5,w:520px));
+    thead{
+        @include box((bg:#f9f2e7,lh:36px));
+        th,td{
+            @include box((fw:normal,c:$black5,ta:left));
+            padding-left: 60px;
+            border-right:$border;
+        }
+    }
+    tbody{
+        tr{
+            @include box((lh:36px))
+        }
+        td{
+            @include box((c:$black5,ta:left));
+            padding-left: 60px;
+            border-right:$border;
+            border-bottom:$border;
+        }
+    }
+}
+
+
+.quickWraper{
+    @include box((bd:1px solid #e5e5e5,m:15px 0,p:0 0 50px 0));
+    .typeWraper{
+        @include box((p:20px 0 0 95px));
+        position: relative;
+        .labelTitle{
+            position: absolute;
+            @include position((p:absolute,l:0,t:24px));
+            @include box((w:95px,ta:right,fs:14px,c:$black5));
+        }
+
+    }
+    .moneyLimit{
+        .title{
+            @include box((c:#a9a9a9,m:10px 0 0 0,lh:30px,fs:12px));
+        }
+        ul{
+            @include box((w:520px,lh:36px,bd:1px solid #e5e5e5));
+            li{
+                span {
+                    @include box((d:block, fl:left, w:33.33%, p:0 0 0 60px,c:$black5));
+                    &:not(:last-child){
+                        border-right:1px solid #e5e5e5;
+                    }
+                }
+                &:first-child{
+                    @include box((bg:#f9f2e7,))
+                }
+            }
+        }
+        .right{
+            @include box((p:0 0 0 10px,fs:12px,c:$blue,lh:80px));
+            cursor: pointer;
+        }
+    }
+    .formWraper{
+        @include box((m:30px 0 0 0))
+    }
+}
+
+.bankWraper{
+    @include box((bd:1px solid #e5e5e5,m:15px 0,p:0 0 50px 0));
+    .bankLists{
+        @include box((w:100%,m:20px 0));
+        @include clearfix();
+        h5{
+            @include box((w:95px,fl:left,ta:right,fs:14px,color:#565656,fw:normal,lh:30px))
+        }
+        ul{
+            @include box((w:690px,fl:left));
+            @include clearfix();
+            li{
+                @include box((w:160px,h:48px,m:0 10px 10px 0,bd:1px solid #e5e5e5,fl:left));
+                cursor: pointer;
+                &.active{
+                    @include box((bd:1px solid #d7a55e))
+                }
+            }
+        }
+    }
+}
+
+.tips{
+    @include box((m:10px 0,fs:12px,c:#a9a9a9));
+    h5{
+        @include box((lh:44px,fw:normal,c:#a9a9a9,fs:14px))
+    }
+    li{
+        @include box((lh:24px))
+    }
+}
+
+
+.otherBankWraper{
+    @include box((w:625px));
+    h5 {
+        @include box((lh:76px, fs:16px));
+        font-weight: normal;
+    }
+    .tableWaraper {
+        @include box(( h:332px));
+        overflow-y: auto;
+        table{
+            @include box((w:610px));
+            border-collapse: collapse;
+            thead{
+                backgound-color:#f5f5f5;
+            }
+            th,td {
+                @include box((bd:1px solid #eaeaea, h:30px, lh:30px, w:25%,ta:center));
+                box-sizing: border-box;
+            }
+        }
+    }
+    .tips{
+        @include box((lh:36px,ta:center,fs:12px,c:$orange))
+    }
+}
+
+.ruleTable{width:500px;margin:0 auto;color:#a9a9a9;border-top:1px solid #a9a9a9;
+    border-left:1px solid #a9a9a9;border-collapse: collapse;}
+.ruleTable td{border-right:1px solid #a9a9a9;border-bottom:1px solid #a9a9a9;
+    height:22px;font-size:14px;text-align:center;width:25%;}
+

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="wap-font-scale" content="no"/>
+    <title>积分规则</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico"/>
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+</head>
+<style>
+    html {
+        font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft Yahei, STHeiTi, Arial, sans-serif;
+        background-color: #fff;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0.22rem;
+        box-sizing: border-box;
+        line-height: 1.5;
+        text-decoration: none;
+        color: #222;
+    }
+
+    .container {
+        padding: 0.58rem 0.3rem 0;
+        background:#fff;
+    }
+
+    .rule h5 {
+        padding-left: 0.3rem;
+        font-size: 0.28rem;
+        color: #222;
+        font-weight: 500;
+        position: relative;
+        margin-bottom: 0.1rem;
+    }
+
+    .rule h5:before {
+        content: '';
+        display: inline-block;
+        width: 0.1rem;
+        height: 0.1rem;
+        border-radius: 50%;
+        background: #999;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    ol {
+        padding-left: 0.6rem;
+    }
+
+    ol li {
+        list-style: decimal;
+        font-size: 0.24rem;
+        color: #555;
+        margin-top: 0.05rem;
+    }
+
+    .rule>p {
+        padding-left: 0.3rem;
+        font-size: 0.24rem;
+        color: #d7a55e;
+    }
+
+    .example{
+        margin-top:0.4rem;
+        height:1.5rem;
+        width:100%;
+        padding-left:2.46rem;
+        background:url(https://images.51rz.com/images/jifen/integral_example.png);
+        background-size:4.09rem 1.47rem;
+        background-position: 0.3rem center;
+        background-repeat: no-repeat;
+
+    }
+    .expect{
+        width:1.6rem;
+        text-align: center;
+        float:left;
+    }
+    .expect p{
+        font-size: 0.24rem;
+        color:#999;
+    }
+    .expect span{
+        font-size: 0.24rem;
+        color:#d7a55e;
+    }
+    .clearfix:after {
+        content: '';
+        width: 0;
+        height: 0;
+        display: block;
+        clear: both;
+    }
+    .expect p.apr{
+        font-size: 0.6rem;
+        color:#d7a55e;
+    }
+    .expectResult{
+        float:left;
+        margin-left:0.5rem;
+        text-align: center;
+        padding-top:0.3rem;
+    }
+    .expectResult p{
+        font-size:0.36rem;
+        color:#d7a55e;
+    }
+    .expectResult span{
+        display:block;
+        font-size: 0.24rem;
+        color:#555;
+    }
+
+</style>
+<body>
+<div id="container" class="container">
+    <div class="rule">
+        <h5>积分清算规则</h5>
+        <ol>
+            <li>积分有有效期，采用两年滚动清算；</li>
+            <li>积分有效期最长2年，最短1年，即从获得积分开始至次年年底，逾期自动作废；</li>
+            <li>积分正式清空前30天，系统会发送一条短信提醒您积分将要清空，您可以及时进行积分兑换。</li>
+        </ol>
+        <p style="margin-top:0.2rem">例：2018年整年获得积分都将在2019年12月31日24点到期，</p>
+        <p>&nbsp;&nbsp;&nbsp;2019年整年获得的积分都将在2020年12月31日24点到期。</p>
+        <h5 style="margin-top:0.4rem;">投资赚积分</h5>
+        <ol>
+            <li>投资申请成功即可获得相应的积分</li>
+            <li>投资积分=投资预期收益*（1+积分加成系数）</li>
+            <li>每天通过投资获得积分次数最多为10次</li>
+        </ol>
+        <div class="example clearfix">
+            <div class="expect">
+                <p class="apr">12<span>%</span></p>
+                <p>预期年化收益</p>
+                <span>（一年期）</span>
+            </div>
+            <div class="expectResult">
+                <p>积分:1200</p>
+                <span>收益1200元</span>
+            </div>
+        </div>
+        <p style="margin-top:0.3rem">案例说明：<br/>某用户用10000元进行一年期投资，预期年化收益为12%，则收益为1200元，获得积分为1200（投资成功之后立即获得积分，如果发生债转行为，则承接人无积分）。</p>
+    </div>
+</div>
+
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script>
+    //    避免页面从缓存中加载
+    window.onpageshow = function (e) {
+        e = e || event;
+        if (e.persisted) {
+            location.reload();
+        }
+    }
+
+    function getParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值
+    }
+</script>
+</body>
+</html>

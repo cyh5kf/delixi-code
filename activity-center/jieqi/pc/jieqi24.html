@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/components/header-footer/header-footer.css">
+    <title>二十四节气专享福利</title>
+    <style type="text/css">
+        html,body{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin: 0 auto;
+        }
+        .banner{
+            width: 100%;
+            height: 624px;
+            background: url("https://images.51rz.com/images/pc/active/jieqi24/jieqi01.png") no-repeat center;
+        }
+        .box-one{
+            width:100%;
+            height:276px;
+            background: url("https://images.51rz.com/images/pc/active/jieqi24/jieqi02.png") no-repeat center;
+        }
+        .box-two{
+            width:100%;
+            height:804px;
+            text-align:center;
+            background: url("https://images.51rz.com/images/pc/active/jieqi24/jieqi03.png") no-repeat center;
+        }
+        .two1{
+            width:861px;
+            padding-top:106px;
+            display:inline-block;
+            overflow: hidden;
+        }
+        .twoLeft,.twoRight{
+            width:45px;
+            height:140px;
+            cursor:pointer;
+        }
+        .twoLeft{
+            float:left;
+            background: url("https://images.51rz.com/images/pc/active/jieqi24/jieqiLeft.png") no-repeat center;
+        }
+        .twoRight{
+            float:right;
+            background: url("https://images.51rz.com/images/pc/active/jieqi24/jieqiRight.png") no-repeat center;
+        }
+        .twoCenter{
+            width:771px;
+            height:140px;
+            float:left;
+        }
+        .twoCenter li{
+            width:124px;
+            height:138px;
+            background:#fed563;
+            box-shadow:0 0 5px #dea211;
+            display:inline-block;
+            margin:0 14px 0 13px;
+        }
+        .twoCenter li p{
+            font-size:18px;
+            color:#6d250f;
+            padding-top:16px;
+        }
+        .twoCenter li .hot{
+            color:#ee3800;
+        }
+        .twoCenter li .green{
+            color:#51910f;
+        }
+        .twoCenter li > .act{
+            background:#fff7e2;
+            width: 100%;
+            height: 100%;
+        }
+        .two2,.two3{
+            width:793px;
+            height:272px;
+            margin-top:74px;
+            background:#fff7e2;
+            box-shadow:0 0 5px #f8ba27;
+            display:flex;
+            font-size:0;
+        }
+        .two2 p{
+            margin:0;
+        }
+        .two2 p:nth-child(1),.two2 p:nth-child(3){
+            width:268px;
+            color:#64a704;
+            padding-left:90px;
+            font-size:0;
+            margin-top:62px;
+        }
+        .two2 p:nth-child(1) small,.two2 p:nth-child(3) small{
+            font-size:52px;
+        }
+        .two2 p:nth-child(1) span,.two2 p:nth-child(3) span{
+            display:inline-block;
+            font-size:82px;
+            color:#64a704;
+        }
+        .two2 p:nth-child(1) strong,.two2 p:nth-child(3) strong{
+            width:100%;
+            display:inline-block;
+            font-size:24px;
+            font-weight:500;
+            color:#64a704;
+        }
+        .two2 p:nth-child(2){
+            width:106px;
+            height:106px;
+            border-radius:100%;
+            background:#fff;
+            box-shadow:0 0 5px #ec6900;
+            font-size:72px;
+            color:#64a704;
+            margin:90px 0 0 80px;
+        }
+        .two2Text{
+            width:793px;
+            font-size:18px;
+            color:#98750a;
+            padding-top:18px;
+            text-align:left;
+        }
+        .two2Btn{
+            width:300px;
+            height:60px;
+            background:#dd4905;
+            color:#fff;
+            font-size:20px;
+            line-height:60px;
+            margin-top:30px;
+            display:inline-block;
+            cursor:pointer;
+            border-radius:60px;
+            box-shadow:0 3px 0 #b3450e;
+        }
+        .two3{
+            font-size:24px;
+            line-height:272px;
+            display:inline-block;
+        }
+        .color1{
+            color:#6d250f;
+        }
+        .color2{
+            color:#64a704;
+        }
+        .box-there{
+            width:100%;
+            height:323px;
+            background: url("https://images.51rz.com/images/pc/active/jieqi24/jieqi04.png") no-repeat center;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="header"></div>
+    <div class="container">
+        <div class="banner"></div>
+        <div class="content">
+            <div class="box-one"></div>
+            <div class="box-two">
+                <div class="two1">
+                    <div class="twoLeft" @click="pre"></div>
+                    <ul class="twoCenter">
+                        <li v-for="(item,index) in dateArr" :key="index">
+                            <div :class="item.type == 2?'act':''">
+                                <p v-text="item.date">2月18日</p>
+                                <p v-text="item.weatherType">雨水</p>
+                                <p v-if="item.type == 1">已结束</p>
+                                <p v-else-if="item.type == 2" class="hot">正在热抢</p>
+                                <p v-else="item.type == 3" class="green">敬请期待</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="twoRight" @click="next"></div>
+                </div>
+                <div class="two2">
+                    <p><span>10</span><small>%</small><strong>原始年化</strong></p>
+                    <p>+</p>
+                    <p><span>0.5</span><small>%</small><strong>奖励年化</strong></p>
+                </div>
+                <div class="two3 color1" style="display:none;">已结束！</div>
+                <div class="two3 color2" style="display:none;">敬请期待！</div>
+                <div class="two2Text">注：单人单标不限额</div>
+                <div class="two2Btn">点击查看</div>
+            </div>
+            <div class="box-there"></div>
+        </div>
+    </div>
+<div id="footer"></div>
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/components/header-footer/header-footer.js"></script>
+<script>
+    var vm = new Vue({
+        el:'.container',
+        data:{
+            uid:false,//是否登录
+            dateArr:[ //type类型代表该活动1：已结束 2：正在热抢 3：敬请期待
+                {
+                   date:'2月3日',
+                   weatherType:'立春',
+                   type:'1'
+                },
+                {
+                    date:'2月18日',
+                    weatherType:'雨水',
+                    type:'1'
+                },
+                {
+                    date:'3月5日',
+                    weatherType:'惊蛰',
+                    type:'2'
+                },
+                {
+                    date:'3月20日',
+                    weatherType:'春分',
+                    type:'1'
+                },
+                {
+                    date:'4月6日',
+                    weatherType:'清明',
+                    type:'1'
+                },
+                {
+                    date:'4月20日',
+                    weatherType:'谷雨',
+                    type:'1'
+                },
+                {
+                    date:'5月5日',
+                    weatherType:'立夏',
+                    type:'1'
+                },
+                {
+                    date:'5月20日',
+                    weatherType:'小满',
+                    type:'1'
+                },
+                {
+                    date:'6月5日',
+                    weatherType:'芒种',
+                    type:'1'
+                },
+                {
+                    date:'6月21日',
+                    weatherType:'夏至',
+                    type:'1'
+                },
+                {
+                    date:'7月7日',
+                    weatherType:'小暑',
+                    type:'1'
+                },
+                {
+                    date:'7月22日',
+                    weatherType:'大暑',
+                    type:'1'
+                },
+                {
+                    date:'8月6日',
+                    weatherType:'立秋',
+                    type:'1'
+                },
+                {
+                    date:'8月22日',
+                    weatherType:'处暑',
+                    type:'1'
+                },
+                {
+                    date:'9月7日',
+                    weatherType:'白露',
+                    type:'1'
+                },
+                {
+                    date:'9月22日',
+                    weatherType:'秋分',
+                    type:'1'
+                },
+                {
+                    date:'10月7日',
+                    weatherType:'寒露',
+                    type:'1'
+                },
+                {
+                    date:'10月23日',
+                    weatherType:'霜降',
+                    type:'1'
+                },
+                {
+                    date:'11月7日',
+                    weatherType:'立冬',
+                    type:'1'
+                },
+                {
+                    date:'11月22日',
+                    weatherType:'小雪',
+                    type:'1'
+                },
+                {
+                    date:'12月7日',
+                    weatherType:'大雪',
+                    type:'1'
+                },
+                {
+                    date:'12月21日',
+                    weatherType:'冬至',
+                    type:'1'
+                },
+                {
+                    date:'1月5日',
+                    weatherType:'小寒',
+                    type:'1'
+                },
+                {
+                    date:'1月19日',
+                    weatherType:'大寒',
+                    type:'1'
+                }
+            ]
+        },
+        methods:{
+            pre:function(){
+
+            },
+            next:function(){
+
+            },
+            go:function(){
+                var type = this.getQueryString('type');
+                this.uid ? location.href = 'https://'+type+'.51rz.com/projectList.html':location.href = 'https://'+type+'.51rz.com/login.html';
+            },
+            getQueryString:function(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            },
+            //字符串进行解密
+            uncompileStr: function (code) {
+                code = unescape(code);
+                var c = String.fromCharCode(code.charCodeAt(0) - code.length);
+                for (var i = 1; i < code.length; i++) {
+                    c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1));
+                }
+                return c;
+            }
+        },
+        created:function(){
+
+        }
+    })
+</script>
+</body>
+</html>

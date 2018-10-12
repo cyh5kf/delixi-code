@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="wap-font-scale" content="no"/>
+    <title>升级详情</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico"/>
+    <link rel="stylesheet" href="/static/css/swiper.min.css">
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+</head>
+<style>
+    html {
+        font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft Yahei, STHeiTi, Arial, sans-serif;
+        background-color: #fff;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0.22rem;
+        box-sizing: border-box;
+        line-height: 1.5;
+        text-decoration: none;
+        color: #222;
+    }
+    #container{
+        max-width:7.5rem;
+        margin:0 auto;
+    }
+
+    .banner{
+        width:100%;
+        height:3.9rem;
+        background: #f6f6f6;
+        overflow: hidden;
+    }
+
+    .interval {
+        width: 100%;
+        height: 0.2rem;
+        background-color: #f6f6f6;
+    }
+
+    .rule{
+        padding:0 0.3rem;
+    }
+    .rule h5 {
+        margin-top:0.35rem;
+        padding-left: 0.3rem;
+        font-size: 0.28rem;
+        color: #222;
+        font-weight: 500;
+        position: relative;
+        margin-bottom: 0.1rem;
+    }
+
+    .rule h5:before {
+        content: '';
+        display: inline-block;
+        width: 0.1rem;
+        height: 0.1rem;
+        border-radius: 50%;
+        background: #999;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    .rule>p {
+        padding-left: 0.3rem;
+        font-size: 0.24rem;
+        color: #555;
+        margin-top:0.15rem;
+    }
+    .clearfix:after {
+        content: '';
+        width: 0;
+        height: 0;
+        display: block;
+        clear: both;
+    }
+
+    .swiper-container {
+        width: 100%;
+        height: 300px;
+        margin: 20px auto;
+    }
+    .swiper-wrapper{
+        /*padding-top:0.3rem;*/
+        box-sizing: border-box;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        /*background: #fff;*/
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    .swiper-slide img{
+        height:2.3rem;
+    }
+    .swiper-slide-active img{
+        height:3rem;
+    }
+
+    .nav {
+        background: #fff;
+        width: 100%;
+        height: 1.5rem;
+        font-size: 0.24rem;
+        overflow: hidden;
+    }
+
+    .nav a {
+        display: block;
+    }
+
+    .nav .swiper-slide {
+        width: 1.6rem;
+        height: 1.5rem;
+        padding: 0.3rem 0;
+        text-align: center;
+        display: inline-block;
+    }
+
+    .nav img {
+        width: 0.48rem;
+        height: 0.48rem;
+    }
+</style>
+<body>
+<div id="container" class="container">
+    <div class="banner swpier-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="(item, index) in bannerList" :key="index">
+                <img :src="'https://images.51rz.com/images/jifen/growMember' + index + '.png'" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="nav swpier-nav">
+        <div class="swiper-wrapper" style="width:10rem">
+            <div class="swiper-slide" v-for="(item,index) in navList">
+                <a :href="item.href+'?token='+token+'&level='+info.level+'&selectLevel='+level">
+                    <img :src="'https://images.51rz.com/images/jifen/index/index_icon'+(item.status==0?'7':item.index)+'.png'"
+                        alt="">
+                    <p v-show="index!==0&&index!==2"><span v-text="item.name"></span></p>
+                    <p v-show="index==0"><span
+                            :class="(info.level*1>=level&&item.status&&item.has_gift==0)?'notHas':'has'"
+                            v-text="item.name"></span></p>
+                    <p v-show="index==2"><span :class="item.status&&info.level==level&&item.has_gift==0?'notHas':'has'"
+                                            v-text="item.name"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="interval"></div>
+
+    <div class="rule">
+        <h5>升级</h5>
+        <p>每笔投资成功后所得收益就是成长值。成长值为整数，根据收益计算后判断小数点第一位值，四舍五入计算成长值。（用户投资成功之后即生效，如果发生债转行为，则承接人无成长值）会员初始等级根据历史累计投资收益划分。</p>
+        <h5>降级</h5>
+        <p>对最后一笔回款后在相应的天数内未进行投资行为的用户，采用循环降级，用户在第二个循环内，如果又未能投资，继续降级。降级后成长值为当前等级的最大值，直至降至V2。（循环降级时间从回款后的第二天计算）。</p>
+        <h5>提醒</h5>
+        <p>正式降级前7天，系统将会自动发送一条短信对您进行提醒，进行投资且满标，即可保留等级。</p>
+    </div>
+</div>
+<script src="/static/js/swiper.min.js"></script>
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script>
+    //    避免页面从缓存中加载
+    window.onpageshow = function (e) {
+        e = e || event;
+        if (e.persisted) {
+            location.reload();
+        }
+    }
+
+    var vm = new Vue({
+        el: '#container',
+        data: {
+            token: '',
+            info: {
+                level: 0
+            },   //用户信息
+            bannerList: [
+                {
+                    name: '普通用户',
+                    level: 1,
+                },
+                {
+                    name: '青铜会员',
+                    level: 2,
+                },
+                {
+                    name: '白银会员',
+                    level: 3,
+                },
+                {
+                    name: '黄金会员',
+                    level: 4,
+                },
+                {
+                    name: '铂金会员',
+                    level: 5,
+                },
+                {
+                    name: '钻石会员',
+                    level: 6,
+                },
+                {
+                    name: '至尊会员',
+                    level: 7,
+                },
+            ],
+            navList: [
+                {
+                    name: '升级礼包',
+                    index: '1',
+                    href: 'privilegeUpdatePacket.html',
+                },
+                {
+                    name: '生日礼包',
+                    index: '2',
+                    href: 'privilegeBirthPacket.html',
+                },
+                {
+                    name: '每月礼包',
+                    index: '3',
+                    href: 'privilegeMonthPacket.html'
+                }, {
+                    name: '提现减免',
+                    index: '6',
+                    href: 'privilegeWithDrawCashFree.html'
+                },
+                {
+                    name: '积分加倍',
+                    index: '5',
+                    href: 'privilegeIntegralDouble.html'
+                },
+                {
+                    name: '专属客服',
+                    index: '4',
+                    href: 'privilegeCustomerService.html'
+                },
+            ],
+            levelConfig: {},
+            level: 0,
+            loginfrom: '',
+            realName: '',
+        },
+        methods: {
+            getParam: function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+                var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+                if (r != null) return unescape(r[2]);
+                return null; //返回参数值
+            },
+            getUserInfo: function () {
+                var _this = this
+                $.post('/index.php?_url=/vipcenter/Grow/index', {
+                    token: _this.token,
+                }, function (data) {
+                    var json = JSON.parse(data)
+                    _this.info = json.info || {}
+                    var swiper = new Swiper('.swpier-container', {
+                        slidesPerView: 1.5,
+                        centeredSlides: true,
+                        spaceBetween: 30,
+                        on: {
+                            init: function () {
+                                var activeIndex = this.activeIndex || 0;
+                                if (_this.info && _this.info.level == 1 && activeIndex == 0) {
+                                    _this.getLevelConfig(json.info.level)
+                                }
+                            },
+                            slideChange: function () {
+                                var activeIndex = this.activeIndex || 0;
+                                _this.getLevelConfig(_this.bannerList[activeIndex].level)
+                            },
+                        },
+                    });
+                    var nav = new Swiper('.swpier-nav', {
+                        slidesPerView: 4.5,
+                    });
+                    if (json.info.level) {
+                        swiper.slideTo(_this.info ? _this.info.level - 1 : 0, 1000, false)
+                    }
+                })
+            },
+            getLevelConfig: function (level) {
+                var _this = this;
+                _this.level = level
+                $.post('/index.php?_url=/vipcenter/level/levelBenefit', {
+                    token: _this.token,
+                    level: level,
+                    source: 1,
+                }, function (data) {
+                    var json = JSON.parse(data)
+                    if (json.error_code === 0) {
+                        var data = json.data;
+                        _this.navList[0].status = data.gift_upgrade
+                        _this.navList[0].has_gift = data.upgrade_has
+                        _this.navList[1].status = data.gift_birth
+                        _this.navList[2].status = data.gift_month
+                        _this.navList[2].has_gift = data.month_has
+                        _this.navList[5].status = data.vip_service
+                        _this.navList[4].status = data.coefficient
+                        _this.navList[3].status = data.withdraw_times
+                        _this.navList.push()
+                    } else {
+                        alert(json.msg)
+                    }
+                })
+            }
+        },
+        mounted: function () {
+            var domain = document.domain.split('.')[0];
+            var type;
+            if (domain == 'vip') {
+                type = 'm'
+            } else if (domain == 'lvip') {
+                type = 'testm'
+            } else if (domain == 'pre-vip') {
+                type = 'mobile'
+            } else {
+                type = 'testm'
+            }
+            this.loginfrom = this.getParam('loginfrom');
+            this.type = this.getParam('type') || type;
+            this.realName = this.getParam('realName');
+            this.token = this.getParam('token');
+            if (!!this.token) {
+                this.getUserInfo()  //获取用户信息
+            }
+        },
+    })
+
+</script>
+</body>
+</html>

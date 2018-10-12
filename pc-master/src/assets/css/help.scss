@@ -1,0 +1,220 @@
+@import "./libs/mixin.scss";
+
+:global {
+  *{
+    font-family: 微软雅黑;
+  }
+  .title{
+    @include box((h:34px));
+    border-bottom:1px solid #e5e5e5;
+    p{
+      @include box((fs:16px,c:#222,lh:33px,w:127px));
+      border-bottom:1px solid #f44a43;
+    }
+  }
+  .img {
+    @include box((w:100%, h:120px, fs:36px, lh:120px, ta:center, c:#fff));
+    @include background((url:'helpbg.png', repeat:no-repeat));
+
+  }
+  .tab {
+    @include box((w:100%, h:186px, bg:#fff, pt:30px));
+    ul {
+      @include box((w:1200px, m:0 auto, h:100%));
+      li {
+        @include box((w:200px, fl:left, h:100%));
+        a {
+          @include box((w:100%, h:100%, d:block, ta:center, c:#555, fs:14px));
+          &.active {
+            .circle {
+              background-color: rgba(214, 164, 98, 0.2);
+            }
+          }
+          .circle {
+            @include box((w:80px, h:80px, bg:#fff, bdr:50%, m:0 auto,ta:center));
+            @include background((url:'helpicon1.png',pos:center center,repeat:no-repeat));
+          }
+          p{
+            @include box((lh:38px));
+          }
+        }
+        &:first-child{
+          &>a.active{
+            .circle{
+              @include background((url:'icon1active.png'))
+            }
+          }
+        }
+        &:nth-child(2){
+          &>a{
+            .circle{
+              @include background((url:'helpicon2.png'));
+            }
+          }
+          &>a.active{
+            .circle{
+              @include background((url:'icon2active.png'));
+            }
+          }
+        }
+        &:nth-child(3){
+          &>a{
+            .circle{
+              @include background((url:'helpicon3.png'));
+            }
+          }
+          &>a.active{
+            .circle{
+              @include background((url:'icon3active.png'));
+            }
+          }
+        }
+        &:nth-child(4){
+          &>a{
+            .circle{
+              @include background((url:'helpicon4.png'));
+            }
+          }
+          &>a.active{
+            .circle{
+              @include background((url:'icon4active.png'));
+            }
+          }
+        }
+        &:nth-child(5){
+          &>a{
+            .circle{
+              @include background((url:'helpicon5.png'));
+            }
+          }
+          &>a.active{
+            .circle{
+              @include background((url:'icon5active.png'));
+            }
+          }
+        }
+        &:nth-child(6){
+          &>a{
+            .circle{
+              @include background((url:'helpicon6.png'));
+            }
+          }
+          &>a.active{
+            .circle{
+              @include background((url:'icon6active.png'));
+            }
+          }
+        }
+        &:nth-child(7){
+          &>a{
+            .circle{
+              @include background((url:'helpicon7.png'));
+            }
+          }
+          &>a.active{
+            .circle{
+              @include background((url:'icon7active.png'));
+            }
+          }
+        }
+      }
+    }
+  }
+  .helpcontent{
+    @include box((w:1200px,m:0 auto,pt:20px,pb:79px));
+  }
+  .newcontent{
+    @include box((bg:#fff,pl:26px,pr:20px,pt:22px,pb:30px));
+    &>ul{
+      &>li{
+        border-bottom:1px solid #e5e5e5;
+        &:last-child{
+          border-color:#fff;
+        }
+        &.open{
+          .ant-menu-submenu-title {
+            .jiantou {
+              @include background((url:'jtactive.png'));
+            }
+          }
+          .ant-menu-item{
+            @include box((h:auto,d:block));
+            transition: height 2s;
+          }
+        }
+        .ant-menu-submenu-title{
+          @include box((h:54px,lh:53px,fs:14px,c:#555));
+          position:relative;
+          span{
+            color:#f44a43;
+          }
+          .jiantou{
+            @include box((m:auto,w:16px,h:16px,bdr:50%,d:block));
+            @include position((p:absolute,t:0,b:0,r:0));
+            @include background((url:'jiantou.png',pos:center center,repeat:no-repeat));
+          }
+        }
+        .ant-menu-item{
+          @include box((pl:20px,pb:38px,h:auto,fs:14px,pr:0px,c:#999,d:none));
+          height:0;
+          pre{
+            white-space: pre-wrap;
+            line-height:24px;
+            table{
+              @include box((w:613px));
+              tr{
+                border-top:1px solid #e5e5e5;
+                &:last-child{
+                  border-bottom:1px solid #e5e5e5;
+                }
+              }
+              td{
+                @include box((ta:center,h:30px));
+                border-left:1px solid #e5e5e5;
+                &:last-child{
+                  border-right:1px solid #e5e5e5;
+                }
+              }
+            }
+          }
+        }
+        .answer{
+          @include box((fs:14px,c:#999,lh:24px,h:0,overflow:hidden,p:0));
+          transition:height,line-height 1s;
+          &.active{
+            @include box((pl:20px,pb:38px,h:100px,lh:24px));
+          }
+        }
+      }
+    }
+  }
+  .slide{
+    @include box((w:1200px,h:20px,bg:#f6f6f6,ml:-26px));
+  }
+  .flow{
+    @include box((h:196px,w:100%px));
+    ul{
+      @include box((mt:42px));
+      @include clearfix();
+      li{
+        @include box((fl:left,h:58px));
+        a{
+          @include box((d:block,w:100%,h:100%,pr:37px));
+          position:relative;
+          p{
+            @include box((lh:58px,pr:20px,fs:14px,c:#555));
+          }
+          img{
+            @include box((d:block,m:auto));
+            @include position((p:absolute,r:0,t:0,b:0));
+          }
+        }
+      }
+      .step{
+        @include box((fl:left,w:11px,h:58px,m:0 50px));
+        @include background((url:'helpstep.png',pos:center center,repeat:no-repeat));
+      }
+    }
+  }
+}
+

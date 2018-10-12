@@ -1,0 +1,64 @@
+@import "../../assets/css/libs/mixin";
+:global{
+    .pagination{
+        $lH:20px;
+        $pd:2px 8px;
+        $border:1px solid #d7d7d7;
+        user-select:none;
+        @include box((h:20px,lh:20px,ta:center));
+        .prev,.next{
+            @include box((d:inline-block,h:$lH,m:0 5px,c:$blue,fs:14px,lh:16px));
+            cursor: pointer;
+            &.disabled{
+                color:#888;
+                cursor: auto;
+            }
+            i{
+                @include box((w:11px,h:16px,d:block,m:0 5px));
+                cursor: pointer;
+                position: relative;
+            }
+            strong{
+                font-weight: normal;
+            }
+        }
+
+        .next {
+            padding-right:25px;
+            i{
+                @include background((url:'page_next.png',pos:right center,repeat:no-repeat,size:11px 16px));
+                float:right;
+                left:5px;
+            }
+            &.disabled{
+                i{
+                    @include background((url:'page_next_disabled.png',pos:right center,repeat:no-repeat,size:11px 16px));
+                }
+            }
+        }
+        .prev{
+            padding-left:25px;
+            i{
+                @include background((url:'page_prev.png',pos:right center,repeat:no-repeat,size:11px 16px));
+                float:left;
+                right:5px;
+            }
+            &.disabled{
+                i{
+                    @include background((url:'page_prev_disabled.png',pos:right center,repeat:no-repeat,size:11px 16px));
+                }
+            }
+        }
+        .go{
+            margin:0 10px;
+            height:20px;
+            line-height: 20px;
+            input{
+                @include box((d:inline-block,w:40px,lh:20px,bd:$border,m:0 5px,ta:center));
+                &:focus{
+                    border:1px solid $blue;
+                }
+            }
+        }
+    }
+}

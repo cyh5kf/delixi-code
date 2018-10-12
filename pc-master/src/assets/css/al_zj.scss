@@ -1,0 +1,105 @@
+
+:global{
+.al-zjwrap{width:100%;background:#cde3f5;}
+  section,article{
+    max-width:100%;
+    margin:0 auto;
+  }
+  .al-zjbanner{width:100%;height:493px;background:#035d97;text-align:center;}
+  .al-zjbanner img{display:inline-block;width:1000px;height:493px;}
+
+  .al-h1{height:542px;}
+  .al-h2{height:493px;}
+  .al-h3{height:1540px;}
+  .al-h4{height:1395px;}
+  .al-h5{height:859px;}
+  .al-h6{height:1165px;}
+  .al-zjabout{width:1000px;margin-top:20px;background:#fff;box-shadow:0 0 3px #8aadca;padding:20px;}
+  .al-zjabout h3{display:inline-block;width:100%;color:#047fb7;line-height:28px;border-bottom:1px solid #00a0e9;padding-bottom:5px;}
+  .al-zjabout h3 i{float:left;width:29px;height:28px;margin-right:10px;}
+  .al-ico1{background:url(https://images.51rz.com/images/pc/al_zj/al-icon.png) no-repeat left top;}
+  .al-ico2{background:url(https://images.51rz.com/images/pc/al_zj/al-icon.png) no-repeat left -33px;}
+  .al-ico3{background:url(https://images.51rz.com/images/pc/al_zj/al-icon.png) no-repeat left -70px;}
+  .al-ico4{background:url(https://images.51rz.com/images/pc/al_zj/al-icon.png) no-repeat left -108px;}
+  .al-ico5{background:url(https://images.51rz.com/images/pc/al_zj/al-icon.png) no-repeat left -144px;}
+  .al-ico6{background:url(https://images.51rz.com/images/pc/al_zj/al-icon.png) no-repeat left -184px;}
+  .al-ico7{background:url(https://images.51rz.com/images/pc/al_zj/al-icon.png) no-repeat left -219px;}
+  .al-zjabout h3 span{font-size:18px;}
+  .al-zjabout h3 span em{font-size:24px;font-style:normal;}
+  .al-zjabout-vid{display:inline-block;width:100%;margin:50px 0 70px 0;}
+  .al-vid{width:480px;height:319px;float:left;}
+  .al-vid-text{display:inline-block;padding-left:30px;width:475px;}
+  .al-vid-text h4{width:100%;font-size:18px;padding:10px 0 15px 0;color:#313131;}
+  .al-vid-text p{width:100%;font-size:14px;padding-top:20px;line-height:30px;color:#313131;}
+  .al-fxlist{width:100%;padding:30px 0 65px 0}
+  .al-fxlist li{display:inline-block;width:100%;margin-top:35px;}
+  .al-fxlist li img{float:left;width:180px;height:240px;}
+  .al-fxright{display:inline-block;width:780px;padding-left:30px;}
+  .al-fxright h5{font-size:18px;color:#313131;border-left:5px solid #46c1f4;padding-left:10px;}
+  .al-fxright p{font-size:14px;color:#313131;line-height:30px;padding-top:35px;}
+
+  .al-cf{display:inline-block;width:100%;padding-top:35px;}
+  .al-cflist{display:inline-block;width:100%;}
+  .al-cflist li{display:inline-block;width:100%;padding-top:35px;}
+  .al-cflist h6{width:100%;border-left:5px solid #46c1f4;padding-left:10px;font-size:18px;color:#313131;font-weight:500;}
+  .al-cflist h6 strong{font-size:14px;font-weight:500;}
+  .al-cflist p{padding-top:25px;font-size:14px;line-height:25px;color:#313131;}
+
+  /*焦点图*/
+  .mod18{position:relative;margin:0 auto;}
+  .mod18 .btn{position:absolute;cursor:pointer;z-index:99;font-size:50px;font-weight:bold;}
+  .mod18 .prev{left:0;background:url(https://images.51rz.com/images/pc/al_zj/al-left.png) no-repeat;}
+  .mod18 #prevTop,.mod18 #nextTop{top:250px;width:32px;height:48px;}
+  .mod18 #prev,.mod18 #next{top:661px;width:35px;height:111px;}
+  .mod18 #prevTop{background:url(https://images.51rz.com/images/pc/al_zj/prevBtnTop.png) 0 0 no-repeat;display:none;}
+  .mod18 #nextTop{background:url(https://images.51rz.com/images/pc/al_zj/nextBtnTop.png) 0 0 no-repeat;display:none;}
+  .mod18 .next{right:0;background:url(https://images.51rz.com/images/pc/al_zj/al-right.png) no-repeat;}
+  .mod18 li{float:left;}
+  .mod18 .cf{
+    transition:all 1s;
+  }
+  .mod18 .cf li{position:relative;color:#fff;}
+  .mod18 .cf a{display:block;width:526px;height:377px;position:absolute;color:#fff;}
+  .mod18 .cf li span{display:block;width:960px;position:absolute;left:0;bottom:0;padding:10px 20px;line-height:22px;text-align:left;background:rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = "#60000000",endColorstr = "#60000000");}
+  .mod18 .picBox{width:960px; height:641px;position:relative;overflow:hidden; background:#0D0D0D;}
+  .mod18 .picBox ul{height:377px;position:absolute; left:0;}
+  .mod18 .picBox li{padding-right:1px; width:960px;height:641px;}
+  .mod18 .listBox{width:904px;height:130px;margin:0 auto;position:relative; padding-top:15px;overflow:hidden;}
+  .mod18 .listBox ul{height:116px;position:absolute; padding-left:12px;}
+  .mod18 .listBox li{width:127px;height:111px;cursor:pointer;position:relative; padding:5px 0 0 0;}
+  .mod18 .listBox li i{display:none;}
+  .mod18 .listBox li a{display:block;width:108px;height:77px;}
+  .mod18 .listBox li img{width:118px;height:111px;}
+  .mod18 .listBox img{border:0;}
+  .mod18 .listBox .on img{border:3px solid #CECDCC;}
+  .mod18 .listBox .on{background:url(https://images.51rz.com/images/pc/al_zj/img_bg.jpg) center top no-repeat;}
+  .mod18 .listBox .on i{display:block;}
+
+  .media{display:inline-block;width:100%;height:1015px;margin:50px 0 40px 0;overflow-y:scroll;}
+  .media li{display:inline-block;width:100%;margin-top:40px;}
+  .media li img{width:198px;height:148px;float:left;}
+  .media-text{width:730px;float:right;}
+  .media-text h4{width:100%;font-size:24px;color:#313131;font-weight:500;}
+  .media-text h4 span{font-size:18px;color:#666;float:right;padding-right:20px;}
+  .media-text h4 a{color:#313131;}
+  .media-text h4 a:hover{color:#025d97}
+  .media-text p{width:730px;padding:30px 14px 0 0;font-size:16px;}
+  .scrollbar::-webkit-scrollbar{width: 5px;height: 5px;background-color: #f5f5f5;}
+  .scrollbar::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);border-radius: 10px;background-color: #f5f5f5;}
+  .scrollbar::-webkit-scrollbar-thumb{height: 20px;border-radius: 10px;-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);background-color: #555;}
+  .al-bottom{display:inline-block;width:100%;background:url(https://images.51rz.com/images/pc/al_zj/al-zj16.png) no-repeat center top;height:338px;}
+
+  .al_aside{position: fixed;left: 2%;top:12%;z-index: 999;display: none;}
+  .al_aside ul{width:160px;height:442px;float:left;background:url(https://images.51rz.com/images/pc/al_zj/left-nav.png) no-repeat left top;}
+  .al_aside ul li{width:160px;float:left;}
+  #nav1,#nav2,#nav3,#nav4,#nav5,#nav6,#nav7{font-size: 18px;line-height: 38px;padding-left: 63px;color: #fff;height:40px;width:160px;cursor:pointer;opacity:0}
+  #nav1{background:url(https://images.51rz.com/images/pc/al_zj/nav-bg.png) no-repeat left top;}
+  #nav2{background:url(https://images.51rz.com/images/pc/al_zj/nav-bg.png) no-repeat left top;position:absolute;top:56px;}
+  #nav3{background:url(https://images.51rz.com/images/pc/al_zj/nav-bg.png) no-repeat left top;position:absolute;top:111px;}
+  #nav4{background:url(https://images.51rz.com/images/pc/al_zj/nav-bg.png) no-repeat left top;position:absolute;top:167px;}
+  #nav5{background:url(https://images.51rz.com/images/pc/al_zj/nav-bg.png) no-repeat left top;position:absolute;top:222px;}
+  #nav6{background:url(https://images.51rz.com/images/pc/al_zj/nav-bg.png) no-repeat left top;position:absolute;top:278px;}
+  #nav7{background:url(https://images.51rz.com/images/pc/al_zj/nav-bg.png) no-repeat left top;position:absolute;top:333px;}
+  .al-side{width:43px;height:43px;position:absolute;top:400px;}
+
+}

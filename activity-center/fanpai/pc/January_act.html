@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <link rel="stylesheet" href="/components/header-footer/header-footer.css">
+    <title>一月活动</title>
+    <style type="text/css">
+        .banner{
+            width: 100%;
+            height: 676px;
+            background: url("https://images.51rz.com/images/pc/January-act/banner.png?v=1") no-repeat center;
+            background-size: cover;
+        }
+        .content{
+            width: 100%;
+            height: 799px;
+            background: url("https://images.51rz.com/images/pc/January-act/content.png") no-repeat center;
+            background-size: cover;
+            position: relative;
+        }
+        .foot{
+            width: 100%;
+            height: 279px;
+            background: url("https://images.51rz.com/images/pc/January-act/foot.png") no-repeat center;
+            background-size: cover;
+        }
+        .btn-box{
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            bottom: 100px;
+        }
+        .btn-fa6df9{
+            outline: none;
+            width: 641px;
+            height: 88px;
+            border: none;
+            background-color: #fa6df9;
+            font-size: 36px;
+            color: #ffffff;
+            cursor: pointer;
+            border-radius: 60px;
+            background-image: linear-gradient(to top, #e564e3,#fd6df7,#e564e3);
+            background-image: -webkit-linear-gradient(to top, #e564e3,#fd6df7,#e564e3);
+            box-shadow:0 0 7px #fc3c40;
+        }
+        .rule-box{
+            width: 972px;
+            height: 184px;
+            background-color: #f24a45;
+            border-radius: 30px;
+            padding-left: 57px;
+            padding-top: 41px;
+        }
+        .rule-title{
+            font-size: 20px;
+            color: #ffffff;
+        }
+        .rule-content{
+            font-size: 18px;
+            color: #ffffff;
+        }
+        .money{
+            font-size: 100px;
+            text-align: center;
+            color: #ffec1e;
+            padding-top: 91px;
+            padding-right: 34px;
+        }
+        .money-text{
+            font-size: 18px;
+            text-align: center;
+            color: #ffffff;
+            padding-top: 30px;
+            padding-right: 25px;
+        }
+    </style>
+</head>
+<body>
+<div id="header"></div>
+<div class="container" id="container">
+    <div class="banner"></div>
+    <div class="content" v-for="(item,index) in today">
+        <p class="money" v-show="item.rewardType == 0"><span>￥</span></p>
+        <p class="money"  v-show="item.rewardType != 0" style="color: #f65352;padding-top: 86px;"><span v-text="Number(item.money).toFixed(0)" style="font-size: 60px;"></span><span style="font-size: 30px;">元</span></p>
+        <p class="money-text" v-show="item.rewardType == 1">恭喜获得<span v-text="Number(item.money).toFixed(0)"></span>元红包</p>
+        <p class="money-text" v-show="item.rewardType == 3">投资<span v-text="item.amount"></span>元<span v-text="item.limitDayText"></span>得<span v-text="Number(item.money).toFixed(0)"></span>元红包</p>
+        <div class="btn-box">
+            <button class="btn-fa6df9" v-show="item.rewardType == 0" @click="open(item.packId,index)">立即翻牌</button>
+            <button class="btn-fa6df9" v-show="item.rewardType == 1 && item.used == 0" @click="toUrl">去使用</button>
+            <button class="btn-fa6df9" v-show="item.rewardType == 1 && item.used == 1">红包已使用</button>
+            <button class="btn-fa6df9" v-show="item.rewardType == 3" @click="toUrl">去投资</button>
+        </div>
+    </div>
+    <div class="foot">
+        <div class="rule-box">
+            <p class="rule-title">活动规则：</p>
+            <p class="rule-content">1、活动时间：2018年1月1日－2018年1月31日；</p>
+            <p class="rule-content">2、每天翻牌即可获得红包，完成红包任务要求单笔投资；红包当天有效，100元起投，限90天以上项目可用。</p>
+        </div>
+    </div>
+
+    <!-- 弹窗提示 -->
+    <div class="pc-dialog">
+        <div class="content"></div>
+    </div>
+</div>
+<div id="footer"></div>
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/components/header-footer/header-footer.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#container',
+        data:{
+            uid:false,
+            today:[{
+                rewardType:0
+            }],
+        },
+        methods:{
+            open:function(packId,index){
+                var _this = this;
+                var type = this.getQueryString('type');
+                if(this.uid) {
+                    var id = _this.uncompileStr(this.getQueryString("uid"));
+                    $.post('/index.php?_url=/api/pack/open',{activityId:19,uid:id,packId:packId},function(data){
+                        if(data.error_code == 0){
+                            Object.assign(_this.today[index],data.data.pack[0])
+                        }else{
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                }else{
+                    location.href = 'https://'+type+'.51rz.com/login.html'
+                }
+            },
+            toUrl:function(){
+                var type = this.getQueryString('type');
+                this.uid ? location.href = 'https://'+type+'.51rz.com/projectList.html':location.href = 'https://'+type+'.51rz.com/login.html';
+            },
+            getQueryString:function(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            },
+            //字符串进行解密
+            uncompileStr: function (code) {
+                code = unescape(code);
+                var c = String.fromCharCode(code.charCodeAt(0) - code.length);
+                for (var i = 1; i < code.length; i++) {
+                    c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1));
+                }
+                return c;
+            },
+            // 打开弹窗提示
+            showMsg: function(msg) {
+                $(".pc-dialog .content").text(msg);
+                $(".pc-dialog").show();
+                setTimeout(function() {
+                    $(".pc-dialog .content").text('');
+                    $(".pc-dialog").hide();
+                }, 2000);
+            },
+        },
+        created:function(){
+            var $this = this;
+            var id = this.getQueryString("uid");
+            if(id != 'undefined' && id != '') {
+                var uid = this.uncompileStr(id)
+                $.post('/index.php?_url=/api/activity/index',{activityId:19,uid:uid},function(data){
+                    if(data.error_code == 0){
+                        $this.uid = true;
+                        $this.today = data.data.pack.today;
+                    }
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

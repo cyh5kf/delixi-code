@@ -1,0 +1,18 @@
+@import "../../assets/css/libs/mixin";
+
+.mask{
+    @include position((p:fixed,t:0,l:0,z:10));
+    @include box((w:100%,h:100%,bg:rgba(0,0,0,0.5)));
+
+}
+.dialog{
+    @include position((p:fixed,t:50%,l:50%,z:11));
+    @include box((bg:#fff,bdr:4px,p:30px 50px));
+    transform: translate(-50%,-50%);
+    .close{
+        @include box((w:16px,h:16px));
+        @include background((url:'closedetail.png',repeat:no-repeat,size:100% 100%,pos:center center));
+        @include position((p:absolute,t:20px,r:20px));
+        cursor: pointer;
+    }
+}

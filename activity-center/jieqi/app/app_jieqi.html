@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection" />
+    <title>二十四节气专享福利</title>
+    <link rel="shortcut icon" href="http://www.51rz.com/favicon.ico" />
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+</script>
+    <!--background-image: linear-gradient(to top, #fb814e,#f94638);background-image: -webkit-linear-gradient(to top, #fb814e,#f94638);-->
+    <style type="text/css">
+        *{margin: 0;padding: 0;box-sizing: border-box;-webkit-box-sizing: border-box;font-family: "微软雅黑", "Arial",sans-serif;}
+        body{max-width:750px;margin:0 auto;background:#f2f2f2;}
+        img{width: 100%;display: block;}
+        ul li{list-style-type:none;}
+        #wraper{
+            margin: 0 auto;
+        }
+        .banner{
+            width: 100%;
+            height: 5.23rem;
+            background: url("https://images.51rz.com/images/app/jieqi/app-banner1.png") no-repeat center;
+        }
+        .box-two{
+            width:100%;
+            font-size:0;
+            text-align:center;
+            /* padding:0 0.2rem; */
+            height:4.24rem;
+            background:url("https://images.51rz.com/images/app/jieqi/app-banner2.png") no-repeat center top;
+        }
+
+        .two2,.two3{
+            width:100%;
+            height:1.82rem;
+            margin-top:0.1rem;
+            display:flex;
+            font-size:0;
+            padding: 0 0.7rem 0 0.8rem;
+        }
+        .two2 p{
+            margin:0;
+        }
+        .two2 p:nth-child(1),.two2 p:nth-child(3){
+            color:#ffffff;
+            font-size:0;
+            margin-top:0.2rem;
+            text-align: center;
+        }
+        .two2 p:nth-child(1){
+            width:40%;
+            float: left;
+            margin-left:0.3rem;
+        }
+        .two2 p:nth-child(3){
+            width:40%;
+            padding-left:0;
+            float:left;
+        }
+        .two2 p:nth-child(1) small,.two2 p:nth-child(3) small{
+            font-size:0.72rem;
+        }
+        .two2 p:nth-child(1) span,.two2 p:nth-child(3) span{
+            display:inline-block;
+            font-size:0.72rem;
+            color:#ffffff;
+        }
+        .two2 p:nth-child(1) strong,.two2 p:nth-child(3) strong{
+            width:100%;
+            display:inline-block;
+            font-size:0.24rem;
+            font-weight:500;
+            color:#ffffff;
+        }
+        .two2 p:nth-child(2){
+            width:9%;
+            height:1.06rem;
+            font-size:0.48rem;
+            color:#ffffff;
+            margin-top:0.3rem;
+            float:left;
+        }
+        .two2Btn{
+            width:4.35rem;
+            height:0.7rem;
+            background:#e5756a;
+            color:rgba(255, 255, 255, 255);
+            font-size:0.32rem;
+            line-height:0.7rem;
+            cursor:pointer;
+            display:inline-block;
+            border-radius: 5px;
+        }
+        .two3Btn{
+            width:4.35rem;
+            height:0.7rem;
+            background:rgba(202,149,143,255);
+            color:#fff;
+            font-size:0.32rem;
+            line-height:0.7rem;
+            cursor:pointer;
+            border-radius: 5px;
+            display:inline-block;
+        }
+        .two3{
+            font-size:0.24rem;
+            line-height:1.92rem;
+            display:inline-block;
+        }
+        .color1{
+            color:#6d250f;
+        }
+        .color2{
+            color:#64a704;
+        }
+        .box-there{
+            width:100%;
+            padding:0.2rem;
+            display:inline-block;
+            margin-top:0.2rem;
+        }
+        .banner,.box-two,.box-there,.box-title{
+            background-size:100% 100%;
+        }
+        .jieqi-title{
+            width:2.15rem;
+            height:1.11rem;
+            /* padding:0 0.05rem; */
+            padding-left: 0.11rem;
+            text-align:center;
+            margin-left:35%;
+        }
+        .jieqi-title h3{
+            width:100%;
+            height:0.69rem;
+            line-height:0.69rem;
+            font-size:0.28rem;
+            color:rgba(123, 113, 103, 255);
+            font-weight:500;
+        }
+        .jieqi-title h4{
+            width:100%;
+            height:0.38rem;
+            line-height:0.43rem;
+            font-size:0.24rem;
+            color: rgba(223, 172, 82, 255);
+            font-weight:500;
+        }
+        .jieqi-list{
+            width:100%;
+            display:inline-block;
+            margin-top:0.3rem;
+        }
+        .jieqi-list li{
+            width:1.59rem;
+            height:1.49rem;
+            float:left;
+            margin:0.23rem 0 0 0.23rem;
+            position:relative;
+        }
+        .openFixed{
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.5);
+            top:0;
+            position:fixed;
+            display:none;
+            z-index:2;
+            text-align:center;
+        }
+        .openBox{
+            width:6.5rem;
+            padding:0.5rem 0.3rem;
+            background:#f9f4d4;
+            position:absolute;
+            left:7%;
+            top:27%;
+        }
+        .openBox h3{
+            width:100%;
+            text-align:center;
+            font-size:0.28rem;
+            color:#333;
+            font-weight:500;
+        }
+        .openBox p{
+            width:100%;
+            font-size:0.24rem;
+            color:#333;
+            font-weight:400;
+            line-height:0.4rem;
+            padding:0.2rem 0 0 0.45rem;
+            text-align:left;
+            text-indent:-0.44rem;
+        }
+        .openFixed a{
+            width:1rem;
+            height:1rem;
+            display:inline-block;
+            position: absolute;
+            left: 50%;
+            margin-left: -0.5rem;
+            top: 8rem;
+        }
+        .openAn{
+            width:0.49rem;
+            height:1.58rem;
+            line-height:0.32rem;
+            font-size:0.24rem;
+            color:#fff;
+            position:fixed;
+            right:0;
+            top:39%;
+            z-index:2;
+            cursor:pointer;
+            border-radius:0.1rem 0 0 0.1rem;
+            background:#c39332;
+            padding: 0.15rem 0 0 0.15rem;
+        }
+        .jieqi-no,.jieqi-hot,.jieqi-yr{
+            width:1.59rem;
+            height:1.49rem;
+            position:absolute;
+            left:0;
+            top:0;
+        }
+        .jieqi-no{
+            background:rgba(0,0,0,0);
+        }
+        .jieqi-hot{
+            background:rgba(0,0,0,0);
+        }
+        .jieqi-yr{
+            background:rgba(0,0,0,0.3);
+        }
+        .jieqi-no span,.jieqi-hot span,.jieqi-yr span{
+            position:absolute;
+            bottom:0;
+            left:0;
+            height:0.36rem;
+            line-height:0.36rem;
+            width:100%;
+            font-size:0.24rem;
+            text-align:center;
+        }
+        .jieqi-no span{
+            color:#fff;
+            background:rgba(0,0,0,0.4);
+        }
+        .jieqi-hot span{
+            background:#dc6828;
+            color:#fff;
+        }
+        .jieqi-yr span{
+            background:rgba(224,104,40,0.5);
+            color:#fff;
+        }
+        .jieqi-list-wrap{
+            width:100%;
+            height:10.14rem;
+            background:#f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<div id="wraper">
+    <div class="openAn" @click="showAlert('openFixed')">活动规则</div>
+    <div class="openFixed" ref="openFixed">
+        <div class="openBox">
+            <h3>活动规则</h3>
+            <p>1、本活动可叠加平台其他活动同时参与；</p>
+            <p>2、活动标的不定时发放，详情请关注理财列表；</p>
+            <p>3、活动最终解释权法律允许的范围归人众金服所有，如有疑问请致电客服400-655-8858。</p>
+
+        </div>
+        <a @click="hideAlert('openFixed')"><img src="https://images.51rz.com/images/app/jieqi/app-colse.png" /></a>
+    </div>
+    <div class="banner"></div>
+    <div class="box-two">
+        <div class="jieqi-title">
+            <h3 v-text="infoText.name"></h3>
+            <h4 v-text="infoText.date"></h4>
+        </div>
+        <div class="two2">
+            <p><span v-text="infoText.apr"></span><small>%</small><strong>原始年化</strong></p>
+            <p>+</p>
+            <p><span v-text="infoText.rewardApr"></span><small>%</small><strong>奖励年化</strong></p>
+        </div>
+        <div class="two2Btn" @click="go" v-show="infoText.stype == 2">点击查看</div>
+        <div class="two3Btn"  v-show="infoText.stype == 1">已结束</div>
+    </div>
+    <div class="jieqi-list-wrap">
+        <ul class="jieqi-list">
+            <li v-for="(item,index) in infoText.record" :key = "index">
+                <p class="jieqi-no" v-if="item.type == 1">
+                    <span>已结束</span>
+                </p>
+                <p class="jieqi-hot" v-if="item.type == 2">
+                    <span>正在热抢</span>
+                </p>
+                <p class="jieqi-yr" v-if="item.type == 3">
+                    <span>敬请期待</span>
+                </p>
+                <img :src="'https://images.51rz.com/images/app/jieqi/app-jq-'+((index+1 < 10)?('0'+(index+1)):(index+1))+'.png'" />
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript">
+    //    避免页面从缓存中加载
+    window.onpageshow = function(e){
+        e = e || event;
+        if(e.persisted){
+            location.reload();
+        }
+    }
+
+    function getParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r!=null) return unescape(r[2]); return null; //返回参数值
+    }
+    var uid= getParam("uid")||0;
+    var isLogined =uid?true:false;//是否登录
+    window.vm=new Vue({
+        el:"#wraper",
+        data:{
+            uid:uid,
+            isLogined:isLogined,   //是否登录
+            tabs: new Array(24),
+            infoText:{}
+        },
+        methods: {
+            showAlert:function(ref){//显示弹框
+                this.$refs[ref].style.display="block";
+            },
+            hideAlert:function(ref){
+                this.$refs[ref].style.display="none";
+            },
+            go:function(){
+                if(this.$data.isLogined){
+                    location.href="https://m.51rz.com/tender/index"
+                }else{
+                    location.href="https://m.51rz.com/login"
+                }
+            },
+        },
+        created:function () {
+            var _this = this;
+            _this.$data.uid=uid;
+            $.post('/apiApp/app/solarterm/getSolarTermInfo',{uid:uid},function(data) {//活动主接口
+                _this.infoText = data.obj;
+            },'json');
+            /*if(_this.$data.isLogined){
+
+            }*/
+        }
+    })
+</script>
+</body>
+</html>

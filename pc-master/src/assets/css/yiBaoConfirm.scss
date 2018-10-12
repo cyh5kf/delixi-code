@@ -1,0 +1,332 @@
+@import "./libs/mixin.scss";
+
+.rongbaoTitle{
+    @include box((lh:42px,fs:20px));
+    font-weight:normal;
+}
+
+/*融宝*/
+.reapal_wrap {
+    background: #f3f3f3;
+    min-width: $contentW;
+}
+.reapal_head {
+    height: 129px;
+    background: #fff;
+}
+.reapal_head_cover {
+    width: 1187px;
+    height: 47px;
+    margin: 0 auto;
+    padding-top: 42px;
+}
+.reapal_head_left {
+    float: left;
+}
+.reapal_head_right {
+    line-height: 47px;
+    float: right;
+}
+.reapal_head_right a {
+    font-size: 14px;
+    color: #103dbe;
+}
+.reapal_cont {
+    width: 1187px;
+    margin: 23px auto 0 auto;
+    font-size: 14px;
+    color: #333333;
+    height: 800px;
+    background: #fff;
+}
+.reapal_cont .reapal_cont_box1 {
+    border-bottom: 17px solid #f3f3f3;
+    padding: 0 28px 0 62px;
+    background: #fff;
+    position: relative;
+}
+.reapal_cont .reapal_cont_box1 .reapal_cont_zf {
+    font-size: 16px;
+    width: 95px;
+    display: inline-block;
+}
+.reapal_cont .reapal_cont_box1 .reapal_cont_pay {
+    width: 100%;
+    height: 105px;
+    line-height: 105px;
+}
+.reapal_cont .reapal_cont_box1 .reapal_cont_money {
+    margin-right: 218px;
+}
+.reapal_cont .reapal_cont_box1 .reapal_cont_money big {
+    font-size: 36px;
+    color: #fdaf02;
+    margin-right: 15px;
+}
+.reapal_cont .reapal_cont_box1 .reapal_cont_rz big {
+    font-size: 16px;
+}
+.reapal_cont .reapal_cont_box1 a {
+    float: right;
+    margin-top:5px;
+    color:#103dbe;
+}
+.reapal_cont_box2 {
+    background: #fff;
+    padding: 34px 28px 0 28px;
+}
+.reapal_cont_box2_cover {
+    height: 163px;
+    background: #fff url(https://images.51rz.com/images/pc/page/rongbao/reapal03.png) top center no-repeat;
+    padding: 34px;
+}
+.reapal_cont_all h4 {
+    font-size: 14px;
+    width: 95px;
+    float: left;
+}
+.reapal_cont_rzzf {
+    float: left;
+    width: 88%;
+}
+.reapal_cont_rzzf .reapal_cont_rzzf_left {
+    float: left;
+}
+.reapal_cont_rzzf .reapal_cont_rzzf_left .reapal_cont_rzzf_bank {
+    width: 358px;
+    border: 1px solid #e8eae9;
+    border-radius: 2px;
+    height: 38px;
+    padding: 3px 0 0 17px;
+    float: left;
+    margin-bottom: 12px;
+}
+.reapal_cont_rzzf .reapal_cont_rzzf-left .reapal_cont_rzzf_bank img {
+    float: left;
+    margin-right: 60px;
+}
+.reapal_cont_rzzf .reapal_cont_rzzf_left .reapal_cont_rzzf_bank span {
+    line-height: 30px;
+}
+.reapal_cont_rzzf .reapal_cont_rzzf_left p {
+    color: #999999;
+    margin-top: 12px;
+    clear: both;
+}
+.reapal_cont_rzzf .reapal_cont_rzzf_right {
+    float: right;
+    height: 79px;
+    border-left: 1px solid #e8e8e8;
+    width: 206px;
+}
+.reapal_cont_rzzf .reapal_cont_rzzf_right p {
+    line-height: 47px;
+    color: #666;
+    float: right;
+}
+.reapal_cont_rzzf .reapal_cont_rzzf_right p span {
+    font-size: 24px;
+    color: #fdb310;
+}
+.reapal_cont_box3 {
+    background: #fff;
+    height: 94px;
+    float: left;
+    width: 100%;
+}
+.reapal_cont_box3 h4 {
+    margin: 10px 0 0 62px;
+}
+.reapal_cont_box3 div {
+    float: left;
+}
+.reapal_cont_box3 input {
+    width: 259px;
+}
+.reapal_cont_box3 p {
+    color: #999999;
+    margin-top: 11px;
+}
+.reapal_cont_input {
+    height: 38px;
+    border: 1px solid #e8eae9;
+    border-radius: 2px;
+    padding-left:5px;
+}
+.reapal_cont_box4 {
+    width: 100%;
+    height: 115px;
+    float: left;
+    background: #fff;
+}
+.reapal_cont_box4 h4 {
+    margin: 10px 0 0 62px;
+}
+.reapal_cont_box4_phonecode{
+    float: left;
+    height: 80px;
+}
+.reapal_getcode{
+    color: #2776a6;
+    padding: 8px;
+    border-radius: 2px;
+    background: #c0e3f8 !important;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    width: 116px!important;
+    padding:0;
+    border:0 !important;
+}
+.reapal_waitcode{
+    color: #fff;
+    padding: 8px;
+    border-radius: 2px;
+    background: #bebebe !important;
+    border: none;
+    outline: none;
+    width: 116px!important;
+    padding:0;
+    border:0 !important;
+}
+.reapal_cont_box4 input {
+    width: 140px;
+}
+.reapal_getcode_tip {
+    margin-top: 11px;
+    color: #ea2622;
+    display: none;
+}
+.reapal_cont_box4 button {
+    line-height: 38px;
+    width: 138px;
+    color: #fff;
+    border: none;
+    border: 1px solid #0d2282;
+    border-radius: 2px;
+    outline: none;
+    background: #2039a8;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.reapal_cont_foot {
+    width: 1187px;
+    margin: 0 auto;
+    background: #fff;
+    font-size: 14px;
+    height: 600px;
+}
+.reapal_cont_foot h5 {
+    margin-left: 66px;
+    line-height: 30px;
+    padding-top: 15px;
+    color: #333;
+}
+.reapal_cont_foot p {
+    color: #999999;
+    margin-left: 66px;
+}
+.reapal_cont_pay_detail{
+    padding: 42px 0 0 60px;
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: -20px;
+    height: 198px;
+    width: 383px;
+    color: #666666;
+    background: url(https://images.51rz.com/images/pc/page/rongbao/reapal04.png) top center no-repeat;
+    &.active{
+        display:block;
+    }
+}
+.reapal_cont_pay_detail li{
+    line-height: 30px;
+}
+.reapal_cont_pay_detail small{
+    position: absolute;
+    top:20px;
+    right:20px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.reapal_cont_pay_detail span{
+    color: #333;
+}
+.reapal_cont_box4_sumbit{
+    clear: both;
+    padding-left: 157px;
+}
+.xiane p{
+    display: none;
+}
+.rb_bank{
+    height: 28px;
+    width: 113px;
+    float: left;
+    background: #fff url(https://images.51rz.com/images/pc/page/rongbao/rongbao_sprite.png) top left no-repeat;
+    margin-right: 60px;
+}
+.bank_beijing{
+    background-position: 0 0px;
+}
+.bank_youchu{
+    background-position: 0 -28px;
+}
+.bank_guangda{
+    background-position: 0 -56px;
+}
+.bank_guangfa{
+    background-position: 0 -84px;
+}
+.bank_guangzhou{
+    background-position: 0 -112px;
+}
+.bank_hangzhou{
+    background-position: 0 -140px;
+}
+.bank_huaxia{
+    background-position: 0 -168px;
+}
+.bank_jianshe{
+    background-position: 0 -196px;
+}
+.bank_jiaotong{
+    background-position: 0 -224px;
+}
+.bank_mingsheng{
+    background-position: 0 -252px;
+}
+.bank_ningbong{
+    background-position: 0 -280px;
+}
+.bank_nongye{
+    background-position: 0 -308px;
+}
+.bank_pingan{
+    background-position: 0 -336px;
+}
+.bank_pufa{
+    background-position: 0 -364px;
+}
+.bank_gongshang{
+    background-position: 0 -392px;
+}
+.bank_shanghai{
+    background-position: 0 -420px;
+}
+.bank_xingye{
+    background-position: 0 -448px;
+}
+.bank_zhaoshang{
+    background-position: 0 -476px;
+}
+.bank_zheshang{
+    background-position: 0 -504px;
+}
+.bank_zhongguo{
+    background-position: 0 -532px;
+}
+.bank_zhongxing{
+    background-position: 0 -560px;
+}

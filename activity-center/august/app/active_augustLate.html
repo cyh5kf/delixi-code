@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection" />
+    <title>人众金服</title>
+    <link rel="shortcut icon" href="https://activity-center.51rz.com/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <script type='text/javascript' src='https://assets.growingio.com/sdk/wx/vds-wx-plugin.js'></script>
+    <script type='text/javascript' src='/static/js/scrollbot.min.js'></script>
+    <script type='text/javascript'>
+        !function(e,t,n,g,i){e[i]=e[i]||function(){(e[i].q=e[i].q||[]).push(arguments)},n=t.createElement("script"),tag=t.getElementsByTagName("script")[0],n.async=1,n.src=('https:'==document.location.protocol?'https://':'http://')+g,tag.parentNode.insertBefore(n,tag)}(window,document,"script","assets.growingio.com/2.1/gio.js","gio");
+        gio('init','b5dc34e3f3810d4a', {});
+        gio('send');    
+    </script>
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+        // 统计脚本
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5395127f074c49150bc6578ff60ff4e8";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+    <!--background-image: linear-gradient(to top, #fb814e,#f94638);background-image: -webkit-linear-gradient(to top, #fb814e,#f94638);-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+        html{-webkit-text-size-adjust:none;}
+        body {
+            max-width: 7.5rem;
+            margin: 0 auto;
+            background: #f7d4c9;
+            overflow: auto;
+            height: 100%;
+            /* overflow: hidden; */
+        }
+        img {
+            width: 100%;
+            display: block;
+        }
+        ul li {
+            list-style-type: none;
+        }
+        [v-cloak] {
+            display: none;
+        }
+        .font-16 {
+            font-size: 0.16rem;
+        }
+        .font-18 {
+            font-size: 0.18rem;
+        }
+        .font-20 {
+            font-size: 0.2rem;
+        }
+        .font-24 {
+            font-size: 0.24rem;
+        }
+        .font-26 {
+            font-size: 0.26rem;
+        }
+        .flt {
+            float: left;
+        }
+        .frt {
+            float: right;
+        }
+        .center {
+            text-align: center;
+        }
+        .show {
+            display: block;
+        }
+        .hidden {
+            display: none;
+        }
+        span.w20 {
+            width: 10% !important;
+        }
+        #wraper {
+            position: relative;
+            overflow-y: scroll;
+            
+        }
+        .showgold {
+            width: 7.1rem;
+            margin: 0 .2rem;
+            height: 5.18rem;
+            position: fixed;
+            top: 2rem;
+            z-index: 22222222;
+            font-size: .28rem;
+            background-color: #fff;
+            text-align: center;
+            padding: 0;
+        }
+        .showgold h5 {
+            font-size: 0.28rem;
+            color: #fff;
+            background-color: #dca190;
+            line-height: 0.83rem;
+            height: 0.83rem;
+        }
+        .showgold .head {
+            color: #333;
+            height: 0.87rem;
+            line-height: 0.87rem;
+            border-bottom: 1px solid #fa8f81;
+            overflow: hidden;
+        }
+        .showgold .head p {
+            float: left;
+        }
+        .showgold .showgoldlist {
+            color: #4f1400;
+            height: 0.87rem;
+            border-bottom: 1px solid #fa8f81;
+            overflow: hidden;
+            display: table;
+        }
+        .showgold .showgoldlist p {
+            text-align: center;
+            width: 25%;
+            height: 0.87rem;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .showgold p {
+            width: 33.33%;
+        }
+        .showgold .scrol {
+            height: 4.35rem;
+            width: 100%;
+            overflow-y: scroll;
+        }
+        p.none {
+            width: 100%;
+            padding-bottom: 1rem;
+            text-align: center;
+            color: #999;
+        }
+        .showtoinvest {
+            width: 4.95rem;
+            height: 4.45rem;
+            position: absolute;
+            top: 4rem;
+            left: 1.3rem;
+            z-index: 22222222;
+            font-size: 0.24rem;
+            text-align: center;
+            background: url(https://images.51rz.com/images/app/act-may/toinvest.png) no-repeat center top;
+            background-size: 100% auto;
+        }
+        .showtoinvest a {
+            width: 2.4rem;
+            height: 0.64rem;
+            text-decoration: none;
+            background-color: #f5725b;
+            font-size: 0.28rem;
+            line-height: 0.64rem;
+            color: #fff;
+            border-radius: 0.32rem;
+            position: absolute;
+            left: 1.28rem;
+            top: 3.4rem;
+        }
+        .rulebtn {
+            position: absolute;
+            right: 0;
+            top: 1.75rem;
+            width: 0.55rem;
+            height: 1.6rem;
+            background: rgba(0, 0, 0, 0)
+        }
+        .showgold .close {
+            margin: 0.4rem auto 0;
+            /* posi */
+            width: 0.5rem;
+            height: 0.5rem;
+            background: url(https://images.51rz.com/images/app/act-may/close.png) no-repeat center bottom;
+            background-size: 100% auto;
+        }
+        /* -webkit-scrollbar{
+            background-color:yellow;
+            width: 1rem;
+        } */
+        /*定义滚动条轨道 内阴影+圆角*/
+        /* .bankScroll::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+        } */
+        /*定义滑块 内阴影+圆角*/
+        /* .bankScroll::-webkit-scrollbar-thumb
+        {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #55cfa9;
+        }
+   
+        .may-hb,.may-xj,.may-xj-ok,.may-hb-ok{background-size:100% 100%;}
+        .may-banner,.may-box,.may-box1,.may-box2,.may-box3{
+            background-size:100% 100%;
+            width:100%;
+        } */
+        .fixed_bg {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 55555555;
+        }
+        header {
+            width: 7.5rem;
+            height: 5.05rem;
+            background: url("https://images.51rz.com/images/app/late_august/bg_01.png") no-repeat;
+            background-size: contain;
+            position: relative;
+        }
+        header  .rule{
+            position: fixed;
+            right: 0;
+            height: 1.67rem;
+            z-index: 10000000;
+            background: url("https://images.51rz.com/images/app/late_august/rule.png") no-repeat center center;
+            background-size: contain;                        
+            width: .54rem;
+            top: 5rem;
+        }
+        div.bg2 {
+            width: 7.5rem;
+            height: 5.47rem;
+            background: url("https://images.51rz.com/images/app/late_august/bg_02.png") no-repeat;
+            background-size: contain;
+            position: relative;
+            font-size: .24rem;
+            line-height: .28rem;
+            color: #e13333;
+            text-align: center;
+        }
+        .bg2 .btn {
+            position: absolute;
+            
+            color: #fff;
+            line-height: .62rem;
+            font-size: .32rem;
+            width: 2.58rem;
+            height: .62rem;
+            bottom: 0.1rem;
+            left: .42rem;
+            overflow: hidden;
+        }
+        .bg2 div.hight{
+            background: url("https://images.51rz.com/images/app/act-august/hight.png") no-repeat;
+            background-size: contain;
+        }
+        .bg2 div.black{
+            background: url("https://images.51rz.com/images/app/act-august/black.png") no-repeat;
+            background-size: contain;
+        }
+        .bg2 .p1 {
+            position: absolute;
+            left: .3rem;
+            top: 1.3rem;
+            height: 3.4rem;
+            width: 3.4rem;            
+        }
+        .bg2 .p1 .close .bg{
+            background: url("https://images.51rz.com/images/app/late_august/closepacket_01.png") no-repeat;
+            background-size: contain;
+            margin: 0 auto;
+            width: 2.21rem;
+            height: 2.41rem;
+        }
+        .bg2 .open .bg{
+            background: url("https://images.51rz.com/images/app/late_august/openpacket.png") no-repeat top center;
+            background-size: 100% auto;
+            margin: 0 auto;                        
+            width: 2.21rem;
+            margin-top: -.15rem;
+            height: 2.6rem;
+            padding-top: .4rem;
+        }
+        .bg2 .p2 {
+            position: absolute;
+            left: 3.8rem;
+            top: 1.3rem;
+            height: 3.4rem;
+            width: 3.4rem;            
+        }
+        .bg2 .p2 .close .bg{
+            margin: 0 auto;            
+            background: url("https://images.51rz.com/images/app/late_august/closepacket_01.png") no-repeat;
+            background-size: contain;
+            width: 2.21rem;
+            height: 2.41rem;
+        }
+        div.bg4 {
+            width: 7.5rem;
+            height: 13.51rem;
+            background: url("https://images.51rz.com/images/app/late_august/bg_03.png") no-repeat;
+            background-size: contain;
+            position: relative;
+            font-size: .24rem;
+            padding: .2rem .3rem 0;
+            color: #fff;
+        }
+        .bg4 .con .head {
+            width: 6.9rem;
+            height: .79rem;
+            text-align: center;
+            font-size: .32rem;
+            line-height: .55rem;
+            margin-bottom: .1rem;
+            border-top: .02rem solid red; 
+        }
+        .bg4 .con .head .bubble{
+            width: 3.45rem;
+            height: .77rem;
+            color: #f46b5b;
+            background: url("https://images.51rz.com/images/app/late_august/bubble.png") no-repeat top center;
+            background-size: contain;
+            float: left;
+        }
+        .bg4 .con .head .bubbler{
+            width: 3.45rem;
+            height: .77rem;
+            float: left;
+            background: url("https://images.51rz.com/images/app/late_august/bubbler.png") no-repeat top center;
+            background-size: contain;
+        }
+
+        .bg4 .body {
+            width: 6.89rem;
+            height: 9.8rem;
+        }
+
+        .bg4 .body .small{
+            width: 6.89rem;
+            height: 9.8rem;
+            background: url("https://images.51rz.com/images/app/late_august/smain.png") no-repeat top center;
+            background-size: contain;
+        }
+        .bg4 .body .big{
+            width: 6.89rem;
+            height: 9.8rem;
+            background: url("https://images.51rz.com/images/app/late_august/big.png") no-repeat top center;
+            background-size: contain;
+        }
+        .bg4 .info {
+            padding-left: .2rem;
+            color: #333;
+            margin: .5rem auto .15rem;
+            text-align: center;
+        }
+        .bg4 .title {
+            height: .44rem;
+            background-color: #5450ae;
+            color: #4fcdf1;
+            margin-top: .2rem;
+        }
+        .bg4 .title p{
+            height: .44rem;
+            line-height: .44rem;
+            text-align: center;
+            width: 35%;
+            float: left;
+            background-color: #1091b4;
+            color: #fff;
+        }
+        .bg4 .btn,.bg5 .btn {
+            width: 4.3rem;
+            height: .58rem;
+            text-align: center;
+            border-radius: .29rem;
+            font-size: .26rem;
+            background-color: #e46744;
+            color: #fff;
+            line-height: .58rem;
+            margin: 0 auto;
+        }
+        .bg4 .remind {
+            padding:.15rem 0 .15rem .2rem;
+            color: #888;
+        }
+        div.bg5 {
+            width: 7.5rem;
+            height: 10.56rem; 
+/* +/2 */
+            background: url("https://images.51rz.com/images/app/late_august/bg_04.png") no-repeat;
+            background-size: contain;
+            position: relative;
+            padding-top: .9rem;
+            font-size: .24rem;
+            
+        }
+        .bg5 .hero {
+            /* position: absolute; */
+            
+            height: .7rem;
+            width: 7.5rem;
+            font-size: .24rem;
+            padding: 0 .2rem;
+            /* top: -.5rem;
+            left: .1rem; */
+        }
+        .bg5 .hero p{
+            width: 2.3rem;
+            float: left;
+            height: .7rem;
+            line-height: .32rem;
+            text-align: center;
+            border-top-right-radius: .1rem;
+            border-top-left-radius: .1rem;
+        }
+        .bg5 .hero p span{
+            display: inline-block;
+            height: .7rem;
+        }
+        .bg5 .hero .rig{
+            float: right;
+        }
+        .bg5 .hero .center{
+            float: left;
+            margin-left: .1rem;
+        }
+        .bg5 .hero .dark {
+            background-color: #e1beb3;
+            color: #ae705c;
+        }
+        .bg5 .hero .light {
+            background-color: #fff;
+            color: #e78857;
+        }
+        .bg5 .hero .light span {
+            border-bottom: 1px solid #cb4c00;
+            display: inline-block;
+            height: .7rem;
+        }
+        .bg5 .box {
+            margin:0 .2rem .2rem;
+            padding: .2rem 0;
+            height: 7.6rem;
+            background-color: #fff;
+            border-radius: 0 0 5px 5px;
+        }
+        .bg5 .box p{
+            color: #333;
+            font-size: .22rem;
+            /* text-indent: 1em; */
+        }
+        .bg5 .box p.nav{
+            color:#ad9942;
+            margin: .1rem .2rem;
+            border-bottom: .01rem solid #b07e6e;
+            font-size: .24rem;
+        }
+        .bg5 .box p.nav span{
+            display: inline-block;
+            width: 33.33%;
+            color: #b07e6e;
+            text-align: center;
+        }
+        .bg5 .box p.con{
+            font-size: 0;
+            padding: 0 .2rem;
+        }
+        .bg5 .box p.con span{
+            display: inline-block;
+            width: 33.33%;
+            line-height: .5rem;
+            font-size: .24rem;
+            color: #d87700;
+            text-align: center;
+        }
+        .bg5 .remind {
+            width:6.8rem;
+            position: absolute;
+            bottom: 1.5rem;
+            left: .4rem;
+            font-size: .24rem;
+            line-height: .3rem;
+            color: #b07e6e;
+        }
+        div.package {
+            width: 7.5rem;
+            height: 6.63rem;
+            background: url("https://images.51rz.com/images/app/act-july/bg_02.png") no-repeat;
+            background-size: contain;
+            position: relative;
+        }
+        div.pg {
+            height: 3.5rem;
+            font-size: 16px;
+            position: relative;
+            padding-top: 1rem;
+            text-align: center;
+        }
+        div.pg img {
+            width: 3.19rem;
+            margin: 0 auto;
+        }
+        div.pg p.pagmoney {
+            position: absolute;
+            top: 1.45rem;
+            color: #d63d2c;
+            width: 100%;
+            font-size: 12px;
+        }
+        div.pg p.pagmoney span {
+            font-size: 20px;
+        }
+        div.pg .info {
+            position: absolute;
+            top: 2.55rem;
+            font-size: 14px;
+            width: 100%;
+            text-align: center;
+            color: #333;
+        }
+        div.eit {
+            position: fixed;
+            height: 100%;
+            width: 7.5rem;
+            z-index: 22222222;
+        }
+        div.eit .bg{
+            width: 2.72rem;
+            height: 3.97rem;
+            margin: 3rem auto 0;
+            background: url("https://images.51rz.com/images/app/five-years/eit.png") no-repeat;
+            background-size: contain;
+            position: relative;
+        }
+        div.eit .bg p{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: .85rem;
+        }
+        div.eit .close {
+            margin: 0.4rem auto 0;
+            /* posi */
+            width: 0.5rem;
+            height: 0.5rem;
+            background: url(https://images.51rz.com/images/app/act-may/close.png) no-repeat center bottom;
+            background-size: 100% auto;
+        }
+        div.fixbg {
+            position: fixed;
+            left:0;
+            top:0;
+            height: 100%;
+            width: 7.5rem;
+            z-index: 11111111;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        div.fx {
+            position: fixed;
+            z-index: 22222222;            
+            width: 100%;
+            height: 100%;
+            left: 0;
+            padding: .2rem;
+            top: 0;
+            overflow: scroll;
+        }
+        div.trule {
+            /* position: fixed; */
+            position: relative;
+            /* z-index: 3; */
+            /* left: .2rem; */
+            /* top: 2.5rem; */
+            padding-top: 2rem;
+            width: 7.1rem;
+            /* padding-bottom: 2rem; */
+            /* height: 200%; */
+        }
+        div.trule .ruletitle {
+            height: .82rem;
+            line-height: .82rem;
+            font-size: 16px;
+            background-color: #fa8f81;
+            color: #fff;
+            text-align: center;
+        }
+        div.trule div.img {
+            width: 7.1rem;
+            padding: .4rem .2rem .4rem;
+            margin: 0 auto;
+            font-size: 12px;
+            /* background: url("https://images.51rz.com/images/app/act-july/trule.png") no-repeat; */
+            background-size: 100% auto;
+            background-color: #fff;
+        }
+        div.trule div.img div.te{
+            overflow: hidden;
+            /* display: flex; */
+        }
+        div.trule div.img div.te span{
+            float: left;
+            width: .3rem;
+            /* height: .5rem; */
+        }
+        div.trule div.img div.te p{
+            float: left;
+            width: 6.3rem;
+        }
+        div.trule div.close {
+            position: absolute;
+            top: 2.15rem;
+            right: .2rem;
+            width: .5rem;
+            height: .5rem;
+            /* margin: .4rem auto 0; */
+            background: url("https://images.51rz.com/images/app/act-may/close.png") no-repeat;
+            background-size: contain;
+        }
+        span.login {
+            color: #1a0ef1;
+        }
+        p.smile {
+            width: 100%;
+            height: 3rem;
+            background: url("https://images.51rz.com/images/app/act-july/smile.png") no-repeat center center;
+            background-size: 1rem 1rem;
+        }
+        .comment {
+            position: absolute;
+            left: .48rem;
+            bottom: .4rem;
+            background: #2164b0;
+            width: 6.8rem;
+            height: .58rem;
+            line-height: .6rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="wraper">
+        <div class="fixbg" v-if="showrule||showpack||showeit"  @touchmove.stop="even" v-cloak>
+        </div>
+        <div class="fx" v-cloak v-if="showrule">
+            <div class="trule scroll" v-if="showrule" v-cloak @touchmove.stop="even">
+                <div class="ruletitle">
+                    活动规则
+                </div>
+                <div class="img">
+                    <div class="te">
+                        <span>1、</span>
+                        <p>助爱七夕福利红包即时到账，仅领取当天有效，红包使用信息详见券面，100元起投。</p>
+                    </div>
+                    <div class="te">
+                        <span>2、</span>
+                        <p>浪漫七夕豪礼相伴活动，所累计投资金额数据截止到8月31日23:54:59。现金奖励在活动结束后10个工作日内发放。实物奖励在活动结束后20个工作日内发放，节假日顺延。根据用户最终累计达到的投资额发放一种对应奖励（默认为可获得奖励中价值最高的那个）。
+                        </p>
+                    </div>
+                    <div class="te">
+                        <span>3、</span>
+                        <p>七夕鹊桥榜，用户累计投资额统计数据实时变动，每日数据截止到当日的23:54:59，红包奖励次日发放，有效期2天；现金奖励在活动结束后10个工作日内发放。</p>
+                    </div>
+                    <div class="te">
+                        <span>4、</span>
+                        <p>最佳月老榜，用户累计投资额统计数据实时变动，最佳月老榜数据第一周期数据截止到8月23日23:54:59，第二周期数据截止到8月31日23:54:59，现金奖励在活动结束后10个工作日内发放。</p>
+                    </div>
+                    <div class="te">
+                        <span>5、</span>
+                        <p>本活动新手标、债转项目、90天以下标的不计入。</p>
+                    </div>
+                    <div class="te">
+                        <span>6、</span>
+                        <p>活动最终解释权在法律范围内归人众金服所有，如有疑问请致电客服：400-655-8858。 (咨询时间：9:00-21:00)。</p>
+                    </div>
+                </div>
+                <div class="close" @click="changeshowrule(false)"></div>
+            </div>
+        </div>
+        <div class="eit" v-cloak v-if="showeit">
+            <div class="bg">
+                <p @click="go"></p>
+            </div>
+            <div class="close" @click="closeeit"></div>            
+        </div>
+        <div class="showgold" id="showgold" v-cloak v-show="showpack">
+            <h5>历史获奖记录</h5>
+            <div v-if="mygoldrecord.length==0"  v-cloak>
+                <p class="smile"></p>
+                <p class="none">很遗憾，您还未获得任何红包奖励！</p>
+            </div>
+            <div class="scrol" v-else>
+                <div class="head">
+                    <p>获奖时间</p>
+                    <p>奖品</p>
+                    <!-- <p>获取条件</p> -->
+                    <p>奖品状态</p>
+                </div>
+                <div class="showgoldlist" v-for="item in mygoldrecord">
+                    <p v-text="item.date"></p>
+                    <p v-text="item.reward"></p>
+                    <!-- <p style="width:30%;" v-text="item.reward_task"></p> -->
+                    <p  v-text="item.status"></p>
+                </div>
+            </div>
+            <div class="close" @click="changepackhis(false)"></div>
+        </div>
+                
+        <header>
+            <div class="rule" @click="changeshowrule(true)"></div>            
+        </header>
+        <div class="bg2">
+            <p style="color:#333;line-height:1.7rem;font-size:0.24rem;">一天两次，为爱助力，百元起投，定时红包福利等你来拿！</p>
+            <p style="color:#aaa;line-height:6.5rem;font-size:0.22rem;text-align:left;margin-left:.4rem;">
+                注：每天09:00、20:00定点领取红包，红包即时到账，当日有效！
+            </p>
+            <div class="p1">
+                <div class="open" v-cloak v-if="pagtype[0].rewardType!=0">
+                    <div class="bg">
+                        <p><span style="font-size:.36rem;" v-text="pagtype[0].money"></span>元</p>
+                        <p style="line-height: 3.2rem;color: #fff;" v-text="pagtype[0].limitDayText"></p>
+                    </div>
+                    <div class="btn hight" @click="go">去投资</div>
+                </div>
+                <div class="close" v-else>
+                    <div class="bg"></div>
+                    <div class="btn">
+                        <div @click="open(0)" class="hight" v-cloak v-if="hour>=9&&hour<20" >开抢</div>
+                        <div class="black" v-else>09:00 开抢</div>
+                    </div>
+                </div>
+            </div>
+            <div class="p2">
+                <div class="open" v-cloak v-if="pagtype[1].rewardType!=0">
+                    <div class="bg">
+                        <p><span style="font-size:.36rem;" v-text="pagtype[1].money"></span>元</p>
+                        <p style="line-height: 3.2rem;color: #fff;" v-text="pagtype[1].limitDayText"></p>
+                    </div>
+                    <div class="btn hight" @click="go">去投资</div>
+                </div>
+                <div class="close" v-else>
+                    <div class="bg"></div>
+                    <div class="btn">
+                        <div @click="open(1)" class="hight" v-cloak v-if="hour>=20&&hour<24">开抢</div>
+                        <div class="black" v-else >20:00 开抢</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg4">
+            <div class="info">
+                <p>您累计投资金额(90-179天标)：<span style="color:#ee7000;" v-text="investdata[0].totalAmount+'.00'"></span>元</p>
+                <p>您累计投资金额(180天及以上标)：<span style="color:#ee7000;" v-text="investdata[1].totalAmount+'.00'"></span>元</p>
+            </div>
+            <div class="con">
+                <div class="head">
+                    <div @touchstart="award(0)" :class="awardtype == 0 ?'bubble':'bubbler'">90天-179天标的</div>
+                    <div @touchstart="award(1)" :class="awardtype == 1 ?'bubble':'bubbler'">180天及以上标的</div>
+                </div>
+                <div class="body">
+                    <div v-cloak v-if="awardtype == 0" class="small"></div>
+                    <div v-else class="big"></div>
+                </div>
+            </div>
+            <p class="remind">注：同一投资期限区间默认可获得奖励中价值最高的奖品！</p>
+            <div class="btn" @touchstart="go">我要拿奖</div>
+        </div>
+        <div class="bg5">
+            <div class="hero">
+                <p @click="changehero(0)" class="lef" :class="herotype==0?'light':'dark'"><span>七夕鹊桥榜<br/>（每日榜）</span></p>
+                <p @click="changehero(2)" class="center" :class="herotype==2?'light':'dark'"><span>最佳月老榜<br/>（8.17~8.23）</span></p>
+                <p @click="changehero(1)" class="rig" :class="herotype==1?'light':'dark'"><span>最佳月老榜<br/>（8.24~8.31）</span></p>
+            </div>
+            <div class="box">
+                <p style="padding-left:0.2rem;" v-if="herotype==0" v-cloak>您今日累计投资金额（90天及以上标的）：<span style="color:#ee7000;" v-text="user+'.00'"></span>元</p>
+                <p style="padding-left:0.2rem;" v-else>您累计投资金额（180天及以上标的）：<span style="color:#ee7000;" v-text="user+'.00'"></span>元</p>
+                <div style="height: .6rem;">
+                    <p style="color:#656f99;text-align:center;font-size:0.26rem;line-height:.6rem;" v-if="herotype==0" v-cloak>
+                        <span style="text-decoration: underline;" @touchstart="changepackhis(true)">历史获奖记录</span>
+                    </p>
+                </div>
+                <p class="nav"><span style="line-height:0.4rem;">上榜富豪</span><span>累计投资额</span><span>奖励</span></p>
+                <div >
+                    <p class="con" v-for="(item ,idx) in herolist">
+                        <!-- <span class="w20" v-text="item.No+'.'"></span> -->
+                        <span style="display:inline-block;"><span style="display:inline;margin-right:.15rem;" v-text="item.No+' . '"></span> <span style="display:inline;" v-text="item.mobile"  >nihao</span></span>
+                        <span v-text="item.money"></span>
+                        <span v-text="txt[idx]">15464元现金</span>
+                    </p>
+                </div>
+            </div>
+            <p v-if="herotype==0" class="remind">
+                注：投资90天及以上标的可参与，排名以当日截止时间最终排名为准！
+            </p>
+            <p class="remind" v-else-if="herotype == 1">
+                注：投资180天及以上标的可参与，排名以8月31日截止时间最终排名为准！
+            </p>
+            <p class="remind" v-else>
+                注：投资180天及以上标的可参与，排名以8月23日截止时间最终排名为准！
+            </p>
+            <div class="btn" @touchstart="go">我要冲榜</div>            
+        </div>
+        <!-- 弹窗提示 -->
+        <div class="dialog-tip">
+            <div class="content"></div>
+        </div>
+        <!-- loading -->
+        <div class="loading-wrapper">
+            <div class="spinner-snake" style="border-top-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); height: 32px; width: 32px;"></div>
+            <span class="indicator-text">加载中...</span>
+        </div>
+    </div>
+    <script src="/static/js/fastclick.min.js"></script>
+    <script src="/static/js/vue.min.js"></script>
+    <script src="/static/js/zepto.min.js"></script>
+    <script type="text/javascript">
+        // 解决移动端页面click事件存在300毫秒延迟
+        document.addEventListener('DOMContentLoaded', function () {
+            FastClick.attach(document.body);
+        }, false);
+        //    避免页面从缓存中加载
+        window.onpageshow = function (e) {
+            e = e || event;
+            if (e.persisted) {
+                location.reload();
+            }
+        }
+        function getParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+        var token = getParam("token") || '';
+        var type = 'm';
+        if (getParam('type')) {
+            type = getParam('type');
+        } else {
+            if (window.location.href.indexOf('pre-activity-center') > -1) {
+                type = 'mobile';
+            } else {
+                type = 'm';
+            }
+        }
+        window.vm = new Vue({
+            el: "#wraper",
+            data: {
+                isLogined: token ? true : false, //是否登录
+                activemodel:null,  //活动模块
+                awardtype:0,  //显示的奖励类型
+                pagtype: [{
+                        code:'sign',
+                        packId:'67',
+                        rewardType:0
+                    },{
+                        code:'signsec',
+                        packId:'68',
+                        rewardType:0
+                }],  //可用红包的类型
+                lcandle:false,   //蜡烛亮否
+                showeit:false,
+                investdata:[{totalAmount:'0'},{totalAmount:'0'}],
+                showrule: false,  //显示规则弹窗
+                herotype:0,   //0每日 2 1~8 1 9~16
+                herolist:[{
+                        No:1,
+                        mobile:'- -',
+                        money:'- -'    
+                    },{
+                        No:2,
+                        mobile:'- -',
+                        money:'- -'    
+                    },{
+                        No:3,
+                        mobile:'- -',
+                        money:'- -'    
+                    },{
+                        No:4,
+                        mobile:'- -',
+                        money:'- -'    
+                    },{
+                        No:5,
+                        mobile:'- -',
+                        money:'- -'    
+                    },{
+                        No:6,
+                        mobile:'- -',
+                        money:'- -'    
+                    },{
+                        No:7,
+                        mobile:'- -',
+                        money:'- -'    
+                    },{
+                        No:8,
+                        mobile:'- -',
+                        money:'- -'    
+                    },{
+                        No:9,
+                        mobile:'- -',
+                        money:'- -'    
+                    },{
+                        No:10,
+                        mobile:'- -',
+                        money:'- -'    
+                }],
+                txt1:['4888元现金','3888元现金','2588元现金','1888元现金','1288元现金','888元现金','688元现金','588元现金','388元现金','288元现金',],
+                txt2:['1000元现金','800元现金','600元现金','500元现金','400元现金','300元红包','200元红包','150元红包','100元红包','50元红包'],
+                txt:[],
+                user:0,
+                showpack: false,  //既可以显示包也可以发送判断
+                rank: { rank_num: '0', need_tender: '0' ,currentRanks:[]},  //银行卡列表
+                mygoldrecord: [],   //红包列表
+                showTenderTip: true, // 再完成一笔投资文本提示，默认显示
+                hour:8,   //当前几点
+                scrolldom:null,  //滚动条
+                timestamp:new Date().getTime(),   //当前时间戳
+            },
+            created:function(){
+
+                this.reckon(this.timestamp)
+            },
+            mounted: function () {
+                this.initData();
+                this.txt = this.txt1;
+                var self = this
+                setInterval(function(){
+                    self.timestamp += 1000
+                    self.reckon(self.timestamp)
+                },1000)
+            },
+            computed: {
+                rl:function(){
+                    var arr = ['0.00','0.00','0.00','0.00','0.00','0.00(10th)','0.00(15th)','0.00(20th)'];
+                    var currentRanks = this.rank.currentRanks;
+                    for (var i = 0; i < currentRanks.length; i++) {
+                        if (i<=4) {
+                            arr[i]=currentRanks[i].money
+                        }else if (i==9) {
+                            arr[5]=currentRanks[i].money+'(第10名)'                                                     
+                        }else if (i==14) {
+                            arr[6]=currentRanks[i].money+'(第15名)'                                                  
+                        }else if (i==19) {
+                            arr[7]=currentRanks[i].money+'(第20名)'                                                  
+                        }
+                    }
+                    return arr;
+                }
+            },
+            computed:{
+                txt:function(){
+                    return this.herotype==0?this.txt2:this.txt1
+                }
+            },
+            methods: {
+                award:function(v){
+                    this.awardtype = v
+                },
+                //计时
+                reckon:function(newtime){
+                    var hour = new Date(newtime).getHours();
+                    if (hour!=this.hour) {
+                        if ( hour == 10 || hour == 20 || hour ==0) {
+                            this.initData() //如果时间日期改变了 重新加载
+                        }
+                        this.hour = hour
+                    }
+                },
+                text:function(v){
+                    if (parseInt(v)>0) {
+                        return Math.ceil(v)
+                    }else{
+                        return '0'
+                    }
+                },
+                even:function(e){
+                    // e.preventDefault();
+                },
+                changeshowrule: function (v) {
+                    this.showrule = v
+                },
+                changepackhis: function (v) {
+                    var _this = this
+                    if (!this.isLogined) {
+                        location.href = 'https://' + type + '.51rz.com/login';
+                        return;
+                    }
+                    this.showpack = v
+                    if (!v) return;
+                    $.post('/index.php?_url=/api/rank/rewardsHistory', { activityId: 29, token: token ,mark:'today'}, function (data) {
+                        if (data.error_code == 0) {
+                            _this.mygoldrecord = data.data
+                            // 打开明细弹窗
+                        } else if (data.error_code === 201) {
+                            location.href = 'https://' + type + '.51rz.com/login';
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })      
+                },
+                changehero:function(v){
+                    var _this = this;
+                    this.herotype = v;
+                    // if (!this.isLogined) {
+                    //     return
+                    // }
+                    this.txt = this.herotype==0?this.txt2:this.txt1  
+                    var type = 'today'
+                    if (v==2) {
+                        type = 'firstweek'
+                    }else if (v==1) {
+                        type = 'lastweek'
+                    }
+                    $.post('/index.php?_url=/api/rank/index', { activityId: 29, token: token||'', mark:type}, function (data) {
+                        if (data.error_code == 0) {
+                            var list = data.data.currentRanks
+                            _this.user = data.data.user
+                            var herolist = [{
+                                No:1,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:2,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:3,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:4,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:5,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:6,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:7,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:8,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:9,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:10,
+                                mobile:'- -',
+                                money:'- -'    
+                            }]
+                            if (list.length<10&&_this.herotype==0) {
+                                for (var i = 0; i < 10; i++) {
+                                    if (i+1>list.length) {
+                                        list.push(herolist[i])
+                                    }
+                                }
+                                _this.herolist = list;
+                                return;
+                            }else if (list.length<10&&_this.herotype!=0) {
+                                for (var i = 0; i < 10; i++) {
+                                    if (i+1>list.length) {
+                                        list.push(herolist[i])
+                                    }
+                                }
+                                _this.herolist = list;
+                                return;
+                            }
+                            _this.herolist = data.data.currentRanks                            
+                            // 打开明细弹窗
+                        } else if (data.error_code === 201) {
+                            location.href = 'https://' + type + '.51rz.com/login';
+                        }
+                    })
+                },
+                open: function (v) {
+                    if (!this.isLogined) {
+                        location.href = 'https://' + type + '.51rz.com/login';
+                        return ;
+                    }
+                    var code =this.pagtype[v].code
+                    var _this = this;
+                    $.post('/index.php?_url=/api/pack/open', { activityId: 29, token: token, code: code}, function (data) {
+                        if (data.error_code == 0) {
+                            _this.initData()
+                            // 打开明细弹窗
+                        } else if (data.error_code === 201) {
+                            location.href = 'https://' + type + '.51rz.com/login';
+                        }
+                    })
+                },
+                closeeit:function(){
+                    this.showeit = false                    
+                },
+                gologin: function () {
+                    location.href = 'https://' + type + '.51rz.com/login';
+                },
+                initData: function () {
+                    var _this = this;
+                    $.post('/index.php?_url=/api/activity/index', { activityId:29, token: token }, function (data) {
+                        _this.activemodel = data.data.widget;
+                        _this.changehero(0);
+                        if (data && data.error_code === 0) {
+                            _this.timestamp = data.data.nowTime*1000||new Date().getTime()                            
+                            var islogin = data.data.islogin;
+                            if (typeof (islogin) == "undefined") {
+                                _this.getinvest()
+                                _this.getpackindex()
+                                // _this.getcandle()
+                            } else if (islogin === 0) {
+                                _this.isLogined = false
+                            }
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                },
+                getpackindex:function(){  //拆红包首页
+                    var _this = this;
+                    var type = this.activemodel[4].mark
+                    $.post('/index.php?_url=/api/pack/index', { activityId: 29, token: token ,mark:type}, function (data) {
+                        if (data && data.error_code === 0) {
+                            var islogin = data.data.islogin;
+                            if (typeof (islogin) == "undefined") {
+                                var pack = data.data.today;
+                                _this.pagtype = pack;
+                            } else if (islogin === 0) {
+                                _this.isLogined = false
+                            }
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                },
+                getinvest:function(){
+                    var _this = this;
+                    var type = this.activemodel[2].mark
+                    $.post('/index.php?_url=/api/bamboo/index', { activityId: 29, token: token ,mark:'gift'}, function (data) {
+                        if (data && data.error_code === 0) {
+                            var islogin = data.data.islogin;
+                            if (typeof (islogin) == "undefined") {
+                                _this.investdata = data.data
+                            } else if (islogin === 0) {
+                                _this.isLogined = false
+                            }
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                },
+                getcandle:function(){
+                    var _this = this;
+                    var type = this.activemodel[3].mark
+                    $.post('/index.php?_url=/api/pack/index', { activityId: 29, token: token ,mark:type}, function (data) {
+                        if (data && data.error_code === 0) {
+                            var islogin = data.data.islogin;
+                            if (typeof (islogin) == "undefined") {
+                                _this.lcandle = parseInt(data.data.totalNum)>0?true:false                                
+                            } else if (islogin === 0) {
+                                _this.isLogined = false
+                            }
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                },
+                go: function () {
+                    location.href = 'https://' + type + '.51rz.com/tender/index';
+                    // this.isLogined ? location.href = 'https://' + type + '.51rz.com/tender/index' : location.href = 'https://' + type + '.51rz.com/login';
+                },
+                // 打开弹窗提示
+                showMsg: function (msg) {
+                    $(".dialog-tip .content").text(msg);
+                    $(".dialog-tip").show();
+                    setTimeout(function () {
+                        $(".dialog-tip .content").text('');
+                        $(".dialog-tip").hide();
+                    }, 2000);
+                },
+            },
+        })
+    </script>
+</body>
+</html>

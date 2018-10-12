@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="wap-font-scale" content="no"/>
+    <link rel="stylesheet" href="../../static/css/video-js.css">
+    <link rel="stylesheet" href="../../static/css/swiper.min.css">
+    <script src="../../static/js/jquery-1.11.1.min.js"></script>
+
+    <title>人众金服五周年庆| 能遇见，不辜负</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .background_container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #06013b;
+            width: 100vw;
+            min-height: 100vh;
+            background: url("https://images.51rz.com/images/app/5th_years/bg.png");
+            background-size: cover;
+        }
+
+        .background_container .video_container {
+            width: 100vw;
+            margin-top: 3.27rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .background_container .video_container #my-video {
+            box-shadow: 0px 0px 1px 1px #89548a;
+            border-radius: 1px;
+            width: 6.515rem;
+            height: 4.01rem;
+        }
+
+        #department_info{
+            margin-top: 0.3rem;
+        }
+        #department_info .swiper-wrapper{
+            overflow: auto;
+        }
+        #department_info.swiper-container {
+            width: 100%;
+            height: 3.6rem;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        #department_info .swiper-slide:first-child{
+            margin-left: 0;
+        }
+
+        #department_info .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            /*background: #fff;*/
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: space-around;
+            justify-content: space-around;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+
+            margin-left: 0.3rem;
+            width: 2.02rem;
+        }
+
+        #department_info .swiper-slide .img_container img {
+            width: 2.02rem;
+            height: 1.52rem;
+        }
+        .img_container{
+            margin-top: 0.3rem;
+            width: 2.02rem;
+            height: 1.52rem;
+            position: relative;
+        }
+        .img_container span{
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            left: 0;
+            display: inline-block;
+            width: 2.02rem;
+            color: #ffffff;
+            font-size: 0.24rem;
+            background: linear-gradient(to bottom, rgba(153, 153, 153, 0.1), rgba(0, 0, 0, 0.7));
+            height: 0.56rem;
+            line-height: 0.56rem;
+        }
+        .swiper-slide p{
+            font-size: 0.24rem;
+            color: #ffffff;
+            display: inline-block;
+            height: 1.2rem;
+            width: 2rem;
+            text-align: left;
+        }
+
+        /*播放器样式*/
+        .video_container #my-video{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .video_container #my-video .vjs-big-play-button {
+            position: relative;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            border: 0.06rem solid rgba(255,255,255,0.4);
+            top: 0;
+            left: 0;
+            line-height: 0.9rem;
+        }
+
+
+
+        /*评论区*/
+        .composed_content_container .mask {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(125,23,41,0);
+            z-index: 2;
+        }
+        .composed_layer .composed_banner {
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            margin-top: 0.54rem;
+        }
+        .composed_layer .composed_banner img {
+            width: 6.5rem;
+            height: 0.57rem;
+        }
+        .composed_content_container {
+            position: relative;
+            box-shadow: #3f007a 2px 2px 2px;
+            margin-top: 0.52rem;
+            display: flex;
+            justify-content: center;
+            height: 4rem;
+            /*width: 6.5rem;*/
+            /*background: #ffffff;*/
+            /*overflow: auto;*/
+        }
+        .composed_layer .composed_content_container .composed_content {
+            height: 4rem;
+            width: 6.5rem;
+            background: #ffffff;
+        }
+        .composed_item {
+            display: flex;
+            align-items: flex-start;
+        }
+        .composed_item .avatar {
+            margin: 0 0.3rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .composed_item .avatar img{
+            width: 0.52rem;
+            height: 0.52rem;
+            border-radius: 50%;
+        }
+        .composed_item .info_container{
+            font-size: 0.24rem;
+            color: rgba(153, 153, 153, 255);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .composed_item .content {
+            font-size: 0.24rem;
+            color: rgba(34, 34, 34, 255);
+            text-align: left;
+        }
+        .swiper_comment_container{
+            width: 6.5rem;
+            height: 3.6rem;
+            background: rgba(255, 255, 255, 1);
+            overflow: auto;
+            box-shadow: 0px 0px 3px 3px #89548a;
+            border-radius: 2px;
+    }
+    .composed_content>.swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .composed_content .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            /*-webkit-justify-content: center;*/
+            /*justify-content: center;*/
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .swiper-container-free-mode>.swiper-wrapper {
+            -webkit-transition-timing-function: linear; /*之前是ease-out*/
+            -moz-transition-timing-function: linear;
+            -ms-transition-timing-function: linear;
+            -o-transition-timing-function: linear;
+            transition-timing-function: linear;
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        var deviceWidth = document.documentElement.clientWidth;
+        if (deviceWidth > 750) deviceWidth = 750;
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px'
+    </script>
+</head>
+<body>
+
+<div class="background_container">
+    <div class="banner">
+    </div>
+    <div class="video_container">
+        <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+               poster="https://images.51rz.com/images/app/5th_years/video_bg.png" data-setup="{}">
+            <source src="http://devh5.oss-cn-hangzhou.aliyuncs.com/movie/6.23%E4%BA%BA%E4%BC%97%E9%87%91%E6%9C%8DTVC%20%E6%97%A0%E6%B0%B4%E5%8D%B0.mp4" type='video/mp4'>
+            <p class="vjs-no-js">
+                人众金服五周年庆| 能遇见，不辜负
+                <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
+    </div>
+    <div id="department_info" class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="img_container">
+                    <img src="https://images.51rz.com/images/app/5th_years/01.png" alt="">
+                    <span>客服</span>
+                </div>
+                <p>高效沟通，留住信赖，做好服务，保证体验</p>
+            </div>
+            <div class="swiper-slide">
+                <div class="img_container">
+                    <img src="https://images.51rz.com/images/app/5th_years/02.png" alt="">
+                    <span>运营</span>
+                </div>
+                <p>深耕品牌，推广产 品，为了拉新留存拼了</p>
+            </div>
+            <div class="swiper-slide">
+                <div class="img_container">
+                    <img src="https://images.51rz.com/images/app/5th_years/03.png" alt="">
+                    <span>技术</span>
+                </div>
+                <p>技术护航，消除隐 患，哪里有BUG哪 里就有哥</p>
+            </div>
+            <div class="swiper-slide">
+                <div class="img_container">
+                    <img src="https://images.51rz.com/images/app/5th_years/04.png" alt="">
+                    <span>财务</span>
+                </div>
+                <p>精打细算，账目清 晰，为公司过好日 子当好家</p>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <!--<div class="swiper-pagination"></div>-->
+    </div>
+    <div class="composed_layer">
+        <div class="composed_banner">
+            <img src="https://images.51rz.com/images/app/5th_years/Composed-layer.png" alt="">
+        </div>
+        <div class="composed_content_container">
+            <div class="mask"></div>
+           <div class="swiper_comment_container">
+               <div class="composed_content swiper-wrapper">
+               </div>
+           </div>
+        </div>
+    </div>
+</div>
+<script src="../../static/js/video.js"></script>
+<script src="../../static/js/swiper.min.js"></script>
+<script>
+    // 评论
+    var data = [
+        {
+            "avatar": "https://images.51rz.com/images/app/5th_years/avatar/timg%20(1).jpg",
+            "local": "天津-王",
+            "date": "16:49:42",
+            "content": "选择人众是绝对正确的"
+        },
+        {
+            "avatar": "https://images.51rz.com/images/app/5th_years/avatar/timg%20(2).jpg",
+            "local": "江苏-于小芸",
+            "date": "16:42:41",
+            "content": "人众是好公司，那我真幸运没选错"
+        },
+        {
+            "avatar": "https://images.51rz.com/images/app/5th_years/avatar/timg%20(3).jpg",
+            "local": "浙江-嫣然口",
+            "date": "12:39:29",
+            "content": "人众服务挺好的，好多大平台都没有专属客服"
+        },
+        {
+            "avatar": "https://images.51rz.com/images/app/5th_years/avatar/timg%20(4).jpg",
+            "local": "浙江-Platon胡",
+            "date": "15:30:29",
+            "content": "我看到的是人众的诚意，不断贴近合规性的趋势"
+        },
+        {
+            "avatar": "https://images.51rz.com/images/app/5th_years/avatar/timg%20(5).jpg",
+            "local": "北京-Admire",
+            "date": "10:29:37",
+            "content": "祝人众稳步向前，日进斗金，投资人收益大大的"
+        },
+        {
+            "avatar": "https://images.51rz.com/images/app/5th_years/avatar/timg%20(6).jpg",
+            "local": "山东-特立独行",
+            "date": "12:41:29",
+            "content": "我妈也跟着买人众，希望人众越来越好"
+        },
+        {
+            "avatar": "https://images.51rz.com/images/app/5th_years/avatar/timg%20(7).jpg",
+            "local": "江苏-李",
+            "date": "10:27:25",
+            "content": "感觉还是人众靠谱，准备都投人众"
+        },
+        {
+            "avatar": "https://images.51rz.com/images/app/5th_years/avatar/timg%20(8).jpg",
+            "local": "广东-wzw",
+            "date": "13:52:24",
+            "content": "永远把客户的资金安全放在第一位，平台消息公开透明"
+        },
+        {
+            "avatar": "https://images.51rz.com/images/app/5th_years/avatar/timg%20(9).jpg",
+            "local": "四川-理财达人",
+            "date": "12:22:21",
+            "content": "在人众体验大半年了，非常棒，力挺人众"
+        },
+        {
+            "avatar": "https://images.51rz.com/images/app/5th_years/avatar/timg%20(10).jpg",
+            "local": "浙江-小鹿",
+            "date": "16:15:45",
+            "content": "综合看，人众还是挺放心了，活动力度也可以"
+        },
+        {
+            "avatar": "https://images.51rz.com/images/app/5th_years/avatar/timg%20(11).jpg",
+            "local": "黑龙江-吐故纳新",
+            "date": "14:08:57",
+            "content": "人众的客服真棒！对客户问题反馈很及时！赞赞赞！"
+        },
+        {
+            "avatar": "https://images.51rz.com/images/app/5th_years/avatar/timg%20(12).jpg",
+            "local": "河南-临忻",
+            "date": "9:03:52",
+            "content": "在我投过的几个平台中，人众还是相对不错的，希望越来越好！"
+        },
+        {
+            "avatar": "https://images.51rz.com/images/app/5th_years/avatar/timg%20(13).jpg",
+            "local": "四川-蒋先生",
+            "date": "9:18:40",
+            "content": "我昨天投了R计划63天标，体验很好，谢谢客户小杨"
+        },
+        {
+            "avatar": "https://images.51rz.com/images/app/5th_years/avatar/timg%20(14).jpg",
+            "local": "安徽-怒放的生命",
+            "date": "15:36:15",
+            "content": "客户亲自打电话过来解答，感到这里的客服真棒"
+        },
+        {
+            "avatar": "https://images.51rz.com/images/app/5th_years/avatar/timg%20(15).jpg",
+            "local": "上海-简单",
+            "date": "17:39:03",
+            "content": "我是投资5年的老用户了，真心感觉平台是在用心做理财这件事情"
+        }
+    ];
+    data.forEach(function (item,key) {
+        $(".composed_content").append("<div class=\"composed_item swiper-slide\">\n" +
+            "                    <div class=\"avatar\"><img src=\""+item.avatar+"\" alt=\"\"></div>\n" +
+            "                    <div class=\"info_container\">\n" +
+            "                        <div>\n" +
+            "                            <span class=\"local\">"+item.local+"</span>\n" +
+            "                            <span class=\"date\">"+item.date+"</span>\n" +
+            "                        </div>\n" +
+            "                        <div class=\"content\">\n" + item.content+
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                </div>")
+    })
+
+</script>
+<script>
+    // var swiper = new Swiper('.swiper-container', {
+    //     slidesPerView: 3,
+    //     spaceBetween: 40,
+    //     mousewhell:true,
+    //     loop:true,
+    //     autoplay:false,
+    //     // speed:3000,
+    //     pagination: {
+    //         el: '.swiper-pagination',
+    //         clickable: true,
+    //     },
+    // });
+    var swiper_comment = new Swiper('.swiper_comment_container', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        direction:"vertical",
+        loop:true,
+        mousewheel:false,
+        mousewheelControl:false,
+        autoplay:{
+            delay:0
+        },
+        freeMode : true,
+        speed:3000,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+    // 禁止鼠标滚动
+    document.getElementsByClassName("swiper_comment_container")[0].onmousewheel = function () {
+        console.log(121321)
+        return false;
+    };
+    document.getElementsByClassName("swiper_comment_container")[0].ontouchstart = function () {
+        console.log(1)
+        return false;
+    };
+    document.getElementsByClassName("swiper_comment_container")[0].ontouchmove = function () {
+        console.log(2)
+        return false;
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection" />
+    <title>五月积分红包</title>
+    <link rel="shortcut icon" href="http://www.51rz.com/favicon.ico" />
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <script type='text/javascript' src='https://assets.growingio.com/sdk/wx/vds-wx-plugin.js'></script>
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5395127f074c49150bc6578ff60ff4e8";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+    <!--background-image: linear-gradient(to top, #fb814e,#f94638);background-image: -webkit-linear-gradient(to top, #fb814e,#f94638);-->
+    <style type="text/css">
+        *{margin: 0;padding: 0;box-sizing: border-box;-webkit-box-sizing: border-box;}
+        body{max-width:7.5rem;margin:0 auto;background:#a5e8e6;overflow:auto;height: 100%;}
+        img{width: 100%;display: block;}
+        ul li{list-style-type:none;}
+        [v-cloak] {
+            display: none;
+        }
+        #wraper {
+            height: 14.67rem;
+            background:url(https://images.51rz.com/images/app/act-may/bg.png) no-repeat center top;    
+            background-size: 100% auto;      
+            position: relative;  
+        }
+        .may-banner{
+            height:4rem;
+        }
+        .may-box {
+            height:7.04rem;
+            text-align:center;
+            font-size:0.24rem;
+            position: relative;
+        }
+        .showgold {
+            width: 4.95rem;
+            height: 3.44rem;
+            position: absolute;
+            top: 4rem;
+            left: 1.3rem;
+            z-index: 22222;
+            font-size: 0.24rem;
+            background-color: #fff;       
+            text-align: center;
+                 
+        }
+        .showgold h5{
+            font-size: 0.28rem;
+            color: #fff;
+            background-color: #72d7d4;
+            line-height: 0.83rem;
+            height: 0.83rem;
+        }
+        .showgold .head{
+            color: #333;
+            display: flex;
+            height: 0.87rem;
+            line-height: 0.87rem;            
+            border-bottom: 1px solid #72d7d4;
+        }
+        .showgold .showgoldlist{
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            line-height: 0.87rem;                        
+            color: #e13333;         
+            height: 0.87rem;               
+            border-bottom: 1px solid #72d7d4;            
+        }
+        .showgold  p{
+            /* flex: 1; */
+            width: 33.33333%;
+        }
+        .showgold .scrol {
+            height: 2.61rem;
+            width: 100%;
+            overflow-y: scroll;
+        }
+        .scrol .head {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+        }
+        .scrol .head p{
+            flex: 1;
+        }
+        p.none {
+            width: 100%;
+            line-height: 1.74rem;
+            text-align: center;
+            color: #aaa;
+        }
+        .showtoinvest{
+            width: 4.95rem;
+            height: 4.45rem;
+            position: absolute;
+            top: 4rem;
+            left: 1.3rem;
+            z-index: 22222;
+            font-size: 0.24rem;
+            text-align: center;
+            background:url(https://images.51rz.com/images/app/act-may/toinvest.png) no-repeat center top;
+            background-size:100% auto;
+        }
+        .showtoinvest a{
+            width: 2.4rem;
+            height: 0.64rem;
+            text-decoration: none;
+            background-color: #f5725b;
+            font-size: 0.28rem;
+            line-height: 0.64rem;
+            color: #fff;
+            border-radius: 0.32rem;
+            position: absolute;
+            left: 1.28rem;
+            top: 3.4rem;
+        }
+        .rulebtn {
+            position: absolute;
+            right: 0;
+            top: 1.75rem;
+            width:0.55rem;
+            height: 1.6rem;
+            background: rgba(0,0,0,0)
+        }
+        .showshadow {
+            /* height: 14.54rem; */
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            background: rgba(0,0,0,0.7);
+            top:0rem;
+            left: 0;
+            z-index: 11111;
+        }
+        .close {
+            position: absolute;
+            bottom: -1.1rem;
+            left:2.2rem;
+            width: 0.49rem;
+            height: 0.49rem;
+            background:url(https://images.51rz.com/images/app/act-may/close.png) no-repeat center bottom;   
+            background-size: 100% auto;                     
+        }
+        .showshadow .toinvestclose{
+            width: 4.95rem;
+            height: 1.05rem;
+            background:url(https://images.51rz.com/images/app/act-may/toinvest.png) no-repeat center bottom;
+            background-size: 100% auto;
+            position: absolute;
+            left: 1.28rem;
+            top: 8.45rem;               
+        }
+        .rule {
+            height: 4.87rem;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 3.67rem;
+            background:url(https://images.51rz.com/images/app/act-may/activerule.png) no-repeat center top;   
+            background-size: 100% auto;        
+            z-index: 22222;
+                         
+        }
+        .may-box span{
+            font-size:0.24rem;
+            color:#ff821e;
+            display:inline-block;
+        }
+        .may-box .box-info {
+            line-height: 1rem;
+            font-size: 0.28rem;
+        }
+        .may-box .box-info .record{
+            font-size:0.24rem;
+            text-decoration: underline;
+            color:#568398;
+            line-height:0.35rem;
+            margin-right: 0.85rem;
+        }
+        .may-box .box-info span{
+            font-size: 0.28rem;
+        }
+        .may-box span.gold{
+            margin-left:-0.1rem; 
+            font-size: 28px;
+            font-family: 'consolas';
+            color: #f25540;
+            margin-top: 1.7rem;
+            font-weight: bold;
+        }
+        .may-box .double {
+            width: 1rem;
+            height: 1rem;
+            background:url(https://images.51rz.com/images/app/act-may/double.png) no-repeat center top;
+            background-size: 100% auto;
+            position: absolute;
+            right: 1.7rem;
+            top: 2.1rem;            
+        }
+        .may-box .box-always {
+            width: 100%;
+            margin: 0.15rem;
+        }
+        .may-box .box-always p {
+            display: inline;
+            padding: 0.05rem 0.2rem;
+            color: #568398;
+            border: 1px dashed #ccc;
+            border-radius: 0.2rem;
+        }
+        .may-box .box-btn {
+            margin-top: 1.4rem;
+            text-align: center;
+            width: 100%;
+        }
+        .may-box .box-btn p{
+            width: 2.8rem; 
+            height: 0.66rem;
+            margin: 0 auto;
+            border-radius: 0.33rem;
+            line-height: 0.66rem;
+            font-size: 0.28rem; 
+            color: #ffffff;
+            margin-bottom: 0.15rem;
+            background-color: #f3624c;
+        }
+        .may-box .box-btn p.doublesuccess{
+            background-color: #aaa;
+        }
+        .may-box .box-btn a{
+            line-height: 0.66rem;
+            font-size: 0.24rem; 
+            text-decoration: underline;
+            color: #f35d47;
+        }
+        .fixed-bg{
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0;
+            background:rgba(0,0,0,0.5);
+            display:none;
+        }
+      
+      
+
+        /*定义滚动条轨道 内阴影+圆角*/
+        /* .bankScroll::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+        } */
+
+        /*定义滑块 内阴影+圆角*/
+        /* .bankScroll::-webkit-scrollbar-thumb
+        {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #55cfa9;
+        }
+   
+        .may-hb,.may-xj,.may-xj-ok,.may-hb-ok{background-size:100% 100%;}
+
+        .may-banner,.may-box,.may-box1,.may-box2,.may-box3{
+            background-size:100% 100%;
+            width:100%;
+        } */
+        #wraper{
+            padding-bottom:0.6rem;
+        }
+    </style>
+</head>
+<body>
+<div id="wraper">
+    <div class="fixed-bg" ref="fixed-bg">
+        <!-- <div class="open-bg">
+            <i class="Colse-icon" @click="hideAlert('fixed-bg')"><img src="https://images.51rz.com/images/app/act-may/app-colse.png" /></i>
+            <h3>历史获奖记录</h3>
+            <div class="table-list bankScroll open-text" v-show="tabList == '' ">
+                暂无数据
+            </div>
+            <div class="table-list bankScroll" v-show="tabList != '' ">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr v-for="(item,index) in tabList">
+                        <td width="16%" v-text="item.date"></td>
+                        <td width="28%" v-text="item.list[0]"></td>
+                        <td width="28%" v-text="item.list[1]"></td>
+                        <td width="28%" v-text="item.list[2]"></td>
+                    </tr>
+                </table>
+            </div>
+        </div> -->
+    </div>
+    <div class="may-banner"></div>
+    <div class="showshadow" v-cloak v-if="showshadow">
+        <!-- <div class="close" @click="oncloseshadow"></div> -->
+    </div>
+    <div class="showgold" v-cloak v-if="showgold">
+        <h5>我的金币记录</h5>
+        <div class="scrol">
+            <div class="head">
+                <p>日期</p>
+                <p>金币</p>
+                <p>翻倍</p>
+            </div>
+            <p class="none" v-if="mygoldrecord.length==0">暂无记录</p>
+            <div class="showgoldlist" v-for="item in mygoldrecord">
+                <p v-text="item.date"></p>
+                <p v-text="item.money" ></p>
+                <p v-text="item.active==1?'是':'否'"></p>
+            </div>
+        </div>
+        <div class="close" @click="oncloseshadow"></div>
+    </div>
+    <div v-cloak class="showtoinvest" v-if="showtoinvest">
+        <a href="https://m.51rz.com/tender/index">立即投资</a>
+        <div class="close" @click="oncloseshadow"></div>        
+    </div>
+    <div class="may-box">
+        <div class="box-info">
+            <span>我的金币数：</span><span v-text="mygold"></span><span>个</span>
+        </div>
+        <span class="gold" v-text="money"></span>
+        <div class="double" v-if="type=='toinvest'">
+        </div>
+        <div class="box-btn">
+            <p v-cloak v-if="type=='attend'" @click="toattend">
+                签到领金币
+            </p>
+            <p v-cloak v-if="type=='toinvest'" @click="toinvest" >
+                点击翻倍
+            </p>
+            <p v-cloak v-if="active==2" class="doublesuccess">
+                已翻倍
+            </p>
+            <a @click="onshowgold">我的金币记录</a>
+        </div>
+    </div>
+
+    <!-- 弹窗提示 -->
+    <div class="dialog-tip">
+        <div class="content"></div>
+    </div>
+</div>
+
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript">
+    //    避免页面从缓存中加载
+    window.onpageshow = function(e){
+        e = e || event;
+        if(e.persisted){
+            location.reload();
+        }
+    }
+
+    function getParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r!=null) return unescape(r[2]); return null; //返回参数值
+    }
+    var token= getParam("token") || '';
+    var isLogined =token?true:false;//是否登录
+    window.vm=new Vue({
+        el:"#wraper",
+        data:{
+            isLogined:isLogined,   //是否登录
+            animate:false,//初始化不滚动
+            barActive:true,
+            totalAmount:'',
+            user:0,
+            mygold:0,
+            itemNews:[],
+            class:'none',
+            bamboo:[{totalAmount:0},{totalAmount:0}],
+            showgold:false,
+            doublesuccess:false,
+            showshadow:false,
+            showtoinvest:false,
+            type:'attend',   //attend toinvest invested
+            btntext:'你好',
+            active:null,
+            isSign:0,
+            money:'?',
+            packId:null,
+            mygoldrecord:[]
+        },
+        methods: {
+            onshowgold:function(){
+                if (!isLogined) {
+                    location.href="https://m.51rz.com/login"
+                    return;                    
+                }
+                this.showgold = true;
+                this.showshadow = true;
+                this.getgoldlist()
+            },
+            oncloseshadow:function(e){
+                this.showshadow = false;
+                this.showgold = false;
+                this.showtoinvest=false;                
+            },
+            toattend:function(){
+                var _this=this
+                if(this.$data.isLogined){
+                    $.post('/index.php?_url=/api/pack/open',{activityId:23,token:token,packId:this.packId},function(data) {//活动主接口
+                        if(data && data.error_code == 0){
+                            _this.type='toinvest';
+                            _this.isSign = 1;
+                            _this.money = parseInt(data.data.pack[0].money);
+                            _this.mygold = parseInt(_this.money)+parseInt(_this.mygold)
+                            // _this.actIndex()
+                        }else{
+                            _this.showMsg(data.msg) 
+                            _this.actIndex()                                                       
+                        }
+                    });
+                }else{
+                    location.href="https://m.51rz.com/login"
+                }
+            },
+            toinvest:function(){
+                var _this = this;
+                if (this.isSign&&this.active==0) {
+                    this.showshadow=true;
+                    this.showtoinvest=true;
+                }else{
+                    $.post('/index.php?_url=/api/pack/double',{activityId:23,token:token},function(data) {//活动主接口
+                        if(data && data.error_code == 0){
+                            var x = parseInt(_this.mygold)+parseInt(_this.money)
+                            _this.actIndex(function(){
+                                return x;
+                            })                            
+                        }else{
+                            _this.showMsg(data.msg)     
+                        }
+                    });
+                }
+                
+            },
+            getgoldlist:function(){
+                var _this = this
+                $.post('/index.php?_url=/api/pack/gold',{activityId:23,token:token},function(data) {//活动主接口
+                    if(data && data.error_code == 0||data.error_code == 0==10052){
+                        _this.mygoldrecord=data.data
+                    }else{
+                        _this.showMsg('对不起！系统繁忙。')
+                    }
+                });
+            },
+            actIndex:function(call){
+                var _this = this;
+                $.post('/index.php?_url=/api/activity/index',{activityId:23,token:token},function(data) {//活动主接口
+                    if(data && data.error_code == 0){
+                        _this.isLogined = true;
+                        _this.mygold= data.data.pack.sign.goldNum;
+                        if(call){
+                            _this.mygold = call()
+                        }
+                        _this.active = data.data.pack.sign.active;
+                        _this.isSign = data.data.pack.sign.isSign;
+                        _this.packId = data.data.pack.today[0].packId;
+                        _this.money = _this.isSign?data.data.pack.sign.money:'?';
+                        if(!_this.isSign){
+                            _this.type='attend'
+                        }else if (_this.active==2) {
+                            _this.type='invested'
+                        }else{
+                            _this.type='toinvest'
+                        }
+
+                    }else{
+                    }
+                });
+            },
+            but:function(packId,index){
+                var _this = this;
+                if(_this.$data.isLogined) {
+                    $.post('/index.php?_url=/api/pack/open',{activityId:22,token:token,packId:packId},function(data){
+                        if(data.error_code == 0){
+                            if(index == 1){
+                            }else{
+                                _this.actIndex();
+                            }
+                        }else{
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                }else{
+                    location.href = 'https://m.51rz.com/login'
+                }
+            },
+            // 打开弹窗提示
+            showMsg: function(msg) {
+                $(".dialog-tip .content").text(msg);
+                $(".dialog-tip").show();
+                setTimeout(function() {
+                    $(".dialog-tip .content").text('');
+                    $(".dialog-tip").hide();
+                }, 2000);
+            },
+        },
+        created:function () {
+            if(this.isLogined){
+                this.actIndex();
+            }
+        }
+    })
+</script>
+</body>
+</html>

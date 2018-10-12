@@ -1,0 +1,21 @@
+{
+  "name": "activity-center",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://chenyu@code.51rz.com/h5/activity-center.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^3.0.0",
+    "http-proxy-middleware": "^0.17.4"
+  }
+}

@@ -1,0 +1,216 @@
+@import "./libs/mixin.scss";
+
+$liH: 44px;
+.formWraper {
+  .geetestBox {
+    width: 400px;
+    //border:1px solid red;
+  }
+  li {
+    &.normal {
+      position: relative;
+    }
+    label {
+      @include box((lh:$liH, h:$liH, d:block, w:90px, c:#555));
+      text-indent: 12px;
+      @include position((p:absolute, t:0, l:0));
+    }
+    input {
+      @include box((w:100%, h:$liH - 2px, bd:1px solid #e5e5e5, p:0 0 0 90px));
+      &:focus {
+        border: 1px solid #4992ec;
+      }
+      &.error, &.error:focus {
+        border: 1px solid $red;
+      }
+    }
+
+    &.imgCodeRow {
+      @include clearfix();
+      @include box(());
+      input {
+        @include box((w:242px, p:15px, d:block));
+        float: left;
+      }
+      img {
+        @include box((w:106px, h:$liH, d:block));
+        float: right;
+      }
+    }
+    &.smsRow {
+      @include position((p:relative));
+      @include clearfix();
+
+      .inputSmsCode {
+        @include box((w:261px, fl:left));
+        &.error {
+          border-right: 0;
+        }
+      }
+      span {
+        @include box((d:block, w:100px, bd:1px solid #e5e5e5, h:44px, bg:#4b92ec, fl:right, lh:$liH, ta:center, c:#fff));
+        cursor: pointer;
+        &.disabled {
+          background: #a8a8a8;
+          cursor: auto;
+        }
+      }
+    }
+  }
+  .errorMsg {
+    @include box((h:30px, lh:30px, p:0 0 0 24px, fs:12px));
+    &.error {
+      @include background((url:'icon_error.png', repeat:no-repeat, pos:6px center));
+      color: $red;
+    }
+    &.tip {
+      @include background((url:'icon_tip.png', repeat:no-repeat, pos:6px center));
+      color: #999;
+    }
+  }
+  .tuijianRow {
+    $color: #d7a55e;
+    @include box((lh:34px, c:$color));
+    cursor: pointer;
+    &:before {
+      content: "";
+      @include box((d:inline-block, w:0, h:0));
+      margin-right: 10px;
+      vertical-align: middle;
+      border-left: 14px solid $color;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      transition: all ease 200ms;
+    }
+    &.need {
+      &:before {
+        transform: rotate(90deg);
+      }
+    }
+  }
+  .agree {
+    @include clearfix();
+    @include box((w:100%, fs:12px, m:10px));
+    input {
+      @include box((w:16px, h:16px, bd:1px solid #929292));
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+  }
+  .loginBtn {
+    @include box((w:100%, lh:$liH, bg:$red, ta:center, c:#fff, fs:16px, m:15px 0 0 0));
+    cursor: pointer;
+    background: #ff9e12;
+    background: -webkit-gradient(linear, left 0, right 0, from(#ff9e12), to(#ffbf13));
+    background: -moz-linear-gradient(left, #ff9e12, #ffbf13);
+    background: -o-linear-gradient(left, #ff9e12, #ffbf13);
+    &.disabled {
+      background: #ccc;
+      cursor: auto;
+    }
+  }
+}
+
+.inviteelogin {
+  @include box((w:100%));
+  position: relative;
+  .login {
+    @include box((h:601px));
+    @include background((repeat:no-repeat, pos:center top));
+    background-image: url(https://images.51rz.com/images/rebuild/invite/invitee_bg.png);
+  }
+  .liucheng {
+    margin-top: -27px;
+    width: 100%;
+    height: 472px;
+    position: relative;
+    z-index: 2;
+    background-color: #fff3d2;
+    @include background((repeat:no-repeat, pos:center));
+    background-image: url(https://images.51rz.com/images/rebuild/invite/invite_progress.png);
+  }
+}
+
+:global {
+  .container {
+    @include box((w:1200px, m:0 auto));
+    position: relative;
+  }
+  .loginbox {
+    @include box((w:409px, h:520px, p:0 24px, pt:24px, bg:rgba(255,255,255,0),bdr:5px));
+    @include position((p:absolute, r:0, t:26px));
+    & > p {
+      @include box((lh:27px, c:#000127, fs:16px));
+      span {
+        @include box((c:#ff9b09, fs:18px));
+      }
+      &:nth-child(2) {
+        margin-bottom: 14px;
+      }
+    }
+    .input {
+      @include box((w:360px, h:46px, mb:30px));
+      position: relative;
+      border: 1px solid #e5e5e5;
+      label[for='tel'] {
+        @include box((d:inline-block, w:90px, ta:center, h:100%, lh:44px));
+      }
+      input {
+        @include box((w:268px, h:42px, lh:42px))
+      }
+      .code {
+        @include box((w:100px, h:46px, bg:#4b92ec, c:#fff, fs:14px, ta:center, lh:46px));
+        @include position((p:absolute, t:-1px, r:0));
+        cursor: pointer;
+      }
+    }
+    .agree {
+      @include box((h:16px, mb:20px, fs:12px));
+      a {
+        color: #4b92ec;
+      }
+      .agreeleft {
+        @include box((h:100%, fl:left));
+        p {
+          @include box((lh:16px, c:#555555, mb:0, h:16px, fs:12px, fl:left));
+        }
+        i {
+          @include box((w:16px, h:16px, d:block, mr:8px, fl:left));
+          @include background((url:'canclechoose.png', repeat:no-repeat, soze:cover));
+          &.active {
+            @include background((url:'choose.png'))
+          }
+        }
+      }
+      .agreeright {
+        @include box((fl:right));
+      }
+    }
+    input[type='submit'] {
+      @include box((w:360px, h:46px, bg:#f64e41, ta:center, lh:46px, fs:18px, c:#fff));
+    }
+  }
+
+  //  底部
+  .inviteebottom {
+    @include box((h:112px, w:100%, bg:#fff, pt:30px));
+    .bottomcontent {
+      @include box((w:1200px, m:0 auto, h:100%));
+      .contenttop {
+        @include box((h:16px, lh:16px, fs:12px, ta:center));
+        span {
+          @include box((c:#4b92ec));
+        }
+        img {
+          margin-top: -3px;
+        }
+      }
+      .contentbottom {
+        @include box((h:46px, ta:center));
+        img {
+          @include box((ml:7px, mt:9px));
+        }
+      }
+    }
+  }
+}

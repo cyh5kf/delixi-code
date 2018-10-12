@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://activity-center.51rz.com/static/css/style.css">
+    <link rel="stylesheet" href="https://activity-center.51rz.com/static/css/index.css">
+    <link rel="shortcut icon" href="https://activity-center.51rz.com/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <link rel="stylesheet" href="https://activity-center.51rz.com/components/header-footer/header-footer.css">
+    <title>人众金服</title>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: #fff;
+        }
+        [v-cloak] {
+            display: none;
+        }
+        .font-16 {
+            font-size: 16px;
+        }
+        .font-18 {
+            font-size: 18px;
+        }
+
+        .font-20 {
+            font-size: 20px;
+        }
+
+        .font-24 {
+            font-size: 24px;
+        }
+
+        .flt {
+            float: left;
+        }
+
+        .frt {
+            float: right;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .container {
+            margin: 0 auto;
+        }
+
+        .banner {
+            width: 100%;
+            height: 500px;
+            background: url("https://images.51rz.com/images/pc/pc-june/june-01.jpg") no-repeat center top;
+        }
+
+        .may_wrap {
+            width: 867px;
+            margin: 0 auto;
+        }
+
+        .may_box1 {
+            width: 100%;
+            height: 260px;
+            background: url("https://images.51rz.com/images/pc/act_may/may_02.jpg") no-repeat center top;
+        }
+
+        .may_box1 h3 {
+            text-align: center;
+            font-size: 28px;
+            color: #568398;
+            font-weight: 500;
+            padding: 37px 5px 0 0;
+        }
+
+        .may_box1_text {
+            width: 100%;
+            color: #452819;
+            word-spacing: 1px;
+            letter-spacing:0.1px;
+            line-height:35px;
+        }
+
+        .dw {
+            position: relative;
+        }
+
+        .fanbei {
+            position: absolute;
+            left: 529px;
+            top: 43px;
+            width: 98px;
+            height: 106px;
+            background: url(https://images.51rz.com/images/pc/act_may/pc_pic02.jpg) no-repeat center top;
+        }
+
+        .may_sign {
+            display: inline-block;
+            color: #452819;
+        }
+        .may_sign i{
+            width:39px;
+            height:33px;
+            background:url("https://images.51rz.com/images/pc/pc-june/june-icon.png") no-repeat center top;
+            float:left;
+        }
+
+        .may_sign strong {
+            font-weight: 500;
+        }
+
+        .may_sign_date {
+            display: inline-block;
+            border: 1px dashed #dde6ea;
+            border-radius: 100px;
+            padding: 3px 20px;
+            font-size: 18px;
+            color: #568398;
+            margin-top: 9px;
+        }
+
+        .may_sign_date strong {
+            font-weight: 500;
+            color: #ff8947;
+        }
+
+        .may_pic {
+            display: inline-block;
+            width: 435px;
+            height: 220px;
+            margin: 35px 0 0 59px;
+            background: url(https://images.51rz.com/images/pc/act_may/pc_pic01.jpg) no-repeat center top;
+        }
+
+        .may_pic strong {
+            font-size: 48px;
+            color: #f25540;
+            width: 100%;
+            display: inline-block;
+            padding: 66px 57px 0 0;
+        }
+
+        .may_pic small {
+            font-size: 24px;
+            color: #f25540;
+            display: inline-block;
+            padding: 0 57px 0 0;
+        }
+
+        .btn {
+            width: 240px;
+            height: 64px;
+            border: none;
+            outline: 0;
+            cursor: pointer;
+            color: #fff;
+            line-height: 62px;
+            margin-top: 45px;
+        }
+
+        .btn_red {
+            background: url(https://images.51rz.com/images/pc/act_may/btn.png) no-repeat center top;
+        }
+
+        .btn_gray {
+            background: url(https://images.51rz.com/images/pc/act_may/btn-no.png) no-repeat center top;
+        }
+
+        .dh_text {
+            display: inline-block;
+            color: #f25540;
+            margin-top: 23px;
+            font-weight: 500;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .may_box2 {
+            width: 100%;
+            height: 945px;
+            background: url("https://images.51rz.com/images/pc/pc-june/june-02.jpg") no-repeat center top;
+        }
+        .june-box{
+            width:100%;
+            height:398px;
+            padding-top:30px;
+            background:url("https://images.51rz.com/images/pc/pc-june/june-03.jpg") no-repeat center top;
+        }
+        .june-box-wrap{
+            width:950px;
+            background:#f9fbc9;
+            border-radius:10px;
+            padding:20px 80px 35px 80px;
+            margin:0 auto;
+        }
+        .june-text{
+            width:100%;
+            font-size:20px;
+            text-align:center;
+            display:inline-block;
+            padding:20px  0;
+            color:#452819;
+        }
+        .june-tab{
+            width:100%;
+            display:inline-block;
+        }
+        .june-tab table{
+            width:100%;
+            border-left:1px solid #bec255;
+            border-top:1px solid #bec255;
+            border-right:none;
+            border-bottom:none;
+        }
+        .june-tab table tr td{
+            width:50%;
+            height:50px;
+            text-align:center;
+            font-size:18px;
+            color:#452819;
+            border-right:1px solid #bec255;
+            border-bottom:1px solid #bec255;
+        }
+
+
+        .may_box3 {
+            width: 100%;
+            height: 372px;
+            text-align: center;
+            background: url("https://images.51rz.com/images/pc/pc-june/june-04.jpg") no-repeat center top;
+        }
+
+        .p_text {
+            width: 948px;
+            display: inline-block;
+            font-size: 20px;
+            color: #4e600f;
+            line-height: 33px;
+            margin-top:-20px;
+        }
+
+        .p_text h3 {
+            font-size: 20px;
+            color: #4e600f;
+            font-weight: 500;
+            text-align:left;
+            padding-bottom:9px;
+        }
+
+        .p_text p {
+            text-indent: -17px;
+            padding-left: 18px;
+            text-align: left;
+        }
+
+        .fixed_bg {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 5;
+        }
+
+        .open_wind {
+            display: inline-block;
+            position: fixed;
+            left: 50%;
+            margin-left: -250px;
+            top: 15%;
+            width: 500px;
+            text-align: center;
+            background: #fff;
+            border: 1px solid #89cc20;
+        }
+
+        .open_wind h3 {
+            width: 100%;
+            height: 83px;
+            line-height: 83px;
+            color: #fff;
+            font-size: 24px;
+            background: #89cc20;
+            font-weight: 500;
+        }
+
+        .jb_list {
+            width: 100%;
+            height: 283px;
+            display: inline-block;
+            overflow-y: scroll;
+        }
+
+        .jb_list ul li {
+            width: 100%;
+            height: 94px;
+            line-height: 94px;
+            font-size: 24px;
+            text-align: center;
+            border-bottom: 1px solid #91cf2f;
+            color: #e13333;
+        }
+
+        .jb_list ul li span {
+            width: 25%;
+            float: left;
+        }
+
+        .jb_list ul li:first-child {
+            color: #333;
+        }
+
+        .bankScroll::-webkit-scrollbar {
+            width: 8px;
+            height: 16px;
+            background-color: #F5F5F5;
+        }
+
+        .bankScroll::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 3px;
+            background-color: #F5F5F5;
+        }
+
+        .bankScroll::-webkit-scrollbar-thumb {
+            border-radius: 3px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: #89cc20;
+        }
+
+        .tzBtn {
+            width: 240px;
+            height: 65px;
+            font-size: 24px;
+            color: #fff;
+            line-height: 65px;
+            border: none;
+            outline: 0;
+            margin-top: 30px;
+            cursor: pointer;
+            background: url(https://images.51rz.com/images/pc/act_may/tz.png) no-repeat center top;
+        }
+
+        .pc_Close {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            position: absolute;
+            bottom: -93px;
+            left: 50%;
+            margin-left: -50px;
+            cursor: pointer;
+        }
+        [v-show],[v-if]{
+            display:none;
+        }
+        .noList_text{
+            width:100%;
+            text-align:center;
+            font-size:24px;
+            color:#c9c9c9 !important;
+            border-bottom:none !important;
+        }
+        .june-tree{
+            width:100%;
+            padding-top:20px;
+            display:inline-block;
+            position:relative;
+        }
+        .june-tree span{
+            width:180px;
+            display:inline-block;
+            font-size:16px;
+            text-align:center;
+            cursor:pointer;
+        }
+        .one{
+            position:absolute;
+            left:150px;
+            top:290px;
+        }
+        .two{
+            position:absolute;
+            left:410px;
+            top:90px;
+        }
+        .there{
+            position:absolute;
+            left:634px;
+            top:340px;
+        }
+        .june-tree span i{
+            width:132px;
+            height:132px;
+            display:inline-block;
+        }
+        .june-tree span small{
+            width:100%;
+            display:inline-block;
+            font-size:16px;
+            text-align:center;
+            color:#452819;
+        }
+        .upDown{
+            -webkit-transform:translate(60px);
+            -moz-transform:translate(60px);
+            transform:translate(60px);
+            -webkit-animation:upDown 12s ease-out infinite;
+            -moz-animation:upDown 12s ease-out infinite;
+            animation:upDown 12s ease-out infinite;
+        }
+        @-webkit-keyframes upDown{
+            0%{-webkit-transform:translate(-60px,0);opacity:1;}
+            25%{-webkit-transform:translate(-60px,-15px);opacity:1;}
+            50%{-webkit-transform:translate(-60px,-0px);opacity:1;}
+            75%{-webkit-transform:translate(-60px,-15px);opacity:1;}
+            100%{-webkit-transform:translate(-60px,-0px);opacity:1;}
+        }
+        .upDown1{
+            -webkit-transform:translate(60px);
+            -moz-transform:translate(60px);
+            transform:translate(60px);
+            -webkit-animation:upDown1 7s ease-out infinite;
+            -moz-animation:upDown1 7s ease-out infinite;
+            animation:upDown1 7s ease-out infinite;
+        }
+        @-webkit-keyframes upDown1{
+            0%{-webkit-transform:translate(-60px,-10px);opacity:1;}
+            25%{-webkit-transform:translate(-60px,-0px);opacity:1;}
+            50%{-webkit-transform:translate(-60px,-10px);opacity:1;}
+            75%{-webkit-transform:translate(-60px,-0px);opacity:1;}
+            100%{-webkit-transform:translate(-60px,-10px);opacity:1;}
+        }
+        .upDown2{
+            -webkit-transform:translate(60px);
+            -moz-transform:translate(60px);
+            transform:translate(60px);
+            -webkit-animation:upDown2 9s ease-out infinite;
+            -moz-animation:upDown2 9s ease-out infinite;
+            animation:upDown2 9s ease-out infinite;
+        }
+        @-webkit-keyframes upDown2{
+            0%{-webkit-transform:translate(-60px,-0px);opacity:1;}
+            25%{-webkit-transform:translate(-60px,-8px);opacity:1;}
+            50%{-webkit-transform:translate(-60px,-0px);opacity:1;}
+            75%{-webkit-transform:translate(-60px,-10px);opacity:1;}
+            100%{-webkit-transform:translate(-60px,-0px);opacity:1;}
+        }
+
+        /**点击浮球后动效**/
+        .souyi{
+            -webkit-transform:translate(60px);
+            -moz-transform:translate(60px);
+            transform:translate(60px);
+            -webkit-animation:souyi 2s ease-out forwards;
+            -moz-animation:souyi 2s ease-out forwards;
+            animation:souyi 2s ease-out forwards;
+        }
+        @-webkit-keyframes souyi{
+            0%{-webkit-transform:translate(-60px,0);opacity:0;}
+            50%{-webkit-transform:translate(-60px,-20px);opacity:1;}
+            70%{-webkit-transform:translate(-60px,-30px);opacity:1;}
+            100%{-webkit-transform:translate(-60px,-40px);opacity:0;}
+        }
+
+        .june-energy-box{
+            width:100px;
+            display:inline-block;
+            position: absolute;
+            right: 44px;
+            top:132px;
+        }
+        .june-energy-text{
+            width:100%;
+            font-size:16px;
+            color:#452819;
+            display:inline-block;
+            text-align:center;
+            padding-bottom:10px;
+        }
+
+        .june-energy{
+            width:32px;
+            height:200px;
+            border:5px solid #d4ecdf;
+            background:#bedfcc;
+            display:inline-block;
+            border-radius:20px;
+            position: absolute;
+            overflow: hidden;
+            right: 34px;
+            top:30px;
+        }
+        .june-energy p{
+            width:22px;
+            display:inline-block;
+            background:url(https://images.51rz.com/images/pc/pc-june/june-line.png);
+            border-radius:20px;
+            position: absolute;
+            bottom: 0;
+        }
+        .june-czTree{
+            width:250px;
+            position:absolute;
+            top:361px;
+            left:35%;
+            display:inline-block;
+            z-index:2;
+        }
+        .june-czTree p{
+            width:100%;
+            display:inline-block;
+            text-align:center;
+        }
+        .june-czTree p span{
+            display:inline-block;
+            padding-top:4px;
+            font-size:20px;
+        }
+        .june-czTree p span small{
+            font-size:20px;
+        }
+        .june-czTree p span:nth-child(1){
+            color:#452819;
+        }
+        .june-czTree p span:last-child{
+            text-decoration:underline;
+            color:#e13333;
+            cursor:pointer;
+            margin-top:0;
+        }
+        .june-czTree img{
+            width:250px;
+            height:425px;
+        }
+        .btn-wrap{
+            width:100%;
+            display:inline-block;
+            padding-top:20px;
+            position:absolute;
+            top:810px;
+            left: 0;
+            z-index:1;
+        }
+        .btn-wrap span{
+            width:50%;
+            text-align:center;
+        }
+        .btn-wrap span button{
+            width:188px;
+            height:62px;
+            display:inline-block;
+            border:none;
+            outline:none;
+            cursor:pointer;
+        }
+        .btn-wrap span small{
+            color:#452819;
+            font-size:16px;
+            display:inline-block;
+            padding-top:5px;
+        }
+        .june-btn{
+            width:190px;
+            height:62px;
+            display:inline-block;
+        }
+        .btn-bg1{
+            background:url(https://images.51rz.com/images/pc/pc-june/june-btn01.png) no-repeat center top;
+        }
+        .btn-bg1-1{
+            background:url(https://images.51rz.com/images/pc/pc-june/june-btn01-1.png) no-repeat center top;
+        }
+        .btn-bg2{
+            background:url(https://images.51rz.com/images/pc/pc-june/june-btn02.png) no-repeat center top;
+        }
+        .btn-bg2-1{
+            background:url(https://images.51rz.com/images/pc/pc-june/june-btn02-1.png) no-repeat center top;
+        }
+        .btn-bg1,.btn-bg1-1,.btn-bg2,.btn-bg2-1{background-size:100% 100%;}
+    </style>
+</head>
+<body>
+<div id="header"></div>
+<div class="container">
+    <!--获取记录弹窗-->
+    <div class="fixed_bg"  v-cloak v-show="showRecords">
+        <div class="open_wind">
+            <div class="pc_Close" @click="hideAlert"><img src="https://images.51rz.com/images/pc/act_may/app-colse.png"/></div>
+            <h3>我的获取记录</h3>
+            <div class="jb_list bankScroll">
+                <ul>
+                    <li>
+                        <span>日期</span>
+                        <span>签到</span>
+                        <span>投资</span>
+                        <span>奖励</span>
+                    </li>
+                    <li class="noList_text" v-if="myData.length === 0">暂无记录</li>
+                    <li v-for="(item,index) in myData" :key="index" v-else>
+                        <span v-text="item.date"></span>
+                        <span v-text="parseInt(item.sign)===0?'--': '+' + parseInt(item.sign) "></span>
+                        <span v-text="parseInt(item.tender)===0?'--': '+' + parseInt(item.tender) "></span>
+                        <span v-text="item.reward === 1? '领取': '--'"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="banner"></div>
+    <div class="may_box2">
+        <div class="may_wrap" style="position:relative;">
+            <p class="may_box1_text font-18 center">收集太阳能播种向日葵，集满100g能量即完成一株向日葵的种植。<br />每达到一定值，结出奖励果实，摘取后存入您的账户（奖励不摘取24小时后消失），动起来！</p>
+            <!--悬浮球-->
+            <div class="june-tree">
+                <div v-if="exchange.list">
+                    <span class="one upDown" v-show="exchange.list[0].activated === 2" @click="signHb(exchange.list[0].recordId, 15)">
+                        <i>
+                            <img src="https://images.51rz.com/images/pc/pc-june/june-hb01.png" />
+                        </i>
+                        <small>15g能量可摘取</small>
+                    </span>
+                    <span class="one upDown" v-show="exchange.list[0].activated === 1">
+                        <i>
+                            <img src="https://images.51rz.com/images/pc/pc-june/june-hb01-1.png" />
+                        </i>
+                        <small style="color:#999">15g能量可摘取</small>
+                    </span>
+                
+                    <span class="two upDown1" v-show="exchange.list[1].activated === 2" @click="signHb(exchange.list[1].recordId, 50)">
+                        <i>
+                            <img src="https://images.51rz.com/images/pc/pc-june/june-hb02.png" />
+                        </i>
+                        <small>50g能量可摘取</small>
+                    </span>
+                    <span class="two upDown1" v-show="exchange.list[1].activated === 1">
+                        <i>
+                            <img src="https://images.51rz.com/images/pc/pc-june/june-hb02-1.png" />
+                        </i>
+                        <small style="color:#999">50g能量可摘取</small>
+                    </span>
+                
+                    <span class="there upDown2" v-show="exchange.list[2].activated === 2" @click="signHb(exchange.list[2].recordId, 100)">
+                        <i>
+                            <img src="https://images.51rz.com/images/pc/pc-june/june-hb03.png" />
+                        </i>
+                        <small>100g能量可摘取</small>
+                    </span>
+                    <span class="there upDown2" v-show="exchange.list[2].activated === 1">
+                        <i>
+                            <img src="https://images.51rz.com/images/pc/pc-june/june-hb03-1.png" />
+                        </i>
+                        <small style="color:#999">100g能量可摘取</small>
+                    </span>
+                </div>
+            </div>
+            <!--能量条-->
+            <div class="june-energy-box">
+                <span class="june-energy-text"><span v-text="energyBoxValue"></span>g太阳能</span>
+                <div class="june-energy">
+                    <p :style="'height:' + energyBoxValue + '%'"></p>
+                </div>
+            </div>
+            <!--树-->
+            <div class="june-czTree">
+                <img src="https://images.51rz.com/images/pc/pc-june/hua01.png" v-show="energyValue < 50" />
+                <img src="https://images.51rz.com/images/pc/pc-june/hua02.png" v-show="energyValue >= 50 && energyValue < 100" />
+                <img src="https://images.51rz.com/images/pc/pc-june/hua03.png" v-show="energyValue >= 100" />
+                <p>
+                    <span v-show="!isLogined">我的太阳能：<small @click="go" style="cursor:pointer;">登录查看</small></span><br />
+                    <span v-show="isLogined">我的太阳能：<small v-text="score"></small>g</span>
+                    <span v-show="isLogined" @click="showAlert">我的获取记录</span>
+                </p>
+            </div>
+            <!--未登录按钮-->
+            <div class="btn-wrap" v-show="!isLogined">
+                <span class="flt">
+                    <button type="button" class="june-btn btn-bg1" @click="go"></button><br />
+                    <small>每天签到+5g能量</small>
+                </span>
+                <span class="frt">
+                    <button type="button" class="june-btn btn-bg2" @click="go"></button><br />
+                    <small>单笔投资≥30天满3千元+15g能量</small>
+                </span>
+            </div>
+            <!--已登录按钮-->
+            <div class="btn-wrap" v-show="isLogined">
+                <div v-for="item in today" :key="item.packId">
+                    <span v-if="item.code == 'sign'" class="flt">
+                        <button type="button" class="june-btn btn-bg1" v-show="waterStatus" @click="watering"></button>
+                        <button type="button" class="june-btn btn-bg1-1" v-show="!waterStatus"></button><br />
+                        <small>每天浇水+5g能量</small>
+                    </span>
+                    <span v-if="item.code == 'tender'" class="frt">
+                        <button type="button" class="june-btn btn-bg2" v-show="parseInt(item.rewardType) === 0" @click="go"></button>
+                        <button type="button" class="june-btn btn-bg2-1" v-show="parseInt(item.rewardType) > 0"></button><br />
+                        <small>单笔投资≥30天满3千元+15g能量</small>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="june-box">
+        <div class="june-box-wrap">
+            <p class="may_box1_text center">
+                <span class="may_sign font-20"><i></i>向日葵数量：<strong v-text="treeNum"></strong>棵</span><br/>
+            </p>
+            <p class="june-text">种植大比拼，养成规定数量的向日葵，可获得额外奖励！（仅限获得最高一项奖励）</p>
+            <div class="june-tab">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td style="color:#452819;font-size:20px;background:#edefb1">养成向日葵</td>
+                        <td style="color:#452819;font-size:20px;background:#edefb1">奖品</td>
+                    </tr>
+                    <tr>
+                        <td>2棵</td>
+                        <td>1%加息券</td>
+                    </tr>
+                    <tr>
+                        <td>6棵</td>
+                        <td>20元现金</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="may_box3">
+        <div class="p_text">
+            <h3>活动规则</h3>
+            <p>1.本活动新手标、债转项目、30天以下标的不计入；</p>
+            <p>2.每天签到加5g能量，每人每天仅限一次；投≥30天满3千元加15g能量，每人每天仅限一次；</p>
+            <p>3.能量每达到一定值，结出奖励果实，摘取后自动存入您的账户，奖励需要手动摘取，摘取后实时到账，若自生成后24小时未摘取则自动消失。所有红包100元可用，30天及以上标可用，详见券面规则；</p>
+            <p>4.种植大比拼，养成规定数量的向日葵，可获得额外奖励，活动结束后5个工作日内到账，仅限获得最高一项奖励；</p>
+            <p>5.活动最终解释权法律允许的范围归人众金服所有，如有疑问请致电客服：400-655-8858。(咨询时间：9:00--21:00）。</p>
+        </div>
+    </div>
+
+    <!-- 弹窗提示 -->
+    <div class="pc-dialog">
+        <div class="content"></div>
+    </div>
+</div>
+<div id="footer"></div>
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/components/header-footer/header-footer.js"></script>
+<script>
+
+    function getParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r!=null) return unescape(r[2]); return null; //返回参数值
+    }
+    var token= getParam("token") || '';
+
+    var vm = new Vue({
+        el: '.container',
+        data: {
+            exchange: {}, // 首页数据
+            isLogined: token? true: false, //是否登录,
+            today: [], // 浇水施肥状态
+            myData:[], // 我的获取记录数据
+            showRecords: false, // 我的获取记录弹窗
+            waterStatus: false, // 是否浇水状态
+            energyValue: 0, // 能量条值
+            score: 0, // 总的积分能量
+        },
+        mounted: function () {
+            this.initData();
+        },
+        computed: {
+            treeNum: function () {
+                var exchange = this.exchange;
+                return exchange.current_num? exchange.current_num*1 - 1: 0;
+            },
+            energyBoxValue: function() {
+                var energyValue = this.energyValue;
+                return energyValue > 100? 100: energyValue;
+            }
+        },
+        methods: {
+            initData:function(){
+                var _this = this;
+                if (this.isLogined) {
+                    $.post('/index.php?_url=/api/activity/index',{activityId: 24, token: token},function(data){
+                        if(data && data.error_code === 0){
+                            var islogin = data.data.islogin;
+                            if(typeof(islogin) == "undefined") {
+                                var packToday = data.data.pack.today;
+                                var exchange = data.data.exchange;
+                                _this.exchange = exchange;
+                                _this.score = parseInt(exchange.score);
+                                _this.energyValue = parseInt(exchange.score) - (exchange.current_num*1 - 1) * 100;
+                                _this.today = packToday;
+                                _this.waterStatus = packToday[0].rewardType === 0? true: false;
+                            } else if(islogin === 0) {
+                                var notice = getParam('notice');
+                                var type = getParam('type') || 'www';
+                                window.location.href = location.origin + location.pathname + '?name=&notice=' + notice + '&type=' + type + '&token=';
+                            }
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                }
+            },
+            // 显示我的获奖记录弹窗
+            showAlert: function () {
+                this.getMyData();
+                this.showRecords = true;
+            },
+            // 关闭我的获奖记录弹窗
+            hideAlert: function () {
+                this.showRecords = false;
+            },
+            // 点击能量球增加能量条和总积分，改能量球消失
+            signHb: function(recordId, value){
+                var _this = this;
+                $.post('/index.php?_url=/api/exchange/exchange',{activityId: 24, token: token, recordId: recordId},function(data){
+                    if(data && data.error_code === 0){
+                        _this.initData();
+                    } else if(data.error_code === 201) {
+                        var type = getParam('type') || 'www';
+                        location.href = 'https://' + type + '.51rz.com/login.html';
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            },
+            // 获取我的获奖记录数据
+            getMyData:function(){
+                var _this=this;
+                $.post('/index.php?_url=/api/activity/record',{activityId: 24, token: token},function(data){
+                    if(data.error_code === 0){
+                        _this.myData = data.data;
+                    } else if(data.error_code === 201) {
+                        var type = getParam('type') || 'www';
+                        location.href = 'https://' + type + '.51rz.com/login.html';
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            },
+            // 点击浇水拆礼包接口，增加能量条和总积分
+            watering: function() {
+                var _this=this;
+                $.post('/index.php?_url=/api/pack/open',{activityId: 24, token: token, code: 'sign'},function(data){
+                    if(data.error_code === 0){
+                        _this.initData();
+                    } else if(data.error_code === 201) {
+                        var type = getParam('type') || 'www';
+                        location.href = 'https://' + type + '.51rz.com/login.html';
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            },
+            go: function () {
+                var type = getParam('type') || 'www';
+                this.isLogined ? location.href = 'https://' + type + '.51rz.com/projectList.html': location.href = 'https://' + type + '.51rz.com/login.html';
+            },
+            // 打开弹窗提示
+            showMsg: function (msg) {
+                $(".pc-dialog .content").text(msg);
+                $(".pc-dialog").show();
+                setTimeout(function () {
+                    $(".pc-dialog .content").text('');
+                    $(".pc-dialog").hide();
+                }, 2000);
+            },
+        },
+    })
+</script>
+</body>
+</html>

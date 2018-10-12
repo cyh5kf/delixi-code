@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection" />
+    <title>人众金服</title>
+    <link rel="shortcut icon" href="https://activity-center.51rz.com/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <script type='text/javascript' src='https://assets.growingio.com/sdk/wx/vds-wx-plugin.js'></script>
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5395127f074c49150bc6578ff60ff4e8";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+    <!--background-image: linear-gradient(to top, #fb814e,#f94638);background-image: -webkit-linear-gradient(to top, #fb814e,#f94638);-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+        html{-webkit-text-size-adjust:none;}
+        body {
+            max-width: 7.5rem;
+            margin: 0 auto;
+            background: #a5e8e6;
+            overflow: auto;
+            height: 100%;
+            /* overflow: hidden; */
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        ul li {
+            list-style-type: none;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+
+        .font-16 {
+            font-size: 0.16rem;
+        }
+
+        .font-18 {
+            font-size: 0.18rem;
+        }
+
+        .font-20 {
+            font-size: 0.2rem;
+        }
+
+        .font-24 {
+            font-size: 0.24rem;
+        }
+
+        .font-26 {
+            font-size: 0.26rem;
+        }
+
+        .flt {
+            float: left;
+        }
+
+        .frt {
+            float: right;
+        }
+
+        .center {
+            text-align: center;
+        }
+        span.w20 {
+            width: 19% !important;
+        }
+        #wraper {
+            position: relative;
+            overflow-y: scroll;
+            
+        }
+
+        .showgold {
+            width: 7.1rem;
+            margin: 0 .2rem;
+            height: 5.18rem;
+            position: fixed;
+            top: 2rem;
+            z-index: 22222;
+            font-size: .28rem;
+            background-color: #fff;
+            text-align: center;
+            padding: 0;
+        }
+
+        .showgold h5 {
+            font-size: 0.28rem;
+            color: #fff;
+            background-color: #8258ff;
+            line-height: 0.83rem;
+            height: 0.83rem;
+        }
+
+        .showgold .head {
+            color: #333;
+            height: 0.87rem;
+            line-height: 0.87rem;
+            border-bottom: 1px solid #8258ff;
+            overflow: hidden;
+        }
+
+        .showgold .head p {
+            float: left;
+        }
+
+        .showgold .showgoldlist {
+            color: #4f1400;
+            height: 0.87rem;
+            border-bottom: 1px solid #8258ff;
+            overflow: hidden;
+            display: table;
+        }
+
+        .showgold .showgoldlist p {
+            text-align: center;
+            width: 25%;
+            height: 0.87rem;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .showgold p {
+            width: 33.33%;
+        }
+
+        .showgold .scrol {
+            height: 4.35rem;
+            width: 100%;
+            overflow-y: scroll;
+        }
+
+        p.none {
+            width: 100%;
+            padding-bottom: 1rem;
+            text-align: center;
+            color: #999;
+        }
+
+        .showtoinvest {
+            width: 4.95rem;
+            height: 4.45rem;
+            position: absolute;
+            top: 4rem;
+            left: 1.3rem;
+            z-index: 22222;
+            font-size: 0.24rem;
+            text-align: center;
+            background: url(https://images.51rz.com/images/app/act-may/toinvest.png) no-repeat center top;
+            background-size: 100% auto;
+        }
+
+        .showtoinvest a {
+            width: 2.4rem;
+            height: 0.64rem;
+            text-decoration: none;
+            background-color: #f5725b;
+            font-size: 0.28rem;
+            line-height: 0.64rem;
+            color: #fff;
+            border-radius: 0.32rem;
+            position: absolute;
+            left: 1.28rem;
+            top: 3.4rem;
+        }
+
+        .rulebtn {
+            position: absolute;
+            right: 0;
+            top: 1.75rem;
+            width: 0.55rem;
+            height: 1.6rem;
+            background: rgba(0, 0, 0, 0)
+        }
+
+        .showgold .close {
+            margin: 0.4rem auto 0;
+            /* posi */
+            width: 0.5rem;
+            height: 0.5rem;
+            background: url(https://images.51rz.com/images/app/act-may/close.png) no-repeat center bottom;
+            background-size: 100% auto;
+        }
+
+        /*定义滚动条轨道 内阴影+圆角*/
+
+        /* .bankScroll::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+        } */
+
+        /*定义滑块 内阴影+圆角*/
+
+        /* .bankScroll::-webkit-scrollbar-thumb
+        {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #55cfa9;
+        }
+   
+        .may-hb,.may-xj,.may-xj-ok,.may-hb-ok{background-size:100% 100%;}
+
+        .may-banner,.may-box,.may-box1,.may-box2,.may-box3{
+            background-size:100% 100%;
+            width:100%;
+        } */
+
+
+        .fixed_bg {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 5;
+        }
+
+
+
+        header {
+            width: 7.5rem;
+            height: 8.65rem;
+            background: url("https://images.51rz.com/images/app/five-years/bg_01.png") no-repeat;
+            background-size: contain;
+            position: relative;
+        }
+
+        header  .rule{
+            position: absolute;
+            right: 0;
+            height: 1.2rem;
+            background: url("https://images.51rz.com/images/app/five-years/rulebtn.png") no-repeat center center;
+            background-size: contain;                        
+            width: .6rem;
+            bottom: 0.2rem;
+        }
+
+        div.bg2 {
+            width: 7.5rem;
+            height: 9.2rem;
+            background: url("https://images.51rz.com/images/app/five-years/bg_02.png") no-repeat;
+            background-size: contain;
+            position: relative;
+            font-size: .24rem;
+            line-height: .28rem;
+            color: #e13333;
+            text-align: center;
+        }
+        .bg2 .btn {
+            position: absolute;
+            width: 2.34rem;
+            height: .73rem;
+            bottom: 0;
+        }
+        .bg2 .p1 {
+            position: absolute;
+            left: .3rem;
+            top: 1.7rem;
+            height: 3.4rem;
+            width: 3.18rem;            
+        }
+        .bg2 .p1 .close .bg{
+            background: url("https://images.51rz.com/images/app/five-years/closepacket_01.png") no-repeat;
+            background-size: contain;
+            width: 3.18rem;
+            height: 2.92rem;
+        }
+        .bg2 .p1 .close .btn {
+            background: url("https://images.51rz.com/images/app/five-years/stir.png") no-repeat;
+            background-size: contain;
+            left: .42rem;
+        }
+        .bg2 .open .bg{
+            background: url("https://images.51rz.com/images/app/five-years/openpacket.png") no-repeat;
+            background-size: contain;
+            width: 3.18rem;
+            height: 2.92rem;
+            padding-top: .6rem;
+        }
+        .bg2 .open .btn {
+            background: url("https://images.51rz.com/images/app/five-years/invest.png") no-repeat;
+            background-size: contain;
+            left: .42rem;
+        }
+        .bg2 .p2 {
+            position: absolute;
+            left: 4rem;
+            top: 1.7rem;
+            height: 3.4rem;
+            width: 3.18rem;            
+        }
+        .bg2 .p2 .close .bg{
+            background: url("https://images.51rz.com/images/app/five-years/closepacket_02.png") no-repeat;
+            background-size: contain;
+            width: 3.18rem;
+            height: 2.92rem;
+        }
+        .bg2 .p2 .close .btn {
+            background: url("https://images.51rz.com/images/app/five-years/stir.png") no-repeat;
+            background-size: contain;
+            left: .42rem;
+        }
+
+        .bg2 .p3 {
+            position: absolute;
+            left: 2.16rem;
+            top: 5.7rem;
+            height: 3.4rem;
+            width: 3.18rem;            
+        }
+        .bg2 .p3 .close .bg{
+            background: url("https://images.51rz.com/images/app/five-years/closepacket_03.png") no-repeat;
+            background-size: contain;
+            width: 3.18rem;
+            height: 2.92rem;
+        }
+        .bg2 .p3 .close .btn {
+            background: url("https://images.51rz.com/images/app/five-years/stir.png") no-repeat;
+            background-size: contain;
+            left: .42rem;
+        }
+        .bg2 .bbtn {
+            background: url("https://images.51rz.com/images/pc/fiveAnniversary/fpBtn3.png") no-repeat;
+            background-size: contain;
+            left: .42rem;
+            position: absolute;
+            width: 2.34rem;
+            height: .73rem;
+            bottom: 0;
+            color: #fff;
+            line-height: .73rem;
+            font-size: .3rem;
+        }
+        div.bg3 {
+            width: 7.5rem;
+            height: 6.4rem;
+            background: url("https://images.51rz.com/images/app/five-years/bg_03.png") no-repeat;
+            background-size: contain;
+            position: relative;
+            padding-top: .3rem;
+        }
+        .bg3 .cake {
+            width: 6.38rem;
+            height: 4.94rem;
+            margin: 0 auto;
+            background: url("https://images.51rz.com/images/app/five-years/cake.png") no-repeat center bottom;
+            background-size: contain;
+        }
+        .bg3 .lightcake {
+            width: 6.38rem;
+            height: 4.94rem;
+            margin: 0 auto;
+            background: url("https://images.51rz.com/images/app/five-years/lightcake.png") no-repeat center bottom;
+            background-size: contain;
+        }
+        .bg3 .btn {
+            margin-top: -0.4rem;
+        }
+        .bg3 .btn .open {
+            width: 3.22rem;
+            height: .74rem;
+            margin: 0 auto;
+            background: url("https://images.51rz.com/images/app/five-years/candle.png") no-repeat center bottom;
+            background-size: contain;
+        }
+        .bg3 .btn .opened {
+            width: 3.22rem;
+            height: .74rem;
+            margin: 0 auto;
+            background: url("https://images.51rz.com/images/app/five-years/candled.png") no-repeat center bottom;
+            background-size: contain;
+        }
+
+        div.bg4 {
+            width: 7.5rem;
+            height: 9.27rem;
+            background: url("https://images.51rz.com/images/app/five-years/bg_04.png") no-repeat;
+            background-size: contain;
+            position: relative;
+            font-size: .24rem;
+            padding: .2rem .3rem;
+            color: #fff;
+        }
+        .bg4 .cover {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 7.5rem;
+            height: 1.22rem;
+            background: url("https://images.51rz.com/images/app/five-years/cover.png") no-repeat;
+            background-size: contain;
+        }
+        .bg4 table {
+            margin-left: .15rem;
+            border-collapse: collapse;
+            width: 6.6rem;
+        }
+        td {
+            width: 33.33%;
+            height: .54rem;
+            border: .01rem solid #5550b1; 
+            text-align: center;
+            font-size: .24rem !important;
+        }
+        .bg4 .info {
+            padding-left: .2rem;
+        }
+        .bg4 .title {
+            height: .44rem;
+            width: 6.6rem;
+            background-color: #5450ae;
+            color: #4fcdf1;
+            margin: .2rem auto;
+        }
+        .bg4 .title p{
+            height: .44rem;
+            line-height: .44rem;
+            text-align: center;
+            width: 33.33%;
+            float: left;
+            background-color: #5450ae;
+            color: #4fcdf1;
+        }
+        .bg4 .btn {
+            width: 3.22rem;
+            height: .74rem;
+            background: url("https://images.51rz.com/images/app/five-years/binvest.png") no-repeat;
+            background-size: contain;
+            margin: .1rem auto;
+        }
+        .bg4 .remind {
+            padding-left: .2rem;
+            color: #4fcdf1;
+        }
+        div.bg5 {
+            width: 7.5rem;
+            height: 5.48rem;
+            background: url("https://images.51rz.com/images/app/five-years/bg_05.png") no-repeat;
+            background-size: contain;
+            position: relative;
+            font-size: .24rem;
+            
+        }
+        .bg5 .hero {
+            position: absolute;
+            height: .5rem;
+            width: 7.28rem;
+            font-size: .24rem;
+            top: -.5rem;
+            left: .1rem;
+        }
+        .bg5 .hero p{
+            width: 3.5rem;
+            float: left;
+            height: .5rem;
+            line-height: .5rem;
+            text-align: center;
+            border-top-right-radius: .1rem;
+            border-top-left-radius: .1rem;
+        }
+        .bg5 .hero .rig{
+            float: right;
+        }
+        .bg5 .hero .dark {
+            background-color: #2c48a9;
+            color: #7392ff;
+        }
+        .bg5 .hero .light {
+            background-color: #4671fe;
+            color: #fff;
+        }
+        .bg5 .box {
+            padding: .2rem;
+        }
+        .bg5 .box p{
+            color: #fff;
+            font-size: .22rem;
+        }
+        .bg5 .box p.nav{
+            background-color: #7283fc;
+            color: #2e147e;
+            margin: .1rem 0;
+            font-size: .24rem;
+        }
+        .bg5 .box p.nav span{
+            display: inline-block;
+            width: 27%;
+            background-color: #7283fc;
+            color: #2e147e;
+            text-align: center;
+        }
+        .bg5 .box p.con{
+            font-size: 0;
+        }
+        .bg5 .box p.con span{
+            display: inline-block;
+            width: 27%;
+            line-height: .32rem;
+            font-size: .24rem;
+            color: #fff;
+            text-align: center;
+        }
+        .bg5 .remind {
+            position: absolute;
+            bottom: .3rem;
+            left: .4rem;
+            color: #682b9a;
+        }
+        div.package {
+            width: 7.5rem;
+            height: 6.63rem;
+            background: url("https://images.51rz.com/images/app/act-july/bg_02.png") no-repeat;
+            background-size: contain;
+            position: relative;
+        }
+
+        div.pg {
+            height: 3.5rem;
+            font-size: 16px;
+            position: relative;
+            padding-top: 1rem;
+            text-align: center;
+        }
+
+        div.pg img {
+            width: 3.19rem;
+            margin: 0 auto;
+        }
+
+        div.pg p.pagmoney {
+            position: absolute;
+            top: 1.45rem;
+            color: #d63d2c;
+            width: 100%;
+            font-size: 12px;
+        }
+
+        div.pg p.pagmoney span {
+            font-size: 20px;
+        }
+
+        div.pg .info {
+            position: absolute;
+            top: 2.55rem;
+            font-size: 14px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+
+        div.eit {
+            position: fixed;
+            height: 100%;
+            width: 7.5rem;
+            z-index: 2;
+        }
+        div.eit .bg{
+            width: 2.72rem;
+            height: 3.97rem;
+            margin: 3rem auto 0;
+            background: url("https://images.51rz.com/images/app/five-years/eit.png") no-repeat;
+            background-size: contain;
+            position: relative;
+        }
+        div.eit .bg p{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: .85rem;
+        }
+
+        div.eit .close {
+            margin: 0.4rem auto 0;
+            /* posi */
+            width: 0.5rem;
+            height: 0.5rem;
+            background: url(https://images.51rz.com/images/app/act-may/close.png) no-repeat center bottom;
+            background-size: 100% auto;
+        }
+
+        div.fixbg {
+            position: fixed;
+            height: 100%;
+            width: 7.5rem;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        div.fx {
+            position: fixed;
+            z-index: 2;            
+            width: 100%;
+            height: 100%;
+            left: 0;
+            padding: .2rem;
+            top: 0;
+            overflow: scroll;
+        }
+        div.trule {
+            /* position: fixed; */
+            /* position: relative; */
+            /* z-index: 3; */
+            /* left: .2rem; */
+            /* top: 2.5rem; */
+            padding-top: 2rem;
+            width: 7.1rem;
+            /* padding-bottom: 2rem; */
+            /* height: 200%; */
+        }
+        div.trule .ruletitle {
+            height: .82rem;
+            line-height: .82rem;
+            font-size: 16px;
+            background-color: #a55fff;
+            color: #fff;
+            text-align: center;
+        }
+        div.trule div.img {
+            width: 7.1rem;
+            padding: .4rem .2rem .4rem;
+            margin: 0 auto;
+            font-size: 12px;
+            /* background: url("https://images.51rz.com/images/app/act-july/trule.png") no-repeat; */
+            background-size: 100% auto;
+            background-color: #fff;
+        }
+        div.trule div.img div.te{
+            overflow: hidden;
+            /* display: flex; */
+        }
+        div.trule div.img div.te span{
+            float: left;
+            width: .3rem;
+            /* height: .5rem; */
+        }
+        div.trule div.img div.te p{
+            float: left;
+            width: 6.3rem;
+        }
+
+
+
+        div.trule div.close {
+            width: .5rem;
+            height: .5rem;
+            margin: .4rem auto 0;
+
+            background: url("https://images.51rz.com/images/app/act-may/close.png") no-repeat;
+            background-size: contain;
+        }
+
+        span.login {
+            color: #1a0ef1;
+        }
+        p.smile {
+            width: 100%;
+            height: 3rem;
+            background: url("https://images.51rz.com/images/app/act-july/smile.png") no-repeat center center;
+            background-size: 1rem 1rem;
+        }
+
+        .comment {
+            position: absolute;
+            left: .48rem;
+            bottom: .4rem;
+            background: #2164b0;
+            width: 6.8rem;
+            height: .58rem;
+            line-height: .6rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wraper">
+        <div class="fixbg" v-if="showrule||showpack||showeit"  @touchmove.stop="even" v-cloak>
+        </div>
+        <div class="fx" v-cloak v-if="showrule">
+            <div class="trule scroll" v-if="showrule" v-cloak @touchmove.stop="even">
+                <div class="ruletitle">
+                    活动规则
+                </div>
+                <div class="img">
+                    <div class="te">
+                        <span>1、</span>
+                        <p>本活动新手标、债转项目、90天以下标的不计入；</p>
+                    </div>
+                    <div class="te">
+                        <span>2、</span>
+                        <p>翻出红包即时到账，仅当天有效，红包使用信息详见卷面，100元起投。
+                        </p>
+                    </div>
+                    <div class="te">
+                        <span>3、</span>
+                        <p>祝福红包在用户点亮蛋糕上的蜡烛后即可领取红包,即时到账，5天有效，红包使用信息详见卷面，100元起投。活动期间每位用户可领取1次红包</p>
+                    </div>
+                    <div class="te">
+                        <span>4、</span>
+                        <p>投资送奖励环节，累计投资金额数据截止到7月31日23:54:59。现金奖励活动结束后五个工作日发放。实物奖励在活动结束后20个工作日内发放，节假日顺延。根据用户最终累计达到的投资额发放一种对应奖励（默认为可获得奖励中价值最高的那个）；</p>
+                    </div>
+                    <div class="te">
+                        <span>5、</span>
+                        <p>荣耀富豪榜；每日英雄榜根据用户当日累计投资总额变化实时变动，数据截止到当日的23:54:59，红包奖励在次日发放，有效期2天，红包使用信息详见卷面，1000元起投。累计英雄榜根据投资变化实时变动，累计投资金额数据截止到7月31日23:54:59;现金奖励活动结束后五个工作日发放。</p>
+                    </div>
+                    <div class="te">
+                        <span>6、</span>
+                        <p>活动最终解释权在法律范围内归人众金服所有，如有疑问请致电客服：400-655-8858。 (咨询时间：9:00-21:00)。</p>
+                    </div>
+                </div>
+                <div class="close" @click="changeshowrule(false)"></div>
+            </div>
+        </div>
+        <div class="eit" v-cloak v-if="showeit">
+            <div class="bg">
+                <p @click="go"></p>
+            </div>
+            <div class="close" @click="closeeit"></div>            
+        </div>
+        <div class="showgold" id="showgold" v-cloak v-show="showpack">
+            <h5>历史获奖记录</h5>
+            <div v-if="mygoldrecord.length==0"  v-cloak>
+                <p class="smile"></p>
+                <p class="none">很遗憾，您还未获得任何红包奖励！</p>
+            </div>
+            <div class="scrol" v-else>
+                <div class="head">
+                    <p>获奖时间</p>
+                    <p>奖品</p>
+                    <!-- <p>获取条件</p> -->
+                    <p>红包状态</p>
+                </div>
+
+                <div class="showgoldlist" v-for="item in mygoldrecord">
+                    <p v-text="item.date"></p>
+                    <p v-text="item.reward"></p>
+                    <!-- <p style="width:30%;" v-text="item.reward_task"></p> -->
+                    <p  v-text="item.status"></p>
+                </div>
+            </div>
+            <div class="close" @click="changepackhis(false)"></div>
+        </div>
+                
+        <header>
+            <div class="rule" @click="changeshowrule(true)"></div>            
+        </header>
+        <div class="bg2">
+            <div class="p1">
+                <div class="open" v-cloak v-if="openpacknum=='hb1'">
+                    <div class="bg">
+                        <p><span v-text="openpackmoney"></span>元</p>
+                        <p>红包</p>
+                    </div>
+                    <div class="btn" @click="go"></div>
+                </div>
+                <div class="close" v-else>
+                    <div class="bg"></div>
+                    <div class="bbtn" v-cloak v-if="openpacknum">翻我</div>
+                    <div class="btn" @click="open('hb1')" v-else></div>
+                </div>
+            </div>
+            <div class="p2">
+                <div class="open" v-cloak v-if="openpacknum=='hb2'">
+                    <div class="bg">
+                        <p><span v-text="openpackmoney"></span>元</p>
+                        <p>红包</p>
+                    </div>
+                    <div class="btn" @click="go"></div>
+                </div>
+                <div class="close" v-else>
+                    <div class="bg"></div>
+                    <div class="bbtn" v-cloak v-if="openpacknum">翻我</div>
+                    <div class="btn" @click="open('hb2')" v-else></div>
+                </div>
+            </div>
+            <div class="p3">
+                <div class="open" v-cloak v-if="openpacknum=='hb3'">
+                    <div class="bg">
+                        <p><span v-text="openpackmoney"></span>元</p>
+                        <p>红包</p>
+                    </div>
+                    <div class="btn" @click="go"></div>
+                </div>
+                <div class="close" v-else>
+                    <div class="bg"></div>
+                    <div class="bbtn" v-cloak v-if="openpacknum">翻我</div>
+                    <div class="btn" @click="open('hb3')" v-else></div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="bg3">
+            <div class="lightcake" v-cloak v-if="lcandle"></div>
+            <div class="cake" v-else></div>
+            <div class="btn">
+                <div class="opened" v-cloak v-if="lcandle"></div>
+                <div class="open" v-else @click="fire"></div>
+            </div>
+        </div>
+        <div class="bg4">
+            <div class="cover"></div>
+            <div class="info">
+                <p>活动期间内，投资90天及以上标，实物现金任意选</p>
+                <p>您累计投资金额(90-179天标)：<span style="color:#fff600;" v-text="investdata[0].totalAmount+'.00'"></span>元</p>
+                <p>您累计投资金额(180天及以上标)：<span style="color:#fff600;" v-text="investdata[1].totalAmount+'.00'"></span>元</p>
+            </div>
+            <div class="title">
+                <p>累计投资金额</p>
+                <p>90天-179天标</p>
+                <p>180天及以上标</p>
+            </div>
+            <table>
+                <tr>
+                    <td>投满1万免费送</td>
+                    <td>16元现金</td>
+                    <td>35元现金</td>
+                </tr>
+                <tr>
+                    <td>投满2万免费送</td>
+                    <td>32元现金</td>
+                    <td>65元现金</td>
+                </tr>
+                <tr>
+                    <td>投满5万免费送</td>
+                    <td>80元现金</td>
+                    <td>180元现金</td>
+                </tr>
+                <tr>
+                    <td>投满10万免费送</td>
+                    <td>150元现金</td>
+                    <td>320元现金</td>
+                </tr>
+                <tr>
+                    <td>投满20万免费送</td>
+                    <td>300元现金</td>
+                    <td>600元现金</td>
+                </tr>
+                <tr>
+                    <td>投满50万免费送</td>
+                    <td>700元京东卡</td>
+                    <td>1500元京东卡</td>
+                </tr>
+                <tr>
+                    <td>投满80万免费送</td>
+                    <td>1200元油卡</td>
+                    <td>2400元油卡</td>
+                </tr>
+                <tr>
+                    <td>投满130万免费送</td>
+                    <td>2000元油卡</td>
+                    <td>中国黄金15g金条</td>
+                </tr>
+               
+            </table>
+            <div class="btn" @touchstart="go"></div>
+            <p class="remind">注：默认为可获得奖励中价值最高的那个</p>
+        </div>
+        <div class="bg5">
+            <div class="hero">
+                <p @click="changehero(1)" class="lef" :class="herotype?'light':'dark'">每日英雄榜</p>
+                <p @click="changehero(0)" class="rig" :class="!herotype?'light':'dark'">累计英雄榜</p>
+            </div>
+            <div class="box">
+                <p v-if="herotype" v-cloak>活动期间，单日累计投资额前三名用户，可获得额外红包大奖，天天开奖，等你来拿！</p>
+                <p v-else>活动期间，投180天及以上标的可参与累计英雄榜排名获得额外大奖！</p>
+                <p v-if="herotype" v-cloak>您今日累计投资金额（90天及以上标的）：<span style="color:#fff600;" v-text="user+'.00'"></span>元</p>
+                <p v-else>您累计投资金额（180天及以上标的）：<span style="color:#fff600;" v-text="user+'.00'"></span>元</p>
+                <p style="color:#89f4b4;text-align:center;font-size:0.26rem;" v-if="herotype" v-cloak>
+                    <span style="text-decoration: underline;" @touchstart="changepackhis(true)">历史获奖记录</span>
+                </p>
+                <p class="nav"><span class="w20">当前排名</span><span>用户</span><span>累计投资金额</span><span>奖励</span></p>
+                <div >
+                    <p class="con" v-for="(item ,idx) in herolist">
+                        <span class="w20" v-text="item.No"></span>
+                        <span v-text="item.mobile"></span>
+                        <span v-text="item.money"></span>
+                        <span v-text="txt[idx]">15464元现金</span>
+                    </p>
+                </div>
+            </div>
+            <p v-if="herotype" class="remind">
+                注：排名实时更新，以每日截止时间最终排名为准！
+            </p>
+            <p class="remind" v-else>
+                注：排名实时更新，以活动结束后最终排名为准！
+            </p>
+        </div>
+
+        <!-- 弹窗提示 -->
+        <div class="dialog-tip">
+            <div class="content"></div>
+        </div>
+
+        <!-- loading -->
+        <div class="loading-wrapper">
+            <div class="spinner-snake" style="border-top-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); height: 32px; width: 32px;"></div>
+            <span class="indicator-text">加载中...</span>
+        </div>
+    </div>
+
+    <script src="/static/js/fastclick.min.js"></script>
+    <script src="/static/js/vue.min.js"></script>
+    <script src="/static/js/zepto.min.js"></script>
+
+    <script type="text/javascript">
+
+        // 解决移动端页面click事件存在300毫秒延迟
+        document.addEventListener('DOMContentLoaded', function () {
+            FastClick.attach(document.body);
+        }, false);
+
+        //    避免页面从缓存中加载
+        window.onpageshow = function (e) {
+            e = e || event;
+            if (e.persisted) {
+                location.reload();
+            }
+        }
+
+        function getParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+        var token = getParam("token") || '';
+        var type = 'm';
+        if (getParam('type')) {
+            type = getParam('type');
+        } else {
+            if (window.location.href.indexOf('pre-activity-center') > -1) {
+                type = 'mobile';
+            } else {
+                type = 'm';
+            }
+        }
+
+        window.vm = new Vue({
+            el: "#wraper",
+            data: {
+                isLogined: token ? true : false, //是否登录
+                activemodel:null,  //活动模块
+                packdata:null,  //红包模块数据
+                openpacknum:'',  //打开第几个包
+                openpackmoney:'', //打开包的金额
+                pagtype: null,  //可用红包的类型
+                lcandle:false,   //蜡烛亮否
+                showeit:false,
+                investdata:[{totalAmount:'0'},{totalAmount:'0'}],
+                showrule: false,  //显示规则弹窗
+                herotype:0,   //1每日 0 累计
+                herolist:[],
+                txt1:['10000元现金','8000元现金','5000元现金','3000元现金','1000元现金','600元现金','500元现金','300元现金','200元现金','100元现金',],
+                txt2:['800元红包','500元红包','300元红包'],
+                txt:[],
+                user:0,
+                showpack: false,  //既可以显示包也可以发送判断
+                rank: { rank_num: '0', need_tender: '0' ,currentRanks:[]},  //银行卡列表
+                mygoldrecord: [],   //红包列表
+                showTenderTip: true, // 再完成一笔投资文本提示，默认显示
+            },
+            mounted: function () {
+                this.initData();
+                this.txt = this.txt1;
+            },
+            computed: {
+                rl:function(){
+                    var arr = ['0.00','0.00','0.00','0.00','0.00','0.00(10th)','0.00(15th)','0.00(20th)'];
+                    var currentRanks = this.rank.currentRanks;
+                    for (var i = 0; i < currentRanks.length; i++) {
+                        if (i<=4) {
+                            arr[i]=currentRanks[i].money
+                        }else if (i==9) {
+                            arr[5]=currentRanks[i].money+'(第10名)'                                                     
+                        }else if (i==14) {
+                            arr[6]=currentRanks[i].money+'(第15名)'                                                  
+                        }else if (i==19) {
+                            arr[7]=currentRanks[i].money+'(第20名)'                                                  
+                        }
+                    }
+                    return arr;
+                }
+            },
+            computed:{
+                txt:function(){
+                    console.log(this.herotype)
+                    return this.herotype==0?this.txt1:this.txt2
+                }
+            },
+            methods: {
+                text:function(v){
+                    if (parseInt(v)>0) {
+                        return Math.ceil(v)
+                    }else{
+                        return '0'
+                    }
+                },
+                even:function(e){
+                    // e.preventDefault();
+                },
+                changeshowrule: function (v) {
+                    this.showrule = v
+                },
+                changepackhis: function (v) {
+                    var _this = this
+                    if (!this.isLogined) {
+                        location.href = 'https://' + type + '.51rz.com/login';
+                        return;
+                    }
+                    this.showpack = v
+                    $.post('/index.php?_url=/api/rank/rewardsHistory', { activityId: 27, token: token ,mark:'today'}, function (data) {
+                        if (data.error_code == 0) {
+                            _this.mygoldrecord = data.data
+                            // 打开明细弹窗
+                        } else if (data.error_code === 201) {
+                            location.href = 'https://' + type + '.51rz.com/login';
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                },
+                changehero:function(v){
+                    var _this = this;
+                    this.herotype = v;
+
+                    // if (!this.isLogined) {
+                    //     return
+                    // }
+                    this.txt = this.herotype==0?this.txt1:this.txt2  
+                                      
+                    var type = this.activemodel[v].mark;
+
+                    $.post('/index.php?_url=/api/rank/index', { activityId: 27, token: token||'', mark:type}, function (data) {
+                        if (data.error_code == 0) {
+                            var list = data.data.currentRanks
+                            _this.user = data.data.user
+                            var herolist = [{
+                                No:1,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:2,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:3,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:4,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:5,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:6,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:7,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:8,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:9,
+                                mobile:'- -',
+                                money:'- -'    
+                            },{
+                                No:10,
+                                mobile:'- -',
+                                money:'- -'    
+                            }]
+                            if (list.length<3&&_this.herotype==1) {
+                                for (var i = 0; i < 3; i++) {
+                                    if (i+1>list.length) {
+                                        list.push(herolist[i])
+                                    }
+                                }
+                                _this.herolist = list;
+                                return;
+                            }else if (list.length<10&&_this.herotype==0) {
+                                for (var i = 0; i < 10; i++) {
+                                    if (i+1>list.length) {
+                                        list.push(herolist[i])
+                                    }
+                                }
+                                _this.herolist = list;
+                                return;
+                            }
+                            _this.herolist = data.data.currentRanks                            
+                            // 打开明细弹窗
+                        } else if (data.error_code === 201) {
+                            location.href = 'https://' + type + '.51rz.com/login';
+                        }
+                    })
+                },
+                open: function (v) {
+                    if (!this.isLogined) {
+                        location.href = 'https://' + type + '.51rz.com/login';
+                    }
+                    var _this = this;
+                    $.post('/index.php?_url=/api/pack/open', { activityId: 27, token: token, code: this.pagtype.code ,openRemark:v}, function (data) {
+                        if (data.error_code == 0) {
+                            _this.initData()
+                            // 打开明细弹窗
+                        } else if (data.error_code === 201) {
+                            location.href = 'https://' + type + '.51rz.com/login';
+                        }
+                    })
+                },
+                fire:function(){
+                    if (!this.isLogined) {
+                        location.href = 'https://' + type + '.51rz.com/login';
+                    }
+                    var _this = this;
+                    $.post('/index.php?_url=/api/pack/open', {activityId: 27, token: token, code: "candle", mark: "blessing"}, function (data) {
+                        if (data.error_code == 0) {
+                            _this.showeit = true
+                            _this.initData()
+                            // 打开明细弹窗
+                        } else if (data.error_code === 201) {
+                            location.href = 'https://' + type + '.51rz.com/login';
+                        }
+                    })
+                },
+                closeeit:function(){
+                    this.showeit = false                    
+                },
+                gologin: function () {
+                    location.href = 'https://' + type + '.51rz.com/login';
+                },
+                initData: function () {
+                    var _this = this;
+                    $.post('/index.php?_url=/api/activity/index', { activityId: 27, token: token }, function (data) {
+                        _this.activemodel = data.data.widget;
+                        _this.changehero(0);
+                        if (data && data.error_code === 0) {
+                            var islogin = data.data.islogin;
+                            if (typeof (islogin) == "undefined") {
+                                _this.gettwomodel()
+                                _this.getinvest()
+                                _this.getcandle()
+                            } else if (islogin === 0) {
+                                _this.isLogined = false
+                            }
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                },
+                gettwomodel:function(){
+                    var _this = this;
+                    var type = this.activemodel[4].mark
+                    $.post('/index.php?_url=/api/pack/index', { activityId: 27, token: token ,mark:type}, function (data) {
+                        if (data && data.error_code === 0) {
+                            var islogin = data.data.islogin;
+                            if (typeof (islogin) == "undefined") {
+                                var pack = data.data.today[0];
+                                _this.pagtype = pack;
+                                if (pack.openRemark) {
+                                    _this.openpacknum = pack.openRemark;
+                                    _this.openpackmoney = pack.money;
+                                    console.log(_this.openpacknum,_this.openpackmoney)
+                                }
+                            } else if (islogin === 0) {
+                                _this.isLogined = false
+                            }
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                },
+                getinvest:function(){
+                    var _this = this;
+                    var type = this.activemodel[2].mark
+                    $.post('/index.php?_url=/api/bamboo/index', { activityId: 27, token: token ,mark:type}, function (data) {
+                        if (data && data.error_code === 0) {
+                            var islogin = data.data.islogin;
+                            if (typeof (islogin) == "undefined") {
+                                _this.investdata = data.data
+                            } else if (islogin === 0) {
+                                _this.isLogined = false
+                            }
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                },
+                getcandle:function(){
+                    var _this = this;
+                    var type = this.activemodel[3].mark
+                    $.post('/index.php?_url=/api/pack/index', { activityId: 27, token: token ,mark:type}, function (data) {
+                        if (data && data.error_code === 0) {
+                            var islogin = data.data.islogin;
+                            if (typeof (islogin) == "undefined") {
+                                _this.lcandle = parseInt(data.data.totalNum)>0?true:false                                
+                            } else if (islogin === 0) {
+                                _this.isLogined = false
+                            }
+                        } else {
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                },
+                go: function () {
+                    location.href = 'https://' + type + '.51rz.com/tender/index';
+                    // this.isLogined ? location.href = 'https://' + type + '.51rz.com/tender/index' : location.href = 'https://' + type + '.51rz.com/login';
+                },
+                // 打开弹窗提示
+                showMsg: function (msg) {
+                    $(".dialog-tip .content").text(msg);
+                    $(".dialog-tip").show();
+                    setTimeout(function () {
+                        $(".dialog-tip .content").text('');
+                        $(".dialog-tip").hide();
+                    }, 2000);
+                },
+            },
+        })
+    </script>
+</body>
+
+</html>

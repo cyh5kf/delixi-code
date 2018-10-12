@@ -1,0 +1,92 @@
+@import "./libs/mixin.scss";
+
+:global {
+  .activebox {
+    .pagination {
+      @include box((mt:10px, mb:80px));
+    }
+  }
+  .activebg {
+    @include box((w:100%, h:300px));
+    @include background((url:'activebg.png', pos:center center, repeat:no-repeat));
+  }
+  .actives {
+    @include clearfix();
+    @include box((w:1200px, m:0 auto, mt:30px));
+    li {
+      @include box((w:380px, fl:left, h:341px, bg:#fff, mb:30px));
+      a {
+        @include box((d:block, w:100%, h:100%));
+      }
+      transition: all .5s;
+      &:nth-child(3n-1) {
+        @include box((m:0 30px, mb:30px));
+      }
+      .img {
+        width: 380px;
+        height: 200px;
+        background-image: url(https://images.51rz.com/images/rebuild/pc/img/active.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        .isin {
+          width: 61px;
+          height: 64px;
+          line-height: 64px;
+          background-image: url(https://images.51rz.com/images/rebuild/pc/img/isin.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          position: absolute;
+          right: 0;
+          p {
+            width: 100%;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            transform: rotate(45deg) translateY(-10px);
+          }
+        }
+        .notin {
+          width: 61px;
+          height: 64px;
+          line-height: 64px;
+          background-image: url(https://images.51rz.com/images/rebuild/pc/img/notin.png);
+          background-repeat: no-repeat;
+          background-size: cover;
+          position: absolute;
+          right: 0;
+          p {
+            width: 100%;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            transform: rotate(45deg) translateY(-10px);
+          }
+        }
+      }
+      .intro {
+        @include box((h:83px, p:19px 0, w:348px, m:0 auto));;
+        border-bottom: 1px dashed #e5e5e5;
+        h4 {
+          @include box((fs:16px, c:$black2, fw:500))
+        }
+        .time {
+          @include box((fs:14px, c:$black9, lh:32px));
+          span {
+            @include box((c:#ff9b09));
+          }
+        }
+      }
+      .btn {
+        @include box((lh:56px, ta:center, fs:16px, c:$black5));
+        &.active {
+          @include box((c:#f64c3e));
+        }
+      }
+      &:hover {
+        box-shadow: 0px 0px 12px 3px hsla(0, 0%, 60%, .5);
+        transform: translateY(-5px);
+      }
+    }
+  }
+}

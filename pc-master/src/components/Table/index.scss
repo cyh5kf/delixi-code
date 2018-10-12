@@ -1,0 +1,22 @@
+@import "../../assets/css/libs/mixin.scss";
+
+.table{
+    width:100%;
+    @include box((ta:center));
+    thead{
+        @include box((w:100%,lh:48px,bg:#f6f6f6,fs:14px));
+    }
+    th{
+        @include box((fw:normal,c:$black2,fs:14px));
+    }
+    tbody{
+        @include box((w:100%,bg:$white));
+        tr{
+            @include box((lh:28px));
+            border-bottom:1px solid #e5e5e5;
+        }
+        td{
+            padding:12px 0;
+        }
+    }
+}

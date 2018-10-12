@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="wap-font-scale" content="no"/>
+    <title>积分记录</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico"/>
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+</head>
+<style>
+    html {
+        font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft Yahei, STHeiTi, Arial, sans-serif;
+        background-color: #fff;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0.22rem;
+        box-sizing: border-box;
+        line-height: 1.5;
+        text-decoration: none;
+        color: #222;
+    }
+
+    .banner {
+        height: 3.12rem;
+        width: 100%;
+        padding: 0.4rem 0.3rem 0;
+        background: url(https://images.51rz.com/images/jifen/integrla_record_banner.png);
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+
+    .banner p {
+        text-align: center;
+    }
+
+    .banner p.integralTotal {
+        font-size: 0.88rem;
+        color: #222;
+        line-height: 1.2rem;
+    }
+
+    .banner a {
+        display: block;
+        text-align: center;
+        font-size: 0.24rem;
+        color: #4992ec;
+    }
+
+    .banner > a:after {
+        display: block;
+        content: '';
+        width: 1.42rem;
+        margin: 0 auto;
+        border-bottom: 0.02rem solid #4992ec;
+    }
+
+    .banner .seeDetail {
+        position: absolute;
+        width: 0.35rem;
+        height: 0.35rem;
+        right: 0.3rem;
+        top: 0.35rem;
+        background: url(https://images.51rz.com/images/jifen/detail_icon.png)  ;
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .seeDetail a {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    ul.detail {
+        padding: 0 0.3rem;
+    }
+
+    ul.detail li {
+        padding-left: 0.5rem;
+        height: 1.26rem;
+        background: url(https://images.51rz.com/images/jifen/detail_bg.png);
+        background-size: 0.2rem 1.12rem;
+        background-position: left 0.13rem;
+        background-repeat: no-repeat;
+    }
+
+    ul.detail li:last-child {
+        background: url(https://images.51rz.com/images/jifen/detail_bg1.png);
+        background-size: 0.2rem 0.2rem;
+        background-position: left 0.13rem;
+        background-repeat: no-repeat;
+    }
+
+    ul.detail li p {
+        font-size: 0.24rem;
+        color: #999;
+    }
+
+    .empty{
+        text-align: center;
+    }
+    .empty img{
+        width:2.4rem;
+    }
+    .empty p{
+        font-size: 0.28rem;
+    }
+
+    .clearfix:after {
+        content: '';
+        width: 0;
+        height: 0;
+        display: block;
+        clear: both;
+    }
+
+    .titleDetail {
+        font-size: 0.28rem;
+        float: left;
+        line-height: 0.54rem;
+    }
+
+    .integralNum {
+        float: right;
+        font-size: 0.36rem;
+        color: #d7a55e;
+    }
+
+    .selectTitle {
+        height: 0.87rem;
+        width: 100%;
+        border-bottom: 0.01rem solid #e5e5e5;
+    }
+
+    .selectTitle p {
+        width: 50%;
+        float: left;
+        height: 100%;
+        border-bottom: 0.02rem solid #fff;
+        line-height: 0.84rem;
+        text-align: center;
+        font-size: 0.28rem;
+        color: #999;
+    }
+
+    .selectTitle p.active {
+        color: #f64c3e;
+        border-bottom: 0.02rem solid #f64c3e;
+    }
+
+    .top-tip {
+        position: absolute;
+        top: -0.8rem;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+    }
+
+    .bottom-tip {
+        text-align: center;
+    }
+
+    #wrapper {
+        width: 100%;
+        height: 8.06rem;
+        overflow: hidden;
+        position: relative;
+        padding-top: 0.5rem;
+    }
+</style>
+<body>
+<div id="container">
+    <div class="banner">
+        <p style="color:#999">当前积分</p>
+        <p class="integralTotal" v-text="currentIntegral"></p>
+        <p style="color:#555">0积分将在2018年12月31日过期</p>
+        <a :href="'/jifen/app/getIntegral.html?token='+token+'&type='+type+'&realName='+realName">如何获得积分</a>
+        <div class="seeDetail"><a href="/jifen/app/integralRule.html"></a></div>
+    </div>
+    <div class="selectTitle clearfix">
+        <p @click="changeActive(1)" :class="currentActive==1?'active':''">积分获取</p>
+        <p @click="changeActive(2)" :class="currentActive==2?'active':''">积分支出</p>
+    </div>
+    <div class="scroll" id="wrapper" ref="wrap">
+        <div ref="scroll">
+            <div class="top-tip">
+                <span class="refresh-hook">下拉刷新</span>
+            </div>
+            <ul class="detail" ref="scrollContent">
+                <li v-for="item in integralDetail">
+                    <div class="title clearfix">
+                        <span class="titleDetail" v-text="item.grow_note"></span>
+                        <span class="integralNum" v-text="(item.optype==1?'+':'-')+Number(item.integral).toFixed(0)"></span>
+                    </div>
+                    <p v-text="item.business_time"></p>
+                </li>
+                <div class="empty" v-if="!integralDetail.length">
+                    <img src="https://images.51rz.com/images/jifen/index/empty.png" alt="">
+                    <p>暂时没有记录</p>
+                </div>
+            </ul>
+            <div class="bottom-tip">
+                <span class="loading-hook" v-text="loadOver==true?'已全部加载':'上拉加载'"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/static/js/bscroll.js"></script>
+<script>
+    //    避免页面从缓存中加载
+    window.onpageshow = function (e) {
+        e = e || event;
+        if (e.persisted) {
+            location.reload();
+        }
+    }
+
+    function getParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值
+    }
+    var token = getParam("token");
+    var type = getParam("type");
+    var realName = getParam("realName");
+    var isLogined = token ? true : false;//是否登录
+    window.el = new Vue({
+        el: '#container',
+        data: {
+            token:token,
+            type:type,
+            realName:realName,
+            currentActive: 1,
+            loadOver: false,
+            scroll: '',
+            currentPage:1,
+            currentIntegral:0,
+            integralDetail: []
+        },
+        methods: {
+            changeActive: function (index) {
+                this.currentPage=1;
+                this.currentActive = index
+                this.integralDetail=[];
+                this.getIntegralFlow(true);
+                this.scroll.refresh();
+                this.scroll.scrollTo(0,0);
+            },
+            getIntegral: function () {
+                var self=this;
+                $.post('/index.php?_url=/vipshop/integral/userIntegralAccount', {token:token }, function (data) {
+                    var integralObj=JSON.parse(data).data||{};
+                    if(integralObj.integral){
+                        self.currentIntegral=Number(integralObj.integral).toFixed(0)
+                    }
+                })
+            },
+            getIntegralFlow:function(flag){
+                var self=this;
+                if(flag){
+                    self.currentPage=1;
+                    this.loadOver=false;
+                }else{
+                    self.currentPage+=1
+                }
+                $.post('/index.php?_url=/vipshop/integral/userIntegralFlow',{
+                   token:token,
+                    page:self.currentPage,
+                    optype:self.currentActive
+                },function(data){
+                    var newData =JSON.parse(data).data? JSON.parse(data).data.data:[];
+                    if(flag){
+                        self.integralDetail=newData
+                    }else{
+                        self.integralDetail=self.integralDetail.concat(newData)
+                    }
+                    if(!newData.length){
+                        self.loadOver = true;
+                    }
+                })
+            },
+            initScroll: function () {
+                var self = this;
+                var wrap = self.$refs.wrap, scroll = self.$refs.scroll, scrollContent = this.$refs.scrollContent;
+                self.$nextTick(function () {
+                    scrollContent.style.minHeight = (wrap.getBoundingClientRect().height + 2) + 'px';
+                    if(!self.scroll){
+                        self.scroll = new BScroll(wrap, {
+                            click: true,
+                            preventDefault: true
+                        });
+                        var diff=wrap.getBoundingClientRect().height-scroll.getBoundingClientRect().height;
+                        self.scroll.on('touchend', function (pos) {
+                            if(pos.y>50){
+                                self.getIntegralFlow(true);
+                            }else if((diff-50)>pos.y){
+                                if (!self.loadOver) {
+                                    self.getIntegralFlow(false);
+                                } else {
+                                    return;
+                                }
+                            }
+                            self.$nextTick(function () {
+                                self.scroll.refresh();
+                                diff = wrap.getBoundingClientRect().height - scroll.getBoundingClientRect().height;
+                            })
+                        })
+                    }
+
+                })
+            }
+        },
+        mounted:function(){
+            this.getIntegralFlow(true);
+            this.initScroll();
+        },
+        created: function () {
+            this.getIntegral();
+        }
+    })
+</script>
+</body>
+</html>

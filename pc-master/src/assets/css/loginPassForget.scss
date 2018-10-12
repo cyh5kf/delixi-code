@@ -1,0 +1,135 @@
+@import "./libs/mixin";
+
+$liH:46px;
+
+.LINE{
+    content:"";
+    @include box((d:block,w:1px,h:20px,bg:#e5e5e5));
+    @include position((p:absolute,l:37px,t:($liH - 20 ) / 2));
+}
+
+.container{
+    background-color:#fff;
+}
+.wraper{
+    @include box((w:$contentW,p:80px 0 80px 0,m:0 auto));
+    min-height:534px;
+    .stepWraper{
+        @include box((w:840px,b:1px solid red,m:0 auto 60px));
+        @include clearfix();
+        .stepLine{
+            @include box((d:block,w:560px,h:2px,m:0 auto,bg:#f6f6f6));
+            @include position((p:relative,t:10px,z:1));
+            i{
+                @include box((d:block,w:0,h:100%,bg:#8ebf3a));
+            }
+        }
+        p{
+            @include box((w:33.3%,ta:center,fl:left));
+            position: relative;
+            z-index: 2;
+            span{
+                @include box((d:block,w:20px,h:20px,m:0 auto,c:#999,bdr:50%));
+                box-shadow: 0 0 0 5px #fff;
+                background-color:#e5e5e5;
+                &.active{
+                    @include box((bg:#8ebf3a,c:#f7fbf2));
+                }
+            }
+            label{
+                @include box((lh:36px,c:#999));
+            }
+            &.active{
+                span{
+                    @include box((bg:#8ebf3a,c:#f7fbf2));
+                }
+                label{
+                    @include box((c:#8ebf3a));
+                }
+            }
+        }
+    }
+    .passResetWraper{
+        @include box((w:362px,m:0 auto,bg:#fff,bdr:2px));
+        min-height: 374px;
+        .formWraper{
+            &.hide{
+                @include box((d:none))
+            }
+            li{
+                &.normal{
+                    position: relative;
+                    &:before{
+                        @extend .LINE;
+                    }
+                }
+                input{
+                    @include box((w:100%,h:$liH - 2px,lh:$liH,bd:1px solid #e5e5e5,p:0 0 0 48px));
+                    &:focus{
+                        border:1px solid #4992ec;
+                    }
+                    &.error,&.error:focus{
+                        border:1px solid $red;
+                    }
+                }
+                .inputPhone{
+                    @include background((url:'icon_phone.png',repeat:no-repeat,pos:10px center));
+                }
+                .inputPass{
+                    @include background((url:'icon_pass.png',repeat:no-repeat,pos:10px center));
+                }
+                .inputSmsCode{
+                    @include background((url:'icon_safe.png',repeat:no-repeat,pos:10px center));
+                }
+                &.smsRow{
+                    @include position((p:relative));
+                    @include clearfix();
+                    &:before{
+                        @extend .LINE;
+                    }
+                    .inputSmsCode{
+                        @include box((w:262px,fl:left));
+                        &.error{
+                            border-right:0;
+                        }
+                    }
+                    span{
+                        @include box((d:block,w:100px,h:100%,bg:#4b92ec,fl:right,lh:$liH,ta:center,c:#fff));
+                        cursor:pointer;
+                        &.disabled{
+                            background:#a8a8a8;
+                            cursor:auto;
+                        }
+                    }
+                }
+            }
+            .errorMsg{
+                @include box((h:30px,lh:30px,p:0 0 0 24px,fs:12px));
+                &.error{
+                    @include background((url:'icon_error.png',repeat:no-repeat,pos:6px center));
+                    color:$red;
+                }
+                &.tip{
+                    @include background((url:'icon_tip.png',repeat:no-repeat,pos:6px center));
+                    color:#999;
+                }
+            }
+
+            .loginBtn{
+                @include box((w:100%,lh:$liH,bg:$red,ta:center,c:#fff,fs:16px,m:15px 0 0 0 ));
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.step3{
+    @include box((p:120px 0 0 0));
+    @include background((url:'forget_pass_success.png',repeat:no-repeat,size:145px 100px,pos:center top));
+    h5{
+        @include box((fs:16px,c:$orange,ta:center,lh:36px));
+    }
+    p{
+        @include box((fs:12px,c:$black9,ta:center,lh:24px,m:0 0 26px 0));
+    }
+}

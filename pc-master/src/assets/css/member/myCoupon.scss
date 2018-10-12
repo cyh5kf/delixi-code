@@ -1,0 +1,119 @@
+@import "../libs/mixin.scss";
+
+
+.wrap{
+    @include box((p:40px 30px 0));
+}
+
+.pageTitle{
+    @include box((lh:40px,fw:normal,c:$black2,fs:18px,p:0 0 5px 0));
+}
+
+.navRow{
+    @include clearfix();
+    .rules{
+        @include box((fl:right,c:$blue,m:10px 0 0 0));
+        position: relative;
+        cursor: pointer;
+    }
+    .tips{
+        @include box((p:15px,lh:26px,fs:12px,c:$black5));
+    }
+}
+
+.cardUl{
+    @include box((m:40px 0 0,w:840px));
+    @include clearfix();
+}
+
+
+.card{
+    @include box((w:360px,h:100px));
+    @include background((url:'member/coupon_redpacket.png',repeat:no-repeat,size:100% 100%));
+    @include clearfix();
+    &.disabled{
+        @include background((url:'member/coupon_redpacket_disabled.png',repeat:no-repeat,size:100% 100%));
+        .leftMoney{
+            p,span{
+                color:$black9 !important;
+            }
+        }
+        .cont{
+            h5,p,label{
+                @include box((c:$black9))
+            }
+        }
+    }
+    &.noActived{
+        opacity:0.5;
+    }
+    .leftMoney{
+        @include box((w:85px,h:100%,fl:left,ta:center,p:40px 0 0 0));
+        p{
+            @include box((fs:28px,lh:26px,c:#ffff00));
+            span{
+                @include box((fs:16px,c:$white));
+            }
+        }
+        label{
+            @include box((d:block,c:$white));
+        }
+    }
+    .cont{
+        @include box((w:240px,h:100%,fl:left,p:0 0 0 20px));
+        h5{
+            @include box((lh:34px,fs:14px))
+        }
+        p{
+            @include box((lh:18px,c:$black5,fs:12px));
+        }
+        label{
+            @include box((c:#b0b0b0,fs:12px,lh:26px))
+        }
+    }
+    .rightTxt{
+        @include box((w:34px,h:100%,fl:right,ta:center));
+        position: relative;
+        p{
+            @include box((w:100%,c:$orange));
+            @include position((p:absolute,r:0,t:50%));
+            transform:translate3d(0,-50%,0);
+        }
+        .cornStatus{
+            @include box((d:block,w:47px,h:47px));
+            @include position((p:absolute,t:0,r:0));
+            &.hasUsed{
+                @include background((url:'member/coupon_shiyong.png',repeat:no-repeat,size:100% 100%));
+            }
+            &.hasGuoQi{
+                @include background((url:'member/coupon_guoqi.png',repeat:no-repeat,size:100% 100%));
+            }
+        }
+    }
+    &.jiaxi{
+        @include background((url:'member/coupon_jiaxi.png',repeat:no-repeat,size:100% 100%));
+        &.disabled{
+            @include background((url:'member/coupon_jiaxi_disabled.png',repeat:no-repeat,size:100% 100%));
+        }
+        .leftMoney{
+            @include box((p:30px 0 0 0));
+            p{
+                color:$white;
+            }
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

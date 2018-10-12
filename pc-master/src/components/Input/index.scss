@@ -1,0 +1,37 @@
+@import "../../assets/css/libs/mixin.scss";
+
+.inputRow{
+    $inputH:46px;
+    .inputWrap{
+        //@include box((h:$inputH));
+        @include clearfix();
+        label{
+            @include box((fl:left,d:block,lh:$inputH,ta:right,c:#565656));
+        }
+        input[type*='text'],input[type*='password']{
+            @include box((w:360px,lh:$inputH - 2px,bd:1px solid #e5e5e5,fl:left));
+            min-height:$inputH - 2px;
+            text-indent: 10px;
+            &:focus{
+                @include box((bd:1px solid $blue))
+            }
+            &.error{
+                border:1px solid $red;
+            }
+        }
+        .smsCode {
+            @include box((d:block, w:100px, h:$inputH, lh:$inputH, fl:left, bg:$blue, c:$white, ta:center));
+            cursor: pointer;
+            &.disabled {
+                @include box((bg:#ccc));
+                cursor: auto;
+            }
+        }
+    }
+    .errorMsg{
+        @include box((h:30px,lh:30px,c:$red,fs:12px))
+    }
+    .tipMsg{
+        @include box((h:30px,lh:30px,c:$orange))
+    }
+}

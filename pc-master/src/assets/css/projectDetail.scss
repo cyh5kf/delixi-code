@@ -1,0 +1,617 @@
+@import "libs/mixin.scss";
+
+
+//详情
+.projectDetail {
+  .tag {
+    @include box((p:2px 10px, c:#d7a55e, bd:1px solid #d7a55e, fs:12px, ml:5px, bdr:5px, lh:24px));
+  }
+  span[title="red_packet"].tag{
+    width: 46px;
+    height: 18px;
+    background: #fff7f6;
+    border-radius: 9px 0 0 9px;
+    border: 1px solid #fb9f9f;
+    color: #fb9f9f;
+  }
+  span[title="interest_rate_hike"].tag{
+    width: 61px;
+    height: 18px;
+    background: #e8f4fe;
+    border-radius: 0 9px 9px 0;
+    border: 1px solid #6dbbf6;
+    color:#6dbbf6;
+  }
+  @include box((w:1200px, m:0 auto, mt:20px, h:458px, mb:20px));
+  .DetailLeft {
+    @include box((w:794px, fl:left, bg:#fff, p:0 30px, h:458px));
+    .DetailTitle {
+      @include box((w:100%, h:90px, lh:90px));
+      img {
+        @include box((h:20px, d:block, mr:8px, fl:left, mt:32px));
+      }
+      p {
+        @include box((c:#222, fs:16px, fl:left));
+      }
+    }
+    .Details {
+      @include box((h:94px));
+      li {
+        @include box((ta:center, h:100%, fl:left, w:25%));
+        &:first-child{
+        width:30%;
+          overflow:visible;
+      }
+        &:nth-child(2){
+          width:20%;
+        }
+        &:nth-child(3){
+          width:30%
+        }
+        &:nth-child(4){
+          width:20%
+        }
+        &:last-child {
+          @include box((ta:right,width:20%));
+        }
+        p.percent {
+          @include box((fs:30px, c:#222));
+          span {
+            font-size: 14px;
+            position: relative;
+            padding-right: 4px;
+            i {
+              @include box((ml:5px, fs:12px, p:0 6px));
+              @include background((url:'jiangli.png', repeat:no-repeat, size:100% 100%));
+            }
+          }
+        }
+        p {
+          @include box((fs:14px, c:#999));
+        }
+        &:first-child {
+          @include box((ta:left));
+          p.percent {
+            color: #f64c3e;
+          }
+        }
+        &:nth-child(3) {
+          @include box((ta:left, pl:90px));
+        }
+      }
+    }
+    .method {
+      @include box((h:124px, w:100%, p:37px 0));
+      .methodleft {
+        @include box((w:50%, fl:left));
+      }
+      .method1 {
+        @include box((h:30px));
+        position: relative;
+        span {
+          font-size: 14px;
+          color: #222;
+        }
+        & > span:first-child {
+          @include box((c:#999, mr:10px));
+        }
+        .methodactive {
+          align-items: center;
+          i {
+            @include box((d:inline-block, w:18px, h:18px, ml:5px, mb:-3px));
+            @include background((url:'answer.png', repeat:no-repeat, size:cover));
+            cursor: pointer;
+          }
+        }
+        .message {
+          display: none;
+          width: 371px;
+          padding: 18px 20px 28px 20px;
+          border: 1px solid #eeeeee;
+          box-shadow: 0 0 10px #eeeeee;
+          text-align: left;
+          font-size: 12px;
+          line-height: 19px;
+          background-color: #FFFFFF;
+          z-index: 10;
+          color: #999;
+          top: 26px;
+          position: absolute;
+          .closemessage {
+            @include box((w:15px, h:15px));
+            @include position((p:absolute, r:9px, t:16px));
+            @include background((url:'X.png', repeat:no-repeat, size:cover))
+          }
+          p {
+            @include box((fs:12px, lh:22px));
+          }
+          .title {
+            @include box((bg:#f2f2f2, c:#666));
+          }
+        }
+      }
+      .progress {
+        @include box((d:inline-block));
+        .progressTips {
+          @include box((w:110px, h:2px, bg:#cccccb, d:inline-block));
+          .now {
+            @include box((w:90%, h:2px, bg:#f64c3e));
+          }
+        }
+        .bili {
+          @include box((c:#f64c3e, fs:14px, ml:8px, d:inline-block));
+        }
+      }
+    }
+    .live {
+      @include box((h:111px));
+      .start {
+        @include box((w:80px, h:26px, bdr:13px, bg:#d7a55e, c:#fff, fs:14px, ta:center, fl:left, mt:43px, lh:26px))
+      }
+      .pro {
+        @include box((h:100%, p:20px 0, w:574px, fl:left));
+        position: relative;
+        .line {
+          @include box((w:100%, h:1px, bg:#e5e5e5, m:auto));
+          @include position((p:absolute, t:0, b:0, l:0));
+          .linenow {
+            @include box((w:0px, bg:#d7a55e, h:1px));
+          }
+        }
+        li {
+          @include box((w:20%, h:100%, fl:left, ta:center));
+          position: relative;
+          z-index: 2;
+          .qiu {
+            @include box((w:5px, h:5px, bg:#d7a55e, bdr:50%, m:0 auto, mt:12px, mb:12px));
+          }
+          p {
+            @include box((c:#999, fs:14px, lh:21px));
+          }
+          &.active {
+            .qiu {
+              @include box((w:5px, h:5px, bg:#d7a55e, bdr:50%, mt:9px, mb:9px));
+              border: 3px solid #f3e4ce;
+              box-sizing: content-box;
+            }
+            p {
+              color: #d7a55e;
+            }
+          }
+
+        }
+      }
+      .end {
+        @include box((w:80px, h:26px, bdr:13px, bg:#e5e5e5, c:#555, fs:14px, ta:center, fl:left, mt:43px, lh:26px))
+      }
+    }
+  }
+  .DetailRight {
+    @include box((w:393px, h:458px, bg:#fff, fl:right, p:0 30px, pt:33px));
+    .DetailTitle {
+      @include box((mb:20px));
+      position: relative;
+      &:after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        clear: both;
+      }
+      .titleleft {
+        @include box((fl:left));
+        .ms {
+          @include box((fs:14px, c:#555, mr:8px, fl:left, lh:16px));
+        }
+        .xq {
+          @include box((c:#f64c3e, fs:16px, fl:left, lh:16px));
+        }
+        .xq1 {
+          @include box((c:#555, fs:16px, fl:left, lh:16px));
+        }
+      }
+      .kuozhan {
+        @include box((w:15px, h:100%));
+        @include background((url:'kuozhan.png', repeat:no-repeat, size:14px 8px, pos:center center));
+        @include position((p:absolute, r:0, t:0, b:0))
+      }
+      .coupon {
+        @include box((w:334px, d:none,bg:#fff));
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border-top: 1px solid #e5e5e5;
+        @include position((p:absolute, t:37px, l:0, z:10000));
+        li {
+          @include box((w:100%, p:20px 16px 0));
+          @include background((url:'youhuoz.png', size:100% 100%, repeat:no-repeat));
+          cursor: pointer;
+          .container {
+            @include box((w:100%, p:0 20px 20px));
+            border-bottom: 1px dashed #e5e5e5;
+            .desleft {
+              @include box((pt:14px, fl:left));
+              .num {
+                @include box((c:#ff9b09, fs:18px))
+              }
+              .text {
+                @include box((fs:12px, c:#999));
+                max-width: 105px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+            }
+            .desright {
+              @include box((fl:right));
+              p {
+                @include box((fs:14px, c:#555));
+                &.time {
+                  color: #999;
+                }
+              }
+            }
+            @include clearfix();
+          }
+          &:first-child.cancleRedpack {
+            @include box((h:42px, bg:#fff, lh:41px,ta:right,c:#4992ec,p:0 20px));
+            @include background((url:'youhui.png'));
+            background-position: bottom center;
+            p.cancle{
+              border-bottom: 1px dashed #e5e5e5;
+            }
+          }
+          &:nth-last-child(1) {
+            @include background((url:'youhui1.png'));
+          }
+        }
+      }
+
+      .titleright {
+        @include box((fl:right));
+        a {
+          @include box((c:#4992ec, fs:14px));
+        }
+      }
+    }
+  }
+}
+
+.input {
+  @include box((w:334px, h:46px));
+  position: relative;
+  input {
+    @include box((p:10px 13px, br:1px solid #e5e5e5, w:334px, h:46px, fs:14px));
+    &:focus{
+      border:1px solid #4992ec;
+    }
+    &.error,&.error:focus{
+      border:1px solid $red;
+    }
+  }
+  a {
+    @include position((p:absolute, r:10px));
+    @include box((m:auto, c:#4992ec, fs:14px, lh:46px));
+  }
+}
+
+.sign {
+  overflow: hidden;
+  p {
+    @include box((fl:left, mr:5px, fs:12px, c:#999, mb:20px))
+  }
+  ul {
+    @include box((fl:left));
+    li {
+      @include box((mb:5px));
+      a {
+        @include box((c:#4992ec, fs:12px, d:block))
+      }
+      &:last-child {
+        @include box((mb:15px))
+      }
+    }
+  }
+}
+
+.btn {
+  @include box((w:100%, h:46px, bg:#f64c3e, c:#fff, fs:16px, lh:46px, ta:center));
+  cursor: pointer;
+  &.btnActive{
+    background-image: url('https://images.51rz.com/images/rebuild/pc/img/buy_btn_bg.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 329px 42px;
+  }
+}
+
+::-webkit-input-placeholder {
+  　　color: #999;
+}
+
+//担保
+.Increase {
+  @include box((w:1200px, h:137px, bg:#fff, m:0 auto, mb:20px));
+  li {
+    @include box((w:25%, fl:left, h:100%, pt:30px));
+    img {
+      @include box((d:block, m:0 auto, w:50px, h:50px));
+    }
+    p {
+      @include box((fs:14px, c:#222, mt:10px, ta:center))
+    }
+  }
+}
+
+//介绍
+.introduce {
+  @include box((w:100%, m:0 auto, bg:#fff, pb:79px));
+  .introducenav {
+    @include box((h:79px, w:100%));
+    border-bottom: 1px solid #e5e5e5;
+    .mainnav {
+      @include box((w:1200px, m:0 auto, h:100%, p:0 30px));
+      li {
+        @include box((h:100%, fs:16px, fl:left, mr:119px, pt:31px));
+        a {
+          @include box((h:18px, pl:24px));
+          @include background((size:15px 16px, repeat:no-repeat, pos:left center))
+        }
+        &:nth-child(2) {
+          a {
+            @include background((url:'introduce2.png', size:18px 16px));
+          }
+        }
+        &:nth-child(3) {
+          a {
+            @include background((url:'introduce2.png', size:11px 13px));
+          }
+        }
+        &:nth-child(4) {
+          a {
+            @include background((url:'introduce5.png', size:16px 16px));
+          }
+        }
+      }
+
+    }
+  }
+}
+
+//介绍详情
+.introduceDetail {
+  @include box((w:1200px, m:0 auto));
+}
+
+.details {
+  .introduceTitle {
+    @include box((pl:18px, fs:14px, c:#222, mt:28px, mb:13px));
+    position: relative;
+    .line {
+      @include box((w:3px, h:14px, bg:#f64c3e, m:auto));
+      @include position((p:absolute, l:0, t:0, b:0));
+    }
+  }
+  & > p {
+    @include box((fs:14px, c:#555, p:0 18px, lh:30px))
+  }
+  & > p.title {
+    margin-top: 30px;
+  }
+  & > img {
+    @include box((d:block, m:0 auto, mt:34px))
+  }
+}
+
+//借款信息
+.introduceContent {
+  @include box((h:116px, mt:29px, w:1140px, m:0 auto, bg:#f6f6f6, pt:18px));
+  li {
+    @include box((w:285px, h:40px, pl:29px, fl:left));
+    p {
+      @include box((fs:14px, c:#999, mr:18px, fl:left, h:40px, lh:40px));
+    }
+    span {
+      @include box((fs:14px, c:#222, d:block, fl:left, h:40px, lh:40px));
+    }
+  }
+}
+
+.detailMask {
+  @include box((bg:rgba(0, 0, 0, .7)));
+  @include position((p:fixed, l:0, r:0, t:0, b:0, z:1000));
+  .personDetail {
+    overflow-y: scroll;
+    @include box((w:480px, p:30px 40px 40px, bdr:4px, bg:#fff, ml:-240px, mt:-300px));
+    max-height: 600px;
+    min-height: 360px;
+    @include position((t:50%, p:absolute, l:50%));
+    h4 {
+      @include box((fs:16px, c:#222, fw:500, mb:30px))
+    }
+    .close {
+      @include box((w:15px, h:15px));
+      cursor: pointer;
+      @include background((url:'closedetail.png', repeat:no-repeat, pos:center center));
+      @include position((p:absolute, t:20px, r:20px))
+    }
+    ul {
+      @include box((w:100%));
+      li {
+        @include box((w:100%, bg:#f6f6f6, lh:40px, p:0 30px));
+        &:nth-child(2n) {
+          background: #fff
+        }
+        span {
+          @include box((d:block, lh:40px, w:50%, ta:center,fl:left));
+
+          &.desc {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}
+
+.options {
+  @include box((mt:30px, w:1140px, m:0 auto));
+  &:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    clear: both;
+  }
+  li {
+    @include box((mr:70px, fl:left));
+    a {
+      @include box((w:100%, h:100%, d:block));
+      img {
+        @include box((d:block, m:0 auto, w:40px, h:44px));
+      }
+      p {
+        @include box((mt:15px, fs:14px, c:#333))
+      }
+    }
+  }
+}
+
+//风控
+.liucheng {
+  margin-bottom: 30px !important;
+}
+
+//投资记录
+
+.HistoryTitle {
+  @include box((w:1200px, bg:#f6f6f6, mt:30px, p:0 30px, h:40px));
+  li {
+    @include box((w:20%, h:100%, lh:40px, fl:left, ta:center, fs:14px, c:#222))
+  }
+}
+
+.details {
+  @include box((w:1200px));
+}
+
+.HistoryCon {
+  @include box((w:1200px, m:0 auto, p:0 30px, h:50px));
+
+  li {
+    @include box((w:20%, h:100%, lh:50px, fl:left, ta:center, fs:14px, c:#555))
+  }
+  &:last-child {
+    margin-bottom: 30px;
+  }
+}
+
+//loginbox
+
+.loginmask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 20000;
+}
+
+:global {
+  .errorMsg {
+    height: 30px;
+    font-size: 12px;
+    line-height: 30px;
+    color: #f64c3e;
+    padding: 0 0 0 24px;
+    &.err {
+      background-image: url(https://images.51rz.com/images/rebuild/pc/img/icon_error.png);
+      background-repeat: no-repeat;
+      background-position: 6px;
+    }
+  }
+  .table {
+    @include box((w:1200px, m:0 auto, mt:29px));
+    & > ul {
+      &.head {
+        @include box((bg:#f6f6f6, mb:5px, c:#333));
+      }
+      @include box((h:40px, w:1200px, lh:40px, c:#555, ta:center, mb:15px, p:0 29px));
+      li {
+        @include box((fl:left, w:126px, h:40px));
+      }
+    }
+  }
+  .person {
+    & > ul {
+
+      li {
+        @include box((fl:left, w:189.8px));
+      }
+    }
+  }
+  .projectDetail_details_AD396hyA {
+    .pagination {
+      margin-top: 20px;
+      width: 1200px;
+    }
+  }
+
+  .ant-menu-item {
+    @include box((pb:21px, h:auto, fs:14px, pr:0px, c:#999));
+    border-bottom: 1px solid #e5e5e5;
+    pre {
+      white-space: pre-wrap
+    }
+  }
+
+  .ant-menu-submenu {
+    @include box((pl:20px));
+    &:last-child {
+      .ant-menu-item {
+        border-bottom: 1px solid #fff;
+      }
+    }
+  }
+
+  .ant-menu-submenu-title {
+    @include box((h:54px, lh:53px, fs:14px, c:#555));
+    span {
+      color: #f44a43;
+    }
+  }
+
+}
+
+//风险测评提示弹框
+.linkBtn{
+  @include box((d:block,w:170px,h:35px,lh:35px,c:$white,fs:18px,ta:center,m:40px auto,p:0));
+  background:$red;
+  cursor: pointer;
+  //@include position((p:absolute,b:20px,l:50%));
+}
+
+.riskDialog{
+  @include box((p:0 0 0 30px));
+  h5{
+    @include box((fs:18px,c:$black3,lh:60px,ta:center));
+  }
+  .notice{
+    @include box((p:20px 30px 20px 30px,w:700px,h:400px));
+    overflow-y: scroll;
+  }
+  .linkBtn{
+    @include box((d:block,w:170px,h:35px,lh:35px,c:$white,fs:18px,ta:center,m:40px auto,p:0));
+    background:$red;
+    cursor: pointer;
+    //@include position((p:absolute,b:20px,l:50%));
+  }
+}
+
+.testRiskDialog{
+  @include box((p:40px 0 0));
+  p{
+    @include box((m:30px))
+  }
+}
+
+

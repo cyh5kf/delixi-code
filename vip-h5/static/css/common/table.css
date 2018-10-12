@@ -1,0 +1,22 @@
+.normal_table{
+    width:6.9rem;
+    margin:0 auto;
+    border-collapse: collapse;
+}
+.normal_table thead {
+    background-color:#fbf6ef;
+    color:#999;
+    font-size:0.24rem;
+}
+.normal_table tr {
+    line-height:0.6rem;
+}
+.normal_table td{
+    border:1px solid #e5ccaa;
+    line-height:0.6rem;
+    text-align: center;
+    color:#555;
+}
+.normal_table td.gold{
+    color:#d7a55e;
+}

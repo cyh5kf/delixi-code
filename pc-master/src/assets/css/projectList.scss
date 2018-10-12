@@ -1,0 +1,271 @@
+@import "./libs/mixin.scss";
+
+$black2: #222;
+$black9: #999;
+
+body {
+  background: #fff;
+}
+
+a {
+  cursor: pointer;
+}
+
+.black2 {
+  color: $black2;
+}
+
+.black9 {
+  color: $black9;
+}
+
+.fs24 {
+  font-size: 30px;
+}
+
+.fs16 {
+  font-size: 16px;
+}
+
+.transfer {
+  @include box((w:380px, fs:14px, c:#555));
+  .title {
+    line-height: 30px;
+    @include box((fs:16px, c:#222, mb:15px));
+  }
+  div {
+    @include box(( lh:50px));
+    p {
+      @include box((d:inline-block, w:50%,fl:left));
+    }
+  }
+  .input {
+    @include box((mt:30px));
+    input {
+      @include box((bd:1px solid #e5e5e5, w:300px, pl:10px));
+    }
+    input[type="password"]{
+      height: 36px;
+    }
+  }
+  .btn {
+    @include box((d:block, ta:center, m: 30px 0 0 70px, w:300px, h:36px, lh:36px, bg:#f64c3e, c:#fff, fs:16px));
+  }
+}
+
+.container {
+  border-bottom: 2px solid #f6f6f6;
+  @include box((w:100%, h:225px, pt:165px));
+  @include background((url:'project-list-banner.png', repeat:no-repeat, pos:center center))
+}
+
+.search_title {
+  @include box((w:1200px, m:0 auto, bg:rgba(255, 255, 255, 0.9)));
+  a {
+    @include box((d:inline-block, w:20%, h:58px, lh:58px, fs:16px, c:#555, ta:center));
+  }
+  .search_title_check {
+    border-top: 2px solid #f64c3e;
+    @include box((c:#f64c3e, bg:rgba(255, 255, 255, 1)));
+  }
+}
+
+.search_content {
+  @include box((p:0 20px));
+  .search_bg {
+    @include box((w:100%, h:174px, bg:#f6f6f6));
+    @include position((p:absolute, l:0, z:-1));
+  }
+  p {
+    @include box((lh:58px, bg:#f6f6f6));
+    span {
+      @include box((c:$black2, fs:14px, mr:28px));
+    }
+    a {
+      @include box((d:inline-block, fs:14px, lh:20px, p:0 10px, c:#555, bdr:4px, mr:40px));
+    }
+    .search_check {
+      @include box((c:#fff));
+      background-color: #4992ec;
+    }
+  }
+}
+
+.search_toggle {
+  @include box((ta:right, mr:30px));
+  a {
+    @include box((d:inline-block, w:66px, h:28px, lh:28px, ta:center, bg:#f6f6f6, fs:14px, c:#555, mr:0));
+  }
+}
+
+:global {
+  .novice {
+    @include box((w:1200px, m:0px auto, h:160px, p:60px 30px,));
+    border-bottom: 1px solid #e5e5e5;
+    &:hover {
+      box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+    &:hover .btn {
+      @include box((bg:#f64c3e, c:#fff));
+      background-image: url('https://images.51rz.com/images/rebuild/pc/img/btn_bg_xc.png');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 120px 34px;
+      color:#fff !important;
+    }
+    div {
+      float: left;
+      line-height: 38px;
+      @include box((fs:14px, c:$black9));
+      &.name {
+        @include box((w:319px, fs:18px, c:$black2));
+        span {
+          @include box((fs:14px, c:#999, ml:13px));
+        }
+      ;
+        i {
+          @include box((d:inline-block, c:#fcfcfc, fs:12px, p:2px 5px, bg:#f64c3e, mr:7px, lh:16px));
+          transform: translateY(-3px);
+        }
+      }
+      &.income {
+        @include box((w:230px));
+        span {
+          @include box((c:#f64c3e, fw:600));
+        }
+      }
+      &.time {
+        @include box((w:255px));
+        span {
+          @include box((c:$black2));
+        }
+      }
+      &.limit {
+        @include box((w:211px, pl:24px));
+        span {
+          color: #ff8400;
+        }
+      }
+      &.btn {
+        @include box((w:125px, ta:center, fs:16px, c:$red));
+        border:1px solid $red;
+      }
+    }
+  }
+  .up {
+    @include background((url:'project_list_up.png', repeat:no-repeat, pos:67px center));
+  }
+  .down {
+    @include background((url:'project_list_down.png', repeat:no-repeat, pos:67px center));
+  }
+}
+
+.wrap {
+  width: 1200px;
+  margin: 0 auto;
+  min-height: 480px;
+}
+
+.card {
+  &:hover {
+    box-shadow: 0 0 20px 4px #eaeaea;
+    .tender.transfer {
+      @include box((bg:$red, c:$white));
+    }
+    .showIn,.tender.transfer{
+      @include box((bg:#f64e41, c:#fff));
+      background-image: url('https://images.51rz.com/images/rebuild/pc/img/btn_bg_xc.png');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 120px 34px;
+      color: #fff !important;
+    }
+    .waitTender {
+      @include box((bg:#faa6a0, c:$white));
+      color: #fff !important;
+    }
+    .unTender{
+      background: #ccc;
+      color:#fff !important;
+    }
+  }
+
+  @include box((h:160px, p:23px 30px 28px, fs:14px, c:$black2));
+  border-bottom: 1px solid #e5e5e5;
+  .title {
+    @include box((d:inline-block, c:$black2, fs:16px, lh:24px));
+  }
+  .tag {
+    @include box((p:0px 10px, c:#d7a55e, bd:1px solid #d7a55e, fs:12px, ml:5px, bdr:5px));
+  }
+  span[title="red_packet"].tag{
+    width: 46px;
+    height: 18px;
+    background: #fff7f6;
+    border-radius: 9px 0 0 9px;
+    border: 1px solid #ff6a5f;
+    color: #ff6a5f;
+  }
+  span[title="interest_rate_hike"].tag{
+    width: 61px;
+    height: 18px;
+    background: #e8f4fe;
+    border-radius: 0 9px 9px 0;
+    border: 1px solid #60a7ff;
+    color:#60a7ff;
+  }
+  .icon {
+    @include box((d:inline-block, w:24px, h:24px, lh:24px, ta:center, bdr:12px, fs:13px, mr:10px));
+  }
+  .gong {
+    @extend .icon;
+    transform: translateY(6px)
+  }
+  .content {
+    @include box(( mt:30px));
+    div {
+      @include box((display:inline-block, w:20%,fl:left));
+      p:first-child {
+        @include box((lh:20px, h:27px));
+      }
+      .apr {
+        @include box((c:#f64c3e));
+      }
+      .percent {
+        @include box((c:#f64e41));
+      }
+      .per {
+        @include box((d:inline-block, w:120px, h:2px, bg:#e5e5e5, mb:5px, mr:10px));
+        @include position((p:relative));
+        i {
+          @include box((d:inline-block, h:2px, bg: #f64c3e));
+          @include position((p:absolute));
+        }
+      }
+      .tender {
+        @include box((d:inline-block, w:125px, h:38px, lh:36px, ta:center, fs:16px));
+      }
+      .showIn {
+        border: 1px solid $red;
+        color: $red;
+      }
+      .transfer{
+        border: 1px solid $red;
+        color: $red;
+      }
+      .unTender {
+        @include box((c:#999));
+        border: 1px solid #ccc;
+      }
+      .waitTender {
+        @include box((c:#faa6a0));
+        border: 1px solid #faa6a0;
+      }
+    }
+  }
+}
+
+.jiangli {
+  @include background((url:'jiangli.png'));
+  @include box((d:inline-block, w:35px, h:16px, fs:12px, lh:16px, ta:center))
+}

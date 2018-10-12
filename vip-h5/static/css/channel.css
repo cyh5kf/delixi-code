@@ -1,0 +1,186 @@
+@charset "utf-8";
+*{
+    margin:0 auto;
+    padding:0;
+	outline: 0;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+    body{font-family:"微软雅黑"; font-size:12px; margin:0 auto; padding:0px;  color:#333;box-sizing:border-box;max-width:720px;}
+    button,input{font-family:"微软雅黑";}
+    ul,li{margin:0px; padding:0px; list-style:none;}
+    a{ text-decoration:none;transition: color .6s,border-color .6s,background-color .6s,border .6s,padding .6s;}
+    a:hover{text-decoration:none;}
+    img{ border:none;}
+    .clear{clear:both;}
+    .tran{transition: color .6s,border-color .6s,background-color .6s,border .6s,padding .6s;}
+    .wx-top-bg{width:100%;}
+    .wx-top-bg img{width:100%;height:3.18rem;display:inherit;}
+
+	.wx-zc-wrap{width:100%;padding:0 0.2rem;box-sizing:border-box; }
+    .xsfx-reg-box{width:100%;border-radius:3px;}
+    .xsfx-reg-box h1{width:100%;height:1rem;border-radius:3px 3px 0 0;background:#ff4605;text-align:center;font-size:0.32rem;color:#fff;line-height:1rem;font-weight:500;}
+    .xsfx-reg-box h1 span{font-size:0.36rem;}
+    .xsfx-reg-list{width:100%;padding:0.1rem 0.2rem;box-sizing:border-box;}
+    .xsfx-reg-list li{width:100%;margin-top:0.15rem;}
+ 
+    .reg-pho{width:100%;}
+   
+    .inputDiv input{width:20px;height:20px;filter:alpha(opacity=1);-moz-opacity:1;-khtml-opacity:1;opacity:1;left:0;top:0;position:absolute;z-index:4;margin:0;cursor:pointer}
+    .inputDiv{display:block;position:relative;font-size:0.25rem;}
+    .inputDiv label{color:#fff;}
+    .inputDiv label a{color:#fff}
+    .checkBox{float:left;width:20px;height:20px;border:0;background-image:url(../images/checkico.png);background-repeat:no-repeat;background-position:-20px 0;margin-right:10px}
+    .checkBox.checkedBox{background-image:url(../images/checkico.png);background-repeat:no-repeat;background-position:0 0}
+    
+    .phone-box{width:100%;position:relative;left:0;top:0}
+    .phone-input{width:100%;display:inline-block;position:relative}
+    .phone-ico{position:absolute;left:0.1rem;top:0.2rem;display:inline-block}
+    .phone-ico img{width:0.4rem;height:0.47rem}
+
+
+    .register_passwords,.register_usenames{width:100%;height:0.8rem;background:rgba(255, 255, 255, 0.4); ;border:none;outline:0;font-size:0.24rem;color:#555;font-family:"微软雅黑";line-height:0.7rem;padding-left: 0.6rem;box-sizing: border-box;}
+    .phone-info{position:absolute;right:0;top:0.01rem;display:inline}
+    .timeval{border: 1px solid #fff;;border-radius: 3px;color: #fff; background: #e3493d;cursor: pointer;height: 0.7rem;margin: 0.03rem 0.03rem 0 0;padding: 0 0.25rem; font-size: 0.24rem;}
+    .reg-tip{margin-top:0.05rem;color:#ff6058;font-size:0.18rem;color:#fff;}
+    .reg-tip img {float: left;margin: .01rem .1rem 0 0;}
+    .phone-input-yes {border-radius: 3px;position: absolute;right: 0;top: .45rem; z-index: 100;}
+    .phone-input-yes1 { border-radius: 3px;line-height: 30px;position: absolute;right: 123px; top: 20px; z-index: 100;}
+    .phone-input-yes2 {border-radius: 3px;line-height: 30px;position: absolute;right: 0;top: 4px;z-index: 100;}
+    .phone-input-yes3 {border-radius: 3px;line-height: 30px;position: absolute;right: 76px;top: 11px;z-index: 100;}
+    
+    .tg-but{width:100%;background:#fff;border-radius:3px;border:none;margin-top:0.1rem;height:0.81rem;text-align:center;color:#e3493d;font-size:0.35rem;line-height:0.6rem;box-shadow:0 0.05rem 0 #bf461b;}
+    .tg-reg-text{width:100%;padding:0.2rem 0;text-align:center;font-size:0.16rem;}
+    .tg-reg-text a{color:#bf461b;}
+    .tg-reg-text a:hover{color:#333;}
+
+    .wx-zc-bot{width:100%;box-sizing:border-box;}
+    .wx-zc-bot dl{width:100%;}
+    .wx-zc-bot dl dt{width:100%;display:block;padding:0.2rem 0;text-align:center;}
+    .wx-zc-bot dl dt img{height:1.1rem;}
+    .wx-zc-bot dl dd{width:2.26rem;height:1.89rem;display:inline-block;}
+    .wx-zc-bot dl dd:last-child{width:2.13rem;}
+    .wx-zc-bot dl dd img{width:2.13rem;height:1.89rem;display:line-block;}
+
+    .wx-zc-img,.wx-zc-img h1,.wx-zc-img p{width:100%;}
+    .wx-zc-img h1{margin-top:0.3rem;text-align:center;}
+    .wx-zc-img h1 img{height:1.28rem;}
+    .wx-zc-img p{margin-top:0.2rem;text-align:center;}
+    .wx-zc-img img{height:1.5rem;}
+
+    .xsfx-login-box{
+    height:4.15rem;
+    background:url(../photo/wx-login-bg.png) no-repeat center top;
+    background-size:cover;
+    color:#fff;
+    }
+    .xsfx-login-box div{
+    width: 75%;
+    text-align: center;
+    }
+    .xsfx-login-box h3{
+    font-size:0.53rem;
+    padding:0.8rem 0 0.4rem 0.7rem;
+    }
+    .xsfx-login-box p{
+    font-size:0.23rem;
+    padding:0.25rem 0 0.8rem 0;
+    }
+
+    .xsfx-login-box a{
+    width: 1.9rem;
+    height: 0.62rem;
+    background:url(../photo/wx-hb-btn.png) no-repeat center top;
+    background-size:cover;
+    display: inline-block;
+    font-size:0.3rem;
+    color:#9e2a02;
+    margin:0 0.3rem;
+    padding:0.05rem 0.4rem 0 0;
+    }
+    
+   /*注册完成*/
+
+   .wx-zccg-bg{background:#fd7c1e;}
+
+ 	.newfx{background:#fff;position:absolute;display:inline-block;width:100%;}
+
+ 	.newfx-bg{
+		max-width:720px;
+		background:#fd7c1e url(../photo/newfx-bg.png) no-repeat center top;
+		background-size:contain;
+	}
+
+	.newfx-reghb{
+		box-sizing: border-box;
+		width:100%;
+		padding:1.5rem 1rem 0 1rem;
+	}
+	.newfx-reghb h1{
+		width:100%;
+		text-align:center;
+		padding-bottom:0.5rem;
+		font-size:0.48rem;
+		color:#fff;
+	}
+	.newfx-reghb h1 img{
+		width:1.44rem;
+		height:0.47rem;
+	}
+
+	.newfx-mony{
+		height:1.9rem;
+		background:#fff;
+	}
+	.newfx-mony h2{
+		width:1.9rem;
+		height:1.9rem;
+		color:#fff;
+		font-size:0.8rem;
+		padding-left:0.2rem;
+		display:inline-block;
+		background:#ff6058 url(../images/newico3.png) repeat-y right -0.15rem;
+	}
+	.newfx-mony h2 small{
+		font-size:0.32rem;
+		float:left;
+		padding-top:0.9rem;
+	}
+	.newfx-mony h2 span{
+		float:left;
+		padding-top:0.7rem;
+	}
+	.newfx-mony p{
+		float:right;
+		width:3rem;
+		padding:0.5rem 0;
+	}
+	.newfx-mony p strong{
+		width:100%;
+		display:inline-block;
+		font-size:0.28rem;
+		color:#555;
+		padding-left:0.3rem;
+	}
+	.newfx-mony p span{
+		padding-left:0.3rem;
+		font-size:0.24rem;
+		color:#8f8f8f;
+		margin-top:0.1rem;
+		display:inline-block;
+	}
+	.newfx-button{
+		padding:0.2rem 1rem 0.5rem 1rem;
+	}
+	.newfx-button button{
+		width:100%;
+		height:0.8rem;
+		text-align:center;
+		color:#ff7e21;
+		font-size:0.32rem;
+		line-height:0.7rem;
+		border-radius:0.05rem;
+		background:#fff;
+		border:0;
+		box-shadow:0 0.05rem 0 #e0e0e0;
+	}

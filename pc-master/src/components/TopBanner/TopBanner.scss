@@ -1,0 +1,98 @@
+
+@import "../../assets/css/libs/swiper";
+@import "../../assets/css/libs/mixin";
+
+:global{//全局样式
+    body{
+        font-family: 微软雅黑;
+    }
+    .device{
+        width: 100%;
+        height: 380px;
+        background: #f8f8f8;
+        margin: 0 auto;
+        margin-bottom: 0;
+        position: relative;
+        .swiper-container{
+            height: 100%;
+            width: 100%;
+            .swiper-wrapper{
+                height: 100%;
+                width: 100%;
+                .swiper-slide{
+                    overflow: hidden;
+                    position:relative;
+                    img{
+                        @include box((w:1920px,d:block,m:0,p:0));
+                        position:absolute;
+                        left:50%;
+                        margin-left:-960px;
+                        top:0;
+                    }
+                }
+            }
+        }
+
+        //.pagination_content{
+        //    width:1200px;
+        //    margin:0 auto;
+        //}
+        .pagination{
+            @include box((w:100%,h:20px,ta:center));
+            @include position((p:absolute,b:20px,z:1000));
+            .swiper-pagination-switch{
+                @include box((d:inline-block,w:12px,h:12px,bdr:50%,bg:#fff,m:0 5px));
+                &.swiper-active-switch{
+                    @include box((w:44px,h:12px,bdr:6px));
+                }
+            }
+
+        }
+    }
+
+    .scrollWraper{
+        width:100px;
+        height: 200px;
+        border:1px solid red;
+        overflow: hidden;
+        li{
+            line-height: 40px;
+        }
+    }
+    .incomebox{
+        @include box((w:1200px,h:380px,m:auto));
+        @include position((p:absolute,t:0,l:0,r:0,));
+    }
+}
+
+.income{
+    @include box((w:280px,h:380px,bg:rgba(255,255,255,0.85),p:30px 0,ta:center));
+    @include position((p:absolute,top:0,r:0,z:8));
+    .incomename{
+        @include box((c:#d7a55e,fs:14px))
+    }
+    .incometoday{
+        @include box((c:#555,fs:18px,mt:30px))
+    }
+    .incomenum{
+        @include box((c:#f64c3e,fs:36px,m:40px 0));
+        span{
+            font-size: 24px;
+        }
+    }
+    .button{
+        @include box((w:210px,h:48px,bg:#d7a55e,c:#fff,m:0 auto,ta:center,fz:16px,lh:48px));
+        background-image: url('https://images.51rz.com/images/rebuild/pc/img/banner_bg_xc.png');
+        background-position: center center;
+        background-repeat:no-repeat;
+        background-size:203px 42px ;
+        cursor:pointer;
+        a{
+            @include box((d:block,w:100%,h:100%,c:#fff))
+        }
+    }
+    .chongzhi{
+        @include box((fs:16px,c:#4992ec,mt:15px,d:block));
+        cursor:pointer;
+    }
+}

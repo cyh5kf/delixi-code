@@ -1,0 +1,23 @@
+@import "../../assets/css/libs/mixin.scss";
+
+.tip{
+    @include box((w:250px,bd:1px solid #e5e5e5,p:5px,lh:16px,c:#656565,bg:$white));
+    box-shadow: 0 0 8px 3px rgba(230,230,230,0.4);
+    opacity: 0;
+    display: none;
+    z-index: 1;
+    transition: all ease 600ms;
+    &.top{
+        transform: translate3d(0,-100%,0);
+    }
+    &.bottom{
+        transform: translate3d(0,100%,0);
+    }
+    &.active{
+        opacity: 1;
+        display: block;
+        transform: translate3d(0,0,0);
+    }
+
+}
+

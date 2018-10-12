@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection" />
+    <title>人众金服</title>
+    <link rel="shortcut icon" href="https://activity-center.51rz.com/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <script type='text/javascript' src='https://assets.growingio.com/sdk/wx/vds-wx-plugin.js'></script>
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5395127f074c49150bc6578ff60ff4e8";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+    <!--background-image: linear-gradient(to top, #fb814e,#f94638);background-image: -webkit-linear-gradient(to top, #fb814e,#f94638);-->
+    <style type="text/css">
+        *{margin: 0;padding: 0;box-sizing: border-box;-webkit-box-sizing: border-box;}
+        body{max-width:7.5rem;margin:0 auto;background:url("https://images.51rz.com/images/app/june_father/app_father05.jpg") repeat;overflow:auto;height: 100%;}
+        img{width: 100%;display: block;}
+        ul li{list-style-type:none;}
+        [v-cloak] {
+            display: none;
+        }
+        .font-16 {
+            font-size: 0.16rem;
+        }
+        .font-18 {
+            font-size: 0.18rem;
+        }
+
+        .font-20 {
+            font-size: 0.2rem;
+        }
+
+        .font-24 {
+            font-size: 0.24rem;
+        }
+        .font-26{
+            font-size:0.26rem;
+        }
+
+        .flt {
+            float: left;
+        }
+
+        .frt {
+            float: right;
+        }
+
+        .center {
+            text-align: center;
+        }
+        #wraper {    
+            position: relative;  
+        }
+        .banner{
+            width:100%;
+            height:2.63rem;
+            background:url("https://images.51rz.com/images/app/june_father/app_father01.jpg") no-repeat center top;
+            background-size:contain;
+        }
+        .boxOne{
+            width:100%;
+            height:3.03rem;
+            background:url("https://images.51rz.com/images/app/june_father/app_father02.jpg") no-repeat center top;
+            background-size:contain;
+            font-size:0;
+        }
+        .boxOne p{
+            width:100%;
+            text-align:center;
+            padding-top:0.77rem
+        }
+        .boxOne p span{
+            width:100%;
+            font-size:0.24rem;
+            color:#fff6f7;
+            display: inline-block;
+            height:0.3rem;
+        }
+        .boxOne p span i{
+            width:0.2rem;
+            height:0.16rem;
+            background:url("https://images.51rz.com/images/app/june_father/pc_father07.png") no-repeat;
+            background-size:100% 100%;
+            display:inline-block;
+        }
+        .boxOne p span strong{
+            font-weight:500;
+        }
+        .boxOne-text{
+            width: 100%;
+            display: inline-block;
+            font-size: 0.26rem;
+            text-align: center;
+            padding-top: 0.4rem;
+            color: #c07d49;
+        }
+        .boxOne-text small{
+            color:#e50f0f;
+            font-size:0.26rem;
+            padding:0 0.1rem;
+        }
+        .boxTwo{
+            width:100%;
+            text-align:center;
+            padding-top:0.33rem;
+            font-size:0;
+        }
+        .boxTwo img{
+            width:6.91rem;
+            height:4.78rem;
+            display:inline-block;
+        }
+        .boxTwo p{
+            width:100%;
+            text-align:center;
+            padding-top:0.52rem;
+        }
+        .boxTwo p span{
+            width:3.88rem;
+            height:0.68rem;
+            color:#fff;
+            font-size:0.32rem;
+            display:inline-block;
+            background:#80c2a1;
+            border-radius:1rem;
+            line-height:0.68rem;
+        }
+
+        .boxThere{
+            width:100%;
+            text-align:center;
+            padding:0.41rem 0 0.5rem 0;
+        }
+        .boxThere img{
+            width:6.91rem;
+            height:2.13rem;
+            display:inline-block;
+        }
+        
+    </style>
+</head>
+<body>
+<div id="wraper">
+    <div class="banner"></div>
+    <div class="boxOne">
+        <p>
+            <span class="p_top">已获得</span>
+            <span><i></i> ×<strong v-text="heartAll"></strong></span>
+        </p>
+        <div v-show="!isLogined" class="boxOne-text"><small @click="go" style="cursor:pointer;text-decoration:underline;font-size:0.26rem;">登录查看详情</div>
+        <div v-show="isLogined" class="boxOne-text">(再投资<small v-text="totalAmount==0?5000: surplus"></small>元获得下一颗爱心)</div>
+    </div>
+    <div class="boxTwo">
+        <img src="https://images.51rz.com/images/app/june_father/app_father03.jpg" />
+        <p>
+            <span @click="go">去投资> ></span>
+        </p>
+    </div>
+    <div class="boxThere">
+        <img src="https://images.51rz.com/images/app/june_father/app_father04.jpg" />
+    </div>
+</div>
+
+<script src="/static/js/fastclick.min.js"></script>
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/zepto.min.js"></script>
+
+<script type="text/javascript">
+
+    // 解决移动端页面click事件存在300毫秒延迟
+    document.addEventListener('DOMContentLoaded', function () {
+        FastClick.attach(document.body);
+    }, false);
+
+    //    避免页面从缓存中加载
+    window.onpageshow = function(e){
+        e = e || event;
+        if(e.persisted){
+            location.reload();
+        }
+    }
+
+    function getParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r!=null) return unescape(r[2]); return null; //返回参数值
+    }
+    var token= getParam("token") || '';
+    var isLogined = token? true: false;//是否登录
+
+    window.vm=new Vue({
+        el:"#wraper",
+        data:{
+            isLogined: isLogined,
+            bamboo:[],
+            heartAll:0,
+            totalAmount:0,
+            surplus: 0,
+        },
+        methods: {
+            go: function () {
+                var type = getParam('type') || 'www';
+                this.isLogined ? location.href = 'https://' + type + '.51rz.com/tender/index': location.href = 'https://' + type + '.51rz.com/login';
+            },
+            // 打开弹窗提示
+            showMsg: function(msg) {
+                $(".dialog-tip .content").text(msg);
+                $(".dialog-tip").show();
+                setTimeout(function() {
+                    $(".dialog-tip .content").text('');
+                    $(".dialog-tip").hide();
+                }, 2000);
+            },
+        },
+        created: function(){
+            var _this = this;
+            if (isLogined) {
+                $.post('/index.php?_url=/api/activity/index',{activityId: 25, token: token},function(data){
+                    if(data && data.error_code === 0){
+                        var bamboo = data.data.bamboo;
+                        _this.bamboo = bamboo;
+                        var totalAmount = bamboo[0].totalAmount*1;
+                        var heartAll = parseInt(totalAmount/5000);
+                        _this.totalAmount = totalAmount; 
+                        _this.heartAll = heartAll;
+                        _this.surplus = 5000 - (totalAmount - heartAll*5000);
+                        
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

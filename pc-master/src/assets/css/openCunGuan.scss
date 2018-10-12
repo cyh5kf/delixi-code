@@ -1,0 +1,100 @@
+@import "./libs/mixin.scss";
+
+.wraper {
+  @include box((w:$contentW, m:20px auto 50px));
+  .banner {
+    @include box((w:100%, h:210px, ta:center, p:67px 0 0 0));
+    @include background((url:'open_cun_guan_banner.png', size:100% 100%, repeat:no-repeat));
+    h5 {
+      @include box((fs:36px, c:$white, lh:30px));
+      font-weight: normal;
+    }
+    p {
+      @include box((c:#fff, fs:24px, p:20px 0 0 0))
+    }
+  }
+  .fromWraper {
+    @include box((bg:$white, p:50px 0 80px 310px));
+    min-height: 550px;
+  }
+}
+
+.step2 {
+  @include box((w:$contentW, m:20px auto 50px, h:560px, bg:$white, p:80px 0 0 0, ta:center));
+  div {
+    @include box((w:54px, h:54px, m:0 auto 30px));
+    @include background((url:'ok_green.png', size:100% 100%, repeat:no-repeat))
+  }
+  h5 {
+    @include box((fs:16px, c:$black2, lh:40px));
+    font-weight: normal;
+  }
+  p {
+    @include box((fs:16px, c:$black5));
+    a {
+      color: $blue;
+    }
+  }
+}
+
+.lookup{
+  @include box((h:30px,lh:30px,w:470px,ta:right,c:#4992ec,));
+  @include position((p:relative,t:-30px));
+  cursor:pointer;
+}
+.mask {
+  @include box((bg:rgba(0, 0, 0, .3)));
+  @include position((p:fixed, l:0, r:0, t:0, b:0, z:1000));
+  .content {
+    @include box((w:600px, h:594px, fs:14px, bg:#fff, mt:-297px, ml:-300px, bdr:5px, p:28px 20px 56px 30px));
+    @include position((p:absolute, t:50%, l:50%));
+    h6 {
+      @include box((c:#555, fw:500, mb:20px,fs:14px))
+    }
+    .close {
+      @include box((w:15px, h:15px));
+      @include background((url:'closedetail.png', repeat:no-repeat, pos:center center));
+      @include position((p:absolute, t:28px, r:20px));
+      cursor:pointer
+    }
+    ul {
+      @include box((h:457px, pr:20px));
+      overflow-y: scroll;
+      li {
+        @include box((h:76px));
+        border-bottom: 1px solid #eee;
+        .img{
+          @include box((w:55px, h:100%, fl:left, ta:center, lh:75px));
+          img{
+            @include box((w:34px))
+          }
+        }
+        .desc{
+          @include box((fl:left,pt:18px));
+        }
+        .title {
+          @include box((c:#222))
+        }
+        .quota {
+          @include box((c:#999))
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

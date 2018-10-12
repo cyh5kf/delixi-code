@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="wap-font-scale" content="no"/>
+    <title>积分加倍</title>
+    <link rel="shortcut icon" href="/static/img/favicon.ico"/>
+    <link rel="stylesheet" href="/static/css/common/table.css">
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+</head>
+<style>
+    html {
+        font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft Yahei, STHeiTi, Arial, sans-serif;
+        background-color: #fff;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0.22rem;
+        box-sizing: border-box;
+        line-height: 1.5;
+        text-decoration: none;
+        color: #222;
+    }
+    #container{
+        max-width:7.5rem;
+        margin:0 auto;
+    }
+    .header{
+        padding:0.7rem 0.3rem 0.7rem 1.56rem;
+        background-color:#eef3f9;
+        background-image:url(https://images.51rz.com/images/jifen/vip-double.png) ;
+        background-repeat:no-repeat;
+        background-size:1rem;
+        background-position:0.35rem 0.5rem;
+    }
+    .header p{
+        line-height: 0.36rem;
+        color:#222;
+        font-size:0.24rem;
+    }
+    .dot_lists{
+        padding:0.25rem 0.3rem 0.25rem 0.6rem;
+    }
+    .dot_lists li{
+        padding:0.25rem 0 0.25rem 0;
+        font-size:0.24rem;
+        color:#555;
+        lin-height:0.24rem;
+        position: relative;
+    }
+    .dot_lists li:before{
+        content:'';
+        display:block;
+        width:0.1rem;
+        height:0.1rem;
+        background: #999;
+        -webkit-border-radius: 50%;
+        position: absolute;
+        left:-0.3rem;
+        top:50%;
+        margin-top:-0.05rem;
+    }
+    table td{
+        width:33.33%;
+    }
+
+</style>
+<body>
+<div id="container">
+    <div class="header">
+        <p>
+            人众金服V3(黄金会员)及以上等级用户，在投资时可享受积分加倍福利。
+        </p>
+    </div>
+    <ul class="dot_lists">
+        <li>仅通过投资获得积分时可享受加倍福利；</li>
+        <li>等级越高，加倍系数越高；</li>
+        <li>积分加倍系数以投资当时的会员等级为准。</li>
+    </ul>
+    <table class="normal_table">
+        <thead>
+            <tr>
+                <td>会员等级</td>
+                <td>等级称号</td>
+                <td>积分加倍系数</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="(item,ind) in levels">
+                <td v-text="item.level_code"></td>
+                <td v-text="item.level_name"></td>
+                <td class="gold" v-text="item.coefficient?item.coefficient:'无'"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script>
+    //    避免页面从缓存中加载
+    window.onpageshow = function (e) {
+        e = e || event;
+        if (e.persisted) {
+            location.reload();
+        }
+    }
+
+    function getParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; //返回参数值
+    }
+
+    window.el = new Vue({
+        el: '#container',
+        data: {
+            levels:[
+                {
+                    lv:'V1',
+                    lvTxt:'青铜会员',
+                    delta:'无'
+                },
+                {
+                    lv:'V2',
+                    lvTxt:'白银会员',
+                    delta:'无'
+                },
+                {
+                    lv:'V3',
+                    lvTxt:'黄金会员',
+                    delta:'0.2'
+                },
+                {
+                    lv:'V4',
+                    lvTxt:'铂金会员',
+                    delta:'0.4'
+                },
+                {
+                    lv:'V5',
+                    lvTxt:'钻石会员',
+                    delta:'0.6'
+                },
+                {
+                    lv:'V6',
+                    lvTxt:'至尊会员',
+                    delta:'0.8'
+                },
+            ]
+        },
+        methods: {
+            getLevels:function(){
+                var self=this;
+                $.post('/index.php?_url=/vipcenter/level/levelConfig',{},function(data){
+                    self.levels=JSON.parse(data).data
+                })
+            }
+        },
+        created: function () {
+            this.getLevels();
+        }
+    })
+</script>
+</body>
+</html>

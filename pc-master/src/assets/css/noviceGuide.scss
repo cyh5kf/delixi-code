@@ -1,0 +1,65 @@
+@import "./libs/mixin.scss";
+
+:global {
+  .container {
+    @include box((w:100%, h: 3610px, pt:540px));
+    @include background((url:'guidebg1.png', pos:center center, repeat:no-repeat));
+    .content {
+      @include box((w:1200px, m:0 auto));
+      section {
+        max-width: 1200px;
+        @include box((w:1200px, h:493px, pt:360px, ta:center, mb:72px));
+        @include background((url:'pcguidebg1.png', repeat:no-repeat, pos:center center));
+      }
+      .section1 {
+        @include background((url:'pcguidebg1.png'));
+      }
+      .section2 {
+        height: 1331px;
+        @include background((url:'pcguidebg2.png'));
+      }
+      .section3 {
+        height: 571px;
+        padding-top: 112px;
+        @include background((url:'pcguidebg3.png'));
+        .step {
+          @include box((w:761px, h:383px, m:0 auto, ta:center));
+          .stepDetail {
+            @include box((w:600px, h:100%, d:inline-block));
+            overflow: hidden;
+            ul {
+              @include box((w:6000px, h:100%));
+              transition: all 1s;
+              li {
+                @include box((w:600px, h:100%, fl:left))
+              }
+            }
+          }
+
+          .left, .right {
+            @include box((w:36px, h:94px, bdr:18px, bg:#f3ae60, mt:145px));
+            @include background((url:'pcguideArrow.png', pos:center center, repeat:no-repeat));
+            cursor: pointer;
+          }
+          .left {
+            @include box((fl:left));
+            transform: rotateY(180deg);
+          }
+          .right {
+            float: right
+          }
+        }
+      }
+      .section4 {
+        height: 747px;
+        padding-top: 613px;
+        @include background((url:'pcguidebg4.png'));
+      }
+      .section5 {
+        height: 323px;
+        margin-bottom: 0px;
+        @include background((url:'pcguidebg5.png'));
+      }
+    }
+  }
+}

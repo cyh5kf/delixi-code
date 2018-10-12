@@ -1,0 +1,33 @@
+:global {
+    .swiper-container {
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        .swiper-wrapper {
+            position: relative;
+            width: 100%;
+            transition-property: transform, left, top;
+            transition-duration: 0s;
+            transform: translate3d(0px, 0, 0);
+            transition-timing-function: ease;
+            .swiper-slide{
+                float: left;
+            }
+        }
+    }
+    .swiper-free-mode  {
+        .swiper-wrapper{
+            transition-timing-function: ease-out;
+            margin: 0 auto;
+        }
+    }
+    /* IE10 Windows Phone 8 Fixes */
+    .swiper-wp8-horizontal{
+        -ms-touch-action: pan-y;
+    }
+    .swiper-wp8-vertical{
+        -ms-touch-action: pan-x;
+    }
+}
+

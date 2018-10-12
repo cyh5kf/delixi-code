@@ -1,0 +1,19 @@
+@import "../../assets/css/libs/mixin.scss";
+
+.bankCard{
+    @include box((w:250px,h:110px,bd:1px solid #d7a55e,bdr:2px,p:5px 10px 0));
+    h4{
+        @include box((lh:28px,fw:normal,fs:14px));
+        img{
+            @include box((d:inline-block,w:18px,h:18px,m:0 10px 0 0));
+        }
+    }
+    h3 {
+        @include box((lh:42px,fw:normal,fs:18px));
+        text-indent: 30px;
+        border-bottom: 1px dashed #e5e5e5;
+    }
+    h5{
+        @include box((w:100%,lh:34px,fs:12px,c:$black5));
+    }
+}

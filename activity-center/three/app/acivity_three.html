@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection" />
+    <title>签到领红包</title>
+    <link rel="shortcut icon" href="http://www.51rz.com/favicon.ico" />
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <script type='text/javascript' src='https://assets.growingio.com/sdk/wx/vds-wx-plugin.js'></script>
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5395127f074c49150bc6578ff60ff4e8";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+    <!--background-image: linear-gradient(to top, #fb814e,#f94638);background-image: -webkit-linear-gradient(to top, #fb814e,#f94638);-->
+    <style type="text/css">
+        *{margin: 0;padding: 0;box-sizing: border-box;-webkit-box-sizing: border-box;}
+        body{max-width:750px;margin:0 auto;background:#bc2222;}
+        img{width: 100%;display: block;}
+        ul li{list-style-type:none;}
+        .february-banner{width:100%;height:3rem;background:url(https://images.51rz.com/images/h5/three-act/three-actBanner.png) no-repeat center top;}
+        .february-box{width:100%;font-size:0;padding-bottom:0.2rem;}
+        .february-text{width:100%;padding:0.15rem 0.31rem 0 0.31rem;font-size:0.22rem;color:#fff;line-height:0.35rem;text-align:center;}
+        .february-text span{font-size:0.28rem;}
+        .february-money{width:100%;text-align:center;}
+        .february-money p{height:0.46rem;line-height:0.46rem;color:#ffe4ab;font-size:0.24rem;margin-top:0.2rem;padding:0 0.3rem;background:#ae1111;border-radius:0.05rem;display:inline-block;}
+        .february-money p strong{font-size:0.32rem;font-weight:100;}
+        .february-money p span{font-size:0.24rem;}
+        .february-cai{width:100%;padding:0.37rem 0.31rem 0 0.31rem;display:inline-block;}
+        .february-cai div{width:3.34rem;display:inline-block;text-align:center;}
+        .february-cai div:first-child{float:left;}
+        .february-cai div:first-child p{width:100%;height:2.83rem;display:inline-block;color:#fde643;font-size:0.24rem;text-shadow: 0 0 0.1rem #f1880d;padding-top: 0.38rem;}
+        .february-cai div:first-child p strong{font-size:0.45rem;font-weight:500;}
+        .cai-money{font-size: 0.18rem;color: #b21616;background: #f7b671;padding:0 0.1rem 0.02rem 0.1rem;border-radius: 0.1rem;margin: 1.2rem 0.1rem 0 0;display: inline-block;}
+        .cai-text{display: inline-block;line-height:0.27rem;color: #fff;font-size: 0.18rem;padding: 0.05rem 0.65rem 0 0.65rem;}
+        .hb-bg{background:url(https://images.51rz.com/images/h5/three-act/three-hbNo.png) no-repeat center top;background-size:100% 100%;}
+        .hb-bg1{background:url(https://images.51rz.com/images/h5/three-act/three-hbYes.png) no-repeat center top;background-size:100% 100%;}
+        .february-cai div:first-child p.font-text{font-size:0.18rem;color:#fff;padding: 1.2rem 0.65rem 0 0.65rem;}
+        .february-cai div:last-child{float:right;}
+        .february-cai div:last-child p{width:100%;height:2.83rem;display:inline-block;}
+        .money-bg{background:url(https://images.51rz.com/images/h5/three-act/three-moneyNo.png) no-repeat center top;background-size:100% 100%;}
+        .money-bg1{background:url(https://images.51rz.com/images/h5/three-act/three-moneyYes.png) no-repeat center top;background-size:100% 100%;}
+        .money-text{padding-top: 0.3rem;font-size:0.2rem;color:#cf071c;display: inline-block;}
+        .money-text small{font-size:0.32rem;}
+        .text-sm{color:#fff;font-size:0.2rem;display:inline-block;width:100%;margin-top:0.6rem;}
+        .february-btn{cursor:pointer;width:1.8rem;text-align:center;padding:0 0.3rem;color:#fff;font-size:0.24rem;margin-top:0.26rem;height:0.57rem;line-height:0.57rem;display:inline-block;border-radius:0.1rem;}
+        .orange{background-image:linear-gradient(to top, #ff950a,#ffbe00);background-image: -webkit-linear-gradient(to top, #ff950a,#ffbe00);box-shadow:0 3px 0 #f06424;}
+        .gray{background-image:linear-gradient(to top, #b1b1b1,#c0c0c0);background-image: -webkit-linear-gradient(to top, #b1b1b1,#c0c0c0);box-shadow:0 3px 0 #a2a2a2;}
+        .february-dj{width:92%;height:0.45rem;margin:0.3rem 0 0 4%;padding:0 0.31rem;text-align:center;display:inline-block;overflow:hidden;color:#ffe4ab;font-size:0.24rem;background:#ae1111;border-radius:0.05rem;}
+        .scroll-box ul li{height:0.45rem;box-sizing: border-box;line-height:0.45rem;text-align: center;}
+        .anim{transition: all 0.5s;}
+
+        .february-box1{width:100%;padding:0 0.31rem 0.78rem 0.31rem;margin-top:0.3rem;font-size:0;}
+        .february-box1-wrap{width:100%;background:#ffe4ab;padding:0.2rem;border-radius:0.1rem;}
+        .february-box1-wrap h3{width:100%;font-size:0.24rem;color:#d17618;font-weight:500;}
+        .february-box1-wrap p{width:100%;font-size:0.2rem;color:#d17618;line-height:0.35rem;padding-top:0.1rem;}
+
+        .february-jp{width:100%;padding:0.2rem 0.2rem 0 0.2rem;}
+        .february-jp ul{width:100%;background:#cc3f26;height:0.52rem;line-height:0.52rem;border-radius:1rem;}
+        .february-jp ul li{width:50%;display:inline-block;font-size:0.24rem;color:#fff;text-align:center;}
+        .active{width:100%;height:0.52rem;border-radius:1rem;background-image:linear-gradient(to top, #ff950a,#ffbe00);background-image: -webkit-linear-gradient(to top, #ff950a,#ffbe00);}
+        .february-bot{width:100%;margin-top:0.1rem;padding:0 0.2rem;}
+        .february-bot p{width:2.82rem;height:2.84rem;display:inline-block;margin-top:0.2rem;text-align:center;}
+        .february-bot p:nth-child(odd){float:left;}
+        .february-bot p:nth-child(even){float:right;}
+
+
+        .february-bg{width:100%;border-radius:0.1rem;background:#e05a09;height:8.2rem;margin-bottom:0.5rem;padding-top:0.3rem;}
+        .february-color{color:#ffe1cf;}
+        .phb{background:#c0510e !important;}
+        .february-list{width:100%;padding:0 0.2rem;margin-top:0.2rem;}
+        .february-list ul{width:100%;}
+        .february-list ul li{width:100%;height:0.48rem;line-height:0.48rem;color:#fff;font-size:0.24rem;display:flex;display:-webkit-flex;text-align:center;}
+        .february-list ul li:nth-child(odd){background:#f9ab3b;}
+        .february-list ul li:nth-child(even){background:#ee9f2f;}
+        .february-list ul li span:nth-child(1){width:10%;}
+        .february-list ul li span:nth-child(2){width:25%;}
+        .february-list ul li span:nth-child(3){width:20%;}
+        .february-list ul li span:nth-child(4){width:45%;text-align:right;padding-right:0.1rem;}
+
+        .february-banner{background-size:100% 100%;}
+
+        .open-right{width:0.47rem;height:1.6rem;background:#f23920;font-size:0.24rem;color:#fff;text-align:center;position:fixed;right:0;top:3.2rem;padding-top:0.15rem;border-radius:0.1rem 0 0 0.1rem;}
+        .open-fixed{display:none;width:7.5rem;height:100%;background:rgba(0,0,0,0.5);position:fixed;z-index:1;left:0;}
+        .open-text{width:6rem;background:#fef4e6;border-radius:0.5rem;font-size:0.24rem;display: inline-block;position: absolute;left: 10%;top: 23%;padding:0.2rem;}
+        .open-text h3{width:100%;text-align:center;font-size:0.32rem;padding-top:0.2rem;}
+        .open-text p{line-height:0.35rem;padding-top:0.1rem;text-indent: -0.4rem;padding-left: 0.4rem;}
+
+        .february-close{width:1rem;height:1rem;position:absolute;top:-1rem;right:-4%;z-index:2;}
+
+        .hbylq{width:100%;text-align:center;font-size:0.2rem;color:#fff;display: inline-block;padding-top: 1.6em;}
+    </style>
+</head>
+<body>
+<div id="wraper">
+    <div class="february-banner"></div>
+    <div class="february-box">
+        <p class="february-text">每日翻牌可得红包奖励！单笔投资30天以上标的即可额外获得<br />现金奖励！单日最高开出3个88元超额现金奖励。</p>
+        <div class="february-money" v-show="isLogined"><p>我的现金钱包：<strong v-text="totalCash">0</strong><span>元</span></p></div>
+        <div class="february-money" v-show="!isLogined"><p>我的现金钱包：<span @click="go">登录查看</span></p></div>
+        <div class="february-cai">
+            <div>
+                <!--未登录未领取-->
+                <p class="hb-bg" v-show="today[1].rewardType == 0"></p>
+                <!--已领取-->
+                <p class="hb-bg1" v-show="isLogined && today[1].rewardType == 1 && today[1].used == 0 && today[1].money != 3"><strong v-text="Number(today[1].money).toFixed(0)">0</strong>元<span class="hbylq">投100元30天<br />以上标可用</span></p>
+
+                <p class="hb-bg1" v-show="isLogined && today[1].rewardType == 1 && today[1].used == 0 && today[1].money == 3"><strong v-text="Number(today[1].money).toFixed(0)">0</strong>元<span class="hbylq">投100元180天<br />以上标可用</span></p>
+                <!--红包已使用-->
+                <p class="hb-bg1" v-show="isLogined && today[1].rewardType == 1 && today[1].used == 1 && today[1].money != 3"><strong v-text="Number(today[1].money).toFixed(0)">0</strong>元<span class="hbylq">投100元30天<br />以上标可用</span></p>
+                <p class="hb-bg1" v-show="isLogined && today[1].rewardType == 1 && today[1].used == 1 && today[1].money == 3"><strong v-text="Number(today[1].money).toFixed(0)">0</strong>元<span class="hbylq">投100元180天<br />以上标可用</span></p>
+                <!--<p class="hb-bg" v-show="isLogined && today[1].used == 1"></p>-->
+
+
+                <span class="february-btn orange" v-show="!isLogined && today[1].rewardType == 0" @click="go">立即领取</span>
+                <span class="february-btn orange" v-show="isLogined && today[1].rewardType == 0" @click="but(today[1].packId,1)">立即领取</span>
+                <span class="february-btn orange" v-show="today[1].used == 0" @click="go">去使用</span>
+                <span class="february-btn gray" v-show="today[1].used == 1">已使用</span>
+            </div>
+            <div>
+                <!--未登录未拆开-->
+                <p class="money-bg" v-show="today[0].rewardType == 0">
+                    <span class="cai-money">最高88元</span>
+                    <span class="cai-text">单笔投30天以上标<br />即可获得</span>
+                </p>
+                <!--拆开-->
+                <p class="money-bg1" v-show="isLogined && today[0].rewardType == 4">
+                    <span class="money-text"><small v-text="today[0].money">0</small>元</span>
+                    <span class="text-sm">现金礼包</span>
+                </p>
+                <span class="february-btn gray" v-show="!isLogined && today[0].rewardType == 0" @click="go">拆开</span>
+                <span class="february-btn gray" v-show="isLogined && today[0].rewardType == 0 && today[0].activated == 1" @click="but(today[0].packId,0)">拆开</span>
+                <span class="february-btn orange" v-show="isLogined && today[0].rewardType == 0 && today[0].activated == 2" @click="but(today[0].packId,0)">拆开</span>
+                <span class="february-btn gray" v-show="isLogined && today[0].rewardType == 4">已领取</span>
+            </div>
+        </div>
+        <div class="february-dj scroll-box" v-show="itemNews.length > 0">
+            <ul :class="animate?'anim':''" ref="rank">
+                <li v-for="(item,index) in itemNews" :key="index" v-cloak >今日获得88元现金的是{{item}}用户</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="february-box1">
+        <div class="february-box1-wrap">
+            <h3>活动规则</h3>
+            <p>
+                1、本活动新手标、债转项目、30天以下标的不计入；<br />
+                2、红包即时到账，仅当天有效，红包使用信息详见劵面，100元起投。现金奖励在活动结束后五个工作日内四舍五入到账；<br />
+                3、活动最终解释权法律允许的范围归人众金服所有，如有疑问请致电客服：400-655-8858。（咨询时间：9:00——21:00）
+            </p>
+        </div>
+    </div>
+
+    <!-- 弹窗提示 -->
+    <div class="dialog-tip">
+        <div class="content"></div>
+    </div>
+
+</div>
+
+
+
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript">
+    //    避免页面从缓存中加载
+    window.onpageshow = function(e){
+        e = e || event;
+        if(e.persisted){
+            location.reload();
+        }
+    }
+
+    function getParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r!=null) return unescape(r[2]); return null; //返回参数值
+    }
+    var token= getParam("token") || '';
+    var isLogined =token?true:false;//是否登录
+    window.vm=new Vue({
+        el:"#wraper",
+        data:{
+            isLogined:isLogined,   //是否登录
+            animate:false,//初始化不滚动
+            barActive:true,
+            totalCash:0,//累计获取的现金
+            totalAmount:'',
+            user:0,
+            itemNews:[],
+            bamboo:[{totalAmount:0},{totalAmount:0}],
+            rank:[],//获奖历史记录
+            today:[{rewardType:0},{rewardType:0}],
+        },
+        methods: {
+            showAlert:function(ref){//显示弹框
+                this.$refs[ref].style.display="block";
+            },
+            hideAlert:function(ref){
+                this.$refs[ref].style.display="none";
+            },
+            changeActive:function(event){
+                if(event.target.className.indexOf('active') > -1){
+                    return;
+                }
+                this.$data.barActive = !this.$data.barActive;
+            },
+            scroll:function(){
+                var that = this;
+                var rank = this.$refs.rank;
+                rank.style.marginTop= '-0.45rem';
+                this.animate=!this.animate;
+                setTimeout(function(){
+                    that.itemNews.push(that.itemNews[0]);
+                    that.itemNews.shift();
+                    rank.style.marginTop='0';
+                    that.animate = !that.animate;
+                },1000)
+            },
+            go:function(){
+                if(this.$data.isLogined){
+                    location.href="https://m.51rz.com/tender/index"
+                }else{
+                    location.href="https://m.51rz.com/login"
+                }
+            },
+            but:function(packId,index){
+                var _this = this;
+                if(_this.$data.isLogined) {
+                    $.post('/index.php?_url=/api/pack/open',{activityId:21,token:token,packId:packId},function(data){
+                        if(data.error_code == 0){
+                            Object.assign(_this.today[index],data.data.pack[0]);
+                            if(index == 0){
+                                _this.totalCash = data.data.totalCash;
+                            }
+                        }else{
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                }else{
+                    location.href = 'https://m.51rz.com/login'
+                }
+            },
+            // 打开弹窗提示
+            showMsg: function(msg) {
+                $(".dialog-tip .content").text(msg);
+                $(".dialog-tip").show();
+                setTimeout(function() {
+                    $(".dialog-tip .content").text('');
+                    $(".dialog-tip").hide();
+                }, 2000);
+            },
+        },
+        created:function () {
+            var _this = this;
+            if(_this.isLogined){
+                $.post('/index.php?_url=/api/activity/index',{activityId:21,token:token},function(data) {//活动主接口
+                    if(data && data.error_code == 0){
+                        _this.today = data.data.pack.today;
+                        _this.totalCash = data.data.pack.totalCash;
+                        var luck = data.data.pack.lucks
+                        _this.itemNews = luck;
+                        if(luck.length > 0){
+                            setInterval(_this.scroll,2000)
+                        }
+                    }else{
+                        _this.rank = data.data.rank.currentRanks;
+                    }
+                });
+            }
+        }
+    })
+</script>
+</body>
+</html>

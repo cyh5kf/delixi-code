@@ -1,0 +1,276 @@
+@import "../../assets/css/libs/mixin";
+//:global{
+//	*{
+//		-webkit-user-select: none;
+//		-moz-user-select: none;
+//		-ms-user-select: none;
+//		user-select: none;
+//	}
+//}
+
+.wraper {
+  $lW: 380px;
+  font-size: 14px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  @include position((p:relative, z:9));
+  @include box((w:100%, m:0 auto));
+  .barArea {
+    @include box((h:51px, bg:#fff, w:100%, m:0 auto));
+    border-bottom: 1px solid #f8f8f8;
+    .container {
+      @include box((h:50px, w:1200px, bg:#fff, m:0 auto));
+      .TopBarleft {
+        @include box((h:50px, fl:left));
+        .tel {
+          display: block;
+          @include box((h:19px, w:19px, mr:10px, fl:left, mt:15px));
+          @include background((url:'tel.png', repeat:no-repeat, size:cover))
+        }
+        .download {
+          float: left;
+          position: relative;
+          z-index: 100;
+          .img {
+            display: none;
+            padding: 10px;
+            background: #fff;
+            @include position((p:absolute, t:50px));
+            border: 5px solid #f64c3e;
+            img {
+            }
+          }
+          &:hover {
+            .img {
+              display: block;
+            }
+          }
+        }
+        p {
+          @include box((c:#999, fs:12px, fl:left, lh:50px));
+
+          a {
+            @include box((c:#d7a55e, fs:14px));
+            margin: 0 5px;
+          }
+        }
+        span {
+          @include box((d:block, fl:left, bg:#e8e8e8, w:1px, h:15px, m:18px 6px 0));
+        }
+        .phone {
+          @include box((w:12px, h:22px, ml:10px, fl:left, mt:13px));
+          @include background((url:'phone.png', repeat:no-repeat, size:cover))
+        }
+      }
+      .TopBarRight {
+        @include box((h:50px, fl:right));
+        & > div {
+          @include box((fl:left, lh:50px));
+          span {
+            @include box((d:block, fl:left, bg:#e8e8e8, w:1px, h:15px, m:18px 6px 0));
+          }
+        }
+        .notlogin {
+          @include box((h:50px, fl:left, lh:50px, pt:1px));
+          align-items: center;
+          div {
+            float: left;
+            a {
+              @include box((lh:50px, d:block, fl:right));
+            }
+          }
+          a {
+            @include box((c:#4992ec, fs:12px, lh:50px));
+          }
+          span {
+            @include box((d:block, fl:left, bg:#e8e8e8, w:1px, h:15px, m:18px 6px 0));
+          }
+        }
+        .islogin {
+          @include box((h:50px));
+          span {
+            @include box((fs:12px, c:#999, ml:0));
+            width: auto;
+            height: auto;
+            background: #fff;
+            float: left;
+            display: block;
+            margin: 0;
+            margin-right: 6px;
+          }
+          a {
+            @include box((fs:12px, c:#4992ec));
+            cursor: pointer;
+          }
+          .message {
+            @include box((w:18px, h:16px, fl:right, mt:17px));
+            cursor: pointer;
+            @include background((url:'message.png', repeat:no-repeat, size:cover));
+            @include position((p:relative));
+            img {
+              @include position((p:absolute, t:0, r:0))
+            }
+          }
+        }
+        a {
+          @include box((c:#999, fs:12px))
+        }
+      }
+    }
+  }
+  .navsArea {
+    @include box((h:86px, bg:#fff, p:25px 0,));
+    .navs {
+      @include box((w:1200px, m:0 auto));
+      .leftLogo {
+        @include box((h:50px, d:block, w:$lW, fl:left));
+        @include background((url:'logo.png', repeat:no-repeat, pos:left center));
+        position: relative;
+        top: -7px;
+        //&:after{
+        //	content:"";
+        //	@include position((pos:absolute,t:0,r:0));
+        //	@include box((w:1px,h:50px,d:block,bg:#e5e5e5));
+        //}
+        .logoText {
+          //@include box((m:-10px 0 0 155px));
+          @include box((m:-18px 0 0 155px));
+        }
+      }
+      .rightNav {
+        @include box((h:86px, pl:20px, fl:right, mt:-25px));
+        ul {
+          @include box((w:100%, h:100%));
+          li {
+            @include box((p:0 10px, h:100%, c:#232323, fs:16px, lh:86px, fl:left, mr:26px));
+            border-bottom: 2px solid #fff;
+            box-sizing: border-box;
+            cursor: pointer;
+            &:last-child {
+              margin-right: 0;
+            }
+            &.active {
+              @include box((c:#f64c3e));
+              border-bottom: 2px solid #f64c3e;
+            }
+            &:hover {
+              @include box((c:#f64c3e));
+              border-bottom: 2px solid #f64c3e;
+              a {
+                @include box((c:#f64c3e));
+              }
+            }
+            a {
+              @include box((d:block, lh:86px, w:100%))
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.fixed {
+  position: fixed;
+  right: 10px;
+  bottom: 50px;
+  //height: 260px;
+  width: 58px;
+  height: 406px;
+  z-index: 20000;
+  @include background((url:'fix_bg_xc.png',));
+  li {
+    //@include box((w:40px, h:40px, mt:1px));
+    @include box((w:58px, h:56px));
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+    & > a {
+      //@include background((url:'online.png', repeat:no-repeat, size:cover));
+      @include background((url:'online_xc.png', repeat:no-repeat, pos:center center,));
+      //@include box((d:block, w:100%, h:100%, p:6px 5px 0,));
+      @include box((d:block, w:100%, h:100%, p:14px 9px 0 18px,));
+    }
+    &:nth-child(2) {
+      a {
+        //@include background((url:'guanzhuwx.png'));
+        @include background((url:'guanzhuwx_xc.png'));
+      }
+    }
+    &:nth-child(3) {
+      a {
+        //@include background((url:'download.png'));
+        @include background((url:'download_xc.png'));
+      }
+    }
+    &:nth-child(4) {
+      a {
+        //@include background((url:'qq.png'));
+        @include background((url:'qq_xc.png'));
+      }
+    }
+    &:nth-child(5) {
+      a {
+        //@include background((url:'top.png'));
+        @include background((url:'top_xc.png'));
+      }
+    }
+    p {
+      @include box((c:#fff, fs:12px, lh:14px, d:none));
+    }
+    .cardbox {
+      @include position((p:absolute, r:39px, z:1000));
+      //bottom:0;
+      top: 50%;
+      margin-top: -80px;
+      display: none;
+      opacity: 0;
+      .card {
+        //@include box((w:162px, h:167px, bg:#fff, pt:14px, mr:13px));
+        @include box((w:162px, h:167px, bg:#fff, pt:14px, mr:31px));
+        //border: 1px solid #e8e8e8;
+        @include background((url:'fix_card_bg.png',repeat:no-repeat));
+        img {
+          display: block;
+          margin: 0 auto;
+        }
+        p {
+          @include box((c:#666, fs:12px, ta:center, mt:5px));
+        }
+        a {
+          @include box((d:block, w:100%,h:100%));
+          //@include box((d:block, w:109px, h:20px, c:#fff, pl:28px, m:0 auto, mb:10px));
+          //@include background((url:'qqjl.png', repeat:no-repeat, size:cover));
+          background:none;
+        }
+      }
+      transition: all 1s;
+    }
+    &:hover {
+      a {
+        //background: #f64c3e;
+        @include background((url:'fix_active.png'))
+      }
+      p {
+        display: block;
+      }
+      .cardbox {
+        display: block;
+        opacity: 1;
+      }
+    }
+  }
+
+}
+
+.loginCont, .registerCont {
+  @include box((w:532px, h:48px, lh:48px, p:0 0 0 20px, fs:18px, fl:left));
+  border-left: 1px solid #e5e5e5;
+  .rightLogin {
+    @include box((fl:right, c:$black9, fs:16px));
+    a {
+      color: $blue;
+    }
+  }
+}

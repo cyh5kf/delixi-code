@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://activity-center.51rz.com/static/css/style.css">
+    <link rel="shortcut icon" href="https://activity-center.51rz.com/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <link rel="stylesheet" href="https://activity-center.51rz.com/components/header-footer/header-footer.css">
+    <title>人众金服</title>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            width: 100%;
+            height: 100%;
+        }
+        [v-cloak] {
+            display: none;
+        }
+        .font-16 {
+            font-size: 16px;
+        }
+        .font-18 {
+            font-size: 18px;
+        }
+
+        .font-20 {
+            font-size: 20px;
+        }
+
+        .font-24 {
+            font-size: 24px;
+        }
+        .font-28 {
+            font-size: 24px;
+            font-weight:500;
+        }
+
+        .flt {
+            float: left;
+        }
+
+        .frt {
+            float: right;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .part1 {
+            width: 100%;
+            height: 458px;
+            background: url("https://images.51rz.com/images/pc/august/pc_01.png") no-repeat;
+            background-position: center center;
+        }
+        .part2 {
+            width: 100%;
+            height: 458px;
+            background: url("https://images.51rz.com/images/pc/august/pc_02.png") no-repeat;
+            background-position: center center;
+            position: relative;
+        }
+        .part3 {
+            width: 100%;
+            height: 641px;
+            background: url("https://images.51rz.com/images/pc/august/pc_03.png") no-repeat;
+            background-position: center center;
+            text-align:center;
+        }
+        .part4 {
+            width: 100%;
+            height: 1034px;
+            background: url("https://images.51rz.com/images/pc/august/pc_04.png") no-repeat;
+            background-position: center center;
+            position: relative;
+            text-align:center;
+        }
+
+        .part5 {
+            width: 100%;
+            height: 100%;
+            background: url("https://images.51rz.com/images/pc/august/pc_05.png") no-repeat;
+            background-position: center top;
+            position: relative;
+            text-align: center;
+        }
+
+        .part6 {
+            width: 100%;
+            height: 469px;
+            background: url("https://images.51rz.com/images/pc/august/pc_06.png") no-repeat;
+            background-position: center top;
+            position: relative;
+            text-align:center;
+        }
+        .part1,.part2,.part3,.part4,.part5,.part6{
+            min-width:1200px;
+        }
+
+        .fixedBtn{
+            width:52px;
+            height:160px;
+            background:url("https://images.51rz.com/images/pc/august/fixedBtn.png") no-repeat;
+            position:fixed;
+            left:50%;
+            top:50%;
+            margin-left:487px;
+            z-index:30;
+            cursor:pointer;
+            display:none;
+            animation: fixedBtn 0.7s;
+        }
+
+        @keyframes fixedBtn{
+            0%{opacity:0;}
+            100%{opacity:1;}
+        }
+
+        .luckyMoney{
+            width:925px;
+            display:inline-block;
+            background:#fff;
+            border:20px solid #fff6be;
+            border-radius:10px;
+            margin-top:62px;
+            position: relative;
+        }
+
+        .luckyMoney h3{
+            width:495px;
+            height:96px;
+            background:url("https://images.51rz.com/images/pc/august/hb_title.png") no-repeat;
+            position:absolute;
+            top:-86px;
+            left:175px;
+            padding-top:41px;
+            color:#fff6be;
+            font-size:28px;
+            font-weight:300;
+        }
+
+        .luckyMoney p{
+            width:100%;
+            font-size:24px;
+            color:#333;
+            display:inline-block;
+            padding:20px 0;
+        }
+
+        .luckyMoney ul{
+            width:100%;
+        }
+
+        .luckyMoney ul li{
+            width:50%;
+            float:left;
+        }
+
+        .luckyMoney ul li div{
+            width:217px;
+            display:inline-block;
+        }
+
+        .luckyMoney ul li div:first-child span:last-child{
+            width:258px;
+            height:55px;
+            display:inline-block;
+            margin:10px 0 0 -21px;
+            font-size:26px;
+            color:#fff;
+            line-height:55px;
+        }
+
+        .luckyMoney ul li div:last-child{
+            width:217px;
+            display:inline-block;
+        }
+
+        .hbOpen1{
+            width:217px;
+            height:259px;
+            display:inline-block;
+            background:url("https://images.51rz.com/images/pc/august/hb02.png") no-repeat;
+        }
+
+        .hbNo{
+            width:217px;
+            height:259px;
+            display:inline-block;
+            background:url("https://images.51rz.com/images/pc/august/hb01.png") no-repeat;
+        }
+
+        .luckyMoney ul li div:first-child span:first-child{
+            width:100%;
+            height:259px;
+        }
+
+        .luckyMoney ul li div:last-child span:first-child{
+            width:100%;
+            height:259px;
+            font-size:18px;
+            display:inline-block;
+            color:#e75648;
+            padding-top:29px;
+        }
+
+        .luckyMoney ul li div:last-child span:first-child strong{
+            font-size:38px;
+            font-weight:500;
+        }
+
+        .luckyMoney ul li div:last-child span:last-child{
+            width:258px;
+            height:55px;
+            display:inline-block;
+            margin:10px 0 0 -21px;
+            font-size:26px;
+            color:#fff;
+            line-height:55px;
+            cursor:pointer;
+        }
+
+        .btnClass{
+            width:258px;
+            height:55px;
+            display:inline-block;
+            margin:10px 0 0 -21px;
+            font-size:26px;
+            color:#fff;
+            line-height:55px;
+            cursor:pointer;
+        }
+
+        .btn01{
+            background:url("https://images.51rz.com/images/pc/august/btn01.png") no-repeat;
+        }
+        .btn02{
+            background:url("https://images.51rz.com/images/pc/august/btn02.png") no-repeat;
+        }
+
+        .hb_text{
+            width:100%;
+            display:inline-block;
+            text-align:left;
+            padding:40px 20px 20px 20px;
+            color:#b2a8a8;
+            font-size:18px;
+        }
+
+        .tabWrap{
+            width:925px;
+            display:inline-block;
+            padding-top:67px;
+        }
+
+        .tabWrap1{
+            width:925px;
+            display:inline-block;
+            padding-top:67px;
+            position:relative;
+        }
+
+        .tabWrap p{
+            width:100%;
+            text-align:center;
+            color:#555;
+            padding-bottom:25px;
+        }
+
+        .tabWrap p span:first-child{
+            width:100%;
+            display:inline-block;
+            font-size:24px;
+            color:#469fb9;
+        }
+
+        .tabWrap p span:last-child{
+            width:100%;
+            display:inline-block;
+            font-size:20px;
+            color:#555;
+            padding-top:10px;
+        }
+
+        .tabWrap p span:last-child strong{
+            font-weight:500;
+            color:#e39212;
+        }
+
+        .rankingTab{
+            width:100%;
+            display: inline-block;
+        }
+
+        .rankingTab span{
+            width:258px;
+            height:42px;
+            text-align:center;
+            font-size:24px;
+            line-height:42px;
+            background:#1091b4;
+            display: inline-block;
+            color:#fff;
+            cursor:pointer;
+        }
+
+        .rankingTab .act{
+            background:#81c8db;
+            color:#489eb5;
+        }
+
+        .rankingTab1{
+            width:100%;
+            display: inline-block;
+        }
+
+        .rankingTab1 span{
+            width:300px;
+            height:43px;
+            text-align:center;
+            font-size:24px;
+            line-height:43px;
+            background:#ffe989;
+            display: inline-block;
+            color:#cb4c00;
+            cursor:pointer;
+            border-radius:5px 5px 0 0;
+            margin-right:10px;
+        }
+
+        .rankingTab1 span:first-child{
+            float:left;
+        }
+
+        .rankingTab1 span:last-child{
+            margin:0;
+            float:right;
+        }
+
+        .rankingTab1 .act1{
+            background:#e4cf72;
+            color:#ad9942;
+        }
+
+        .tabHb{
+            width:100%;
+            display:inline-block;
+            position:relative;
+        }
+
+        .tabHb div{
+            width:100%;
+            display:inline-block;
+        }
+
+        .tabHb div:first-child span,.tabHb div:last-child span{
+            width:100%;
+            font-size:18px;
+            color:#2b5963;
+            padding:20px 0;
+            display:inline-block;
+            text-align:left;
+        }
+
+        .tabHb div p{
+            width:100%;
+            height:230px;
+            display:inline-block;
+            margin-top:25px;
+        }
+
+        .tabPhb{
+            width:100%;
+            display:inline-block;
+            background:#ffe989;
+            border-radius:0 0 5px 5px;
+        }
+
+        .phbTest{
+            width:100%;
+            display:inline-block;
+            color:#555;
+            font-size:20px;
+            padding:20px 30px 15px 30px;
+            text-align:left;
+        }
+
+        .phbTest strong{
+            color:#cb4c00;
+            font-weight:500;
+        }
+
+        .phbTest span{
+            font-size:18px;
+            color:#3b9fc0;
+            border-bottom:1px solid #3b9fc0;
+            cursor:pointer;
+        }
+
+        .phb_title{
+            width:100%;
+            display:inline-block;
+            border-bottom:1px solid #e7cb52;
+            height:42px;
+        }
+
+        .phb_title span{
+            width:33.3%;
+            text-align:center;
+            font-size:24px;
+            color:#c4ae52;
+            line-height:40px;
+            float:left;
+            font-weight:300;
+        }
+
+        .phbList{
+            width:100%;
+            display:inline-block;
+        }
+
+        .phbLeft{
+            width:66.6%;
+            float:left;
+            padding-bottom:0;
+        }
+
+        .phbLeft p{
+            width:100%;
+            padding-bottom:0;
+        }
+
+        .phbLeft p span{
+            width:50% !important;
+            text-align:center;
+            height:42px;
+            line-height:42px;
+            color:#d87700 !important;
+            float:left;
+            font-size:20px;
+        }
+
+        .oneSpan{
+            text-align:left !important;
+            padding-left: 90px;
+        }
+        
+        .phbRight{
+            width:33.3%;
+            float:right;
+        }
+
+        .phbRight p{
+            padding-bottom:0;
+        }
+        
+        .phbRight p span{
+            width:100%;
+            display:inline-block;
+            height: 42px;
+            line-height: 42px;
+            color: #d87700;
+            font-size: 20px;
+        }
+
+        .phbTip{
+            width:100%;
+            display:inline-block;
+            padding:0 20px 20px 30px;
+            font-size:18px;
+            color:#c1ab4a;
+            text-align:left;
+        }
+
+        .actionRules{
+            padding-top:20px;
+        }
+
+        .actionRules h3{
+            width:100%;
+            font-size:24px;
+            font-weight:500;
+            text-align:left;
+            display:inline-block;
+            color:#07738b;
+            padding-bottom:10px;
+        }
+
+        .actionRules p{
+            width:100%;
+            display:inline-block;
+            font-size:20px;
+            color:#07738b;
+            text-align:left;
+            text-indent: -37px;
+            padding: 0 0 0 36px;
+            line-height: 32px;
+        }
+        /**弹窗**/
+
+        .lsFixed{
+            width:100%;
+            height:100%;
+            position:fixed;
+            background:rgba(0,0,0,0.3);
+            z-index:10;
+            top:0;
+        }
+
+        .lsOpen{
+            width:814px;
+            height:450px;
+            position:fixed;
+            left:50%;
+            top:15%;
+            margin-left:-407px;
+            background:#fff;
+        }
+        .lsOpen img{
+            width:40px;
+            height:40px;
+            position:absolute;
+            top:18px;
+            right:18px;
+            cursor:pointer;
+        }
+
+        .lsOpen h3{
+            width:100%;
+            height:82px;
+            line-height:82px;
+            color:#fff;
+            font-size:28px;
+            text-align:center;
+            font-weight:500;
+            background:#82d2e2;
+        }
+
+        .tabList{
+            width:100%;
+            display:inline-block;
+        }
+
+        .tabList li{
+            width:100%;
+            border-bottom:1px solid #abe5f1;
+            font-size:20px;
+        }
+
+        .tabList li:first-child{
+            color:#333;
+        }
+
+        .tabList li span{
+            width:33%;
+            height:85px;
+            line-height:85px;
+            color:#e13333;
+            text-align:center;
+            float:left;
+            font-weight:300;
+        }
+        .tabList li span:first-child{
+            padding:0 75px;
+            line-height:22px;
+            padding-top:22px;
+        }
+        .scroll {
+            height: 366px;
+            overflow-y: auto;
+        }
+
+        .scroll::-webkit-scrollbar {/*滚动条整体样式*/
+            width: 10px;     /*高宽分别对应横竖滚动条的尺寸*/
+        }
+
+        .scroll::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+            border-radius: 10px;
+            background: #4391e6;
+        }
+        .scroll::-webkit-scrollbar-track {/*滚动条里面轨道*/
+            background: transparent;
+        }
+
+        .hbOpen{
+            width:131px;
+            position:fixed;
+            left:50%;
+            margin-left:-65px;
+            top:30%;
+        }
+        .hbOpen span:first-child{
+            width:131px;
+            height:215px;
+            display:inline-block;
+            background:url("https://images.51rz.com/images/pc/fiveAnniversary/openHb.png") no-repeat;
+        }
+        .hbOpen span{
+            font-size:18px;
+            color:#e75648;
+            text-align:center;
+            padding-top: 52px;
+        }
+        .hbOpen span strong{
+            font-size:30px;
+            font-weight:500;
+        }
+        .hbOpen small{
+            width:192px;
+            height:61px;
+            text-align:center;
+            line-height:62px;
+            color:#a61000;
+            font-size:24px;
+            display:inline-block;
+            margin:5px 0 0 -31px;
+            cursor:pointer;
+            background:url("https://images.51rz.com/images/pc/fiveAnniversary/fp-btn.png") no-repeat;
+        }
+        .hbOpen img{
+            width:40px;
+            height:40px;
+            position:absolute;
+            top:-50px;
+            right:-50px;
+            cursor:pointer;
+        }
+        .fpBtn3{
+            color:#fff !important;
+            background:url("https://images.51rz.com/images/pc/fiveAnniversary/fpBtn3.png")  !important;
+        }
+        .ktNull{
+            width:100%;
+            display:inline-block;
+            text-align:center;
+            padding-top:50px;
+        }
+        #ktImg{
+            width:375px;
+            height:212px;
+            left:0;
+            top:36%;
+        }
+        .toppad{
+            padding-top:31px !important;
+        }
+
+        .lsList{
+            display:inline-block;
+            position:absolute;
+            right: 20px;
+            top: 129px;
+            font-size: 20px;
+            color: #3b9fc0;
+            border-bottom: 1px solid #3b9fc0;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<div id="header"></div>
+<div class="container">
+    <div v-show="!isLogined" class="fixedBtn" id="noLogin" @click="gologin"></div>
+    <div v-show="isLogined" class="fixedBtn" id="yesLogin" @click="go"></div>
+    <div class="lsFixed" style="display:none;" v-show="showHistory">
+        <div class="lsOpen">
+            <h3>历史获奖记录</h3>
+            <img src="https://images.51rz.com/images/pc/act-july/app-close.png" @click="hideHistory" />
+            <ul class="tabList scroll" v-show="lshb != 0">
+                <li>
+                    <span class="toppad">获得时间</span>
+                    <span>奖品</span>
+                    <span>红包状态</span>
+                </li>
+                <li v-for="(item, index) in lshb" :key="index">
+                    <span v-text="item.date"></span>
+                    <span v-text="item.reward"></span>
+                    <span v-text="item.status"></span>
+                </li>
+            </ul>
+            <div style="display:none;" class="ktNull" v-show="lshb == 0"><img id="ktImg" src="https://images.51rz.com/images/pc/fiveAnniversary/ktNull.png" /></div>
+        </div>
+    </div>
+    <div class="part1"></div>
+    <div class="part2"></div>
+    <!--每日两次开红包-->
+    <div class="part3">
+        <div class="luckyMoney">
+            <h3>每日两次 定点送钱</h3>
+            <p>一天两次，早晚加餐，定点抢钱，低门槛红包任性送!</p>
+            <ul>
+                <li>
+                    <div v-if="openToday[0].rewardType != 0">
+                        <span class="hbOpen1"><strong v-text=" openToday[0].money"></strong>元</span>
+                        <span class="btnClass btn01" @click="go">去投资</span>
+                    </div>
+                    
+                    <div v-else>
+                        <span class="hbNo"></span>
+                        <span class="btnClass btn01" @click="open('sign')" v-if="hour>=10&&hour<20">开抢</span>
+                        <span class="btnClass btn02" v-else>10:00开抢</span>
+                    </div>
+                    
+                </li>
+                <li>
+                    <div v-if="openToday[1].rewardType != 0">
+                        <span class="hbOpen1"><strong v-text="openToday[1].money"></strong>元</span>
+                        <span class="btnClass btn01" @click="go">去投资</span>
+                    </div>
+                    <div v-else>
+                        <span class="hbNo"></span>
+                        <span class="btnClass btn01" @click="open('signsec')" v-if="hour>=20 && hour<24">开抢</span>
+                        <span class="btnClass btn02" v-else>20:00开抢</span>
+                    </div>
+                    
+                </li>
+            </ul>
+            <div class="hb_text">注：每天10:00、20:00定点领取红包，红包即时到账，当日有效!</div>
+        </div>
+    </div>
+    <!--奖励任性拿-->
+    <div class="part4">
+        <div class="tabWrap">
+            <p v-show="!isLogined">
+                <span>任性一夏，iPhone 8P、金条随你选，大额现金拿不停！</span>
+                <span>您累计投资额（90天-179天标的）：<strong>0.00</strong>元　　您累计投资额(180天及以上标的）：<strong>0.00</strong>元</span>
+            </p>
+            <p v-show="isLogined">
+                <span>任性一夏，iPhone 8P、金条随你选，大额现金拿不停！</span>
+                <span>您累计投资额（90天-179天标的）：<strong v-text="myBamboo[0].totalAmount"></strong>元　　您累计投资额(180天及以上标的）：<strong v-text="myBamboo[1].totalAmount"></strong>元</span>
+            </p>
+            <div class="rankingTab">
+                <span v-for="(item,index) in tabsParam" 
+                @click="toggleTabs(index)"
+                :class="{act:index!=nowIndex}">{{item}}</span>
+            </div>
+            <div class="tabHb">
+                <div v-show="nowIndex === 0">
+                    <p><img src="https://images.51rz.com/images/pc/august/pic01.png" /></p>
+                    <p><img src="https://images.51rz.com/images/pc/august/pic02.png" /></p>
+                    <p><img src="https://images.51rz.com/images/pc/august/pic03.png" /></p>
+                    <span>注：同一投资期限区间默认可获得奖励中价值最高的奖品!</span>
+                </div>
+                <div v-show="nowIndex === 1">
+                    <p><img src="https://images.51rz.com/images/pc/august/pic04.png" /></p>
+                    <p><img src="https://images.51rz.com/images/pc/august/pic05.png" /></p>
+                    <p><img src="https://images.51rz.com/images/pc/august/pic06.png" /></p>
+                    <span>注：同一投资期限区间默认可获得奖励中价值最高的奖品!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="part5">
+        <div class="tabWrap1">
+            <div class="rankingTab1">
+                <span v-for="(item,index) in tabsParam1" 
+                @click="toggleTabs1(index)"
+                :class="{act1:index!=nowIndex1}">{{item}}</span>
+            </div>
+            <div class="tabPhb">
+                <div v-show="nowIndex1 === 0">
+                <div v-show="!isLogined" class="phbTest">您今日累计投资金额（90天及以上标的）：<strong>0.00</strong> 元　<span @click="openHistory">历史获奖记录</span></div>
+                <div v-show="isLogined" class="phbTest">您今日累计投资金额（90天及以上标的）：<strong v-text="user + '.00' "></strong> 元　<span @click="openHistory">历史获奖记录</span></div>
+                    <div class="phb_title">
+                        <span>上榜富豪</span>
+                        <span>累计投资额</span>
+                        <span>奖励</span>
+                    </div>
+                    <ul class="phbList">
+                        <li>
+                            <div class="phbLeft">
+                                <p v-for="(item,index) in phbList">
+                                    <span><small v-text="item.No + '. ' "></small><small v-text="item.mobile"></small></span>
+                                    <span v-text="item.money"></span>
+                                </p>
+                            </div>
+                            <div class="phbRight">
+                                <p v-for="(item,index) in reward">
+                                    <span v-text="item.reward"></span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="phbTip">注：排名实时更新，90天及以上标的可参与，如遇延迟请刷新页面（以每日截止时间最终排名为准）！</div>
+                </div>
+                <div v-show="nowIndex1 === 1">
+                    <div v-show="!isLogined" class="phbTest">您累计投资金额（180天及以上标的）：<strong>0.00</strong> 元</div>
+                    <div v-show="isLogined" class="phbTest">您累计投资金额（180天及以上标的）：<strong v-text="user + '.00' "></strong> 元</div>
+                    <div class="phb_title">
+                        <span>上榜富豪</span>
+                        <span>累计投资额</span>
+                        <span>奖励</span>
+                    </div>
+                    <ul class="phbList">
+                        <li>
+                            <div class="phbLeft">
+                                <p v-for="(item,index) in phbList1">
+                                    <span><small v-text="item.No + '. ' "></small><small v-text="item.mobile"></small></span>
+                                    <span v-text="item.money"></span>
+                                </p>
+                            </div>
+                            <div class="phbRight">
+                                <p v-for="(item,index) in reward1">
+                                    <span v-text="item.reward"></span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="phbTip">注：排名实时更新，180天及以上标的可参与，如遇延迟请刷新页面（以8月8日截止时间最终排名为准）！</div>
+                </div>
+                <div v-show="nowIndex1 === 2">
+                    <div v-show="!isLogined" class="phbTest">您累计投资金额（180天及以上标的）：<strong>0.00</strong> 元</div>
+                    <div v-show="isLogined" class="phbTest">您累计投资金额（180天及以上标的）：<strong v-text="user + '.00' ">0.00</strong> 元</div>
+                    <div class="phb_title">
+                        <span>上榜富豪</span>
+                        <span>累计投资额</span>
+                        <span>奖励</span>
+                    </div>
+                    <ul class="phbList">
+                        <li>
+                            <div class="phbLeft">
+                                <p v-for="(item,index) in phbList2">
+                                    <span><small v-text="item.No + '. ' "></small><small v-text="item.mobile"></small></span>
+                                    <span v-text="item.money"></span>
+                                </p>
+                            </div>
+                            <div class="phbRight">
+                                <p v-for="(item,index) in reward1">
+                                    <span v-text="item.reward"></span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="phbTip">注：排名实时更新，180天及以上标的可参与，如遇延迟请刷新页面（以8月16日截止时间最终排名为准）！</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="part6">
+        <div class="tabWrap actionRules">
+            <h3>活动规则</h3>
+            <p>1、每日定点红包即时到账，仅领取当天有效，红包使用信息详见券面，100元起投。</p>
+            <p>2、任性奖励环节：累计投资金额数据截止到8月16日23:54:59。现金奖励在活动结束后10个工作日内发放。实物奖励在活动结束后20个工作日内发放，节假日顺延。根据用户最终累计达到的投资额发放一种对应奖励（默认为可获得奖励中价值最高的那个）。</p>
+            <p>3、富豪排行榜环节：累计投资额统计数据实时变动，每日英雄榜数据截止到当日的23:54:59，红包奖励在数据截止后次日发放，有效期2天；每周富豪榜累计投资额第一周数据截止到8月8日23:54:59，第二周数据截止到8月16日23:54:59，现金奖励在活动结束后10个工作日内发放。</p>
+            <p>4、本活动新手标、债转项目、90天以下标的不计入。</p>
+            <p>5、活动最终解释权法律允许的范围归人众金服所有，如有疑问请致电客服：400-655-8858。（咨询时间：9:00——21:00）</p>
+        </div>
+    </div>
+
+    <!-- 弹窗提示 -->
+    <div class="pc-dialog">
+        <div class="content"></div>
+    </div>
+</div>
+<div id="footer"></div>
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/components/header-footer/header-footer.js"></script>
+<script>
+
+    function getParam(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r!=null) return unescape(r[2]); return null; //返回参数值
+    }
+    var token= getParam("token") || '';
+    var type = 'www';
+    if (getParam('type')) {
+        type = getParam('type');
+    } else {
+        if (window.location.href.indexOf('pre-activity-center') > -1) {
+            type = 'wwww';
+        } else {
+            type = 'www';
+        }
+    }
+    
+    var vm = new Vue({
+        el: '.container',
+        data: {
+            isLogined: token? true: false, //是否登录
+            tabsParam:['90天-179天标的','180天及以上标的'],//任性奖励标签
+            tabsParam1:['每日英雄榜','8月1日~8月8日','8月9日~8月16日'],//排行榜标签
+            nowIndex:0,//默认第一个为激活状态
+            nowIndex1:0,//默认第一个排行榜为激活状态
+            myBamboo:[{totalAmount:0},{totalAmount:0}],
+            phbList:[],//英雄排行榜列表
+            reward:[
+                {
+                    reward:"800元红包"
+                },
+                {
+                    reward:"600元红包"
+                },
+                {
+                    reward:"300元红包"
+                },
+                {
+                    reward:"200元红包"
+                },
+                {
+                    reward:"100元红包"
+                },
+            ],//英雄排行榜固定列表
+            phbList1:[],//8月1-8月8
+            reward1:[
+                {
+                    reward:"3800元现金"
+                },
+                {
+                    reward:"2800元现金"
+                },
+                {
+                    reward:"2000元现金"
+                },
+                {
+                    reward:"1500元现金"
+                },
+                {
+                    reward:"1000元现金"
+                },
+                {
+                    reward:"800元现金"
+                },
+                {
+                    reward:"600元现金"
+                },
+                {
+                    reward:"500元现金"
+                },
+                {
+                    reward:"300元现金"
+                },
+                {
+                    reward:"200元现金"
+                },
+            ],//8月1-8月8固定列表
+            phbList2:[],//8月9-8月16
+            today:[],
+            openToday:[
+                {
+                    code:"sign",
+                    rewardType:"0",
+                    packId:"67",
+                    money:"0"
+                },
+                {
+                    code:"signsec",
+                    rewardType:"0",
+                    packId:"68",
+                    money:"0" 
+                }
+            ],
+            showHistory:false,
+            user:0,
+            lshb:[],
+            hour:8,   //当前几点
+            nowTime:new Date().getTime(),　//服务器时间戳
+        },
+        mounted: function () {
+            this.banboo();
+            this.toggleTabs1(0);
+            this.initData();
+            this.openIndex();
+            this.reckon(this.nowTime);
+            var self = this;
+            setInterval(function(){
+                self.nowTime += 1000
+                self.reckon(self.nowTime)
+            },1000)
+            window.addEventListener('scroll', this.handleScroll);
+        },
+        methods: {
+            //计时
+            reckon:function(newtime){
+                var hour = new Date(newtime).getHours();
+                if (hour!=this.hour) {
+                    if ( hour == 10 || hour == 20 || hour ==0) {
+                        this.initData() //如果时间日期改变了 重新加载
+                    }
+                    this.hour = hour
+                }
+            },
+            toggleTabs:function(index){
+                this.nowIndex=index;
+            },
+            handleScroll () {
+                var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+                var noLogin=document.getElementById("noLogin");
+                var yesLogin=document.getElementById("yesLogin");
+                if (scrollTop > 500 && scrollTop < 3200) {
+                    noLogin.style.display="block";
+                    yesLogin.style.display="block"
+                } else {
+                    noLogin.style.display="none";
+                    yesLogin.style.display="none";
+                }
+                console.log(scrollTop)
+            },
+            openHistory: function(){
+                this.showHistory = true;
+                this.historyReward();
+            },
+            hideHistory: function(){
+                this.showHistory = false;
+                this.showCake = false;
+            },
+            banboo:function(){
+                var _this = this;
+                $.post('/index.php?_url=/api/bamboo/index',{activityId:28, token: token,code: 'bamboo',mark: 'gift'},function(data){
+                    if(data && data.error_code == 0){
+                        var bamboo = data.data;
+                        _this.myBamboo = bamboo;
+                    }
+                })
+            },
+            toggleTabs1:function(index){
+                this.nowIndex1=index; 
+                var _this = this;
+                var mark;
+                if(this.nowIndex1===0){
+                    mark = 'today'
+                }else if(this.nowIndex1===1){
+                    mark = 'firstweek'
+                }else{
+                    mark = 'lastweek'
+                }
+                $.post('/index.php?_url=/api/rank/index',{activityId:28, token: token,code: 'rank',mark: mark},function(data){
+                    if(data && data.error_code === 0){
+                        var currentRanks =  data.data.currentRanks;
+                        _this.user= data.data.user;
+                        if(_this.nowIndex1===0){
+                            for(var i = 0; i < 5; i++){
+                                if (i>currentRanks.length-1) {
+                                    currentRanks.push({No:i,mobile:'--',money:'--', No: i+1})
+                                } else {
+                                    if(!currentRanks[i].mobile) {
+                                        currentRanks[i].mobile = '--';
+                                    }
+                                    if(!currentRanks[i].money) {
+                                        currentRanks[i].money = '--';
+                                    }
+                                    if(!currentRanks[i].No) {
+                                        currentRanks[i].No = i+1;
+                                    }
+                                }
+                            }
+                            _this.phbList = currentRanks;
+                            return;
+                        }else if(_this.nowIndex1===1){
+                            for(var i = 0; i < 10; i++){
+                                if (i>currentRanks.length-1) {
+                                    currentRanks.push({No:i,mobile:'--',money:'--', No: i+1})
+                                } else {
+                                    if(!currentRanks[i].mobile) {
+                                        currentRanks[i].mobile = '--';
+                                    }
+                                    if(!currentRanks[i].money) {
+                                        currentRanks[i].money = '--';
+                                    }
+                                    if(!currentRanks[i].No) {
+                                        currentRanks[i].No = i+1;
+                                    }
+                                }
+                            }
+                            _this.phbList1 = currentRanks;
+                            return;
+                        }else{
+                            for(var i = 0; i < 10; i++){
+                                if (i>currentRanks.length-1) {
+                                    currentRanks.push({No:i,mobile:'--',money:'--', No: i+1})
+                                } else {
+                                    if(!currentRanks[i].mobile) {
+                                        currentRanks[i].mobile = '--';
+                                    }
+                                    if(!currentRanks[i].money) {
+                                        currentRanks[i].money = '--';
+                                    }
+                                    if(!currentRanks[i].No) {
+                                        currentRanks[i].No = i+1;
+                                    }
+                                }
+                            }
+                            _this.phbList2 = currentRanks;
+                            return;
+                        }
+                    }else{
+                        _this.showMsg(data.msg);
+                    }
+                    
+                })
+            },
+            initData: function(){
+                var _this = this;
+                $.post('/index.php?_url=/api/activity/index',{activityId:28, token: token},function(data){
+                    if(data && data.error_code === 0){
+                        var islogin = data.data.islogin;
+                        _this.timestamp = data.data.nowTime*1000||new Date().getTime()
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            },
+
+            //拆红包主页
+            openIndex:function(){
+                var _this = this;
+                $.post('/index.php?_url=/api/pack/index',{activityId: 28, token: token, mark:'sign'},function(data){
+                    if (data && data.error_code === 0){
+                        var islogin = data.data.islogin;
+                        var today = data.data.today;
+                        _this.openToday = today;
+                    } else {
+                        _this.isLogined = false;
+                    }
+                })
+            },
+            // 拆红包
+            open: function(code){
+                if(!this.isLogined) {
+                    location.href = 'https://' + type + '.51rz.com/login.html';
+                    return false;
+                }
+                var _this=this;
+                $.post('/index.php?_url=/api/pack/open',{activityId: 28, token: token,code: code},function(data){
+                    if(data.error_code == 0){
+                        var today = data.data.today;
+                        _this.openToday = today;
+                        _this.openIndex();
+                    } else if(data.error_code === 201) {
+                        location.href = 'https://' + type + '.51rz.com/login.html';
+                    } else {
+                        _this.showMsg(data.msg);
+                    }
+                })
+            },
+            //奖励记录
+            historyReward: function(){
+                var _this=this;
+                $.post('/index.php?_url=/api/rank/rewardsHistory',{activityId: 28, token: token, mark: "today"},function(data){
+                    var lshb = data.data;
+                    _this.lshb = lshb;
+                })
+            },
+            gologin: function() {
+                location.href = 'https://' + type + '.51rz.com/login.html';
+            },
+            go: function () {
+                location.href = 'https://' + type + '.51rz.com/projectList.html';
+            },
+            // 打开弹窗提示
+            showMsg: function (msg) {
+                $(".pc-dialog .content").text(msg);
+                $(".pc-dialog").show();
+                setTimeout(function () {
+                    $(".pc-dialog .content").text('');
+                    $(".pc-dialog").hide();
+                }, 2000);
+            },
+        },
+    })
+</script>
+</body>
+</html>

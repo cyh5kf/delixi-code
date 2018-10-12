@@ -1,0 +1,118 @@
+/** 简写字段表
+
+    pos        :position
+    t          :top
+    r          :right
+    b          :botom
+    l          :left
+
+    w          :width
+    h          :height
+    lh         :line-height
+
+    color      :color
+    repeat     :background-repeat
+    url        :background-image
+    size       :background-size
+
+**/
+
+
+$base_url: 'https://images.51rz.com/images/rebuild/pc/img/';
+$red:#f64e41;
+$white:#fff;
+$blue:#4992ec;
+$red:#f64c3e;
+$orange:#ff9b09;
+$green:#8cbe3a;
+$gray:#f6f6f6;
+$black2:#222;
+$black3:#333;
+$black5:#555;
+$black6:#666;
+$black9:#999;
+$contentW:1200px;
+
+@mixin background($param){
+    background-color:map-get($param,color);
+    background-image:url('#{$base_url}#{map-get($param,url)}');
+    background-repeat:map-get($param,repeat);
+    background-size:map-get($param,size);
+    background-position:map-get($param,pos);
+    @content;
+}
+
+
+@mixin position($param){
+    position: map-get($param,p);
+    z-index:  map-get($param,z);
+    left:map-get($param,l);
+    top:map-get($param,t);
+    bottom:map-get($param,b);
+    right:map-get($param,r);
+    @content;
+}
+
+
+@mixin box($param){
+    width: map-get($param,w);
+    height: map-get($param,h);
+    font-size: map-get($param,fs);
+    line-height: map-get($param,lh);
+    font-weight: map-get($param,fw);
+    background: map-get($param,bg);
+    color: map-get($param,c);
+    border-radius: map-get($param,bdr);
+    border: map-get($param,br);
+    border: map-get($param,bd);
+    text-align: map-get($param,ta);
+    opacity: map-get($param,o);
+    float: map-get($param,fl);
+    text-shadow: map-get($param,ts);
+    display: map-get($param,d);
+    flex: map-get($param,fx);
+    margin: map-get($param,m);
+    margin-left:map-get($param,ml);
+    margin-right:map-get($param,mr);
+    margin-top:map-get($param,mt);
+    margin-bottom:map-get($param,mb);
+    padding: map-get($param,p);
+    padding-left: map-get($param,pl);
+    padding-top: map-get($param,pt);
+    padding-right: map-get($param,pr);
+    padding-bottom: map-get($param,pb);
+    z-index:map-get($param,index);
+    @content;
+}
+@mixin prefix($property, $value) {
+    @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
+        #{$prefix}#{$property}: $value;
+    }
+}
+
+@mixin clearfix() {
+    &:after{
+        content:" ";
+        display: table;
+        clear:both;
+        *zoom:1;
+        *display:block;
+    }
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+

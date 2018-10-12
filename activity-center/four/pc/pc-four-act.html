@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://activity-center.51rz.com/static/css/style.css">
+    <link rel="stylesheet" href="https://activity-center.51rz.com/static/css/index.css">
+    <link rel="shortcut icon" href="https://activity-center.51rz.com/static/img/favicon.ico">
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <link rel="stylesheet" href="https://activity-center.51rz.com/components/header-footer/header-footer.css">
+    <title>春暖花开 签到领钱</title>
+    <style type="text/css">
+        html,body{
+            margin: 0;
+            padding: 0;
+            background:#4fd0a8;
+        }
+        .container{
+            margin: 0 auto;
+        }
+        .banner{
+            width: 100%;
+            height: 467px;
+            background: url("https://images.51rz.com/images/pc/four-act/four01.png") no-repeat center top;
+        }
+        .four-box1{
+            width:100%;
+            height:560px;
+            text-align:center;
+            background: url("https://images.51rz.com/images/pc/four-act/four02.png") no-repeat center top;
+        }
+        .four-box1 p{
+            width:100%;
+            text-align:center;
+            font-size:18px;
+            color:#333;
+            line-height: 25px;
+            padding-top: 21px;
+        }
+        .sign{
+            width:100%;
+            text-align:center;
+            font-size:20px;
+            color:#ff821e;
+            padding-top:26px;
+        }
+        .sign-box{
+            width:982px;
+            display:inline-block;
+        }
+        .hb-left{
+            width:50%;
+            float:left;
+        }
+        .hb-left p{
+            width:313px;
+            height:375px;
+        }
+        .hb-bg{
+            background: url("https://images.51rz.com/images/pc/four-act/pc-hb.png") no-repeat center top;
+        }
+        .hb-bg1{
+            background: url("https://images.51rz.com/images/pc/four-act/pc-hb01.png") no-repeat center top;
+        }
+        .xj-right{
+            width:50%;
+            float:right;
+        }
+        .xj-right p{
+            width:313px;
+            height:375px;
+        }
+        .xj-bg{
+            background: url("https://images.51rz.com/images/pc/four-act/pc-xj.png") no-repeat center top;
+        }
+        .xj-bg1{
+            background: url("https://images.51rz.com/images/pc/four-act/pc-xj01.png") no-repeat center top;
+        }
+        .text-sm{
+            font-size:14px;
+            color:#fff;
+            margin-top: 251px;
+            display: inline-block;
+        }
+        .text-money{
+            width:100%;
+            display:inline-block;
+            color:#e75648;
+            padding-top: 34px;
+        }
+        .text-money strong{
+            font-size:48px;
+            font-weight:500;
+        }
+        .text-money small{
+            font-size:20px;
+        }
+        .text-gz{
+            font-size:18px;
+            color:#e75648;
+            display:inline-block;
+            padding-top:10px;
+        }
+        .btn{
+            width:188px;
+            height:58px;
+            display:inline-block;
+            margin-top:10px;
+            cursor:pointer;
+        }
+        .xjqb{
+            width:100%;
+            text-align:center;
+            display:inline-block;
+            font-size:16px;
+        }
+        .xjqb span{
+            background:#f0f5de;
+            padding:0 10px;
+            height:34px;
+            line-height:34px;
+            text-align:center;
+            font-size:16px;
+            color: #25977f;
+            display: inline-block;
+            border-radius: 100px;
+            margin-right:5px;
+        }
+        .four-box2{
+            width:100%;
+            height:230px;
+            text-align:center;
+            background: url("https://images.51rz.com/images/pc/four-act/four03.png") no-repeat center top;
+        }
+        .text-md{
+            font-size:16px;
+            color:#333;
+            width:100%;
+            display:inline-block;
+            text-align: center;
+            padding-top: 33px;
+        }
+        .text-md span{
+            color:#e13333;
+            text-decoration:underline;
+            cursor:pointer;
+        }
+        .xyx-list{
+            width:745px;
+            display:inline-block;
+            padding-top:19px;
+            font-size:16px;
+            color:#715331;
+            height:45px;
+            overflow:hidden;
+        }
+        .xyx-list li{
+            width:33%;
+            float:left;
+            text-align:center;
+        }
+        .xyx-list li span{
+            color:#e13333;
+        }
+        .four-box3{
+            width:100%;
+            height:319px;
+            text-align:center;
+            background: url("https://images.51rz.com/images/pc/four-act/four04.png") no-repeat center top;
+        }
+        .act-gz{
+            width:855px;
+            display:inline-block;
+            padding-top:100px;
+        }
+        .act-gz p{
+            width:100%;
+            font-size:16px;
+            color:#6d5330;
+            line-height:30px;
+            text-align:left;
+            padding-left: 20px;
+            text-indent: -22px;
+        }
+
+        .fixed-bg{
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0;
+            background:rgba(0,0,0,0.5);
+            display:none;
+        }
+        .open-bg{
+            width:600px;
+            position:fixed;
+            z-index:1;
+            left:50%;
+            margin-left:-300px;
+            top:25%;
+            background:#fff;
+        }
+        .open-bg h3{
+            width:100%;
+            height:60px;
+            line-height:60px;
+            background:#55cfa9;
+            font-weight:500;
+            text-align:center;
+            font-size:18px;
+            color:#fff;
+        }
+        .table-list{
+            width:100%;
+            display:inline-block;
+            height:248px;
+            overflow-y:auto;
+        }
+        .bankScroll::-webkit-scrollbar
+        {
+            width: 5px;
+            height: 16px;
+            background-color: #F5F5F5;
+        }
+
+        /*定义滚动条轨道 内阴影+圆角*/
+        .bankScroll::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+        }
+
+        /*定义滑块 内阴影+圆角*/
+        .bankScroll::-webkit-scrollbar-thumb
+        {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #55cfa9;
+        }
+        .table-list table{
+            font-size:16px;
+            color:#333;
+            width: 100%;
+            text-align: center;
+
+        }
+        .table-list table td{
+            border-bottom:1px solid #55cfa9;
+            height:50px;
+            line-height:50px;
+            color:#e13333;
+        }
+        .table-list table td:first-child{
+            color:#333;
+        }
+        .Colse-icon{
+            width:100px;
+            height:100px;
+            position:absolute;
+            left:50%;
+            top:318px;
+            margin-left:-50px;
+            z-index:1;
+            cursor:pointer;
+        }
+        .open-text{
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            font-size: 24px;
+            color:#a2a2a2;
+            line-height: 239px;
+        }
+    </style>
+</head>
+<body>
+<div id="header"></div>
+<div class="container">
+    <div class="fixed-bg" ref="fixed-bg">
+        <div class="open-bg">
+            <i class="Colse-icon" @click="hideAlert('fixed-bg')"><img src="https://images.51rz.com/images/app/act-four/app-colse.png" /></i>
+            <h3>历史获奖记录</h3>
+            <div class="table-list bankScroll open-text" v-show="tabList == '' ">
+                暂无数据
+            </div>
+            <div class="table-list bankScroll" v-show="tabList != '' ">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr v-for="(item,index) in tabList">
+                        <td width="16%" v-text="item.date"></td>
+                        <td width="28%" v-text="item.list[0]"></td>
+                        <td width="28%" v-text="item.list[1]"></td>
+                        <td width="28%" v-text="item.list[2]"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="banner"></div>
+    <div class="four-box1">
+        <p>单笔投资30天以上标的即可额外获得现金奖励！<br />每日签到人数每递增2千人从中随机送出一个88元超额现金奖励。</p>
+        <div class="sign">今日签到人数：<small v-text="totalSignNum"></small>人</div>
+        <div class="sign-box">
+            <div class="hb-left">
+                <!--未登录立即领取-->
+                <div v-show="!token">
+                    <p class="hb-bg"></p>
+                    <span class="btn" @click="go"><img src="https://images.51rz.com/images/pc/four-act/pc-btn-hbno.png" /></span>
+                </div>
+                <!--已登录立即领取-->
+                <div v-show="token && today[0].rewardType == 0">
+                    <p class="hb-bg"></p>
+                    <span class="btn" @click="open(today[0].packId,0)" v-show="today[0].rewardType == 0"><img src="https://images.51rz.com/images/pc/four-act/pc-btn-hbno.png" /></span>
+                </div>
+                <!--去使用已使用30-->
+                <div v-show="token && today[0].rewardType == 1 && today[0].money != 3">
+                    <p class="hb-bg1">
+                        <span class="text-money"><strong v-text="Number(today[0].money).toFixed(0)"></strong><small>元</small></span>
+                        <span class="text-gz">投100元30天以上<br />标可用</span>
+                    </p>
+                    <!--去使用-->
+                    <span class="btn" v-show="today[0].used == 0" @click="go"><img src="https://images.51rz.com/images/pc/four-act/pc-btn-go.png" /></span>
+                    <!--已使用-->
+                    <span class="btn" v-show="today[0].used == 1"><img src="https://images.51rz.com/images/pc/four-act/pc-btn-ysy.png" /></span>
+                </div>
+                <!--去使用已使用180-->
+                <div v-show="token && today[0].rewardType == 1 && today[0].money == 3">
+                    <p class="hb-bg1">
+                        <span class="text-money"><strong v-text="Number(today[0].money).toFixed(0)"></strong><small>元</small></span>
+                        <span class="text-gz">投100元180天以上<br />标可用</span>
+                    </p>
+                    <!--去使用-->
+                    <span class="btn" v-show="today[0].used == 0" @click="go"><img src="https://images.51rz.com/images/pc/four-act/pc-btn-go.png" /></span>
+                    <!--已使用-->
+                    <span class="btn" v-show="today[0].used == 1"><img src="https://images.51rz.com/images/pc/four-act/pc-btn-ysy.png" /></span>
+                </div>
+
+            </div>
+            <div class="xj-right">
+                <!--未登录未拆开--->
+                <div style="width:313px;height:375px;" v-show="!token">
+                    <p class="xj-bg"><span class="text-sm">单笔投30天以上标即可获得</span></p>
+                    <span class="btn" @click="go"><img src="https://images.51rz.com/images/pc/four-act/pc-ck.png" /></span>
+                </div>
+                <!--已登录拆开-->
+                <div style="width:313px;height:375px;" v-show="token&&today[1].rewardType == 0">
+                    <p class="xj-bg"><span class="text-sm">单笔投30天以上标即可获得</span></p>
+                    <span class="btn" @click="go" v-show="today[1].activated == 1"><img src="https://images.51rz.com/images/pc/four-act/pc-ck.png" /></span>
+                    <span style="margin-top: 10px;" class="btn" @click="open(today[1].packId,1)" v-show="today[1].activated == 2"><img src="https://images.51rz.com/images/pc/four-act/pc-btn-xjno.png" /></span>
+                </div>
+                <!--已领取-->
+                <div class="xj-bg1" style="width:313px;height:375px;" v-show="token&&today[1].rewardType == 4">
+                    <span class="text-money" style="padding-top:60px;"><strong v-text="today[1].money"></strong><small>元</small></span>
+                    <span style="margin-top: 246px;" class="btn"><img src="https://images.51rz.com/images/pc/four-act/pc-btn-ok.png" /></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="four-box2">
+        <div class="xjqb" v-show="token">我的现金钱包：<span v-text="totalCash">0</span>元</div>
+        <div class="xjqb" v-show="!token"><span @click="go">我的现金钱包：登录查看</span></div>
+        <div class="text-md">今日88元现金奖名单：<span @click="showAlert('fixed-bg')">查看获奖记录</span></div>
+        <ul class="xyx-list">
+            <li v-for="(item,index) in itemNews">
+                    <span>
+                        <strong style="font-size: 18px;color: #735534;font-weight: 500;" v-text="lucky(index)"></strong>
+                        <small style="font-size:18px;">{{item}}</small>
+                    </span>
+            </li>
+        </ul>
+    </div>
+    <div class="four-box3">
+        <div class="act-gz">
+            <p>① 红包即时到账，仅当天有效，红包使用信息详见劵面，100元起投。现金奖励总额在活动结束后五个工作日内到账（金额四舍五入）；</p>
+            <p>② 88元幸运现金奖由系统随机发放，每日最多开出3个，获奖名单可在记录中查询；</p>
+            <p>③ 活动最终解释权法律允许的范围归人众金服所有，如有疑问请致电客服：400-655-8858。（咨询时间：9:00--21:00）</p>
+        </div>
+    </div>
+
+    <!-- 弹窗提示 -->
+    <div class="pc-dialog">
+        <div class="content"></div>
+    </div>
+
+</div>
+<div id="footer"></div>
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+<script src="/components/header-footer/header-footer.js"></script>
+<script>
+    var vm = new Vue({
+        el:'.container',
+        data:{
+            token: '',//是否登录
+            animate:false,//初始化不滚动
+            barActive:true,
+            item:[
+                {
+                    money:8,
+                    text:'红包',
+                    btnText:2,
+                    isCash:false,
+                },
+                {
+                    money:22,
+                    text:'红包',
+                    btnText:5,
+                    isCash:false,
+                },
+                {
+                    money:48,
+                    text:'红包',
+                    btnText:10,
+                    isCash:false,
+                },
+                {
+                    money:90,
+                    text:'红包',
+                    btnText:18,
+                    isCash:false,
+                },
+                {
+                    money:160,
+                    text:'红包',
+                    btnText:30,
+                    isCash:false,
+                },
+                {
+                    money:260,
+                    text:'现金',
+                    btnText:50,
+                    isCash:true,
+                },
+                {
+                    money:420,
+                    text:'现金',
+                    btnText:80,
+                    isCash:true,
+                },
+                {
+                    money:768,
+                    text:'现金',
+                    btnText:140,
+                    isCash:true,
+                },
+                {
+                    money:1088,
+                    text:'现金',
+                    btnText:200,
+                    isCash:true,
+                },
+            ],
+            itemNews:[],
+            tabList:[],
+            bamboo:[{totalAmount:0},{totalAmount:0}],//切换投资额度
+            rank:[],//获奖历史记录
+
+            totalSignNum:0,//签到人数
+            totalCash:0,//累计获取的现金
+            countMoney:0,//累计投资额
+            today:[{rewardType:0},{rewardType:0}]//拆礼包
+        },
+        methods:{
+            lucky:function(index) {
+                var num = index*1 + 1;
+                return "幸运星NO." + num;
+            },
+            showAlert:function(ref){//显示弹框
+                this.$refs[ref].style.display="block";
+            },
+            hideAlert:function(ref){
+                this.$refs[ref].style.display="none";
+            },
+            open:function(packId,index){
+                var _this = this;
+                var type = this.getQueryString('type') || 'www';
+                var token = this.token;
+                if(token) {
+                    $.post('/index.php?_url=/api/pack/open',{activityId:'22',token:token,packId:packId},function(data){
+                        if(data.error_code == 0){
+                            Object.assign(_this.today[index],data.data.pack[0]);
+                            if(index == 1){
+                                _this.totalCash = data.data.totalCash;
+                            }else{
+                                _this.actIndex();
+                            }
+                        }else{
+                            _this.showMsg(data.msg);
+                        }
+                    })
+                }else{
+                    location.href = 'https://'+type+'.51rz.com/login.html'
+                }
+            },
+            changeActive:function(event){
+                if(event.target.className.indexOf('bar-active') > -1){
+                    return;
+                }
+                this.$data.barActive = !this.$data.barActive;
+            },
+            actIndex:function(){
+                var _this = this;
+                var token = this.token;
+                $.post('/index.php?_url=/api/activity/index',{activityId:22,token:token},function(data){
+                    if(data&&data.error_code === 0){
+                        _this.today = data.data.pack.today;
+                        _this.totalCash = data.data.pack.totalCash;
+                        _this.totalSignNum = data.data.pack.totalSignNum;
+                        var luck = data.data.pack.lucks
+                        _this.itemNews = luck;
+                    }else{
+                        _this.rank = data.data.rank.currentRanks;
+                    }
+                });
+            },
+            go:function(){
+                var type = this.getQueryString('type') || 'www';
+                this.token ? location.href = 'https://'+type+'.51rz.com/projectList.html':location.href = 'https://'+type+'.51rz.com/login.html';
+            },
+            getQueryString:function(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            },
+            //字符串进行解密
+            uncompileStr: function (code) {
+                code = unescape(code);
+                var c = String.fromCharCode(code.charCodeAt(0) - code.length);
+                for (var i = 1; i < code.length; i++) {
+                    c += String.fromCharCode(code.charCodeAt(i) - c.charCodeAt(i - 1));
+                }
+                return c;
+            },
+            // 打开弹窗提示
+            showMsg: function(msg) {
+                $(".pc-dialog .content").text(msg);
+                $(".pc-dialog").show();
+                setTimeout(function() {
+                    $(".pc-dialog .content").text('');
+                    $(".pc-dialog").hide();
+                }, 2000);
+            },
+        },
+        created:function(){
+            var _this = this;
+            var token = this.getQueryString("token");
+            if(token) {
+                _this.token = token;
+                _this.actIndex();
+                $.post('/index.php?_url=/api/pack/lucks',{activityId:22,token:token},function(data){
+                    if(data && data.error_code == 0){
+                        _this.tabList = data.data;
+                    }
+                })
+            }else{
+                $.post('/index.php?_url=/api/activity/index',{activityId:22},function(data){
+                    _this.totalSignNum = data.data.pack.totalSignNum;
+                    var luck = data.data.pack.lucks
+                    _this.itemNews = luck;
+                });
+                $.post('/index.php?_url=/api/pack/lucks',{activityId:22},function(data){
+                    _this.tabList = data.data;
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>

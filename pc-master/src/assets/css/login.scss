@@ -1,0 +1,121 @@
+@import "./libs/mixin";
+
+body {
+  background-color: $white;
+}
+
+$liH: 46px;
+.LINE {
+  content: "";
+  @include box((d:block, w:1px, h:20px, bg:#e5e5e5));
+  @include position((p:absolute, l:37px, t:($liH - 20 ) / 2));
+}
+
+.loginContent {
+  @include box((bg:#f6f6f6));
+}
+
+.wraper {
+  @include box((w:$contentW, p:80px 0 80px 0, m:0 auto));
+  min-height: 534px;
+  @include background((url:'login_xc.png', repeat:no-repeat, size:485px auto, pos:100px 80px));
+
+  .loginWraper {
+    @include box((w:412px, m:0 0 0 690px, p:0 28px 30px 24px, bg:#fff, bdr:2px));
+    min-height: 374px;
+    box-shadow: 0 0 4px 2px #e9e9e9;
+    .topText {
+      @include clearfix();
+      @include box((w:100%, lh:78px));
+      margin-bottom: 20px;
+      span:nth-child(1) {
+        font-size: 16px;
+      }
+      span:nth-child(2) {
+        color: #999;
+        font-size: 16px;
+      }
+    }
+    .formWraper {
+      li {
+        &.normal {
+          position: relative;
+          &:before {
+            @extend .LINE;
+          }
+        }
+        input {
+          @include box((w:100%, h:$liH - 2px, bd:1px solid #e5e5e5, p:0 0 0 48px));
+          &:focus {
+            border: 1px solid #4992ec;
+          }
+          &.error, &.error:focus {
+            border: 1px solid $red;
+          }
+        }
+        .inputPhone {
+          @include background((url:'icon_phone.png', repeat:no-repeat, pos:10px center));
+        }
+        .inputPass {
+          @include background((url:'icon_pass.png', repeat:no-repeat, pos:10px center));
+        }
+        .inputSmsCode {
+          @include background((url:'icon_safe.png', repeat:no-repeat, pos:10px center));
+        }
+        &.imgCodeRow {
+          @include clearfix();
+          @include box(());
+          input {
+            @include box((w:242px, p:15px, d:block));
+            float: left;
+          }
+          img {
+            @include box((w:106px, h:$liH, d:block));
+            float: right;
+          }
+        }
+        &.smsRow {
+          @include position((p:relative));
+          @include clearfix();
+          &:before {
+            @extend .LINE;
+          }
+          .inputSmsCode {
+            @include box((w:260px, fl:left));
+          }
+          span {
+            @include box((d:block, w:100px, h:100%, bg:#4b92ec, fl:right, lh:$liH, ta:center, c:#fff));
+            cursor: pointer;
+            &.disabled {
+              background: #a8a8a8;
+              cursor: auto;
+            }
+          }
+        }
+      }
+      .errorMsg {
+        @include box((h:30px, lh:30px, c:$red, p:0 0 0 24px, fs:12px));
+        &.error {
+          @include background((url:'icon_error.png', repeat:no-repeat, pos:6px center));
+        }
+      }
+      .remember {
+        @include clearfix();
+        @include box((w:100%, fs:12px));
+        input {
+          @include box((w:16px, h:16px, bd:1px solid #929292));
+          margin-right: 5px;
+          vertical-align: middle;
+        }
+      }
+      .loginBtn {
+        @include box((w:100%, lh:$liH, bg:$red, ta:center, c:#fff, fs:16px, m:15px 0 0 0));
+        cursor: pointer;
+        background-image: url('https://images.51rz.com/images/rebuild/pc/img/login_btn_bg.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 356px 42px;
+      }
+    }
+  }
+}

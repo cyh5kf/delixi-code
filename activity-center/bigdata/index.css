@@ -1,0 +1,584 @@
+#app {
+	height: 100%;
+    position: relative;
+}
+
+.swiper-wrapper {
+	background-color: #f6f6f6;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+	background-color: #999;
+	position: relative;
+}
+
+.swiper-container-scrollbar .swiper-slide{
+    height: auto;
+}
+
+.swiper-slide {
+    width: 100%;
+    height: 100%;
+	background-color: #f6f6f6;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;  
+}
+
+#array {
+    position: absolute;
+    z-index: 999;
+    -webkit-animation: start 1.6s infinite ease-in-out;
+    width: .45rem;
+    height: .43rem;
+    bottom: .3rem;
+    left: 50%;
+    margin-left: -0.295rem;
+}
+
+@-webkit-keyframes start {
+    0%{
+        opacity: 0;
+        -webkit-transform: translate(0, 0px);
+    }
+    30% {
+        opacity: 1;
+        -webkit-transform: translate(0, -8px);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: translate(0, 10);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate(0, 0px);
+    }
+}
+
+@-moz-keyframes start {
+    0%{
+        opacity: 0;
+        -moz-transform: translate(0, 0px);
+    }
+    30% {
+        opacity: 0;
+        -moz-transform: translate(0, -8px);
+    }
+    60% {
+        opacity: 1;
+        -moz-transform: translate(0, 10);
+    }
+    100% {
+        opacity: 0;
+        -moz-transform: translate(0, -8px);
+    }
+}
+
+@keyframes start {
+    0%{
+        opacity: 0;
+        transform: translate(0, 0px);
+    }
+    30% {
+        opacity: 1;
+        transform: translate(0, -8px);
+    }
+    60% {
+        opacity: 1;
+        transform: translate(0, 10);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(0, 0px);
+    }
+}
+
+
+/* login start */
+.login-content {
+    width: 100%;
+    height: 100%;
+    padding: 0.52rem 0.75rem;
+}
+
+.login-title {
+    font-size: 0.36rem;
+    color: #5569cc;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.63rem;
+}
+
+.login-content .input {
+    width: 100%;
+    padding-top: 0.4rem;
+    border-bottom: 1px solid #e5e5e5;
+    overflow: hidden;
+    display: flex;
+}
+
+.login-content .input p {
+    font-size: .3rem;
+    color: #333;
+    line-height: .8rem;
+
+}
+
+.login-content .input input {
+    height: 0.8rem;
+    margin-left: .35rem;
+    display: block;
+    font-size: 0.3rem;
+    color: #222;
+}
+
+.login-content .phone-input {
+    width: 4rem;
+}
+
+.login-content .code-input {
+    width: 3.5rem;
+}
+
+.login-content .input input::-webkit-input-placeholder { /* WebKit browsers*/ 
+　　font-size: 0.3rem;
+    color: #c8c8ce;
+    position: relative;
+    top: -0.05rem;
+}
+
+.login-content .input .close {
+    width: 0.31rem;
+    height: 0.31rem;
+    background: url(https://images.51rz.com/images/app/bg-statistics/close-btn-gay.png) no-repeat;
+    background-size: 100% 100%;
+    display: block;
+    margin-top: 0.28rem;
+}
+
+/* .login-content .input .close-eye {
+    width: 0.44rem;
+    height: 0.19rem;
+    background: url(https://images.51rz.com/images/app/bg-statistics/close-eye.png) no-repeat;
+    background-size: 100% 100%;
+    display: block;
+    margin-top: 0.28rem;
+}
+
+.login-content .input .open-eye {
+    width: 0.44rem;
+    height: 0.28rem;
+    background: url(https://images.51rz.com/images/app/bg-statistics/open-eye.png) no-repeat;
+    background-size: 100% 100%;
+    display: block;
+    margin-top: 0.28rem;
+} */
+
+.login-content .input .get-code {
+    font-size: .24rem;
+    color: #5569cc;
+    line-height: .8rem;
+}
+
+.login-content .input .re-get-code {
+    font-size: .24rem;
+    color: #a2a2a2;
+    line-height: .8rem;
+}
+
+.remember-psd {
+    margin-top: .4rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.remember-psd .remember-btn {
+    width: .22rem;
+    height: .22rem;
+    margin-right: .1rem;
+}
+
+.remember-psd .click-area {
+    display: flex;
+    align-items: center;
+}
+
+.remember-psd  .checked-bg {
+    background: url(https://images.51rz.com/images/app/bg-statistics/checked-btn.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.remember-psd  .un-checked-bg {
+    background: url(https://images.51rz.com/images/app/bg-statistics/checkbox-btn.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+.remember-psd span {
+    color: #5569cc;
+    font-size: .22rem;
+}
+
+.login-btn {
+    width: 100%;
+    height: .88rem;
+    line-height: .88rem;
+    background-color: #5569cc;
+    border-radius: 4px;
+    font-size: .3rem;
+    color: #f0f0f9;
+    text-align: center;
+    margin-top: .28rem;
+}
+
+.login-content .footer {
+    font-size: .24rem;
+    color: #5569cc;
+    position: fixed;
+    bottom: .6rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+/* login end */
+
+/* realTime start */
+.interval {
+	width: 100%;
+	height: .2rem;
+}
+
+.part1 {
+	padding: .32rem .3rem;
+	text-align: center;
+	background-color: #fff;
+	position: relative;
+	overflow: hidden;
+}
+
+.part1 .title {
+	font-size: .36rem;
+	color: #5569cc;
+	margin-bottom: .48rem;
+}
+
+.part1 .tender-today {
+	font-size: .28rem;
+	color: #333;
+    width: 100%;
+    text-align: left;
+}
+
+.part1 .tender-today .tender-money-today {
+	font-size: .46rem;
+	color: #f5512f;
+	margin: 0 .15rem;
+}
+
+.part1 .date {
+	font-size: .24rem;
+	color: #c8c8ce;
+	position: absolute;
+	right: .3rem;
+	top: 44%;
+}
+
+.part1 .current-date {
+    font-size: .24rem;
+	color: #c8c8ce;
+	position: absolute;
+	right: .3rem;
+    bottom: 0.07rem;
+}
+
+.common-module {
+	padding: 0 .3rem;
+	background-color: #fff;
+}
+
+.common-module .item {
+	width: 100%;
+	height: 1rem;
+	line-height: 1rem;
+	border-bottom: 1px solid #e5e5e5;
+	overflow: hidden;
+	color: #bebebe;
+	font-size: .28rem;
+}
+
+.common-module .item:last-child {
+	border-bottom: none;
+}
+
+.common-module .item .fleft {
+	float: left;
+	color: #6a6a6a;
+}
+
+.common-module .item .fleft .data-text {
+	color: #333;
+	margin-left: .68rem;
+}
+
+.common-module .item .fright {
+	float: right;
+	color: #333;
+}
+
+.details-day .part1 {
+	padding: .32rem .3rem 0;
+}
+
+.detail-bd {
+	padding: 0 .3rem;
+	width: 100%;
+	height: 0.8rem;
+    line-height: 0.8rem;
+	text-align: left;
+	background-color: #fff;
+}
+
+.detail-bd a {
+	font-size: .28rem;
+	color: #333;
+	display: block;
+}
+
+.nav {
+	width: .6rem;
+	height: 1.2rem;
+	background-color:#5569cc;
+    opacity: 0.5;
+  	border-radius:0 50px 50px 0;
+	position: absolute;
+	left: 0;
+    top: 50%;
+    margin-top: -0.6rem;
+    z-index: 2;
+}
+
+.nav:active {
+	opacity: 1;
+}
+
+.nav-list {
+	width: .85rem;
+	background-color:#5569cc;
+  	border-radius:0 6px 6px 0;
+	position: absolute;
+	left: 0;
+    top: 50%;
+    margin-top: -0.9rem;
+    z-index: 1;
+    opacity: 0;
+    -webkit-transition: all .1s ease-in;
+    -moz-transition: all .1s ease-in;
+    transition: all .1s ease-in;
+}
+
+.navlist-fadeIn {
+    opacity: 1;
+    z-index: 3;
+}
+
+.nav-list li {
+	height: .6rem;
+	line-height: .6rem;
+	text-align: center;
+	font-size: .26rem;
+	color: #fff;
+    border-bottom: 1px solid #fff;
+    transition: all 0.3s ease;
+}
+
+.nav-list li:active {
+	opacity: .5;
+}
+
+.nav-list li:last-child {
+	border-bottom: none;
+}
+
+.unit {
+    font-size: .2rem;
+}
+/* realTime end */
+
+
+/* tj-detail start */
+.tj-detail {
+	background-color: #f6f6f6;
+	height: 100%;
+}
+
+.tj-detail .top {
+    background-color: #fff;
+    padding: .35rem .3rem .4rem;
+}
+
+.tj-detail .title {
+	color: #5569cc;
+	font-size: .36rem;
+	width: 100%;
+	text-align: center;
+}
+
+.tj-detail #chart {
+    margin-top: .48rem;
+}
+
+.tj-detail .chart-bd {
+    margin-top: .68rem !important;
+}
+
+.tj-detail .detail-chart {
+    margin-top: .48rem !important;
+}
+
+.tj-detail .tab-switch {
+    margin-top: .4rem;
+    width: 3.5rem;
+    height: .68rem;
+    border-radius: 4px;
+    font-size: .28rem;
+    overflow: hidden;
+    border: 1px solid #5569cc;
+}
+
+.tab-switch div {
+    width: 50%;
+    height: 100%;
+    line-height: .68rem;
+    text-align: center;
+    float: left;
+    background-color: #fff;
+    color: #5569cc;
+    transition: all 0.3s ease;
+}
+
+.tab-switch .tab-active {
+    background-color: #5569cc;
+    color: #fff;
+}
+
+.section-name {
+    width: 100%;
+    height: .7rem;
+    line-height: .7rem;
+    padding-left: .3rem;
+}
+
+.section-name .icon {
+    width: .06rem;
+    height: .26rem;
+    background-color: #5569cc;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -0.13rem;
+}
+
+.section-name .section-title {
+    font-size: .24rem;
+    color: #333;
+    padding-left: .26rem;
+    position: relative;
+}
+
+.data-detail {
+    background-color: #fff;
+    padding: .4rem .3rem;
+}
+
+.data-detail table {
+    font-size: .24rem;
+    color: #6c6c6c;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    border-collapse:collapse;
+    width: 100%;
+}
+
+.data-detail table tr td {
+    border-top: 1px solid #999;
+    border-left: 1px solid #999;
+    height: .52rem;
+    text-align: center;
+}
+
+.data-detail table tr td:nth-child(1) {
+    width: 32%;
+}
+
+.data-detail table tr:nth-child(1) td img {
+    width: .23rem;
+    height: .23rem;
+    display: inline-block;
+    margin-right: .1rem;
+    position: relative;
+    top: 0.04rem;
+}
+
+.data-detail table tr td:nth-child(2) {
+    width: 40%;
+}
+
+.data-detail table tr td:nth-child(3) {
+    width: 28%;
+}
+
+.dialog-chart {
+    padding: .9rem .22rem !important;
+    border-radius: 10px;
+}
+
+.dialog-chart .tj-detail {
+    background-color: #fff;
+}
+
+.data-detail .tip {
+    width: 100%;
+    color: #5569cc;
+    font-size: .2rem;
+    text-align: right;
+    margin-top: .2rem;
+}
+
+/* tj-detail end */
+
+.underline {
+    text-decoration: underline;
+}
+
+/* 标的售出明细样式 start */
+.bd-detail table tr td:nth-child(1) {
+    width: 40%;
+}
+
+.bd-detail table tr td:nth-child(2) {
+    width: 32%;
+}
+
+/* 标的售出明细样式 end */
+
+/* 区域标的明细样式 start */
+.quyu-content {
+    overflow: auto;
+}
+
+.quyu-detail table tr td {
+    height: 0.8rem;
+}
+
+.quyu-detail table tr td:nth-child(1) {
+    width: 30%;
+}
+
+.quyu-detail table tr td:nth-child(2) {
+    width: 23%;
+}
+
+.quyu-detail table tr td:nth-child(3) {
+    width: 23%;
+}
+/* 区域标的明细样式 end */

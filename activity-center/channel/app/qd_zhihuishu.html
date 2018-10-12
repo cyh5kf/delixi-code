@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>人众金服</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="wap-font-scale" content="no" />
+    <link href="../../static/css/channel.css" rel="stylesheet" />
+    <script src="../../static/js/sha256.js"></script>
+    <script src="../../static/js/md5.js"></script>
+    <script src="../../static/js/jquery-1.11.1.min.js"></script>
+    <script src="../../static/js/register.js"></script>
+    <script>
+        (function() {
+            var deviceWidth = document.documentElement.clientWidth;
+            if(deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+    </script>
+    <style>
+        body,html{padding:0;margin:0 auto;background:#2e0259;}
+        section img{width:100%;display:block}
+        .ye-container{padding-bottom:0.5rem}
+        .new_wx-zc-wrap{width:100%;box-sizing:border-box;}
+        .xsfx-reg-box{width:100%;background:0 0;}
+        .xsfx-reg-list{width:100%;background:url(https://images.51rz.com/images/app/zhs/zhs02.png);padding:0 .2rem 0.3rem;box-sizing:border-box}
+        .xsfx-reg-list li{margin:0 0 0.15rem 0 !important;}
+        li,ul{margin:0;padding:0;list-style:none}
+        .new_tg-but{width:100%;background:#1b76df;border-radius:33px;border:none;height:.9rem;text-align:center;color:#fff;font-size:.3rem;line-height:.8rem;}
+        .register_passwords,.register_usenames{background:#fff;border:1px solid #c1c1bf;border-radius:0.05rem;}
+        .new_timeval{border:none;border-radius:3px;color:#0b0b0b;background:#f8c54a;height:.63rem;line-height:.63rem;width:1.5rem;font-size:.24rem;text-align:center;margin:.08rem}
+        .content-item img{width:100%;}
+        .content-item .content2{width:100%;margin-top:0.4rem;}
+        .content-item .tip{width:100%;}
+        .content-item .rule{width:100%;}
+        .content2{width:100%;}
+        .content-item .btn{width:1.44rem;height:2.79rem;position:absolute;top:1.92rem;right:1rem;cursor:pointer}
+        .tip{margin-top:.43rem}
+        .rule{margin-top:.3rem}
+        .reg-footer{position:fixed;bottom:0;width:100%;height:1.1rem;background-color:#bf852e;text-align:center}
+        .download-btn{font-size:.33rem;display:block;height:.51rem;width:2.92rem;line-height:.51rem;border:1px solid #fff;border-radius:20px;margin-top:.295rem;color:#fff}
+        .dlcg{width: 100%;height: 3.8rem;text-align: center;color: #fef4d4;display: none;background: url(https://images.51rz.com/images/app/zhs/zhs02.png) no-repeat;background-size: 100% 100%;}
+        .user{font-size:.29rem;padding-top:.58rem}
+        .user-text{font-size:.25rem}
+        .sy{font-size:.2rem;padding-top:.29rem;padding-bottom:.25rem}
+        .sy .number{font-size:.58rem;display:inline-block;color:#f0ba36;}
+        .dlcg .tz-btn{font-size:.33rem;background:#1b76df;color:#fff;width:4.41rem;height:.76rem;line-height:.76rem;background-size:cover;border-radius:38px}
+        .reg-content{background-color:#faf8f4}
+
+        .hdgz_text{width:100%;padding:0.6rem 0.3rem 0.15rem 0.3rem;font-size:0.24rem;color:#d4b6fb;background:url(https://images.51rz.com/images/app/zhs/zhs06.png) no-repeat;background-size:100% 100%;}
+        .hdgz_text p{width:100%;display:inline-block;}
+        .hdgz_text p strong{width:7%;float:left;font-weight:500;}
+        .hdgz_text p span{width:93%;float:left;line-height:0.35rem;}
+        .qnebtn{width:100%;background:#1b76df;height:1.17rem;text-align:center;font-size:0.36rem;color:#fff;line-height: 1.13rem;  }
+    </style>
+</head>
+<body>
+<div class="ye-container">
+    <section style="position: relative">
+        <img src="https://images.51rz.com/images/app/zhs/zhs01.png">
+        <div class="new_wx-zc-wrap" id="2f">
+            <div class="xsfx-reg-box" >
+                <ul class="xsfx-reg-list">
+                    <li>
+                        <div class="phone-box">
+                            <div id="phoneVal1" class="phone-input-yes"></div>
+                            <div class="phone-input">
+                                <div class="phone-ico"><img src="https://images.51rz.com/images/icon/wx-icon.png"></div>
+                                <input  id="mobile" name="mobile" onKeyUp="this.value=this.value.replace(/\D/g,'');" maxlength="11" onafterpaste="this.value=this.value.replace(/\D/g,'')"  placeholder="请输入您的手机号码" class="register_usenames">
+                            </div>
+                            <div id="phoneVal" style="color:#fff;" class="reg-tip"></div>
+                            <div class="clear"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="phone-box">
+                            <div id="firstpwdVal1" class="phone-input-yes3"></div>
+                            <div id="firstpwdVal2" class="phone-input-yes2"></div>
+                            <div class="phone-input">
+                                <div class="phone-ico"><img src="https://images.51rz.com/images/icon/wx-icon1.png"></div>
+                                <input type="hidden" name="password" /><input type="password" style="display:none;" />
+                                <input type="password" id="password" name="password" class="register_passwords" placeholder="6-16位字母、数字或字符">
+                            </div>
+                            <div id="firstpwdVal" style="color:#fff;" class="reg-tip"></div>
+                            <div class="clear"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="phone-box">
+                            <div class="phone-input">
+                                <div class="phone-ico"><img src="https://images.51rz.com/images/icon/wx-icon3.png"></div>
+                                <input id="verycode" name="verycode" placeholder="请输入图片验证码"  type="text" class="register_usenames">
+                            </div>
+                            <div class="phone-info"><img id="numcode" style="width: 1.5rem;position: absolute;right: 0.07rem;top: 0.06rem;" onclick="this.src='https://m.51rz.com/apiApp/pcrimg.html?imgToken=' + new Date().getTime() + '' + Math.floor(Math.random() * 10000);" alt="点击刷新" align="absMiddle" src=""></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="phone-box">
+                            <div id="smsCodeVal1" class="phone-input-yes1"></div>
+                            <div class="phone-input">
+                                <div class="phone-ico"><img src="https://images.51rz.com/images/icon/wx-icon2.png"></div>
+                                <input id="phonecode" name="phonecode" maxlength="6" onKeyUp="this.value=this.value.replace(/\D/g,'');" class="register_usenames" placeholder="请输入短信验证码">
+                            </div>
+                            <div id="smsCodeVal" style="color:#fff;"class="reg-tip"></div>
+                            <div class="phone-info"><div class="new_timeval" id="btnSendPhoneCode" style="line-height:0.7rem;">获取验证码</div></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inputDiv">
+                            <input style="opacity: 1;" type="checkbox" class="nowcheck" id="chk_lic" name="checkbox" checked="checked" value="1"/>
+                            <label style="margin-left:0.4rem;color: #8c8c8c">已经阅读并同意<a href="xys.html" style="color: #8c8c8c">《人众金服服务协议》</a></label>
+                        </div>
+                    </li>
+                    <li style="margin-top: 0.45rem;">
+                        <button type="button" class="new_tg-but" id="btnReg">立即领取</button>
+                    </li>
+                    <li>
+                        <p class="tg-reg-text" style="padding:0;font-size:0.24rem;color: #8c8c8c">已有账号？<a href="https://m.51rz.com/login" style="color: #1b76df">立即登录</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="dlcg">
+            <p class="user">尊敬的用户，您好！</p>
+            <p class="user-text">欢迎来到人众金服，开启财富之门！</p>
+            <div class="sy">
+                <p style="display: inline-block">
+                    <span>预期最高</span><br>
+                    <span>年化收益</span>
+                </p>
+                <p class="number">12<span>%</span></p>
+            </div>
+            <p class="tz-btn" onclick="location.href = 'https://m.51rz.com/tender/index'">立即投资</p>
+        </div>
+    </section>
+    <div>
+        <div class="content-item" style="height:3.63rem">
+            <img src="https://images.51rz.com/images/app/zhs/zhs03.png">
+        </div>
+        <div class="content-item">
+            <img src="https://images.51rz.com/images/app/zhs/zhs04.png"/>
+        </div>
+        <div class="content-item">
+            <img src="https://images.51rz.com/images/app/zhs/zhs05.png"/>
+        </div>
+        <div class="hdgz_text">
+            <p><strong>1、</strong><span>此活动仅针对新注册用户有效；</span></p>
+            <p><strong>2、</strong><span>京东E卡将于投资后15个工作日内发放，将以短信形式发送电子卡密码至投资手机号码中；</span></p>
+            <p><strong>3、</strong><span>此活动最终所有权为人众金服所有；</span></p>
+            <p><strong>4、</strong><span>客服热线：400-655-8858。</span></p>
+        </div>
+       <!-- <div class="qnebtn" onclick="go_tender()">立即注册领取</div>
+        <div class="content-item rule">
+            <img src="https://images.51rz.com/images/app/qd_qunaer/qne07.png"/>
+        </div>-->
+        <div class="content-item" style="text-align:center;">
+            <p style="text-align: center;color: #8f3cfc;font-size: 0.18rem;margin-top: 0.4rem;display:inline-block;border-bottom: 1px dashed #8f3cfc;padding-bottom: 0.15rem;">红包为投资理财代金券<br />
+                理财有风险   入市需谨慎<br />
+            <p style="text-align: center;color: #8f3cfc;font-size: 0.18rem;margin-top: 0.15rem;"><span style="margin-right: 0.44rem;">浙江人众金融服务股份有限公司<br />
+</span><span>@人众金服www.51rz.com　浙ICP备13009823号-1</span></p>
+        </div>
+    </div>
+</div>
+<script>
+    //    避免页面从缓存中加载
+    window.onpageshow = function(e){
+        e = e || event;
+        if(e.persisted){
+            location.reload();
+        }
+    }
+    var result = Register.getCookie(Register.userInfoName,true);
+    if (result && result.uid) {
+        $('.new_wx-zc-wrap').hide();
+        $('.user').html('尊敬的用户rz' + result.regMobile + '，您好！')
+        $('.dlcg').show();
+    }
+    $('.download-btn').click(function(){
+        if(result&&result.uid){
+            Down();
+        }else{
+            $('body').animate({'scrollTop':'0'},500)
+        }
+    })
+    $('.btn').click(function(){
+        if(result&&result.uid){
+            location.href = 'https://m.51rz.com/tender/index'
+        }else{
+            $('body').animate({'scrollTop':'0'},500)
+        }
+    })
+    function success(){
+        location.href = 'appDown.html';
+    }
+    /**
+     * 智能机浏览器版本信息:
+     **/
+    var browser = {
+        versions: function() {
+            var u = navigator.userAgent,
+                app = navigator.appVersion;
+            return { //移动终端浏览器版本信息
+                trident: u.indexOf('Trident') > -1,
+                //IE内核
+                presto: u.indexOf('Presto') > -1,
+                //opera内核
+                webKit: u.indexOf('AppleWebKit') > -1,
+                //苹果、谷歌内核
+                gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
+                //火狐内核
+                mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/),
+                //是否为移动终端
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                //ios终端
+                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+                //android终端或者uc浏览器
+                iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1,
+                //是否为iPhone或者QQHD浏览器
+                iPad: u.indexOf('iPad') > -1,
+                //是否iPad
+                webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+            };
+        } (),
+        language: (navigator.browserLanguage || navigator.language).toLowerCase()
+    };
+
+    function go_tender(){
+        if(result){
+            location.href = 'https://m.51rz.com/tender/index'
+        }else{
+            $("html, body").animate({ scrollTop:'0'}, 700);
+        }
+    }
+
+    /**
+     * 下载APP
+     */
+    function Down() {
+        var appUrl = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.rd.rozo360';
+        //苹果
+        if (browser.versions.ios || browser.versions.iPhone || browser.versions.iPad) {
+            appUrl ="https://itunes.apple.com/us/app/ren-zhong-jin-fu-19.6-gao/id948097440?l=zh&ls=1&mt=8";
+        }
+        //安卓
+        if (browser.versions.android) {
+            //默认渠道
+            appUrl = "http://a.app.qq.com/o/simple.jsp?pkgname=com.rd.rozo360";
+        }
+        window.location=appUrl;
+    }
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?5395127f074c49150bc6578ff60ff4e8";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

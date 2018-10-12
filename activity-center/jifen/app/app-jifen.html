@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection" />
+    <title>会员体系重磅上线</title>
+    <link rel="shortcut icon" href="http://www.51rz.com/favicon.ico" />
+    <link rel="stylesheet" href="/static/css/dialog.css">
+    <script type="text/javascript">
+        (function () {
+            var deviceWidth = document.documentElement.clientWidth;
+            if (deviceWidth > 750) deviceWidth = 750;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        })();
+
+        // 统计脚本
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', 'b5dc34e3f3810d4a']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'assets.growingio.com/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+    <!--background-image: linear-gradient(to top, #fb814e,#f94638);background-image: -webkit-linear-gradient(to top, #fb814e,#f94638);-->
+    <style type="text/css">
+        *{margin: 0;padding: 0;box-sizing: border-box;-webkit-box-sizing: border-box;}
+        body{max-width:750px;margin:0 auto;background:#f7f2ff;}
+        img{width: 100%;display: block;}
+        ul li{list-style-type:none;}
+        #wraper{
+            margin: 0 auto;
+        }
+        .banner{
+            width: 100%;
+            height: 2.88rem;
+            background: url("https://images.51rz.com/images/app/jf-member/app-member-banner.png") no-repeat center;
+            background-size:100% 100%;
+        }
+        .box{
+            width:100%;
+            padding:0 0.2rem;
+            display:inline-block;
+        }
+        .jifen-box{
+            width:100%;
+            margin-top:0.7rem;
+            display:inline-block;
+            position:relative;
+        }
+        .jifen-title{
+            width:2.26rem;
+            height:0.72rem;
+            display:inline-block;
+            background:url("https://images.51rz.com/images/app/jf-member/app-member-title.png") no-repeat center top;
+            background-size:100% 100%;
+            position: absolute;
+            left: 50%;
+            top: -0.4rem;
+            margin-left: -1.13rem;
+            font-size: 0.24rem;
+            text-align: center;
+            line-height: 0.8rem;
+            color: #fff;
+        }
+        .bg1{
+            background:#fff;
+            border-radius:0.05rem;
+            box-shadow:0 0 0.1rem #d6d6d6
+        }
+        .bg2{
+            background:#e6e0f0;
+            border-radius:0.05rem;
+            box-shadow:0 0 0.1rem #d6d6d6
+        }
+        .jifen-text{
+            width:100%;
+            padding:0.45rem 0.3rem 0.2rem 0.3rem;
+            font-size:0.24rem;
+            color:#666;
+            line-height:0.35rem;
+        }
+        .more{
+            width:95%;
+            height:0.24rem;
+            background:url(https://images.51rz.com/images/app/jf-member/app-member-text.png) no-repeat right top;
+            background-size:contain;
+            margin-top:0.4rem;
+        }
+        .jifen-tab{
+            width: 6.7rem;
+            text-align: center;
+            overflow-x: scroll;
+            display: inline-block;
+            margin-left: 0.2rem;
+        }
+        .jifen-tab table{
+            width:11rem;
+            margin-top:0.2rem;
+            color:#929292;
+            background:#fff;
+        }
+        .jifen-tab table td{
+            height:0.45rem;
+            border-left:1px solid #e9e8e7;
+            border-top:1px solid #e9e8e7;
+            font-size:0.22rem;
+        }
+        .tab-bg{
+            width:1rem;
+            background:#fbf6ee;
+            color:#666;
+        }
+
+        .lp-list{
+            width:100%;
+            display:inline-block;
+            font-size:0;
+            padding-top: 0.4rem;
+        }
+        .lp-list li{
+            width:100%;
+            margin:0.2rem 0;
+            display:inline-block;
+            padding-left:0.3rem;
+        }
+        .lp-list li i{
+            width:0.96rem;
+            height:0.92rem;
+            float:left;
+        }
+        .lp-list li p{
+            width:5.5rem;
+            float:left;
+            padding-left:0.3rem;
+        }
+        .lp-list li p strong{
+            width:100%;
+            display:inline-block;
+            font-size:0.24rem;
+            color:#333;
+            font-weight:500;
+        }
+        .lp-list li p span{
+            width:100%;
+            display:inline-block;
+            font-size:0.2rem;
+            color:#666;
+        }
+        .jifen-list{
+            width:100%;
+            padding-bottom: 0.1rem;
+            display: inline-block;
+        }
+        .jifen-list li{
+            width:2.02rem;
+            height:2rem;
+            float: left;
+            margin-left: 0.26rem;
+        }
+
+        .jifen-tips{
+            width:100%;
+            background:#e8e1f4;
+            margin-top:0.2rem;
+            padding:0.2rem 0.2rem 0.5rem 0.2rem;
+        }
+        .jifen-tips h3{
+            font-size:0.24rem;
+            font-weight:500;
+            color:#333;
+            padding-bottom:0.2rem;
+        }
+        .jifen-tips p{
+            font-size:0.2rem;
+            color:#333;
+            padding-left: 0.4rem;
+            text-indent: -0.36rem;
+            line-height: 0.35rem;
+        }
+        .bankScroll::-webkit-scrollbar
+        {
+            width: 5px;
+            height: 5px;
+            background-color: #fff;
+        }
+
+        /*定义滚动条轨道 内阴影+圆角*/
+        .bankScroll::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+        }
+
+        /*定义滑块 内阴影+圆角*/
+        .bankScroll::-webkit-scrollbar-thumb
+        {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div id="wraper">
+    <div class="banner"></div>
+    <div class="box">
+        <div class="jifen-box bg1">
+            <span class="jifen-title">会员体系说明</span>
+            <p class="jifen-text">会员体系是为众粉倾力打造的好玩有趣又多种福利的会员成长值体系，让众粉在人众金服能够乐享收益、愉悦投资。您的专属福利，从此刻开始！</p>
+        </div>
+        <div class="jifen-box bg2">
+            <span class="jifen-title">会员专属特权</span>
+            <p class="more"></p>
+            <div class="jifen-tab bankScroll">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td class="tab-bg">会员等级</td>
+                        <td class="tab-bg">升级礼包</td>
+                        <td class="tab-bg">每月礼包</td>
+                        <td class="tab-bg">生日礼包</td>
+                        <td class="tab-bg">积分加倍</td>
+                        <td class="tab-bg">专属客服</td>
+                        <td class="tab-bg">提现减免</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-bg">v0<br />普通用户</td>
+                        <td>无</td>
+                        <td>无</td>
+                        <td>无</td>
+                        <td>无</td>
+                        <td>无</td>
+                        <td>无</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-bg">v1<br />青铜会员</td>
+                        <td>✓</td>
+                        <td>无</td>
+                        <td>✓</td>
+                        <td>无</td>
+                        <td>无</td>
+                        <td>3笔/月</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-bg">v2<br />白银会员</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>无</td>
+                        <td>无</td>
+                        <td>3笔/月</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-bg">v3<br />黄金会员</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>0.2</td>
+                        <td>✓</td>
+                        <td>3笔/月</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-bg">v4<br />铂金会员</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>0.4</td>
+                        <td>✓</td>
+                        <td>3笔/月</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-bg">v5<br />钻石会员</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>0.6</td>
+                        <td>✓</td>
+                        <td>5笔/月</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-bg">v6<br />至尊会员</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>0.8</td>
+                        <td>✓</td>
+                        <td>6笔/月</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="jifen-box bg1">
+            <span class="jifen-title">特权详细说明</span>
+            <ul class="lp-list">
+                <li>
+                    <i><img src="https://images.51rz.com/images/app/jf-member/app-member-ico1.png" /></i>
+                    <p>
+                        <strong>升级礼包</strong>
+                        <span>用户首次升级成为V1-V6(青铜会员－至尊会员),可分别获得不同金额的升级礼包。</span>
+                    </p>
+                </li>
+                <li>
+                    <i><img src="https://images.51rz.com/images/app/jf-member/app-member-ico2.png" /></i>
+                    <p>
+                        <strong>每月礼包</strong>
+                        <span>V2(白银会员)及以上等级用户可每月领取一份福利礼包。（每月1号零点重置）</span>
+                    </p>
+                </li>
+                <li>
+                    <i><img src="https://images.51rz.com/images/app/jf-member/app-member-ico3.png" /></i>
+                    <p>
+                        <strong>生日礼包</strong>
+                        <span>V1（青铜会员）及以上等级用户，在生日当天均享有生日福利。会员等级越高，福利越多。</span>
+                    </p>
+                </li>
+                <li>
+                    <i><img src="https://images.51rz.com/images/app/jf-member/app-member-ico4.png" /></i>
+                    <p>
+                        <strong>积分加倍</strong>
+                        <span>V3(黄金会员)及以上等级用户，在投资时可享受积分加倍福利。</span>
+                    </p>
+                </li>
+                <li>
+                    <i><img src="https://images.51rz.com/images/app/jf-member/app-member-ico5.png" /></i>
+                    <p>
+                        <strong>专属客服</strong>
+                        <span>V3-V6（黄金会员-至尊会员）用户可享受平台专属客服一对一服务，和优先处理问题等特权！</span>
+                    </p>
+                </li>
+                <li>
+                    <i><img src="https://images.51rz.com/images/app/jf-member/app-member-ico6.png" /></i>
+                    <p>
+                        <strong>提现减免</strong>
+                        <span>V1（青铜会员）及以上等级用户，每月可享受免手续费提现的机会，等级越高，免手续费次数越多。</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="jifen-box bg2">
+            <span class="jifen-title">积分商城好礼</span>
+            <p class="jifen-text">积分商城是为用户提供的统一积分服务和消费应用平台。用户<br />通过投资或做任务获得积分，并可用积分兑换各类商品。</p>
+            <ul class="jifen-list">
+                <li><img src="https://images.51rz.com/images/app/jf-member/app-member-ico7.png" /></li>
+                <li><img src="https://images.51rz.com/images/app/jf-member/app-member-ico8.png" /></li>
+                <li><img src="https://images.51rz.com/images/app/jf-member/app-member-ico9.png" /></li>
+            </ul>
+        </div>
+    </div>
+    <div class="jifen-tips">
+        <h3>温馨提示</h3>
+        <p>1、为打造更优质的会员体验，试运营阶段，平台会根据用户的体验反馈，对会员特权与积分商城进行适度调整；您所享受的权益请以最新规定为准；</p>
+        <p>2、最终解释权在法律允许的范围归人众金服所有，如有疑问请致电客服：400-655-8858。（咨询时间：9:00——21:00）</p>
+    </div>
+</div>
+
+<script src="/static/js/vue.min.js"></script>
+<script src="/static/js/jquery-1.11.1.min.js"></script>
+</body>
+</html>
